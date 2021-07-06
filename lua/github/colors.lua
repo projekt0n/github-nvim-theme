@@ -73,7 +73,9 @@ function M.setup(config)
       func_param = themes({dark = "#e1e4e8", dimmed = "#adbac7", light = "#24292e"}),
       matchParenBG = themes({dark = "#25686c", dimmed = "#266a70", light = "#c6eed2"}),
       tag = themes({dark = "#85e89d", dimmed = "#8ddb8c", light = "#22863a"}),
-      htmlArg = themes({dark = "#fdaeb7", dimmed = "#ff938a", light = "#b31d28"})
+      htmlArg = themes({dark = "#fdaeb7", dimmed = "#ff938a", light = "#b31d28"}),
+      param = themes({dark = "#ffab70", dimmed = "#f69d50", light = "#e36209"}),
+      jsonLabel = themes({dark = "#79b8ff", dimmed = "#6cb6ff", light = "#005cc5"})
     },
 
     pmenu = {

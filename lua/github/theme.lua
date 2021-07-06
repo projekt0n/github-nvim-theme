@@ -128,21 +128,13 @@ function M.setup(config)
     qfLineNr = {fg = c.line_nr},
     qfFileName = {fg = c.blue},
 
-    htmlTag = {fg = c.fg},
-    htmlTagName = {fg = c.syntax.tag},
-    htmlArg = {fg = c.syntax.htmlArg},
-
     -- mkdCode = { bg = c.bg2, fg = c.fg },
     -- mkdHeading = { fg = c.orange, style = "bold" },
     -- mkdLink = { fg = c.blue, style = "underline" },
-    mkdCodeDelimiter = {bg = c.bg2, fg = c.fg},
+    mkdCodeDelimiter = {fg = c.fg},
     mkdCodeStart = {fg = c.syntax.variable, style = "bold"},
     mkdCodeEnd = {fg = c.syntax.variable, style = "bold"},
     markdownHeadingDelimiter = {fg = c.syntax.variable, style = "bold"},
-    markdownCode = {fg = c.syntax.func},
-    markdownCodeBlock = {fg = c.syntax.func},
-    markdownBlockquote = {fg = c.syntax.tag},
-    markdownCodeDelimiter = {fg = c.fg},
     markdownH1 = {fg = c.syntax.variable, style = "bold"},
     markdownH2 = {fg = c.syntax.variable, style = "bold"},
     markdownH3 = {fg = c.syntax.variable, style = "bold"},
@@ -229,7 +221,7 @@ function M.setup(config)
     TSStringRegex = {fg = c.syntax.variable}, -- For regexes.
     TSStringEscape = {fg = c.red}, -- For escape characters within a string.
     -- TSSymbol            = { };    -- For identifiers referring to symbols or atoms.
-    TSType = {fg = c.syntax.tag}, -- For types.
+    TSType = {fg = c.syntax.keyword}, -- For types.
     -- TSTypeBuiltin       = { };    -- For builtin types.
     TSVariable = {fg = c.syntax.variable, style = config.variableStyle}, -- Any variable name that does not have another highlight.
     TSVariableBuiltin = {fg = c.syntax.variable}, -- Variable names that are defined by the languages, like `this` or `self`.
@@ -246,10 +238,99 @@ function M.setup(config)
 
     -- Lua
     luaTSConstructor = {fg = c.fg},
-    -- luaTSProperty = { fg = c.red }, -- Same as `TSField`.
+
+    -- C
+    cTSLabel = {fg = c.fg},
 
     -- CSS
     cssTSProperty = {fg = c.syntax.func},
+    cssTSType = {fg = c.syntax.tag},
+
+    -- html
+    htmlTSConstant = {fg = c.syntax.tag},
+    htmlTag = {fg = c.fg},
+    htmlEndTag = {fg = c.fg},
+    htmlTagName = {fg = c.syntax.tag},
+    htmlArg = {fg = c.syntax.htmlArg},
+
+    -- javascript
+    javascriptTSType = {fg = c.fg},
+    javascriptTSParameter = {fg = c.syntax.param},
+    javascriptTSVariable = {fg = c.syntax.variable},
+    javascriptTSPunctDelimiter = {fg = c.fg},
+    javascriptTSStringRegex = {fg = c.string},
+    javascriptTSConstructor = {fg = c.syntax.func},
+    javascriptTSProperty = {fg = c.syntax.func},
+    regexTSStringEscape = {fg = c.syntax.keyword},
+
+    -- json
+    jsonTSLabel = {fg = c.syntax.jsonLabel},
+
+    -- less
+    lessVariable = {fg = c.fg},
+    lessProperty = {fg = c.syntax.variable},
+    cssTagName = {fg = c.syntax.tag},
+    cssPseudoClassId = {fg = c.syntax.func},
+    lessClassCall = {fg = c.syntax.func},
+    lessClass = {fg = c.syntax.func},
+
+    -- make
+    makeSpecial = {fg = c.syntax.keyword},
+
+    -- obj-c
+    cBlock = {fg = c.syntax.func},
+
+    -- python
+    pythonTSVariable = {fg = c.fg},
+    pythonTSType = {fg = c.syntax.func},
+    pythonTSParameter = {fg = c.syntax.param},
+
+    -- ruby
+    rubyTSType = {fg = c.syntax.func},
+
+    -- scss
+    scssTSVariable = {fg = c.syntax.param},
+    scssTSType = {fg = c.syntax.tag},
+    scssTSProperty = {fg = c.syntax.func},
+    scssTSParameter = {fg = c.syntax.param},
+
+    -- sql
+    sqlFold = {fg = c.syntax.variable},
+    sqlKeyword = {fg = c.syntax.keyword},
+
+    -- typescript
+    typescriptTSType = {fg = c.syntax.func},
+    typescriptTSConstructor = {fg = c.syntax.func},
+    typescriptTSTypeBuiltin = {fg = c.syntax.variable},
+
+    -- xml
+    xmlProcessing = {fg = c.syntax.tag},
+    xmlTagName = {fg = c.syntax.tag},
+    xmlTag = {fg = c.fg},
+    xmlAttrib = {fg = c.syntax.tag},
+
+    -- yaml
+    yamlTSField = {fg = c.syntax.tag},
+
+    -- java
+    javaTSVariable = {fg = c.fg},
+    javaTSType = {fg = c.syntax.func},
+    javaTSParameter = {fg = c.syntax.param},
+
+    -- Markdown
+    markdownHeadingRule = {fg = c.syntax.variable},
+    markdownListMarker = {fg = c.syntax.param},
+    markdownRule = {fg = c.syntax.variable},
+    markdownBold = {fg = c.fg, style = "bold"},
+    markdownItalic = {fg = c.fg, style = "italic"},
+    markdownCode = {fg = c.fg},
+    markdownCodeBlock = {fg = c.fg},
+    markdownBlockquote = {fg = c.syntax.tag},
+    markdownCodeDelimiter = {fg = c.syntax.func},
+    markdownUrlTitle = {fg = c.syntax.string, style = "underline"},
+
+    -- go
+    goTSVariable = {fg = c.fg},
 
     -- LspTrouble
     LspTroubleText = {fg = c.fg},
@@ -296,7 +377,7 @@ function M.setup(config)
     NvimTreeNormal = {fg = c.fg_light, bg = c.bg_sidebar},
     NvimTreeEndOfBuffer = config.darkSidebar and {fg = c.bg2} or {fg = c.bg},
     NvimTreeRootFolder = {fg = c.fg_light, style = "bold"},
-    NvimTreeGitDirty = {fg = c.brightYellow},
+    NvimTreeGitDirty = {fg = c.git.change},
     NvimTreeGitNew = {fg = c.git.add},
     NvimTreeGitDeleted = {fg = c.git.delete},
     NvimTreeSpecialFile = {fg = c.yellow, style = "underline"},
