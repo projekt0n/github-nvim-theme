@@ -118,15 +118,15 @@ end
 
 --- Delete the autocmds when the theme changes to something else
 function util.onColorScheme()
-  if vim.g.colors_name ~= "github-theme" then
-    vim.cmd([[autocmd! github-theme]])
-    vim.cmd([[augroup! github-theme]])
+  if vim.g.colors_name ~= "github_theme" then
+    vim.cmd([[autocmd! github_theme]])
+    vim.cmd([[augroup! github_theme]])
   end
 end
 
 ---@param config Config
 function util.autocmds(config)
-  vim.cmd([[augroup github-theme]])
+  vim.cmd([[augroup github_theme]])
   vim.cmd([[  autocmd!]])
   vim.cmd([[  autocmd ColorScheme * lua require("github-theme.util").onColorScheme()]])
   if config.dev then
@@ -209,7 +209,7 @@ function util.load(theme)
   if vim.fn.exists("syntax_on") then vim.cmd("syntax reset") end
 
   vim.o.termguicolors = true
-  vim.g.colors_name = "github-theme"
+  vim.g.colors_name = "github_theme"
   -- vim.api.nvim__set_hl_ns(ns)
   -- load base theme
   util.syntax(theme.base)
