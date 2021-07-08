@@ -1,4 +1,4 @@
-local hsluv = require("github.hsluv")
+local hsluv = require("github-theme.hsluv")
 
 local util = {}
 
@@ -76,7 +76,7 @@ function util.getColor(color)
   return util.colorCache[color]
 end
 
--- local ns = vim.api.nvim_create_namespace("github")
+-- local ns = vim.api.nvim_create_namespace("github-theme")
 function util.highlight(group, color)
   if color.fg then util.colorsUsed[color.fg] = true end
   if color.bg then util.colorsUsed[color.bg] = true end
@@ -103,7 +103,7 @@ function util.highlight(group, color)
 end
 
 function util.debug(colors)
-  colors = colors or require("github.colors")
+  colors = colors or require("github-theme.colors")
   -- Dump unused colors
   for name, color in pairs(colors) do
     if type(color) == "table" then
@@ -118,19 +118,19 @@ end
 
 --- Delete the autocmds when the theme changes to something else
 function util.onColorScheme()
-  if vim.g.colors_name ~= "github" then
-    vim.cmd([[autocmd! github]])
-    vim.cmd([[augroup! github]])
+  if vim.g.colors_name ~= "github-theme" then
+    vim.cmd([[autocmd! github-theme]])
+    vim.cmd([[augroup! github-theme]])
   end
 end
 
 ---@param config Config
 function util.autocmds(config)
-  vim.cmd([[augroup github]])
+  vim.cmd([[augroup github-theme]])
   vim.cmd([[  autocmd!]])
-  vim.cmd([[  autocmd ColorScheme * lua require("github.util").onColorScheme()]])
+  vim.cmd([[  autocmd ColorScheme * lua require("github-theme.util").onColorScheme()]])
   if config.dev then
-    vim.cmd([[  autocmd BufWritePost */lua/github/** nested colorscheme github]])
+    vim.cmd([[  autocmd BufWritePost */lua/github-theme/** nested colorscheme github]])
   end
   for _, sidebar in ipairs(config.sidebars) do
     if sidebar == "terminal" then
@@ -209,7 +209,7 @@ function util.load(theme)
   if vim.fn.exists("syntax_on") then vim.cmd("syntax reset") end
 
   vim.o.termguicolors = true
-  vim.g.colors_name = "github"
+  vim.g.colors_name = "github-theme"
   -- vim.api.nvim__set_hl_ns(ns)
   -- load base theme
   util.syntax(theme.base)

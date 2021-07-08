@@ -1,6 +1,6 @@
 package.path = "./lua/?/init.lua;./lua/?.lua"
 
-local configModule = require("github.config")
+local configModule = require("github-theme.config")
 
 local function write(str, fileName)
   print("[write] extra/" .. fileName)
@@ -13,7 +13,7 @@ local extras = {kitty = "conf", alacritty = "yml"}
 for _, style in ipairs({"dark", "dimmed", "light"}) do
   configModule.themeStyle = style
   for extra, ext in pairs(extras) do
-    local plugin = require("github.extra." .. extra)
+    local plugin = require("github-theme.extra." .. extra)
     write(plugin[extra](configModule), extra .. "_github_" .. style .. "." .. ext)
   end
 end

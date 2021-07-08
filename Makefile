@@ -1,6 +1,6 @@
 .DEFAULT_GOAL = check
 
-github_path = lua/github
+github_path = lua/github-theme
 extra_path = $(github_path)/extra
 
 extra: $(extra_path)

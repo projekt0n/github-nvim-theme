@@ -1,5 +1,5 @@
-local util = require("github.util")
-local configModule = require("github.config")
+local util = require("github-theme.util")
+local configModule = require("github-theme.config")
 
 local M = {}
 

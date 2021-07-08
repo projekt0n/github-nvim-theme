@@ -1,12 +1,12 @@
-local util = require("github.util")
-local configModule = require("github.config")
+local util = require("github-theme.util")
+local configModule = require("github-theme.config")
 
 local M = {}
 
 function M.kitty(config)
   config = config or configModule.config
   config.transform_colors = true
-  local colors = require("github.colors").setup(config)
+  local colors = require("github-theme.colors").setup(config)
 
   local kitty = util.template([[
 # github colors for Kitty

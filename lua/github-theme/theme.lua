@@ -1,6 +1,6 @@
-local util = require("github.util")
-local colors = require("github.colors")
-local configModule = require("github.config")
+local util = require("github-theme.util")
+local colors = require("github-theme.colors")
+local configModule = require("github-theme.config")
 
 local M = {}
 
@@ -281,7 +281,6 @@ function M.setup(config)
     cBlock = {fg = c.syntax.func},
 
     -- python
-    pythonTSVariable = {fg = c.fg},
     pythonTSType = {fg = c.syntax.func},
     pythonTSParameter = {fg = c.syntax.param},
 
@@ -386,10 +385,14 @@ function M.setup(config)
     NvimTreeSymlink = {fg = c.magenta},
     NvimTreeFolderName = {fg = c.fg_light},
     NvimTreeOpenedFolderName = {fg = c.fg_light, style = "bold"},
+
     LspDiagnosticsError = {fg = c.error},
     LspDiagnosticsWarning = {fg = c.warning},
     LspDiagnosticsInformation = {fg = c.info},
     LspDiagnosticsHint = {fg = c.hint},
+
+    -- Git Default
+    gitcommitSummary = {fg = c.syntax.tag},
 
     -- Dashboard
     DashboardShortCut = {fg = c.magenta},

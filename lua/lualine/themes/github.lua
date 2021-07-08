@@ -1,9 +1,9 @@
-local configModule = require("github.config")
+local configModule = require("github-theme.config")
 
 local config = configModule.config
 config.themeStyle = configModule.getThemeStyle()
 
-local colors = require("github.colors").setup(config)
+local colors = require("github-theme.colors").setup(config)
 
 return {
   normal = {
