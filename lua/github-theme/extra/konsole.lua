@@ -111,7 +111,7 @@ Color=${term_fg}
 Color=${term_fg}
 
 [General]
-Description=Breeze
+Description=Github
 Opacity=1
 Wallpaper=
 ]], konsoleColors)
