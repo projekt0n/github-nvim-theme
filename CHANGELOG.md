@@ -7,11 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+### Fixes
+
+- Kitty themes typo fixed #3
+
+## [v0.0.1] - 9 Jul 2021
+
 ### Added
 
 - Initial release 🎊
 
-<!-- [unreleased]: https://github.com/projekt0n/github-nvim-theme/compare/v0.0.1...main -->
-<!-- [v0.0.1]: https://github.com/projekt0n/github-nvim-theme/tree/v0.0.1 -->
-
-[unreleased]: https://github.com/projekt0n/github-nvim-theme/tree/main
+[unreleased]: https://github.com/projekt0n/github-nvim-theme/compare/v0.0.1...main
+[v0.0.1]: https://github.com/projekt0n/github-nvim-theme/tree/v0.0.1

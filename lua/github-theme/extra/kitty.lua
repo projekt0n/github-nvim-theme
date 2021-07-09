@@ -33,7 +33,7 @@ color3 ${yellow}
 color4 ${blue}
 color5 ${magenta}
 color6 ${cyan}
-molor7 ${fg_dark}
+color7 ${fg_dark}
 
 # bright
 color8 ${fg_dark}
