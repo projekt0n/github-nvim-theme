@@ -10,7 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixes
 
 - Kitty themes typo fixed #3
-- Change terminal background color to `bg` [fix #2]
+- Change terminal background color to `bg` #2
+- Fold Bright background fixed #5
 
 ## [v0.0.1] - 9 Jul 2021
 
