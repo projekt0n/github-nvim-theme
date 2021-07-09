@@ -1,2 +1,271 @@
-# github-nvim-theme
-Github's theme for Neovim, written in Lua
+<p align="center">
+  <img src="https://imgur.com/jP33Wgo.png" alt="github-nvim-theme" />
+</p>
+
+### Status
+
+[![Linting](https://github.com/projekt0n/github-nvim-theme/actions/workflows/lint.yml/badge.svg)](https://github.com/projekt0n/github-nvim-theme/actions/workflows/lint.yml)
+[![Twitter](https://img.shields.io/badge/twitter-projekt0n-blue)](https://twitter.com/projekt0n)
+
+## Features
+
+- supports the latest Neovim 0.5 features like TreeSitter and LSP
+- minimal inactive statusline
+- vim terminal colors
+- darker background for sidebar-like windows
+- color configs for [Kitty](https://sw.kovidgoyal.net/kitty/conf.html?highlight=include) and [Alacritty](https://github.com/alacritty/alacritty)
+- dynamic **lualine** theme
+
+### Plugin Support
+
+- [TreeSitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- [LSP Diagnostics](https://neovim.io/doc/user/lsp.html)
+- [LSP Trouble](https://github.com/folke/lsp-trouble.nvim)
+- [Git Signs](https://github.com/lewis6991/gitsigns.nvim)
+- [Telescope](https://github.com/nvim-telescope/telescope.nvim)
+- [NvimTree](https://github.com/kyazdani42/nvim-tree.lua)
+- [Lualine](https://github.com/hoob3rt/lualine.nvim)
+
+## Requirements
+
+- Neovim >= 0.5.0
+
+## Installation
+
+Install the theme with your preferred package manager:
+
+[vim-plug](https://github.com/junegunn/vim-plug)
+
+```vim
+Plug 'projekt0n/github-nvim-theme'
+```
+
+[packer](https://github.com/wbthomason/packer.nvim)
+
+```lua
+use 'projekt0n/github-nvim-theme'
+```
+
+## Usage
+
+Enable the colorscheme:
+
+```vim
+" Vim Script
+lua require('github-theme').setup()
+```
+
+```lua
+-- Lua
+require('github-theme').setup()
+```
+
+To enable the `github` theme for `Lualine`, simply specify it in your lualine settings:
+
+> Set `lualine` configuration **before** `github-theme`.
+
+```lua
+require('lualine').setup {
+  options = {
+    theme = 'github',
+    -- For round icons (require Nerd-Font)
+    -- section_separators = {"", ""},
+    -- component_separators = {"", ""},
+    -- ... your lualine config
+  }
+}
+```
+
+## Configuration
+
+| Option                 | Default  | Description                                                                                                                                                     |
+| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| themeStyle             | `dark`   | Set theme variant (options: `dark`/`dimmed`/`light`)                                                                                                            |
+| commentStyle           | `italic` | Highlight style for comments (check `:help highlight-args` for options)                                                                                         |
+| keywordStyle           | `italic` | Highlight style for keywords (check `:help highlight-args` for options)                                                                                         |
+| functionStyle          | `NONE`   | Highlight style for functions (check `:help highlight-args` for options)                                                                                        |
+| variableStyle          | `NONE`   | Highlight style for variables and identifiers (check `:help highlight-args` for options)                                                                        |
+| transparent            | `false`  | Enable this to disable setting the background color                                                                                                             |
+| hideInactiveStatusline | `false`  | Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**. |
+| sidebars               | `{}`     | Set a darker background on sidebar-like windows. For example: `{"qf", "vista_kind", "terminal", "packer"}`                                                      |
+| darkSidebar            | `true`   | Sidebar like windows like `NvimTree` get a darker background                                                                                                    |
+| darkFloat              | `true`   | Float windows like the lsp diagnostics windows get a darker background.                                                                                         |
+| colors                 | `{}`     | You can override specific color groups to use other groups or a hex color                                                                                       |
+
+```lua
+-- Example config in Lua
+require("github-theme").setup({
+  functionStyle = "italic",
+  sidebars = {"qf", "vista_kind", "terminal", "packer"},
+
+  -- Change the "hint" color to the "orange" color, and make the "error" color bright red
+  colors = {hint = "orange", error = "#ff0000"}
+})
+```
+
+```vim
+" Example config in VimScript
+lua << EOF
+require("github-theme").setup({
+  functionStyle = "italic",
+  sidebars = {"qf", "vista_kind", "terminal", "packer"},
+
+  -- Change the "hint" color to the "orange" color, and make the "error" color bright red
+  colors = {hint = "orange", error = "#ff0000"}
+})
+EOF
+```
+
+### Making `undercurls` work properly in **Tmux**
+
+To have undercurls show up and in color, add the following to your **Tmux** config file:
+
+```sh
+# Undercurl
+set -g default-terminal "${TERM}"
+set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'  # undercurl support
+set -as terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d%;m'  # underscore colours - needs tmux-3.0
+```
+
+## Extras
+
+> To generate the configs `make extra` or `:luafile lua/github-theme/extra/init.lua`
+
+Extra color configs for **Kitty**, and **Alacritty** can be found in [extras](extras/). To use them, refer to their respective documentation.
+
+## Reference
+
+- [monsonjeremy/onedark.nvim](https://github.com/monsonjeremy/onedark.nvim)
+- [primer/github-vscode-theme](https://github.com/primer/github-vscode-theme)
+
+## 📺 Screenshot
+
+### Dark
+
+```lua
+require("github-theme").setup({
+  themeStyle = "dark",
+  -- ... your github-theme config
+})
+```
+
+<p align="center">
+    <img src="https://imgur.com/W5KOVl9.png" alt="github-dark-theme" />
+</p>
+
+### Dimmed
+
+```lua
+require("github-theme").setup({
+  themeStyle = "dimmed",
+  -- ... your github-theme config
+})
+```
+
+<p align="center">
+    <img src="https://imgur.com/4vyzl9p.png" alt="github-dimmed-theme" />
+</p>
+
+### Light
+
+```lua
+require("github-theme").setup({
+  themeStyle = "light",
+  -- ... your github-theme config
+})
+```
+
+<p align="center">
+  <img src="https://imgur.com/WoHO2KJ.png" alt="github-light-theme" />
+</p>
+
+### Default
+
+<p align="center">
+  <img src="https://imgur.com/yk9rD0p.png" alt="Default fonts" />
+</p>
+
+### Normal
+
+```lua
+require("github-theme").setup({
+  commentStyle = "NONE",
+  keywordStyle = "NONE",
+  functionStyle = "NONE",
+  variableStyle = "NONE"
+  -- ... your github-theme config
+})
+```
+
+<p align="center">
+  <img src="https://imgur.com/wM8GZJX.png" alt="Normal fonts" />
+</p>
+
+### Italic
+
+```lua
+require("github-theme").setup({
+  commentStyle = "italic",
+  keywordStyle = "italic",
+  functionStyle = "italic",
+  variableStyle = "italic"
+  -- ... your github-theme config
+})
+```
+
+<p align="center">
+  <img src="https://imgur.com/B93ytVb.png" alt="Italic fonts" />
+</p>
+
+### Minimal
+
+```lua
+require("github-theme").setup({
+  hideInactiveStatusline = true,
+  darkSidebar = false,
+  darkFloat = true
+  -- ... your github-theme config
+})
+```
+
+<p align="center">
+  <img src="https://imgur.com/rHOoyJP.png" alt="Minimal" />
+</p>
+
+### Telescope
+
+<p align="center">
+  <img src="https://imgur.com/TjoW19w.png" alt="Telescope plugin" />
+</p>
+
+## Useful Links
+
+- Terminal: [Kitty](https://sw.kovidgoyal.net/kitty)
+- Font: [Ubuntu Mono](https://design.ubuntu.com/font/)
+- config: [dotfiles](https://github.com/ful1e5/dotfiles)
+
+## Support The Creator
+
+<a href="https://www.buymeacoffee.com/Nt7Wg4V" >
+  <img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" >
+</a>
+
+#### TODO:
+
+- [x] Init
+- [x] Dynamic theme for `lualine`
+- [ ] Ask for using github-vscode-theme branding logo (primer/github-vscode-theme#186)
+- [x] Support highlight for almost every language.
+- [x] Previews & Customization docs inside README.md
+- [x] Better color grouping inside [colors.lua](./lua/github-theme/colors.lua)
+- [ ] Dynamic colors using [Primer color Palette](https://primer.style/primitives/)
+- [ ] Follow [Primer color system](https://primer.style/css/support/color-system)
+- [ ] Rewrite github-vscode-theme util functions inside lua
+- [ ] Add Github Light Classic & Github Dark Classic styles
+- [ ] Change NvimTreeIcon & DevIcons colors
+- [ ] Write tests
+
+<!-- Ninja  -->
+<p align="center">
+  <h1 align="center">(◣_◢)</h1>
+</p>
