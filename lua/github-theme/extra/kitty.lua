@@ -11,7 +11,7 @@ function M.kitty(config)
   local kitty = util.template([[
 # github colors for Kitty
 
-background ${bg2}
+background ${bg}
 foreground ${term_fg}
 selection_background ${bg_visual_selection}
 selection_foreground ${term_fg}
@@ -33,7 +33,7 @@ color3 ${yellow}
 color4 ${blue}
 color5 ${magenta}
 color6 ${cyan}
-molor7 ${fg_dark}
+color7 ${fg_dark}
 
 # bright
 color8 ${fg_dark}

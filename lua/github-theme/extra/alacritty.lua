@@ -18,7 +18,7 @@ function M.alacritty(config)
 colors:
   # Default colors
   primary:
-    background: '${bg2}'
+    background: '${bg}'
     foreground: '${term_fg}'
 
   # Normal colors
