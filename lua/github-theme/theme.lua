@@ -33,8 +33,8 @@ function M.setup(config)
     -- TermCursorNC= { }, -- cursor in an unfocused terminal
     ErrorMsg = {fg = c.error}, -- error messages on the command line
     VertSplit = {fg = c.bg_visual, bg = c.bg}, -- the column separating vertically split windows
-    Folded = {fg = c.blue, bg = c.fg_gutter}, -- line used for closed folds
-    FoldColumn = {bg = c.bg, fg = c.fg_gutter}, -- 'foldcolumn'
+    Folded = {fg = c.fg, bg = c.bg_visual_selection}, -- line used for closed folds
+    FoldColumn = {bg = c.fg, fg = c.bg_visual_selection}, -- 'foldcolumn'
     SignColumn = {bg = config.transparent and c.none or c.bg, fg = c.fg_gutter}, -- column where |signs| are displayed
     SignColumnSB = {bg = c.bg_sidebar, fg = c.fg_gutter}, -- column where |signs| are displayed
     Substitute = {bg = c.red, fg = c.black}, -- |:substitute| replacement text highlighting
