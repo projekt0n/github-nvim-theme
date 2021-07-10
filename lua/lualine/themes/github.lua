@@ -9,7 +9,7 @@ return {
   normal = {
     a = {bg = colors.blue, fg = colors.bg},
     b = {bg = colors.bg2, fg = colors.blue},
-    c = {bg = colors.bg2, fg = colors.fg_light}
+    c = {bg = colors.bg, fg = colors.fg_light}
   },
   insert = {
     a = {bg = colors.green, fg = colors.bg},
