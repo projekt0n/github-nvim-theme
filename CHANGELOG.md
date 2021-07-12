@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fold Bright background fixed #5
 - Added option to customize statusline background with `bg_statusline` #11
 - Lualine `c` section background color get dark color `bg2`
+- illuminate plugin highlights fixed #10
 
 ## [v0.0.1] - 9 Jul 2021
 

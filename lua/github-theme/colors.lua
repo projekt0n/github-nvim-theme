@@ -62,6 +62,10 @@ function M.setup(config)
     info = "#75beff",
     hint = themes({dark = "#eeeeb3", dimmed = "#eeeeb3", light = "#6c6c6c"}),
 
+    lsp = {
+      referenceText = themes({dark = "#265459", dimmed = "#28575d", light = "#c6eed2"})
+    },
+
     syntax = {
       comment = themes({dark = "#6a737d", dimmed = "#768390", light = "#6a737d"}),
       constant = themes({dark = "#79b8ff", dimmed = "#6cb6ff", light = "#005cc5"}),
