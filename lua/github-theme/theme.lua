@@ -146,9 +146,9 @@ function M.setup(config)
     -- These groups are for the native LSP client. Some other LSP clients may
     -- use these groups, or use their own. Consult your LSP client's
     -- documentation.
-    LspReferenceText = {bg = c.fg_gutter}, -- used for highlighting "text" references
-    LspReferenceRead = {bg = c.fg_gutter}, -- used for highlighting "read" references
-    LspReferenceWrite = {bg = c.fg_gutter}, -- used for highlighting "write" references
+    LspReferenceText = {bg = c.lsp.referenceText}, -- used for highlighting "text" references
+    LspReferenceRead = {bg = c.lsp.referenceText}, -- used for highlighting "read" references
+    LspReferenceWrite = {bg = c.lsp.referenceText}, -- used for highlighting "write" references
     LspDiagnosticsDefaultError = {fg = c.error}, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
     LspDiagnosticsDefaultWarning = {fg = c.warning}, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
     LspDiagnosticsDefaultInformation = {fg = c.info}, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
@@ -337,8 +337,8 @@ function M.setup(config)
     LspTroubleNormal = {fg = c.brightYellow, bg = c.bg_sidebar},
 
     -- Illuminate
-    illuminatedWord = {bg = c.fg_gutter},
-    illuminatedCurWord = {bg = c.fg_gutter},
+    illuminatedWord = {bg = c.lsp.referenceText},
+    illuminatedCurWord = {bg = c.lsp.referenceText},
 
     -- diff
     diffAdded = {bg = c.diff.add, fg = c.diff.add_fg},
