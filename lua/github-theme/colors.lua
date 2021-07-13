@@ -69,7 +69,6 @@ function M.setup(config)
     syntax = {
       comment = themes({dark = "#6a737d", dimmed = "#768390", light = "#6a737d"}),
       constant = themes({dark = "#79b8ff", dimmed = "#6cb6ff", light = "#005cc5"}),
-      commentConstant = themes({dark = "#b392f0", dimmed = "#f69d50", light = "#6f42c1"}),
       string = themes({dark = "#9ecbff", dimmed = "#96d0ff", light = "#032f62"}),
       variable = themes({dark = "#79b8ff", dimmed = "#6cb6ff", light = "#005cc5"}),
       keyword = themes({dark = "#f97583", dimmed = "#f47067", light = "#d73a49"}),

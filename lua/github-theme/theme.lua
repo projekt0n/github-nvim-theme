@@ -191,7 +191,7 @@ function M.setup(config)
     TSConstructor = {fg = c.syntax.variable}, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
     -- TSConditional       = { };    -- For keywords related to conditionnals.
     TSConstant = {fg = c.syntax.constant}, -- For constants
-    commentTSConstant = {fg = c.syntax.commentConstant},
+    commentTSConstant = {fg = c.syntax.keyword},
     -- TSConstBuiltin      = { };    -- For constant that are built in the language: `nil` in Lua.
     -- TSConstMacro        = { };    -- For constants that are defined by macros: `NULL` in C.
     -- TSError             = { };    -- For syntax/parser errors.
