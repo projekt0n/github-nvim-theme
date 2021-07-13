@@ -250,21 +250,6 @@ require("github-theme").setup({
   <img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" >
 </a>
 
-#### TODO:
-
-- [x] Init
-- [x] Dynamic theme for `lualine`
-- [ ] Ask for using github-vscode-theme branding logo (primer/github-vscode-theme#186)
-- [x] Support highlight for almost every language.
-- [x] Previews & Customization docs inside README.md
-- [x] Better color grouping inside [colors.lua](./lua/github-theme/colors.lua)
-- [ ] Dynamic colors using [Primer color Palette](https://primer.style/primitives/)
-- [ ] Follow [Primer color system](https://primer.style/css/support/color-system)
-- [ ] Rewrite github-vscode-theme util functions inside lua
-- [ ] Add Github Light Classic & Github Dark Classic styles
-- [ ] Change NvimTreeIcon & DevIcons colors
-- [ ] Write tests
-
 <!-- Ninja  -->
 <p align="center">
   <h1 align="center">(◣_◢)</h1>
