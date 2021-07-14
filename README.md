@@ -19,10 +19,11 @@
 ### Plugin Support
 
 - [TreeSitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- [Telescope](https://github.com/nvim-telescope/telescope.nvim)
 - [LSP Diagnostics](https://neovim.io/doc/user/lsp.html)
 - [LSP Trouble](https://github.com/folke/lsp-trouble.nvim)
 - [Git Signs](https://github.com/lewis6991/gitsigns.nvim)
-- [Telescope](https://github.com/nvim-telescope/telescope.nvim)
+- [Neogit](https://github.com/TimUntersberger/neogit)
 - [NvimTree](https://github.com/kyazdani42/nvim-tree.lua)
 - [Lualine](https://github.com/hoob3rt/lualine.nvim)
 

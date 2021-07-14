@@ -351,13 +351,13 @@ function M.setup(config)
     diffIndexLine = {fg = c.magenta},
 
     -- Neogit
-    NeogitBranch = {fg = c.magenta},
-    NeogitRemote = {fg = c.magenta},
+    NeogitBranch = {fg = c.syntax.keyword},
+    NeogitRemote = {fg = c.syntax.keyword},
     NeogitHunkHeader = {bg = c.bg_highlight, fg = c.fg},
-    NeogitHunkHeaderHighlight = {bg = c.fg_gutter, fg = c.blue},
-    NeogitDiffContextHighlight = {bg = util.darken(c.fg_gutter, 0.5), fg = c.fg},
-    NeogitDiffDeleteHighlight = {fg = c.git.delete, bg = c.diff.delete},
-    NeogitDiffAddHighlight = {fg = c.git.add, bg = c.diff.add},
+    NeogitHunkHeaderHighlight = {bg = c.bg_highlight, fg = c.blue, style = "italic"},
+    NeogitDiffContextHighlight = {bg = c.bg, fg = c.fg},
+    NeogitDiffDeleteHighlight = {fg = c.diff.delete_fg, bg = c.diff.delete},
+    NeogitDiffAddHighlight = {fg = c.diff.add_fg, bg = c.diff.add},
 
     -- GitGutter
     GitGutterAdd = {fg = c.gitSigns.add}, -- diff mode: Added line |diff.txt|
