@@ -118,6 +118,10 @@ function M.setup(config)
   colors.border_highlight = colors.blue
   colors.bg_statusline = colors.blue
 
+  -- Folded colors are configurable
+  colors.fg_folded = colors.fg
+  colors.bg_folded = colors.bg_visual_selection
+
   -- Popups always get a dark background
   colors.bg_popup = colors.bg2
 

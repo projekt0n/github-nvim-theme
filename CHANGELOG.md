@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+### Added
+
+- `folded` colors are configurable
+
 ### Fixes
 
 - Kitty themes typo fixed #3
