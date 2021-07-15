@@ -395,19 +395,18 @@ function M.setup(config)
     gitcommitSummary = {fg = c.syntax.tag},
 
     -- Dashboard
-    DashboardShortCut = {fg = c.magenta},
-    DashboardHeader = {fg = c.red},
-    DashboardCenter = {fg = c.blue},
-    DashboardFooter = {fg = c.yellow, style = "italic"},
+    DashboardHeader = {fg = c.blue},
+    DashboardCenter = {fg = c.green, style = "bold"},
+    DashboardShortCut = {fg = c.yellow},
+    DashboardFooter = {fg = c.brightWhite, style = "italic"},
 
     -- WhichKey
-    WhichKey = {fg = c.yellow},
-    WhichKeyGroup = {fg = c.blue},
-    WhichKeyDesc = {fg = c.red},
-    WhichKeySeperator = {fg = c.fg_gutter},
-    WhichKeySeparator = {fg = c.fg_gutter},
-    WhichKeyFloat = {bg = c.bg_sidebar},
-    WhichKeyValue = {fg = c.brightWhite},
+    WhichKey = {fg = c.blue}, -- the key
+    WhichKeyGroup = {fg = c.syntax.keyword}, -- a group
+    WhichKeySeperator = {fg = c.syntax.comment}, -- the separator between the key and its label
+    WhichKeyDesc = {fg = c.fg}, -- the label of the key
+    WhichKeyFloat = {bg = c.bg2}, -- Normal in the popup window
+    WhichKeyValue = {fg = c.syntax.comment}, -- used by plugins that provide values
 
     -- LspSaga
     DiagnosticError = {fg = c.error},
@@ -421,13 +420,12 @@ function M.setup(config)
     healthWarning = {fg = c.warning},
 
     -- BufferLine
-
-    BufferLineIndicatorSelected = {fg = c.git.change},
-    BufferLineFill = {bg = c.black},
+    BufferLineIndicatorSelected = {fg = c.blue},
+    BufferLineFill = {bg = c.bg2},
 
     -- ALE
-    ALEWarningSign = {fg = c.yellow},
-    ALEErrorSign = {fg = c.red}
+    ALEWarningSign = {fg = c.warning},
+    ALEErrorSign = {fg = c.error}
   }
 
   if config.hideInactiveStatusline then
