@@ -23,7 +23,6 @@ active_tab_background ${blue}
 active_tab_foreground ${bg2}
 inactive_tab_background ${term_fg}
 inactive_tab_foreground ${bg2}
-#tab_bar_background ${black}
 
 # normal
 color0 ${black}

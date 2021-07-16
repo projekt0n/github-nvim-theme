@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `folded` colors are configurable
 - Plugin Support check #16
 - added iTerm colorscheme #14
+- added Konsole colorscheme #33
 
 ### Fixes
 
