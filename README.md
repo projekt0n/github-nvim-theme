@@ -13,8 +13,14 @@
 - minimal inactive statusline
 - vim terminal colors
 - darker background for sidebar-like windows
-- color configs for [kitty](https://sw.kovidgoyal.net/kitty/conf.html?highlight=include),[iTerm2](https://iterm2.com/) and [Alacritty](https://github.com/alacritty/alacritty)
+- color configs for [kitty](https://sw.kovidgoyal.net/kitty/conf.html?highlight=include), [iTerm2](https://iterm2.com/), [Konsole](https://konsole.kde.org/) and [Alacritty](https://github.com/alacritty/alacritty)
 - dynamic **lualine** theme
+
+## Terminal Themes (Extras)
+
+> To generate the configs `make extra` or `:luafile lua/github-theme/extra/init.lua`
+
+Extra color configs for **kitty**, **iTerm**, **Konsole** and **Alacritty** can be found in [extras](extras/) directory. To use them, refer to their respective documentation.
 
 ### Plugin Support
 
@@ -134,12 +140,6 @@ set -g default-terminal "${TERM}"
 set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'  # undercurl support
 set -as terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d%;m'  # underscore colours - needs tmux-3.0
 ```
-
-## Extras
-
-> To generate the configs `make extra` or `:luafile lua/github-theme/extra/init.lua`
-
-Extra color configs for **kitty**, **iTerm**, and **Alacritty** can be found in [extras](extras/). To use them, refer to their respective documentation.
 
 ## Reference
 

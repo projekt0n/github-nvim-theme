@@ -41,12 +41,6 @@ function M.iterm(config)
   local itermColor = {
     Ansi__0 = rgb(colors.black),
     Ansi__1 = rgb(colors.red),
-    Ansi__10 = rgb(colors.brightGreen),
-    Ansi__11 = rgb(colors.brightYellow),
-    Ansi__12 = rgb(colors.brightBlue),
-    Ansi__13 = rgb(colors.brightMagenta),
-    Ansi__14 = rgb(colors.brightCyan),
-    Ansi__15 = rgb(colors.term_fg),
     Ansi__2 = rgb(colors.green),
     Ansi__3 = rgb(colors.yellow),
     Ansi__4 = rgb(colors.blue),
@@ -55,13 +49,19 @@ function M.iterm(config)
     Ansi__7 = rgb(colors.fg_dark),
     Ansi__8 = rgb(colors.fg_dark),
     Ansi__9 = rgb(colors.brightRed),
+    Ansi__10 = rgb(colors.brightGreen),
+    Ansi__11 = rgb(colors.brightYellow),
+    Ansi__12 = rgb(colors.brightBlue),
+    Ansi__13 = rgb(colors.brightMagenta),
+    Ansi__14 = rgb(colors.brightCyan),
+    Ansi__15 = rgb(colors.term_fg),
     Background = rgb(colors.bg),
-    Bold = rgb(colors.fg),
+    Foreground = rgb(colors.fg),
     Cursor = rgb(colors.cursor),
     Cursor__Text = rgb(colors.bg),
-    Foreground = rgb(colors.fg),
     Selected__Text = rgb(colors.fg),
-    Selection = rgb(colors.bg_visual_selection)
+    Selection = rgb(colors.bg_visual_selection),
+    Bold = rgb(colors.fg)
   }
 
   local iterm = [[
@@ -82,4 +82,3 @@ function M.iterm(config)
 end
 
 return M
-

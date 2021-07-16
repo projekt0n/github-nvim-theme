@@ -9,10 +9,10 @@ Color=255,255,255
 Color=255,255,255
 
 [Color0]
-Color=204,204,204
+Color=105,113,121
 
 [Color0Faint]
-Color=204,204,204
+Color=105,113,121
 
 [Color0Intense]
 Color=102,102,102
