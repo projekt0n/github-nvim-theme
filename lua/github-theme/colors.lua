@@ -36,16 +36,16 @@ function M.setup(config)
     brightBlue = themes({dark = "#3b8eea", dimmed = "#6cb6ff", light = "#0451a5"}),
     magenta = themes({dark = "#bc3fbc", dimmed = "#b083f0", light = "#bc05bc"}),
     brightMagenta = themes({dark = "#d670d6", dimmed = "#dcbdfb", light = "#bc05bc"}),
-    cyan = themes({dark = "#29b7da", dimmed = "#56d4dd", light = "#0598BC"}),
+    cyan = themes({dark = "#29b7da", dimmed = "#56d4dd", light = "#0598bc"}),
     brightCyan = themes({dark = "#29b8db", dimmed = "#56d4dd", light = "#0598bc"}),
 
     bg = themes({dark = "#24292e", dimmed = "#22272e", light = "#ffffff"}),
     bg2 = themes({dark = "#1f2428", dimmed = "#1e2228", light = "#f6f8fa"}),
-    bg_visual = themes({dark = "#1b1f23", dimmed = "#444C56", light = "#e1e4e8"}),
+    bg_visual = themes({dark = "#444c56", dimmed = "#444c56", light = "#e1e4e8"}),
     bg_visual_selection = themes({dark = "#284566", dimmed = "#264466", light = "#dbe9f9"}),
-    bg_highlight = themes({dark = "#2C313A", dimmed = "#2d333b", light = "#f6f8fa"}),
+    bg_highlight = themes({dark = "#2c313a", dimmed = "#2d333b", light = "#f6f8fa"}),
 
-    fg = themes({dark = "#C9D1D9", dimmed = "#adbac7", light = "#24292e"}),
+    fg = themes({dark = "#c9d1d9", dimmed = "#adbac7", light = "#24292e"}),
     fg_light = themes({dark = "#d1d5da", dimmed = "#adbac7", light = "#586069"}),
     fg_gutter = themes({dark = "#e1e4e8", dimmed = "#768390", light = "#babbbd"}),
 
@@ -54,7 +54,6 @@ function M.setup(config)
     line_nr = themes({dark = "#444d56", dimmed = "#768390", light = "#babbbd"}),
     cursor_line_nr = themes({dark = "#e1e4e8", dimmed = "#adbac7", light = "#24292e"}),
 
-    fg_search = "NONE",
     bg_search = themes({dark = "#404030", dimmed = "#3f3e30", light = "#fff2be"}),
 
     error = themes({dark = "#f97583", dimmed = "#e5534b", light = "#cb2431"}),
@@ -90,7 +89,7 @@ function M.setup(config)
     git = {
       change = themes({dark = "#79b8ff", dimmed = "#daaa3f", light = "#005cc8"}),
       add = themes({dark = "#34d058", dimmed = "#6bc46d", light = "#28a745"}),
-      delete = themes({dark = "#ea4a5a", dimmed = "#B34642", light = "#d73a49"}),
+      delete = themes({dark = "#ea4a5a", dimmed = "#b34642", light = "#d73a49"}),
       conflict = themes({dark = "#ffab70", dimmed = "#daaa3f", light = "#e36209"}),
       ignore = themes({dark = "#6a737d", dimmed = "#545d68", light = "#959da5"})
     },
@@ -114,7 +113,7 @@ function M.setup(config)
 
   util.bg = colors.bg
 
-  colors.black = util.darken(colors.bg, 0.8, "#000000")
+  colors.fg_search = colors.none
   colors.border_highlight = colors.blue
   colors.bg_statusline = colors.blue
 
