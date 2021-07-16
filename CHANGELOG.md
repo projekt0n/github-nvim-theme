@@ -24,6 +24,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Change `commentTSConstant` highlight to `c.syntax.keyword` from `c.syntax.commentConstant`
 - Removed `commentConstant` color
 - lualine `command` background fixed #30
+- Make window-separator(`VertSplit`) highlight bright (related to #16)
+- Removed unnecessary colors from `colors.lua`
 
 ## [v0.0.1] - 9 Jul 2021
 
