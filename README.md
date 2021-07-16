@@ -13,19 +13,26 @@
 - minimal inactive statusline
 - vim terminal colors
 - darker background for sidebar-like windows
-- color configs for [Kitty](https://sw.kovidgoyal.net/kitty/conf.html?highlight=include) and [Alacritty](https://github.com/alacritty/alacritty)
+- color configs for [kitty](https://sw.kovidgoyal.net/kitty/conf.html?highlight=include),[iTerm2](https://iterm2.com/) and [Alacritty](https://github.com/alacritty/alacritty)
 - dynamic **lualine** theme
 
 ### Plugin Support
 
-- [TreeSitter](https://github.com/nvim-treesitter/nvim-treesitter)
-- [Telescope](https://github.com/nvim-telescope/telescope.nvim)
+- [ALE](https://github.com/dense-analysis/ale)
+- [dashboard-nvim](https://github.com/glepnir/dashboard-nvim)
+- [Git Signs](https://github.com/lewis6991/gitsigns.nvim)
+- [Indent Blankline](https://github.com/lukas-reineke/indent-blankline.nvim)
 - [LSP Diagnostics](https://neovim.io/doc/user/lsp.html)
 - [LSP Trouble](https://github.com/folke/lsp-trouble.nvim)
-- [Git Signs](https://github.com/lewis6991/gitsigns.nvim)
+- [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
+- [Lualine](https://github.com/hoob3rt/lualine.nvim)
+- [nvim-bufferline.lua](https://github.com/akinsho/nvim-bufferline.lua)
 - [Neogit](https://github.com/TimUntersberger/neogit)
 - [NvimTree](https://github.com/kyazdani42/nvim-tree.lua)
-- [Lualine](https://github.com/hoob3rt/lualine.nvim)
+- [Telescope](https://github.com/nvim-telescope/telescope.nvim)
+- [TreeSitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
+- [which-key.nvim](https://github.com/folke/which-key.nvim/)
 
 ## Requirements
 
@@ -132,7 +139,7 @@ set -as terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{25
 
 > To generate the configs `make extra` or `:luafile lua/github-theme/extra/init.lua`
 
-Extra color configs for **Kitty**, and **Alacritty** can be found in [extras](extras/). To use them, refer to their respective documentation.
+Extra color configs for **kitty**, **iTerm**, and **Alacritty** can be found in [extras](extras/). To use them, refer to their respective documentation.
 
 ## Reference
 
@@ -241,7 +248,7 @@ require("github-theme").setup({
 
 ## Useful Links
 
-- Terminal: [Kitty](https://sw.kovidgoyal.net/kitty)
+- Terminal: [kitty](https://sw.kovidgoyal.net/kitty)
 - Font: [Ubuntu Mono](https://design.ubuntu.com/font/)
 - config: [dotfiles](https://github.com/ful1e5/dotfiles)
 

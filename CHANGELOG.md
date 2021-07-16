@@ -10,7 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - `folded` colors are configurable
-- TODO list plugin support (check #16)
+- Plugin Support check #16
+- added iTerm colorscheme #14
 
 ### Fixes
 
