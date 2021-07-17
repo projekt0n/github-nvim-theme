@@ -27,6 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - lualine `command` background fixed #30
 - Make window-separator(`VertSplit`) highlight bright (related to #16)
 - Removed unnecessary colors from `colors.lua`
+- Enhanced `TabLineSel` is barely readable foreground color fixed #35
 
 ## [v0.0.1] - 9 Jul 2021
 
