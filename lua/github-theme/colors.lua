@@ -112,6 +112,7 @@ function M.setup(config)
   }
 
   util.bg = colors.bg
+  colors.bg = config.transparent and colors.none or colors.bg
 
   colors.fg_search = colors.none
   colors.border_highlight = colors.blue
