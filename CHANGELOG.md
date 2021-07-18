@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Plugin Support check #16
 - added iTerm colorscheme #14
 - added Konsole colorscheme #33
+- `github-theme.util.color_overrides` function support "NONE" color (fix related to #36)
 
 ### Fixes
 
