@@ -4,8 +4,11 @@ local configModule = require("github-theme.config")
 local M = {}
 
 function M.Hex2rgb(hex)
-    hex = hex:gsub("#","")
-    return table.concat({tonumber("0x"..hex:sub(1,2)), tonumber("0x"..hex:sub(3,4)), tonumber("0x"..hex:sub(5,6))}, ',')
+  hex = hex:gsub("#", "")
+  return table.concat({
+    tonumber("0x" .. hex:sub(1, 2)), tonumber("0x" .. hex:sub(3, 4)),
+    tonumber("0x" .. hex:sub(5, 6))
+  }, ",")
 end
 
 function M.konsole(config)
@@ -17,6 +20,8 @@ function M.konsole(config)
   for k, v in pairs(colors) do
     if type(v) == "string" then konsoleColors[k] = M.Hex2rgb(v) end
   end
+
+  local description = "Github " .. config.themeStyle:lower():gsub("^%l", string.upper)
 
   local konsole = util.template([[
 # github Konsole Colors
@@ -110,8 +115,10 @@ Color=${term_fg}
 [ForegroundIntense]
 Color=${term_fg}
 
+]] .. [[
 [General]
-Description=Github
+Description=]] .. description .. [[
+
 Opacity=1
 Wallpaper=
 ]], konsoleColors)

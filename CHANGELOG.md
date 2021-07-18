@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - added iTerm colorscheme #14
 - added Konsole colorscheme #33
 - `github-theme.util.color_overrides` function support "NONE" color (fix related to #36)
+- Terminal themes are structured through `extra/init.lua`
 
 ### Fixes
 
@@ -30,6 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Removed unnecessary colors from `colors.lua`
 - Enhanced `TabLineSel` is barely readable foreground color fixed #35
 - Enhanced `transparent` mode background color
+- Add proper `Description` inside `konsole` theme (bug from #33)
 
 ## [v0.0.1] - 9 Jul 2021
 
