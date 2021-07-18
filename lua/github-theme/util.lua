@@ -233,7 +233,10 @@ function util.color_overrides(colors, config)
       if type(colors[key]) == "table" then
         util.color_overrides(colors[key], {colors = value})
       else
-        if string.sub(value, 1, 1) == "#" then
+        if value:lower() == "none" then
+          -- set to none
+          colors[key] = "NONE"
+        elseif string.sub(value, 1, 1) == "#" then
           -- hex override
           colors[key] = value
         else
