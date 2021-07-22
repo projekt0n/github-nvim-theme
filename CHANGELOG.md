@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - added Konsole colorscheme #33
 - `github-theme.util.color_overrides` function support "NONE" color (fix related to #36)
 - Terminal themes are structured through `extra/init.lua`
+- Area for messages and cmdline with `bold` text highlight
 
 ### Fixes
 
@@ -32,6 +33,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Enhanced `TabLineSel` is barely readable foreground color fixed #35
 - Enhanced `transparent` mode background color
 - Add proper `Description` inside `konsole` theme (bug from #33)
+- Lualine `normal` section background color set blue color #43
 
 ## [v0.0.1] - 9 Jul 2021
 
