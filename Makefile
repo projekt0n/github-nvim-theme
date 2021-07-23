@@ -25,10 +25,10 @@ kitty_pre:
 	@touch $(theme)
 
 kitty_dark: kitty_pre
-	@cat $(exts)/kitty_github_dark.conf > $(theme)
+	@cat $(exts)/kitty/dark.conf > $(theme)
 
 kitty_dimmed: kitty_pre
-	@cat $(exts)/kitty_github_dimmed.conf > $(theme)
+	@cat $(exts)/kitty/dimmed.conf > $(theme)
 
 kitty_light: kitty_pre
-	@cat $(exts)/kitty_github_light.conf > $(theme)
+	@cat $(exts)/kitty/light.conf > $(theme)
