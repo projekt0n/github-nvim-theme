@@ -15,6 +15,7 @@ config = {
   functionStyle = "NONE",
   variableStyle = "NONE",
   hideInactiveStatusline = false,
+  hideEndOfBuffer = true,
   sidebars = {},
   colors = {},
   dev = false,
