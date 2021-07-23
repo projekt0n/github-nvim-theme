@@ -28,7 +28,7 @@ function M.setup(config)
     DiffChange = {bg = c.diff.change}, -- diff mode: Changed line |diff.txt|
     DiffDelete = {bg = c.diff.delete}, -- diff mode: Deleted line |diff.txt|
     DiffText = {bg = c.fg_gutter}, -- diff mode: Changed text within a changed line |diff.txt|
-    EndOfBuffer = {fg = c.bg}, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
+    EndOfBuffer = {fg = c.eob}, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
     -- TermCursor  = { }, -- cursor in a focused terminal
     -- TermCursorNC= { }, -- cursor in an unfocused terminal
     ErrorMsg = {fg = c.error}, -- error messages on the command line
@@ -374,7 +374,7 @@ function M.setup(config)
 
     -- NvimTree
     NvimTreeNormal = {fg = c.fg_light, bg = c.bg_sidebar},
-    NvimTreeEndOfBuffer = config.darkSidebar and {fg = c.bg2} or {fg = c.bg},
+    NvimTreeEndOfBuffer = {fg = c.sidebar_eob},
     NvimTreeRootFolder = {fg = c.fg_light, style = "bold"},
     NvimTreeGitDirty = {fg = c.git.change},
     NvimTreeGitNew = {fg = c.git.add},
