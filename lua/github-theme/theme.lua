@@ -28,7 +28,7 @@ function M.setup(config)
     DiffChange = {bg = c.diff.change}, -- diff mode: Changed line |diff.txt|
     DiffDelete = {bg = c.diff.delete}, -- diff mode: Deleted line |diff.txt|
     DiffText = {bg = c.fg_gutter}, -- diff mode: Changed text within a changed line |diff.txt|
-    EndOfBuffer = {fg = c.bg}, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
+    EndOfBuffer = {fg = c.eob}, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
     -- TermCursor  = { }, -- cursor in a focused terminal
     -- TermCursorNC= { }, -- cursor in an unfocused terminal
     ErrorMsg = {fg = c.error}, -- error messages on the command line
@@ -42,7 +42,7 @@ function M.setup(config)
     CursorLineNr = {fg = c.cursor_line_nr}, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
     MatchParen = {bg = c.syntax.matchParenBG, fg = c.fg}, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     ModeMsg = {fg = c.fg, style = "bold"}, -- 'showmode' message (e.g., "-- INSERT -- ")
-    MsgArea = {fg = c.fg}, -- Area for messages and cmdline
+    MsgArea = {fg = c.fg, style = "bold"}, -- Area for messages and cmdline
     -- MsgSeparator= { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     MoreMsg = {fg = c.blue}, -- |more-prompt|
     NonText = {fg = c.bg}, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
@@ -374,7 +374,7 @@ function M.setup(config)
 
     -- NvimTree
     NvimTreeNormal = {fg = c.fg_light, bg = c.bg_sidebar},
-    NvimTreeEndOfBuffer = config.darkSidebar and {fg = c.bg2} or {fg = c.bg},
+    NvimTreeEndOfBuffer = {fg = c.sidebar_eob},
     NvimTreeRootFolder = {fg = c.fg_light, style = "bold"},
     NvimTreeGitDirty = {fg = c.git.change},
     NvimTreeGitNew = {fg = c.git.add},

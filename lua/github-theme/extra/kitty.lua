@@ -24,6 +24,10 @@ active_tab_foreground ${bg2}
 inactive_tab_background ${term_fg}
 inactive_tab_foreground ${bg2}
 
+# Windows Border
+active_border_color ${bg_visual}
+inactive_border_color ${bg_visual}
+
 # normal
 color0 ${black}
 color1 ${red}

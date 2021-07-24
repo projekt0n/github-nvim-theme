@@ -100,6 +100,7 @@ require('lualine').setup {
 | functionStyle          | `NONE`   | Highlight style for functions (check `:help highlight-args` for options)                                                                                        |
 | variableStyle          | `NONE`   | Highlight style for variables and identifiers (check `:help highlight-args` for options)                                                                        |
 | transparent            | `false`  | Enable this to disable setting the background color                                                                                                             |
+| hideEndOfBuffer        | `true`   | Enabling this option, will hide filler lines (~) after the end of the buffer                                                                                    |
 | hideInactiveStatusline | `false`  | Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**. |
 | sidebars               | `{}`     | Set a darker background on sidebar-like windows. For example: `{"qf", "vista_kind", "terminal", "packer"}`                                                      |
 | darkSidebar            | `true`   | Sidebar like windows like `NvimTree` get a darker background                                                                                                    |
