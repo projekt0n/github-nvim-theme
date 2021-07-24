@@ -422,6 +422,9 @@ function M.setup(config)
     -- BufferLine
     BufferLineIndicatorSelected = {fg = c.blue},
     BufferLineFill = {bg = c.bg2},
+    BufferLineSeparator = {fg = c.bg2},
+    BufferLineSeparatorSelected = {fg = c.bg2},
+    BufferLineSeparatorVisible = {fg = c.bg2},
 
     -- ALE
     ALEWarningSign = {fg = c.warning},

@@ -36,6 +36,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add proper `Description` inside `konsole` theme (bug from #33)
 - Lualine `normal` section background color set blue color #43
 - Kitty window border colors fix #47
+- BufferLine slant style separator color fixed ( related to #16)
 
 ## [v0.0.1] - 9 Jul 2021
 
