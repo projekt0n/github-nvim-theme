@@ -359,6 +359,10 @@ function M.setup(config)
     NeogitDiffDeleteHighlight = {fg = c.diff.delete_fg, bg = c.diff.delete},
     NeogitDiffAddHighlight = {fg = c.diff.add_fg, bg = c.diff.add},
 
+    -- Compe
+    CompeDocumentationBorder = {fg = c.blue, bg = c.bg_float},
+    CompeDocumentation = {fg = c.fg, bg = c.bg_float},
+
     -- GitGutter
     GitGutterAdd = {fg = c.gitSigns.add}, -- diff mode: Added line |diff.txt|
     GitGutterChange = {fg = c.gitSigns.change}, -- diff mode: Changed line |diff.txt|

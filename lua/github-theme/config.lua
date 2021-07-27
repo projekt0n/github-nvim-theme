@@ -1,8 +1,6 @@
 ---@class Config
 local config
 
-local vimConfig = false
-
 local themeStyleKey = "github_theme_style"
 -- shim vim for kitty and other generators
 vim = vim or {g = {}, o = {}}
@@ -46,11 +44,10 @@ local function getThemeStyle()
   else
     return vim.g[themeStyleKey]
   end
-
 end
+
 return {
   config = config,
-  vimConfig = vimConfig,
   applyConfiguration = applyConfiguration,
   getThemeStyle = getThemeStyle
 }
