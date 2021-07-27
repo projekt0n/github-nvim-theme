@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Terminal themes are structured through `extra/init.lua`
 - Area for messages and cmdline with `bold` text highlight #44
 - `hideEndOfBuffer` options added. Enabling this option, will hide filler lines (~) after the end of the buffer #46
+- `nvim-compe` plugin support
 
 ### Fixes
 

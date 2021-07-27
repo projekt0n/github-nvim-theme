@@ -35,6 +35,7 @@ Extra color configs for **kitty**, **iTerm**, **Konsole** and **Alacritty** can 
 - [nvim-bufferline.lua](https://github.com/akinsho/nvim-bufferline.lua)
 - [Neogit](https://github.com/TimUntersberger/neogit)
 - [NvimTree](https://github.com/kyazdani42/nvim-tree.lua)
+- [nvim-compe](https://github.com/hrsh7th/nvim-compe)
 - [Telescope](https://github.com/nvim-telescope/telescope.nvim)
 - [TreeSitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
