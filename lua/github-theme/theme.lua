@@ -451,7 +451,13 @@ function M.setup(config)
     BufferInactiveSign = {bg = c.bg2, fg = util.darken(c.fg_dark, 0.4, c.bg2)},
     BufferInactiveTarget = {bg = c.bg2, fg = c.red},
     BufferTabpages = {bg = c.bg2, fg = c.none},
-    BufferTabpage = {bg = c.bg2, fg = c.border_highlight}
+    BufferTabpage = {bg = c.bg2, fg = c.border_highlight},
+
+    -- Hop
+    HopNextKey = {fg = c.magenta, style = "bold"},
+    HopNextKey1 = {fg = c.blue, style = "bold"},
+    HopNextKey2 = {fg = util.darken(c.blue, 0.3)},
+    HopUnmatched = {fg = c.fg_dark}
   }
 
   if config.hideInactiveStatusline then

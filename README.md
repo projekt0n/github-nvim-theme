@@ -28,6 +28,7 @@ Extra color configs for **kitty**, **iTerm**, **Konsole** and **Alacritty** can 
 - [barbar.nvim](https://github.com/romgrk/barbar.nvim)
 - [dashboard-nvim](https://github.com/glepnir/dashboard-nvim)
 - [Git Signs](https://github.com/lewis6991/gitsigns.nvim)
+- [hop.nvim](https://github.com/phaazon/hop.nvim)
 - [Indent Blankline](https://github.com/lukas-reineke/indent-blankline.nvim)
 - [LSP Diagnostics](https://neovim.io/doc/user/lsp.html)
 - [LSP Trouble](https://github.com/folke/lsp-trouble.nvim)
