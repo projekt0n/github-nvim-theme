@@ -25,6 +25,7 @@ Extra color configs for **kitty**, **iTerm**, **Konsole** and **Alacritty** can 
 ### Plugin Support
 
 - [ALE](https://github.com/dense-analysis/ale)
+- [barbar.nvim](https://github.com/romgrk/barbar.nvim)
 - [dashboard-nvim](https://github.com/glepnir/dashboard-nvim)
 - [Git Signs](https://github.com/lewis6991/gitsigns.nvim)
 - [Indent Blankline](https://github.com/lukas-reineke/indent-blankline.nvim)

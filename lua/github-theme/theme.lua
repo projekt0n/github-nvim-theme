@@ -258,7 +258,7 @@ function M.setup(config)
     javascriptTSParameter = {fg = c.syntax.param},
     javascriptTSVariable = {fg = c.syntax.variable},
     javascriptTSPunctDelimiter = {fg = c.fg},
-    javascriptTSStringRegex = {fg = c.string},
+    javascriptTSStringRegex = {fg = c.lsp.string},
     javascriptTSConstructor = {fg = c.syntax.func},
     javascriptTSProperty = {fg = c.syntax.func},
     regexTSStringEscape = {fg = c.syntax.keyword},
@@ -432,7 +432,26 @@ function M.setup(config)
 
     -- ALE
     ALEWarningSign = {fg = c.warning},
-    ALEErrorSign = {fg = c.error}
+    ALEErrorSign = {fg = c.error},
+
+    -- Barbar
+    BufferCurrent = {bg = c.bg, fg = c.fg},
+    BufferCurrentIndex = {bg = c.bg, fg = c.fg},
+    BufferCurrentMod = {bg = c.bg, fg = c.warning},
+    BufferCurrentSign = {bg = c.bg, fg = c.info},
+    BufferCurrentTarget = {bg = c.bg, fg = c.fg_light},
+    BufferVisible = {bg = c.bg2, fg = c.fg_dark},
+    BufferVisibleIndex = {bg = c.bg2, fg = c.red},
+    BufferVisibleMod = {bg = c.bg2, fg = c.warning},
+    BufferVisibleSign = {bg = c.bg2, fg = c.info},
+    BufferVisibleTarget = {bg = c.bg2, fg = c.red},
+    BufferInactive = {bg = c.bg2, fg = c.fg_dark},
+    BufferInactiveIndex = {bg = c.bg2, fg = c.fg_light},
+    BufferInactiveMod = {bg = c.bg2, fg = util.darken(c.warning, 0.7)},
+    BufferInactiveSign = {bg = c.bg2, fg = util.darken(c.fg_dark, 0.4, c.bg2)},
+    BufferInactiveTarget = {bg = c.bg2, fg = c.red},
+    BufferTabpages = {bg = c.bg2, fg = c.none},
+    BufferTabpage = {bg = c.bg2, fg = c.border_highlight}
   }
 
   if config.hideInactiveStatusline then
