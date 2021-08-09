@@ -460,6 +460,8 @@ function M.setup(config)
     HopUnmatched = {fg = c.fg_dark}
   }
 
+  theme.defer = {}
+
   if config.hideInactiveStatusline then
     local inactive = {style = "underline", bg = c.bg, fg = c.bg, sp = c.bg_visual}
 
@@ -473,7 +475,7 @@ function M.setup(config)
 
       -- LuaLine
       for _, section in pairs({"a", "b", "c"}) do
-        theme.plugins["lualine_" .. section .. "_inactive"] = inactive
+        theme.defer["lualine_" .. section .. "_inactive"] = inactive
       end
     end
   end

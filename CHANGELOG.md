@@ -39,6 +39,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Kitty window border colors fix #47
 - BufferLine slant style separator color fixed ( related to #16)
 - Floating Windows background on `transparent` mode
+- loadtime decreased by re-patching ful1e5/onedark.nvim#2
 
 ## [v0.0.1] - 9 Jul 2021
 
