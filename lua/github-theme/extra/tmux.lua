@@ -9,6 +9,7 @@ function M.tmux(config)
   config.transform_colors = true
   local colors = require("github-theme.colors").setup(config)
 
+  -- luacheck: ignore
   local tmux = util.template([[
 #!/usr/bin/env bash
 
