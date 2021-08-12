@@ -3,6 +3,7 @@ local configModule = require("github-theme.config")
 
 local M = {}
 
+---@param hex string
 local rgb = function(hex)
   local _, redColor, greenColor, blueColor = hex:match("(.)(..)(..)(..)")
   redColor, greenColor, blueColor =
@@ -12,6 +13,8 @@ local rgb = function(hex)
   return {r = redColor, g = greenColor, b = blueColor}
 end
 
+---@param key string
+---@param color string
 local keyToXML = function(key, color)
   local xml = util.template([[
 	<key>${k} Color</key>
@@ -33,6 +36,7 @@ local keyToXML = function(key, color)
   return xml
 end
 
+---@param config Config
 function M.iterm(config)
   config = config or configModule.config
   config.transform_colors = true

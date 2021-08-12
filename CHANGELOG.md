@@ -42,6 +42,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Floating Windows background on `transparent` mode
 - loadtime decreased by re-patching ful1e5/onedark.nvim#2
 - make template simple inside `lua/extra/konsole.lua`
+- parameter docs added inside `lua/extra/*`
 
 ## [v0.0.1] - 9 Jul 2021
 

@@ -3,6 +3,7 @@ local configModule = require("github-theme.config")
 
 local M = {}
 
+---@param config Config
 function M.kitty(config)
   config = config or configModule.config
   config.transform_colors = true
