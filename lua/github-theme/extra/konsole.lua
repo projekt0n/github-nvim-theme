@@ -3,6 +3,7 @@ local configModule = require("github-theme.config")
 
 local M = {}
 
+---@param hex string
 function M.Hex2rgb(hex)
   hex = hex:gsub("#", "")
   return table.concat({
@@ -11,6 +12,7 @@ function M.Hex2rgb(hex)
   }, ",")
 end
 
+---@param config Config
 function M.konsole(config)
   config = config or configModule.config
   config.transform_colors = true
