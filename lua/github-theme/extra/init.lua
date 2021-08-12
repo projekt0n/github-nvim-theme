@@ -9,12 +9,15 @@ local function write(str, fileName)
   file:close()
 end
 
+-- map of plugin name to plugin extension
 local extras = {
   kitty = "conf",
   alacritty = "yml",
   iterm = "itermcolors",
-  konsole = "colorscheme"
+  konsole = "colorscheme",
+  tmux = "tmux"
 }
+
 for _, style in ipairs({"dark", "dimmed", "light"}) do
   configModule.themeStyle = style
   for extra, ext in pairs(extras) do
