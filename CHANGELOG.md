@@ -40,6 +40,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - BufferLine slant style separator color fixed ( related to #16)
 - Floating Windows background on `transparent` mode
 - loadtime decreased by re-patching ful1e5/onedark.nvim#2
+- make template simple inside `lua/extra/konsole.lua`
 
 ## [v0.0.1] - 9 Jul 2021
 

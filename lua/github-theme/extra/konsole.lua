@@ -16,12 +16,11 @@ function M.konsole(config)
   config.transform_colors = true
   local colors = require("github-theme.colors").setup(config)
 
-  local konsoleColors = {}
+  local themeData = {}
   for k, v in pairs(colors) do
-    if type(v) == "string" then konsoleColors[k] = M.Hex2rgb(v) end
+    if type(v) == "string" then themeData[k] = M.Hex2rgb(v) end
   end
-
-  local description = "Github " .. config.themeStyle:lower():gsub("^%l", string.upper)
+  themeData.description = "Github " .. config.themeStyle:lower():gsub("^%l", string.upper)
 
   local konsole = util.template([[
 # github Konsole Colors
@@ -115,13 +114,11 @@ Color=${term_fg}
 [ForegroundIntense]
 Color=${term_fg}
 
-]] .. [[
 [General]
-Description=]] .. description .. [[
-
+Description=${description}
 Opacity=1
 Wallpaper=
-]], konsoleColors)
+]], themeData)
 
   return konsole
 end
