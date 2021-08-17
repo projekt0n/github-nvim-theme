@@ -13,22 +13,20 @@
 - minimal inactive statusline
 - vim terminal colors
 - darker background for sidebar-like windows
-- color configs for [tmux](https://github.com/tmux/tmux/wiki), [kitty](https://sw.kovidgoyal.net/kitty/conf.html?highlight=include), [iTerm2](https://iterm2.com/), [Konsole](https://konsole.kde.org/) and [Alacritty](https://github.com/alacritty/alacritty)
+- color configs for [kitty](https://sw.kovidgoyal.net/kitty/conf.html?highlight=include), [iTerm2](https://iterm2.com/), [Konsole](https://konsole.kde.org/) and [Alacritty](https://github.com/alacritty/alacritty)
 - dynamic **lualine** theme
 
 ## Terminal Themes (Extras)
 
 > To generate the configs `make extra` or `:luafile lua/github-theme/extra/init.lua`
 
-Extra color configs for **tmux**, **kitty**, **iTerm**, **Konsole** and **Alacritty** can be found in [extras](extras/) directory. To use them, refer to their respective documentation.
+Extra color configs for **kitty**, **iTerm**, **Konsole** and **Alacritty** can be found in [extras](extras/) directory. To use them, refer to their respective documentation.
 
 ### Plugin Support
 
 - [ALE](https://github.com/dense-analysis/ale)
-- [barbar.nvim](https://github.com/romgrk/barbar.nvim)
 - [dashboard-nvim](https://github.com/glepnir/dashboard-nvim)
 - [Git Signs](https://github.com/lewis6991/gitsigns.nvim)
-- [hop.nvim](https://github.com/phaazon/hop.nvim)
 - [Indent Blankline](https://github.com/lukas-reineke/indent-blankline.nvim)
 - [LSP Diagnostics](https://neovim.io/doc/user/lsp.html)
 - [LSP Trouble](https://github.com/folke/lsp-trouble.nvim)
@@ -37,7 +35,6 @@ Extra color configs for **tmux**, **kitty**, **iTerm**, **Konsole** and **Alacri
 - [nvim-bufferline.lua](https://github.com/akinsho/nvim-bufferline.lua)
 - [Neogit](https://github.com/TimUntersberger/neogit)
 - [NvimTree](https://github.com/kyazdani42/nvim-tree.lua)
-- [nvim-compe](https://github.com/hrsh7th/nvim-compe)
 - [Telescope](https://github.com/nvim-telescope/telescope.nvim)
 - [TreeSitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - [vim-gitgutter](https://github.com/airblade/vim-gitgutter)

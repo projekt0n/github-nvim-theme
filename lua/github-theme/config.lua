@@ -1,12 +1,13 @@
 ---@class Config
 local config
 
-local themeStyleKey = "github_theme_style"
 -- shim vim for kitty and other generators
 vim = vim or {g = {}, o = {}}
 
+vim.g.github_theme_style = "dark"
+
 config = {
-  themeStyle = "dark",
+  themeStyle = vim.g.github_theme_style,
   transparent = false,
   commentStyle = "italic",
   keywordStyle = "italic",
@@ -28,8 +29,9 @@ local function applyConfiguration(userConfig)
     if value ~= nil then
       if config[key] ~= nil then
         config[key] = value
-        -- useful for `lualine`
-        if key == "themeStyle" then vim.g[themeStyleKey] = value end
+        if key == "themeStyle" and value ~= vim.g.github_theme_style then
+          vim.g.github_theme_style = value
+        end
       else
         error("projekt0n/github-nvim-theme: Option " .. key .. " does not exist") -- luacheck: ignore
       end
@@ -37,17 +39,4 @@ local function applyConfiguration(userConfig)
   end
 end
 
--- @return string
-local function getThemeStyle()
-  if vim.g[themeStyleKey] == nil then
-    return config.themeStyle
-  else
-    return vim.g[themeStyleKey]
-  end
-end
-
-return {
-  config = config,
-  applyConfiguration = applyConfiguration,
-  getThemeStyle = getThemeStyle
-}
+return {config = config, applyConfiguration = applyConfiguration}

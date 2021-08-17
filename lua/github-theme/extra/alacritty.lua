@@ -3,7 +3,6 @@ local configModule = require("github-theme.config")
 
 local M = {}
 
----@param config Config
 function M.alacritty(config)
   config = config or configModule.config
   config.transform_colors = true

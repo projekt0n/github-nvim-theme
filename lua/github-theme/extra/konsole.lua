@@ -3,7 +3,6 @@ local configModule = require("github-theme.config")
 
 local M = {}
 
----@param hex string
 function M.Hex2rgb(hex)
   hex = hex:gsub("#", "")
   return table.concat({
@@ -12,17 +11,17 @@ function M.Hex2rgb(hex)
   }, ",")
 end
 
----@param config Config
 function M.konsole(config)
   config = config or configModule.config
   config.transform_colors = true
   local colors = require("github-theme.colors").setup(config)
 
-  local themeData = {}
+  local konsoleColors = {}
   for k, v in pairs(colors) do
-    if type(v) == "string" then themeData[k] = M.Hex2rgb(v) end
+    if type(v) == "string" then konsoleColors[k] = M.Hex2rgb(v) end
   end
-  themeData.description = "Github " .. config.themeStyle:lower():gsub("^%l", string.upper)
+
+  local description = "Github " .. config.themeStyle:lower():gsub("^%l", string.upper)
 
   local konsole = util.template([[
 # github Konsole Colors
@@ -116,11 +115,13 @@ Color=${term_fg}
 [ForegroundIntense]
 Color=${term_fg}
 
+]] .. [[
 [General]
-Description=${description}
+Description=]] .. description .. [[
+
 Opacity=1
 Wallpaper=
-]], themeData)
+]], konsoleColors)
 
   return konsole
 end

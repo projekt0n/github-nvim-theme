@@ -215,12 +215,11 @@ function util.load(theme)
   util.syntax(theme.base)
 
   -- load syntax for plugins and terminal async
-  util.terminal(theme.colors)
-  util.syntax(theme.plugins)
-  util.autocmds(theme.config)
   vim.defer_fn(function()
-    util.syntax(theme.defer)
-  end, 100)
+    util.terminal(theme.colors)
+    util.syntax(theme.plugins)
+    util.autocmds(theme.config)
+  end, 0)
 end
 
 ---@param colors ColorScheme

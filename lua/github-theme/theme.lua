@@ -258,7 +258,7 @@ function M.setup(config)
     javascriptTSParameter = {fg = c.syntax.param},
     javascriptTSVariable = {fg = c.syntax.variable},
     javascriptTSPunctDelimiter = {fg = c.fg},
-    javascriptTSStringRegex = {fg = c.lsp.string},
+    javascriptTSStringRegex = {fg = c.string},
     javascriptTSConstructor = {fg = c.syntax.func},
     javascriptTSProperty = {fg = c.syntax.func},
     regexTSStringEscape = {fg = c.syntax.keyword},
@@ -359,10 +359,6 @@ function M.setup(config)
     NeogitDiffDeleteHighlight = {fg = c.diff.delete_fg, bg = c.diff.delete},
     NeogitDiffAddHighlight = {fg = c.diff.add_fg, bg = c.diff.add},
 
-    -- Compe
-    CompeDocumentationBorder = {fg = c.blue, bg = c.bg_float},
-    CompeDocumentation = {fg = c.fg, bg = c.bg_float},
-
     -- GitGutter
     GitGutterAdd = {fg = c.gitSigns.add}, -- diff mode: Added line |diff.txt|
     GitGutterChange = {fg = c.gitSigns.change}, -- diff mode: Changed line |diff.txt|
@@ -426,41 +422,11 @@ function M.setup(config)
     -- BufferLine
     BufferLineIndicatorSelected = {fg = c.blue},
     BufferLineFill = {bg = c.bg2},
-    BufferLineSeparator = {fg = c.bg2},
-    BufferLineSeparatorSelected = {fg = c.bg2},
-    BufferLineSeparatorVisible = {fg = c.bg2},
 
     -- ALE
     ALEWarningSign = {fg = c.warning},
-    ALEErrorSign = {fg = c.error},
-
-    -- Barbar
-    BufferCurrent = {bg = c.bg, fg = c.fg},
-    BufferCurrentIndex = {bg = c.bg, fg = c.fg},
-    BufferCurrentMod = {bg = c.bg, fg = c.warning},
-    BufferCurrentSign = {bg = c.bg, fg = c.info},
-    BufferCurrentTarget = {bg = c.bg, fg = c.fg_light},
-    BufferVisible = {bg = c.bg2, fg = c.fg_dark},
-    BufferVisibleIndex = {bg = c.bg2, fg = c.red},
-    BufferVisibleMod = {bg = c.bg2, fg = c.warning},
-    BufferVisibleSign = {bg = c.bg2, fg = c.info},
-    BufferVisibleTarget = {bg = c.bg2, fg = c.red},
-    BufferInactive = {bg = c.bg2, fg = c.fg_dark},
-    BufferInactiveIndex = {bg = c.bg2, fg = c.fg_light},
-    BufferInactiveMod = {bg = c.bg2, fg = util.darken(c.warning, 0.7)},
-    BufferInactiveSign = {bg = c.bg2, fg = util.darken(c.fg_dark, 0.4, c.bg2)},
-    BufferInactiveTarget = {bg = c.bg2, fg = c.red},
-    BufferTabpages = {bg = c.bg2, fg = c.none},
-    BufferTabpage = {bg = c.bg2, fg = c.border_highlight},
-
-    -- Hop
-    HopNextKey = {fg = c.magenta, style = "bold"},
-    HopNextKey1 = {fg = c.blue, style = "bold"},
-    HopNextKey2 = {fg = util.darken(c.blue, 0.3)},
-    HopUnmatched = {fg = c.fg_dark}
+    ALEErrorSign = {fg = c.error}
   }
-
-  theme.defer = {}
 
   if config.hideInactiveStatusline then
     local inactive = {style = "underline", bg = c.bg, fg = c.bg, sp = c.bg_visual}
@@ -475,7 +441,7 @@ function M.setup(config)
 
       -- LuaLine
       for _, section in pairs({"a", "b", "c"}) do
-        theme.defer["lualine_" .. section .. "_inactive"] = inactive
+        theme.plugins["lualine_" .. section .. "_inactive"] = inactive
       end
     end
   end

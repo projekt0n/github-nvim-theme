@@ -1,8 +1,6 @@
 local configModule = require("github-theme.config")
 
 local config = configModule.config
-config.themeStyle = configModule.getThemeStyle()
-
 local colors = require("github-theme.colors").setup(config)
 
 return {
