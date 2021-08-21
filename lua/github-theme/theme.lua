@@ -425,7 +425,36 @@ function M.setup(config)
 
     -- ALE
     ALEWarningSign = {fg = c.warning},
-    ALEErrorSign = {fg = c.error}
+    ALEErrorSign = {fg = c.error},
+
+    -- DevIcons
+    DevIconC = {fg = c.devIcons.c},
+    DevIconClojure = {fg = c.devIcons.clojure},
+    DevIconCoffee = {fg = c.devIcons.coffeescript},
+    DevIconCs = {fg = c.devIcons.csharp},
+    DevIconCss = {fg = c.devIcons.css},
+    DevIconMarkdown = {fg = c.devIcons.markdown},
+    DevIconGo = {fg = c.devIcons.go},
+    DevIconHtm = {fg = c.devIcons.html},
+    DevIconHtml = {fg = c.devIcons.html},
+    DevIconJava = {fg = c.devIcons.java},
+    DevIconJs = {fg = c.devIcons.javascript},
+    DevIconJson = {fg = c.devIcons.json},
+    DevIconLess = {fg = c.devIcons.less},
+    DevIconMakefile = {fg = c.devIcons.make},
+    DevIconMustache = {fg = c.devIcons.mustache},
+    DevIconPhp = {fg = c.devIcons.php},
+    DevIconPython = {fg = c.devIcons.python},
+    DevIconErb = {fg = c.devIcons.ruby_on_rails},
+    DevIconRb = {fg = c.devIcons.ruby},
+    DevIconSass = {fg = c.devIcons.sass},
+    DevIconScss = {fg = c.devIcons.scss},
+    DevIconSh = {fg = c.devIcons.shellscript},
+    DevIconSql = {fg = c.devIcons.sql},
+    DevIconTs = {fg = c.devIcons.typescript},
+    DevIconXml = {fg = c.devIcons.xml},
+    DevIconYaml = {fg = c.devIcons.yml},
+    DevIconYml = {fg = c.devIcons.yml}
   }
 
   if config.hideInactiveStatusline then
