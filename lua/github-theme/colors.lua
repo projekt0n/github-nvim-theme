@@ -107,6 +107,35 @@ function M.setup(config)
       change = themes({dark = "#2188ff", dimmed = "#966600", light = "#2188ff"}),
       add = themes({dark = "#28a745", dimmed = "#2b6a30", light = "#28a745"}),
       delete = themes({dark = "#ea4a5a", dimmed = "#ad2e2c", light = "#d73a49"})
+    },
+
+    devIcons = {
+      c = "#519aba",
+      clojure = "#8dc149",
+      coffeescript = "#cbcb41",
+      csharp = "#519aba",
+      css = "#519aba",
+      markdown = "#519aba",
+      go = "#519aba",
+      html = "#e37933",
+      java = "#cc3e44",
+      javascript = "#cbcb41",
+      json = "#cbcb41",
+      less = "#519aba",
+      make = "#e37933",
+      mustache = "#e37933",
+      php = "#a074c4",
+      python = "#4e93b3",
+      ruby_on_rails = "#cc3e44",
+      ruby = "#cc3e44",
+      sass = "#f55385",
+      scss = "#f55385",
+      shellscipt = "#4d5a5e",
+      sql = "#f55385",
+      typescript = "#519aba",
+      xml = "#e37933",
+      yml = "#a074c4"
+
     }
 
   }

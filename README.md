@@ -33,6 +33,7 @@ Extra color configs for **kitty**, **iTerm**, **Konsole** and **Alacritty** can 
 - [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
 - [Lualine](https://github.com/hoob3rt/lualine.nvim)
 - [nvim-bufferline.lua](https://github.com/akinsho/nvim-bufferline.lua)
+- [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
 - [Neogit](https://github.com/TimUntersberger/neogit)
 - [NvimTree](https://github.com/kyazdani42/nvim-tree.lua)
 - [Telescope](https://github.com/nvim-telescope/telescope.nvim)
