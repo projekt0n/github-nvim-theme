@@ -13,6 +13,7 @@ config = {
   keywordStyle = "italic",
   functionStyle = "NONE",
   variableStyle = "NONE",
+  msgAreaStyle = "NONE",
   hideInactiveStatusline = false,
   hideEndOfBuffer = true,
   sidebars = {},
