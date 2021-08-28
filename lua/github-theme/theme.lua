@@ -50,7 +50,7 @@ function M.setup(config)
     NormalNC = {fg = c.fg, bg = config.transparent and c.none or c.bg}, -- normal text in non-current windows
     NormalSB = {fg = c.fg, bg = c.bg_sidebar}, -- normal text in non-current windows
     NormalFloat = {fg = c.fg, bg = c.bg_float}, -- Normal text in floating windows.
-    FloatBorder = {fg = c.border_highlight},
+    FloatBorder = {fg = c.boder},
     Pmenu = {bg = c.pmenu.bg, fg = c.fg}, -- Popup menu: normal item.
     PmenuSel = {bg = c.pmenu.select, fg = c.fg}, -- Popup menu: selected item.
     PmenuSbar = {bg = c.pmenu.bg}, -- Popup menu: scrollbar.
@@ -370,7 +370,17 @@ function M.setup(config)
     GitSignsDelete = {fg = c.gitSigns.delete}, -- diff mode: Deleted line |diff.txt|
 
     -- Telescope
-    TelescopeBorder = {fg = c.border_highlight},
+    TelescopeBorder = {fg = c.border},
+    TelescopePromptPrefix = {fg = c.fg},
+    TelescopeMatching = {fg = c.syntax.constant, style = "bold"},
+    TelescopePreviewPipe = {fg = c.brightYellow},
+    TelescopePreviewRead = {fg = c.brightYellow},
+    TelescopePreviewSize = {fg = c.brightGreen},
+    TelescopePreviewUser = {fg = c.brightYellow},
+    TelescopePreviewBlock = {fg = c.brightYellow},
+    TelescopePreviewGroup = {fg = c.brightYellow},
+    TelescopePreviewWrite = {fg = c.brightMagenta},
+    TelescopePreviewSticky = {fg = c.brightCyan},
 
     -- NvimTree
     NvimTreeNormal = {fg = c.fg_light, bg = c.bg_sidebar},
