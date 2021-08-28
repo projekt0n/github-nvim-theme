@@ -40,6 +40,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Lualine `normal` section background color set blue color #43
 - Kitty window border colors fix #47
 - refactored `lua/github-theme/config.lua` fixed #29
+- telescope.nvim highlights improved
+- use `bg_visiual` color as floating window border
 
 ## [v0.0.1] - 9 Jul 2021
 
