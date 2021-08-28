@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `hideEndOfBuffer` options added. Enabling this option, will hide filler lines (~) after the end of the buffer #46
 - Custom [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons) colors (releated to #16)
 - `msgAreaStyle` config added
+- `border` color added in `colors.lua`
 
 ### Fixes
 
