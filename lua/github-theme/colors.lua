@@ -135,7 +135,6 @@ function M.setup(config)
       typescript = "#519aba",
       xml = "#e37933",
       yml = "#a074c4"
-
     }
 
   }
@@ -151,6 +150,7 @@ function M.setup(config)
   colors.eob = config.transparent and colors.fg_light or colors.eob
 
   colors.fg_search = colors.none
+  colors.border = colors.bg_visual
   colors.border_highlight = colors.blue
   colors.bg_statusline = colors.blue
 

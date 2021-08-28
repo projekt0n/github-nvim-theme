@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `hideEndOfBuffer` options added. Enabling this option, will hide filler lines (~) after the end of the buffer #46
 - Custom [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons) colors (releated to #16)
 - `msgAreaStyle` config added
+- `border` color added in `colors.lua`
 
 ### Fixes
 
@@ -39,6 +40,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Lualine `normal` section background color set blue color #43
 - Kitty window border colors fix #47
 - refactored `lua/github-theme/config.lua` fixed #29
+- telescope.nvim highlights improved
+- use `bg_visiual` color as floating window border
 
 ## [v0.0.1] - 9 Jul 2021
 
