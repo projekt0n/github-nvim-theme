@@ -50,7 +50,7 @@ function M.setup(config)
     NormalNC = {fg = c.fg, bg = config.transparent and c.none or c.bg}, -- normal text in non-current windows
     NormalSB = {fg = c.fg, bg = c.bg_sidebar}, -- normal text in non-current windows
     NormalFloat = {fg = c.fg, bg = c.bg_float}, -- Normal text in floating windows.
-    FloatBorder = {fg = c.boder},
+    FloatBorder = {fg = c.border},
     Pmenu = {bg = c.pmenu.bg, fg = c.fg}, -- Popup menu: normal item.
     PmenuSel = {bg = c.pmenu.select, fg = c.fg}, -- Popup menu: selected item.
     PmenuSbar = {bg = c.pmenu.bg}, -- Popup menu: scrollbar.

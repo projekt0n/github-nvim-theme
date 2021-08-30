@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Custom [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons) colors (releated to #16)
 - `msgAreaStyle` config added
 - `border` color added in `colors.lua`
+- Set `border` colors according to `themeStyle`
 
 ### Fixes
 

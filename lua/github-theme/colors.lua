@@ -45,6 +45,8 @@ function M.setup(config)
     bg_visual_selection = themes({dark = "#284566", dimmed = "#264466", light = "#dbe9f9"}),
     bg_highlight = themes({dark = "#2c313a", dimmed = "#2d333b", light = "#f6f8fa"}),
 
+    border = themes({dark = "#c9d1d9", dimmed = "#444c56", light = "#044289"}),
+
     fg = themes({dark = "#c9d1d9", dimmed = "#adbac7", light = "#24292e"}),
     fg_light = themes({dark = "#d1d5da", dimmed = "#adbac7", light = "#586069"}),
     fg_gutter = themes({dark = "#e1e4e8", dimmed = "#768390", light = "#babbbd"}),
@@ -150,7 +152,6 @@ function M.setup(config)
   colors.eob = config.transparent and colors.fg_light or colors.eob
 
   colors.fg_search = colors.none
-  colors.border = colors.bg_visual
   colors.border_highlight = colors.blue
   colors.bg_statusline = colors.blue
 
