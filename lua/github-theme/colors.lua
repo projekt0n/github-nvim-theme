@@ -141,15 +141,13 @@ function M.setup(config)
 
   }
 
-  util.bg = colors.bg
-  colors.bg = config.transparent and colors.none or colors.bg
-
   -- EndOfBuffer colors are configurable
   colors.sidebar_eob = config.darkSidebar and colors.bg2 or colors.bg
   colors.sidebar_eob = config.hideEndOfBuffer and colors.sidebar_eob or colors.fg_light
-  colors.sidebar_eob = config.transparent and colors.fg_light or colors.sidebar_eob
   colors.eob = config.hideEndOfBuffer and colors.bg or colors.fg_light
-  colors.eob = config.transparent and colors.fg_light or colors.eob
+
+  util.bg = colors.bg
+  colors.bg = config.transparent and colors.none or colors.bg
 
   colors.fg_search = colors.none
   colors.border_highlight = colors.blue
