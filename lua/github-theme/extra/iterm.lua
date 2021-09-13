@@ -5,10 +5,9 @@ local M = {}
 
 local rgb = function(hex)
   local _, redColor, greenColor, blueColor = hex:match("(.)(..)(..)(..)")
-  redColor, greenColor, blueColor =
-      string.format("%0.16f", (tonumber(redColor, 16) / 255)),
-      string.format("%0.16f", (tonumber(greenColor, 16) / 255)),
-      string.format("%0.16f", (tonumber(blueColor, 16) / 255))
+  redColor, greenColor, blueColor = string.format("%0.16f", (tonumber(redColor, 16) / 255)),
+                                    string.format("%0.16f", (tonumber(greenColor, 16) / 255)),
+                                    string.format("%0.16f", (tonumber(blueColor, 16) / 255))
   return {r = redColor, g = greenColor, b = blueColor}
 end
 

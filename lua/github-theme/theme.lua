@@ -40,7 +40,7 @@ function M.setup(config)
     Substitute = {bg = c.red, fg = c.black}, -- |:substitute| replacement text highlighting
     LineNr = {fg = c.line_nr}, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     CursorLineNr = {fg = c.cursor_line_nr}, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
-    MatchParen = {bg = c.syntax.matchParenBG, fg = c.fg}, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+    MatchParen = {bg = c.syntax.match_paren_bg, fg = c.fg}, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     ModeMsg = {fg = c.fg, style = "bold"}, -- 'showmode' message (e.g., "-- INSERT -- ")
     MsgArea = {fg = c.fg, style = config.msgAreaStyle}, -- Area for messages and cmdline
     -- MsgSeparator= { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
@@ -226,7 +226,7 @@ function M.setup(config)
     TSVariable = {fg = c.syntax.variable, style = config.variableStyle}, -- Any variable name that does not have another highlight.
     TSVariableBuiltin = {fg = c.syntax.variable}, -- Variable names that are defined by the languages, like `this` or `self`.
     TSTag = {fg = c.syntax.tag}, -- Tags like html tag names.
-    -- TSTagDelimiter      = { };    -- Tag delimiter like `<` `>` `/`
+    TSTagDelimiter = {fg = c.fg}, -- Tag delimiter like `<` `>` `/`
     -- TSText              = { };    -- For strings considered text in a markup language.
     TSTextReference = {fg = c.red}, -- FIXME
     -- TSEmphasis          = { };    -- For text to be represented with emphasis.
@@ -251,7 +251,7 @@ function M.setup(config)
     htmlTag = {fg = c.fg},
     htmlEndTag = {fg = c.fg},
     htmlTagName = {fg = c.syntax.tag},
-    htmlArg = {fg = c.syntax.htmlArg},
+    htmlArg = {fg = c.syntax.html_arg},
 
     -- javascript
     javascriptTSType = {fg = c.fg},
@@ -264,7 +264,7 @@ function M.setup(config)
     regexTSStringEscape = {fg = c.syntax.keyword},
 
     -- json
-    jsonTSLabel = {fg = c.syntax.jsonLabel},
+    jsonTSLabel = {fg = c.syntax.json_label},
 
     -- less
     lessVariable = {fg = c.fg},
@@ -479,9 +479,7 @@ function M.setup(config)
       theme.base.StatusLine = {bg = c.bg}
 
       -- LuaLine
-      for _, section in pairs({"a", "b", "c"}) do
-        theme.plugins["lualine_" .. section .. "_inactive"] = inactive
-      end
+      for _, section in pairs({"a", "b", "c"}) do theme.plugins["lualine_" .. section .. "_inactive"] = inactive end
     end
   end
 

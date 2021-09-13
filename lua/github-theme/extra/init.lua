@@ -9,13 +9,8 @@ local function write(str, fileName)
   file:close()
 end
 
-local extras = {
-  kitty = "conf",
-  alacritty = "yml",
-  iterm = "itermcolors",
-  konsole = "colorscheme"
-}
-for _, style in ipairs({"dark", "dimmed", "light"}) do
+local extras = {kitty = "conf", alacritty = "yml", iterm = "itermcolors", konsole = "colorscheme"}
+for _, style in ipairs({"dark", "dimmed", "light", "dark_default"}) do
   configModule.themeStyle = style
   for extra, ext in pairs(extras) do
     local plugin = require("github-theme.extra." .. extra)

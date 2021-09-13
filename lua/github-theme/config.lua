@@ -30,9 +30,7 @@ local function applyConfiguration(userConfig)
     if value ~= nil then
       if config[key] ~= nil then
         config[key] = value
-        if key == "themeStyle" and value ~= vim.g.github_theme_style then
-          vim.g.github_theme_style = value
-        end
+        if key == "themeStyle" and value ~= vim.g.github_theme_style then vim.g.github_theme_style = value end
       else
         error("projekt0n/github-nvim-theme: Option " .. key .. " does not exist") -- luacheck: ignore
       end
