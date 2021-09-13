@@ -1,4 +1,4 @@
-column_limit: 90
+column_limit: 120
 indent_width: 2
 single_quote_to_double_quote: true
 keep_simple_function_one_line: false
