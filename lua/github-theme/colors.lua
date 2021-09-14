@@ -167,10 +167,10 @@ function M.setup(config)
       dimmed = "#444c56",
       light = "#e1e4e8",
       dark_default = "#b3b1ad",
-      light_default = "#284566"
+      light_default = "#e1e4e8"
     }),
     bg_visual_selection = themes({
-      dark = "#e1e4e8",
+      dark = "#284566",
       dimmed = "#264466",
       light = "#dbe9f9",
       dark_default = "#163356",
@@ -189,7 +189,7 @@ function M.setup(config)
       dimmed = "#444c56",
       light = "#044289",
       dark_default = "#b3b1ad",
-      light_default = "#e1e4e8"
+      light_default = "#044289"
     }),
 
     fg = themes({
