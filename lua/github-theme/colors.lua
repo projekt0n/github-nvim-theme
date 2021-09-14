@@ -436,21 +436,21 @@ function M.setup(config)
         dark = "#244032",
         dimmed = "#293d34",
         light = "#d4f8db",
-        dark_default = "#c9d1d9",
+        dark_default = "#244032",
         light_default = "#d4f8db"
       }),
       add_fg = themes({
         dark = "#56d364",
         dimmed = "#6bc46d",
         light = "#22863a",
-        dark_default = "#1f4b2d",
+        dark_default = "#56d364",
         light_default = "#22863a"
       }),
       change = themes({
         dark = "#341a00",
         dimmed = "#452700",
         light = "#fff5b1",
-        dark_default = "#9e6a03",
+        dark_default = "#341a00",
         light_default = "#fff5b1"
       }),
       change_fg = themes({
@@ -464,7 +464,7 @@ function M.setup(config)
         dark = "#462c32",
         dimmed = "#432b30",
         light = "#fae5e7",
-        dark_default = "#b3b1ad",
+        dark_default = "#462c32",
         light_default = "#fae5e7"
       }),
       delete_fg = themes({
