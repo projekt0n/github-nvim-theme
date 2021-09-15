@@ -7,20 +7,20 @@ vim = vim or {g = {}, o = {}}
 vim.g.github_theme_style = "dark"
 
 config = {
-  themeStyle = vim.g.github_theme_style,
+  theme_style = vim.g.github_theme_style,
+  dark_float = true,
+  dark_sidebar = true,
   transparent = false,
-  commentStyle = "italic",
-  keywordStyle = "italic",
-  functionStyle = "NONE",
-  variableStyle = "NONE",
-  msgAreaStyle = "NONE",
-  hideInactiveStatusline = false,
-  hideEndOfBuffer = true,
+  comment_style = "italic",
+  keyword_style = "italic",
+  function_style = "NONE",
+  variable_style = "NONE",
+  msg_area_style = "NONE",
+  hide_inactive_statusline = false,
+  hide_end_of_buffer = true,
   sidebars = {},
   colors = {},
   dev = false,
-  darkFloat = true,
-  darkSidebar = true,
   transform_colors = false
 }
 
@@ -30,7 +30,7 @@ local function applyConfiguration(userConfig)
     if value ~= nil then
       if config[key] ~= nil then
         config[key] = value
-        if key == "themeStyle" and value ~= vim.g.github_theme_style then vim.g.github_theme_style = value end
+        if key == "theme_style" and value ~= vim.g.github_theme_style then vim.g.github_theme_style = value end
       else
         error("projekt0n/github-nvim-theme: Option " .. key .. " does not exist") -- luacheck: ignore
       end

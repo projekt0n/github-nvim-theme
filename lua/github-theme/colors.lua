@@ -9,7 +9,7 @@ function M.setup(config)
   config = config or configModule.config
 
   local themes = function(options)
-    return options[config.themeStyle]
+    return options[config.theme_style]
   end
 
   -- Color Palette
@@ -531,9 +531,9 @@ function M.setup(config)
   }
 
   -- EndOfBuffer colors are configurable
-  colors.sidebar_eob = config.darkSidebar and colors.bg2 or colors.bg
-  colors.sidebar_eob = config.hideEndOfBuffer and colors.sidebar_eob or colors.fg_light
-  colors.eob = config.hideEndOfBuffer and colors.bg or colors.fg_light
+  colors.sidebar_eob = config.dark_sidebar and colors.bg2 or colors.bg
+  colors.sidebar_eob = config.hide_end_of_buffer and colors.sidebar_eob or colors.fg_light
+  colors.eob = config.hide_end_of_buffer and colors.bg or colors.fg_light
 
   util.bg = colors.bg
   colors.bg = config.transparent and colors.none or colors.bg
@@ -550,9 +550,9 @@ function M.setup(config)
   colors.bg_popup = colors.bg2
 
   -- Sidebar and Floats are configurable
-  colors.bg_sidebar = config.darkSidebar and colors.bg2 or colors.bg
+  colors.bg_sidebar = config.dark_sidebar and colors.bg2 or colors.bg
   colors.bg_sidebar = config.transparent and colors.none or colors.bg_sidebar
-  colors.bg_float = config.darkFloat and colors.bg2 or colors.bg
+  colors.bg_float = config.dark_float and colors.bg2 or colors.bg
 
   util.color_overrides(colors, config)
 

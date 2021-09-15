@@ -1,1 +1,1 @@
-require("github-theme").setup({themeStyle = "dimmed"})
+require("github-theme").setup({theme_style = "dimmed"})

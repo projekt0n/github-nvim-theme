@@ -11,7 +11,7 @@ end
 
 local extras = {kitty = "conf", alacritty = "yml", iterm = "itermcolors", konsole = "colorscheme"}
 for _, style in ipairs({"dark", "dimmed", "light", "dark_default", "light_default"}) do
-  configModule.themeStyle = style
+  configModule.theme_style = style
   for extra, ext in pairs(extras) do
     local plugin = require("github-theme.extra." .. extra)
     local fileName = "extras/" .. extra .. "/" .. style .. "." .. ext

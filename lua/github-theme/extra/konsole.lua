@@ -18,7 +18,7 @@ function M.konsole(config)
   local konsoleColors = {}
   for k, v in pairs(colors) do if type(v) == "string" then konsoleColors[k] = M.Hex2rgb(v) end end
 
-  local description = "Github " .. config.themeStyle:lower():gsub("^%l", string.upper)
+  local description = "Github " .. config.theme_style:lower():gsub("^%l", string.upper)
 
   local konsole = util.template([[
 # github Konsole Colors
