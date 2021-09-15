@@ -52,13 +52,13 @@ Install the theme with your preferred package manager:
 [vim-plug](https://github.com/junegunn/vim-plug)
 
 ```vim
-Plug 'projekt0n/github-nvim-theme'
+Plug 'projekt0n/github-nvim-theme', { 'tag': 'v0.0.2' }
 ```
 
 [packer](https://github.com/wbthomason/packer.nvim)
 
 ```lua
-use 'projekt0n/github-nvim-theme'
+use {"projekt0n/github-nvim-theme", tag = "v0.0.2"}
 ```
 
 ## Usage
