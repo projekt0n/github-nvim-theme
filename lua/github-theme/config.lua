@@ -9,7 +9,13 @@ local function opt(key, default)
   if vim.g[key] == nil then
     return default
   else
-    return vim.g[key]
+    if vim.g[key] == 1 then
+      return true
+    elseif vim.g[key] == 0 then
+      return false
+    else
+      return vim.g[key]
+    end
   end
 end
 

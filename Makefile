@@ -27,8 +27,14 @@ kitty_pre:
 kitty_dark: kitty_pre
 	@cat $(exts)/kitty/dark.conf > $(theme)
 
+kitty_dark_default: kitty_pre
+	@cat $(exts)/kitty/dark_default.conf > $(theme)
+
 kitty_dimmed: kitty_pre
 	@cat $(exts)/kitty/dimmed.conf > $(theme)
 
 kitty_light: kitty_pre
 	@cat $(exts)/kitty/light.conf > $(theme)
+
+kitty_light_default: kitty_pre
+	@cat $(exts)/kitty/light_default.conf > $(theme)
