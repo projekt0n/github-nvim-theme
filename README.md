@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://imgur.com/oaR5oL7.png" alt="github-nvim-theme" />
+  <img src="https://imgur.com/i3Ix00H.png" alt="github-nvim-theme" />
 </p>
 
 ### Status
@@ -151,6 +151,11 @@ set -as terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{25
 
 ## 📺 Screenshot
 
+- Font: [Ubuntu Mono](https://design.ubuntu.com/font/)
+- Terminal: [kitty](https://sw.kovidgoyal.net/kitty)
+- Icon: [circles.nvim](https://github.com/projekt0n/circles.nvim)
+- dotfiles: [dotfiles](https://github.com/ful1e5/dotfiles)
+
 ### Theme Styles
 
 #### Dark
@@ -169,7 +174,7 @@ require("github-theme").setup({
 ```
 
 <p align="center">
-  <img src="https://imgur.com/MEDU2rX.png" alt="github_dark" />
+  <img src="https://imgur.com/wsST2ZB.png" alt="github_dark" />
 </p>
 
 #### Dark Default
@@ -188,7 +193,7 @@ require("github-theme").setup({
 ```
 
 <p align="center">
-  <img src="https://imgur.com/jtUasER.png" alt="github_dark_default" />
+  <img src="https://imgur.com/pNJDMft.png" alt="github_dark_default" />
 </p>
 
 #### Dimmed
@@ -207,7 +212,7 @@ require("github-theme").setup({
 ```
 
 <p align="center">
-  <img src="https://imgur.com/zftBkYY.png" alt="github_dimmed" />
+  <img src="https://imgur.com/LLp5qnT.png" alt="github_dimmed" />
 </p>
 
 #### Light
@@ -226,7 +231,7 @@ require("github-theme").setup({
 ```
 
 <p align="center">
-  <img src="https://imgur.com/f9S021z.png" alt="github_light" />
+  <img src="https://imgur.com/yXEj746.png" alt="github_light" />
 </p>
 
 #### Light Default
@@ -245,7 +250,7 @@ require("github-theme").setup({
 ```
 
 <p align="center">
-  <img src="https://imgur.com/5yeY6wq.png" alt="github_light_default" />
+  <img src="https://imgur.com/fykVFCr.png" alt="github_light_default" />
 </p>
 
 ### Syntax Styles
@@ -253,7 +258,7 @@ require("github-theme").setup({
 #### Default
 
 <p align="center">
-  <img src="https://imgur.com/lAhcK7t.png" alt="github_default_syntax" />
+  <img src="https://imgur.com/GbemreO.png" alt="github_default_syntax" />
 </p>
 
 #### Normal
@@ -278,7 +283,7 @@ require("github-theme").setup({
 ```
 
 <p align="center">
-  <img src="https://imgur.com/Ro9sxRh.png" alt="github_normal_syntax" />
+  <img src="https://imgur.com/qrJwUDb.png" alt="github_normal_syntax" />
 </p>
 
 #### Italic
@@ -303,7 +308,7 @@ require("github-theme").setup({
 ```
 
 <p align="center">
-  <img src="https://imgur.com/1iUxjxQ.png" alt="github_italic_syntax" />
+  <img src="https://imgur.com/TK6HEA4.png" alt="github_italic_syntax" />
 </p>
 
 ### Minimal config
@@ -322,20 +327,14 @@ require("github-theme").setup({
 ```
 
 <p align="center">
-  <img src="https://imgur.com/VFeK8ZN.png" alt="github_minimal" />
+  <img src="https://imgur.com/SuPtKdk.png" alt="github_minimal" />
 </p>
 
 ### Telescope
 
 <p align="center">
-  <img src="https://imgur.com/hB9uCJV.png" alt="github_telescope" />
+  <img src="https://imgur.com/WBRiOwx.png" alt="github_telescope" />
 </p>
-
-## Useful Links
-
-- Terminal: [kitty](https://sw.kovidgoyal.net/kitty)
-- Font: [Ubuntu Mono](https://design.ubuntu.com/font/)
-- config: [dotfiles](https://github.com/ful1e5/dotfiles)
 
 <!-- Ninja  -->
 <p align="center">
