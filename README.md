@@ -59,7 +59,7 @@ Plug 'projekt0n/github-nvim-theme'
 [packer](https://github.com/wbthomason/packer.nvim)
 
 ```lua
-use {"projekt0n/github-nvim-theme"
+use "projekt0n/github-nvim-theme"
 ```
 
 ## Usage
@@ -74,19 +74,6 @@ colorscheme github_*
 ```lua
 -- Lua
 require('github-theme').setup()
-```
-
-To enable the `github` theme for `Lualine`, simply specify it in your lualine settings:
-
-> ⚠️ Set `lualine` configuration **before** `github-theme`. otherwise, the `hide_inactive_statusline` option won't work.
-
-```lua
-require('lualine').setup {
-  options = {
-    theme = 'github',
-    -- ... your lualine config
-  }
-}
 ```
 
 ## Configuration
@@ -130,6 +117,62 @@ require("github-theme").setup({
   -- Change the "hint" color to the "orange" color, and make the "error" color bright red
   colors = {hint = "orange", error = "#ff0000"}
 })
+```
+
+### Lualine Support
+
+To enable the `github` theme for `Lualine`, simply specify it in your lualine settings:
+
+> ⚠️ Set `lualine` configuration **before** `github-theme`. otherwise, the `hide_inactive_statusline` option won't work.
+
+#### packer
+
+```lua
+use {
+  "hoob3rt/lualine.nvim",
+  config = function()
+    require("lualine").setup {
+      options = {
+        theme = "github"
+        -- ... your lualine config
+      }
+    }
+  end
+}
+use {
+  "projekt0n/github-nvim-theme",
+  after = "lualine.nvim",
+  config = function()
+    require("github-theme").setup({
+      theme_style = "dark_default"
+      -- your github config
+    })
+  end
+}
+```
+
+#### init.vim
+
+```vim
+lua << EOF
+require('lualine').setup {
+  options = {
+    theme = 'github',
+    -- ... your lualine config
+  }
+}
+EOF
+```
+
+#### init.lua
+
+```lua
+require('lualine').setup {
+  options = {
+    theme = 'github',
+    -- ... your lualine config
+  }
+}
 ```
 
 ### Making `undercurls` work properly in **Tmux**
