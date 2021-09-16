@@ -27,7 +27,7 @@ function M.setup(config)
     DiffAdd = {bg = c.diff.add}, -- diff mode: Added line |diff.txt|
     DiffChange = {bg = c.diff.change}, -- diff mode: Changed line |diff.txt|
     DiffDelete = {bg = c.diff.delete}, -- diff mode: Deleted line |diff.txt|
-    DiffText = {bg = c.fg_gutter}, -- diff mode: Changed text within a changed line |diff.txt|
+    DiffText = {fg = c.fg_gutter}, -- diff mode: Changed text within a changed line |diff.txt|
     EndOfBuffer = {fg = c.eob}, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
     -- TermCursor  = { }, -- cursor in a focused terminal
     -- TermCursorNC= { }, -- cursor in an unfocused terminal
@@ -40,9 +40,9 @@ function M.setup(config)
     Substitute = {bg = c.red, fg = c.black}, -- |:substitute| replacement text highlighting
     LineNr = {fg = c.line_nr}, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     CursorLineNr = {fg = c.cursor_line_nr}, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
-    MatchParen = {bg = c.syntax.matchParenBG, fg = c.fg}, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+    MatchParen = {bg = c.syntax.match_paren_bg, fg = c.fg}, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     ModeMsg = {fg = c.fg, style = "bold"}, -- 'showmode' message (e.g., "-- INSERT -- ")
-    MsgArea = {fg = c.fg, style = config.msgAreaStyle}, -- Area for messages and cmdline
+    MsgArea = {fg = c.fg, style = config.msg_area_style}, -- Area for messages and cmdline
     -- MsgSeparator= { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     MoreMsg = {fg = c.blue}, -- |more-prompt|
     NonText = {fg = c.eof}, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
@@ -81,7 +81,7 @@ function M.setup(config)
     -- default,
     -- Uncomment and edit if you want more specific syntax highlighting.
 
-    Comment = {fg = c.syntax.comment, style = config.commentStyle}, -- any comment
+    Comment = {fg = c.syntax.comment, style = config.comment_style}, -- any comment
     Constant = {fg = c.syntax.constant}, -- (preferred) any constant
     String = {fg = c.syntax.string}, --   a string constant: "this is a string"
     Character = {fg = c.syntax.variable}, --  a character constant: 'c', '\n'
@@ -89,14 +89,14 @@ function M.setup(config)
     -- Boolean       = { }, --  a boolean constant: TRUE, false
     -- Float         = { }, --    a floating point constant: 2.3e10
 
-    Identifier = {fg = c.syntax.variable, style = config.variableStyle}, -- (preferred) any variable name
-    Function = {fg = c.syntax.func, style = config.functionStyle}, -- function name (also: methods for classes)
+    Identifier = {fg = c.syntax.variable, style = config.variable_style}, -- (preferred) any variable name
+    Function = {fg = c.syntax.func, style = config.function_style}, -- function name (also: methods for classes)
     Statement = {fg = c.syntax.keyword}, -- (preferred) any statement
     -- Conditional   = { }, --  if, then, else, endif, switch, etc.
     -- Repeat        = { }, --   for, do, while, etc.
     -- Label         = { }, --    case, default, etc.
     Operator = {fg = c.syntax.keyword}, -- "sizeof", "+", "*", etc.
-    Keyword = {fg = c.syntax.keyword, style = config.keywordStyle}, --  any other keyword
+    Keyword = {fg = c.syntax.keyword, style = config.keyword_style}, --  any other keyword
     -- Exception     = { }, --  try, catch, throw
 
     PreProc = {fg = c.syntax.keyword}, -- (preferred) generic Preprocessor
@@ -202,8 +202,8 @@ function M.setup(config)
     -- TSFuncBuiltin       = { };    -- For builtin functions: `table.insert` in Lua.
     -- TSFuncMacro         = { };    -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
     TSInclude = {fg = c.syntax.keyword}, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
-    TSKeyword = {fg = c.syntax.keyword, style = config.keywordStyle}, -- For keywords that don't fall in previous categories.
-    TSKeywordFunction = {fg = c.syntax.keyword, style = config.functionStyle}, -- For keywords used to define a fuction.
+    TSKeyword = {fg = c.syntax.keyword, style = config.keyword_style}, -- For keywords that don't fall in previous categories.
+    TSKeywordFunction = {fg = c.syntax.keyword, style = config.function_style}, -- For keywords used to define a fuction.
     TSLabel = {fg = c.blue}, -- For labels: `label:` in C and `:label:` in Lua.
     -- TSMethod            = { };    -- For method calls and definitions.
     TSNamespace = {fg = c.fg}, -- For identifiers referring to modules and namespaces.
@@ -223,10 +223,10 @@ function M.setup(config)
     -- TSSymbol            = { };    -- For identifiers referring to symbols or atoms.
     TSType = {fg = c.syntax.keyword}, -- For types.
     -- TSTypeBuiltin       = { };    -- For builtin types.
-    TSVariable = {fg = c.syntax.variable, style = config.variableStyle}, -- Any variable name that does not have another highlight.
+    TSVariable = {fg = c.syntax.variable, style = config.variable_style}, -- Any variable name that does not have another highlight.
     TSVariableBuiltin = {fg = c.syntax.variable}, -- Variable names that are defined by the languages, like `this` or `self`.
     TSTag = {fg = c.syntax.tag}, -- Tags like html tag names.
-    -- TSTagDelimiter      = { };    -- Tag delimiter like `<` `>` `/`
+    TSTagDelimiter = {fg = c.fg}, -- Tag delimiter like `<` `>` `/`
     -- TSText              = { };    -- For strings considered text in a markup language.
     TSTextReference = {fg = c.red}, -- FIXME
     -- TSEmphasis          = { };    -- For text to be represented with emphasis.
@@ -251,7 +251,7 @@ function M.setup(config)
     htmlTag = {fg = c.fg},
     htmlEndTag = {fg = c.fg},
     htmlTagName = {fg = c.syntax.tag},
-    htmlArg = {fg = c.syntax.htmlArg},
+    htmlArg = {fg = c.syntax.html_arg},
 
     -- javascript
     javascriptTSType = {fg = c.fg},
@@ -264,7 +264,7 @@ function M.setup(config)
     regexTSStringEscape = {fg = c.syntax.keyword},
 
     -- json
-    jsonTSLabel = {fg = c.syntax.jsonLabel},
+    jsonTSLabel = {fg = c.syntax.json_label},
 
     -- less
     lessVariable = {fg = c.fg},
@@ -467,7 +467,7 @@ function M.setup(config)
     DevIconYml = {fg = c.devIcons.yml}
   }
 
-  if config.hideInactiveStatusline then
+  if config.hide_inactive_statusline then
     local inactive = {style = "underline", bg = c.bg, fg = c.bg, sp = c.bg_visual}
 
     -- StatusLine
@@ -479,9 +479,7 @@ function M.setup(config)
       theme.base.StatusLine = {bg = c.bg}
 
       -- LuaLine
-      for _, section in pairs({"a", "b", "c"}) do
-        theme.plugins["lualine_" .. section .. "_inactive"] = inactive
-      end
+      for _, section in pairs({"a", "b", "c"}) do theme.plugins["lualine_" .. section .. "_inactive"] = inactive end
     end
   end
 

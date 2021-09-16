@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://imgur.com/jP33Wgo.png" alt="github-nvim-theme" />
+  <img src="https://imgur.com/oaR5oL7.png" alt="github-nvim-theme" />
 </p>
 
 ### Status
@@ -25,6 +25,7 @@ Extra color configs for **kitty**, **iTerm**, **Konsole** and **Alacritty** can 
 ### Plugin Support
 
 - [ALE](https://github.com/dense-analysis/ale)
+- [circles.nvim](https://github.com/projekt0n/circles.nvim)
 - [dashboard-nvim](https://github.com/glepnir/dashboard-nvim)
 - [Git Signs](https://github.com/lewis6991/gitsigns.nvim)
 - [Indent Blankline](https://github.com/lukas-reineke/indent-blankline.nvim)
@@ -52,13 +53,13 @@ Install the theme with your preferred package manager:
 [vim-plug](https://github.com/junegunn/vim-plug)
 
 ```vim
-Plug 'projekt0n/github-nvim-theme', { 'tag': 'v0.0.2' }
+Plug 'projekt0n/github-nvim-theme'
 ```
 
 [packer](https://github.com/wbthomason/packer.nvim)
 
 ```lua
-use {"projekt0n/github-nvim-theme", tag = "v0.0.2"}
+use {"projekt0n/github-nvim-theme"
 ```
 
 ## Usage
@@ -67,7 +68,7 @@ Enable the colorscheme:
 
 ```vim
 " Vim Script
-lua require('github-theme').setup()
+colorscheme github_*
 ```
 
 ```lua
@@ -77,15 +78,12 @@ require('github-theme').setup()
 
 To enable the `github` theme for `Lualine`, simply specify it in your lualine settings:
 
-> Set `lualine` configuration **before** `github-theme`.
+> ⚠️ Set `lualine` configuration **before** `github-theme`. otherwise, the `hide_inactive_statusline` option won't work.
 
 ```lua
 require('lualine').setup {
   options = {
     theme = 'github',
-    -- For round icons (require Nerd-Font)
-    -- section_separators = {"", ""},
-    -- component_separators = {"", ""},
     -- ... your lualine config
   }
 }
@@ -93,21 +91,35 @@ require('lualine').setup {
 
 ## Configuration
 
-| Option                 | Default  | Description                                                                                                                                                     |
-| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| themeStyle             | `dark`   | Set theme variant (options: `dark`/`dimmed`/`light`)                                                                                                            |
-| commentStyle           | `italic` | Highlight style for comments (check `:help highlight-args` for options)                                                                                         |
-| keywordStyle           | `italic` | Highlight style for keywords (check `:help highlight-args` for options)                                                                                         |
-| functionStyle          | `NONE`   | Highlight style for functions (check `:help highlight-args` for options)                                                                                        |
-| variableStyle          | `NONE`   | Highlight style for variables and identifiers (check `:help highlight-args` for options)                                                                        |
-| msgAreaStyle           | `NONE`   | Highlight style for messages and cmdline (check `:help highlight-args` for options)                                                                             |
-| transparent            | `false`  | Enable this to disable setting the background color                                                                                                             |
-| hideEndOfBuffer        | `true`   | Enabling this option, will hide filler lines (~) after the end of the buffer                                                                                    |
-| hideInactiveStatusline | `false`  | Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**. |
-| sidebars               | `{}`     | Set a darker background on sidebar-like windows. For example: `{"qf", "vista_kind", "terminal", "packer"}`                                                      |
-| darkSidebar            | `true`   | Sidebar like windows like `NvimTree` get a darker background                                                                                                    |
-| darkFloat              | `true`   | Float windows like the lsp diagnostics windows get a darker background.                                                                                         |
-| colors                 | `{}`     | You can override specific color groups to use other groups or a hex color                                                                                       |
+> ❗configuration needs to be set BEFORE loading the color scheme with `colorscheme github_*`
+
+| Option                   | Default  | Description                                                                                                                                                     |
+| ------------------------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| theme_style              | `dark`   | Set theme variant (options: `dark`/`dark_default`/`dimmed`/`light`/`light_default`)                                                                             |
+| comment_style            | `italic` | Highlight style for comments (check `:help highlight-args` for options)                                                                                         |
+| keyword_style            | `italic` | Highlight style for keywords (check `:help highlight-args` for options)                                                                                         |
+| function_style           | `NONE`   | Highlight style for functions (check `:help highlight-args` for options)                                                                                        |
+| variable_style           | `NONE`   | Highlight style for variables and identifiers (check `:help highlight-args` for options)                                                                        |
+| msg_area_style           | `NONE`   | Highlight style for messages and cmdline (check `:help highlight-args` for options)                                                                             |
+| transparent              | `false`  | Enable this to disable setting the background color                                                                                                             |
+| hide_end_of_buffer       | `true`   | Enabling this option, will hide filler lines (~) after the end of the buffer                                                                                    |
+| hide_inactive_statusline | `true`   | Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**. |
+| sidebars                 | `{}`     | Set a darker background on sidebar-like windows. For example: `{"qf", "vista_kind", "terminal", "packer"}`                                                      |
+| dark_sidebar             | `true`   | Sidebar like windows like `NvimTree` get a darker background                                                                                                    |
+| dark_float               | `false`  | Float windows like the lsp diagnostics windows get a darker background.                                                                                         |
+| colors                   | `{}`     | You can override specific color groups to use other groups or a hex color                                                                                       |
+
+```vim
+" Example config in VimScript
+let g:github_function_style = "italic"
+let g:github_sidebars = ["qf", "vista_kind", "terminal", "packer"]
+
+" Change the "hint" color to the "orange" color, and make the "error" color bright red
+let g:github_colors = [hint = "orange", error = "#ff0000"]
+
+" Load the colorscheme
+colorscheme github_dark
+```
 
 ```lua
 -- Example config in Lua
@@ -118,19 +130,6 @@ require("github-theme").setup({
   -- Change the "hint" color to the "orange" color, and make the "error" color bright red
   colors = {hint = "orange", error = "#ff0000"}
 })
-```
-
-```vim
-" Example config in VimScript
-lua << EOF
-require("github-theme").setup({
-  functionStyle = "italic",
-  sidebars = {"qf", "vista_kind", "terminal", "packer"},
-
-  -- Change the "hint" color to the "orange" color, and make the "error" color bright red
-  colors = {hint = "orange", error = "#ff0000"}
-})
-EOF
 ```
 
 ### Making `undercurls` work properly in **Tmux**
@@ -146,107 +145,190 @@ set -as terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{25
 
 ## Reference
 
-- [monsonjeremy/onedark.nvim](https://github.com/monsonjeremy/onedark.nvim)
 - [primer/github-vscode-theme](https://github.com/primer/github-vscode-theme)
+- [folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
+- [monsonjeremy/onedark.nvim](https://github.com/monsonjeremy/onedark.nvim)
 
 ## 📺 Screenshot
 
-### Dark
+### Theme Styles
+
+#### Dark
+
+```vim
+" VimScript
+colorscheme github_dark
+```
 
 ```lua
+-- Lua
 require("github-theme").setup({
-  themeStyle = "dark",
-  -- ... your github-theme config
+  theme_style = "dark",
+  -- other config
 })
 ```
 
 <p align="center">
-    <img src="https://imgur.com/W5KOVl9.png" alt="github-dark-theme" />
+  <img src="https://imgur.com/MEDU2rX.png" alt="github_dark" />
 </p>
 
-### Dimmed
+#### Dark Default
+
+```vim
+" VimScript
+colorscheme github_dark_default
+```
 
 ```lua
+-- Lua
 require("github-theme").setup({
-  themeStyle = "dimmed",
-  -- ... your github-theme config
+  theme_style = "dark_default",
+  -- other config
 })
 ```
 
 <p align="center">
-    <img src="https://imgur.com/4vyzl9p.png" alt="github-dimmed-theme" />
+  <img src="https://imgur.com/jtUasER.png" alt="github_dark_default" />
 </p>
 
-### Light
+#### Dimmed
+
+```vim
+" VimScript
+colorscheme github_dimmed
+```
 
 ```lua
+-- Lua
 require("github-theme").setup({
-  themeStyle = "light",
-  -- ... your github-theme config
+  theme_style = "dimmed",
+  -- other config
 })
 ```
 
 <p align="center">
-  <img src="https://imgur.com/WoHO2KJ.png" alt="github-light-theme" />
+  <img src="https://imgur.com/zftBkYY.png" alt="github_dimmed" />
 </p>
 
-### Default
+#### Light
 
-<p align="center">
-  <img src="https://imgur.com/yk9rD0p.png" alt="Default fonts" />
-</p>
-
-### Normal
+```vim
+" VimScript
+colorscheme github_light
+```
 
 ```lua
+-- Lua
 require("github-theme").setup({
-  commentStyle = "NONE",
-  keywordStyle = "NONE",
-  functionStyle = "NONE",
-  variableStyle = "NONE"
-  -- ... your github-theme config
+  theme_style = "light",
+  -- other config
 })
 ```
 
 <p align="center">
-  <img src="https://imgur.com/wM8GZJX.png" alt="Normal fonts" />
+  <img src="https://imgur.com/f9S021z.png" alt="github_light" />
 </p>
 
-### Italic
+#### Light Default
+
+```vim
+" VimScript
+colorscheme github_light_default
+```
 
 ```lua
+-- Lua
 require("github-theme").setup({
-  commentStyle = "italic",
-  keywordStyle = "italic",
-  functionStyle = "italic",
-  variableStyle = "italic"
-  -- ... your github-theme config
+  theme_style = "light_default",
+  -- other config
 })
 ```
 
 <p align="center">
-  <img src="https://imgur.com/B93ytVb.png" alt="Italic fonts" />
+  <img src="https://imgur.com/5yeY6wq.png" alt="github_light_default" />
 </p>
 
-### Minimal
+### Syntax Styles
+
+#### Default
+
+<p align="center">
+  <img src="https://imgur.com/lAhcK7t.png" alt="github_default_syntax" />
+</p>
+
+#### Normal
+
+```vim
+" VimScript
+let g:github_comment_style = "NONE"
+let g:github_keyword_style = "NONE"
+let g:github_function_style = "NONE"
+let g:github_variable_style = "NONE"
+```
 
 ```lua
+-- Lua
 require("github-theme").setup({
-  hideInactiveStatusline = true,
-  darkSidebar = false,
-  darkFloat = true
-  -- ... your github-theme config
+  comment_style = "NONE",
+  keyword_style = "NONE",
+  function_style = "NONE",
+  variable_style = "NONE"
+  -- other config
 })
 ```
 
 <p align="center">
-  <img src="https://imgur.com/rHOoyJP.png" alt="Minimal" />
+  <img src="https://imgur.com/Ro9sxRh.png" alt="github_normal_syntax" />
+</p>
+
+#### Italic
+
+```vim
+" VimScript
+let g:github_comment_style = "italic"
+let g:github_keyword_style = "italic"
+let g:github_function_style = "italic"
+let g:github_variable_style = "italic"
+```
+
+```lua
+-- Lua
+require("github-theme").setup({
+  comment_style = "italic",
+  keyword_style = "italic",
+  function_style = "italic",
+  variable_style = "italic"
+  -- other config
+})
+```
+
+<p align="center">
+  <img src="https://imgur.com/1iUxjxQ.png" alt="github_italic_syntax" />
+</p>
+
+### Minimal config
+
+```vim
+" VimScript
+let g:github_dark_sidebar = 0
+```
+
+```lua
+-- Lua
+require("github-theme").setup({
+  dark_sidebar = false,
+  -- other config
+})
+```
+
+<p align="center">
+  <img src="https://imgur.com/VFeK8ZN.png" alt="github_minimal" />
 </p>
 
 ### Telescope
 
 <p align="center">
-  <img src="https://imgur.com/TjoW19w.png" alt="Telescope plugin" />
+  <img src="https://imgur.com/hB9uCJV.png" alt="github_telescope" />
 </p>
 
 ## Useful Links
