@@ -23,6 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed `diff` highlight colors for `dark_default` & `light_default`
 - Screenshots and docs updated #63 #16
 - #72 fixed
+- #73 fixed
 
 ## [v0.0.2] - 15 Sep 2021
 
