@@ -162,10 +162,15 @@ function M.setup(config)
     LspDiagnosticsUnderlineInformation = {style = "undercurl", sp = c.info}, -- Used to underline "Information" diagnostics
     LspDiagnosticsUnderlineHint = {style = "undercurl", sp = c.hint}, -- Used to underline "Hint" diagnostics
 
-    DiagnosticUnderlineError = {link = "LspDiagnosticsUnderlineError"},
-    DiagnosticUnderlineWarn = {link = "LspDiagnosticsUnderlineWarning"},
-    DiagnosticUnderlineInfo = {link = "LspDiagnosticsUnderlineInformation"},
-    DiagnosticUnderlineHint = {link = "LspDiagnosticsVirtualTextHint"}
+    DiagnosticError = {link = "LspDiagnosticsDefaultError"}, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
+    DiagnosticWarn = {link = "LspDiagnosticsDefaultWarning"}, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
+    DiagnosticInfo = {link = "LspDiagnosticsDefaultInformation"}, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
+    DiagnosticHint = {link = "LspDiagnosticsDefaultHint"}, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
+    DiagnosticUnderlineError = {link = "LspDiagnosticsUnderlineError"}, -- Used to underline "Error" diagnostics
+    DiagnosticUnderlineWarn = {link = "LspDiagnosticsUnderlineWarning"}, -- Used to underline "Warning" diagnostics
+    DiagnosticUnderlineInfo = {link = "LspDiagnosticsUnderlineInformation"}, -- Used to underline "Information" diagnostics
+    DiagnosticUnderlineHint = {link = "LspDiagnosticsVirtualTextHint"} -- Used to underline "Hint" diagnostics
+
     -- LspDiagnosticsFloatingError         = { }, -- Used to color "Error" diagnostic messages in diagnostics float
     -- LspDiagnosticsFloatingWarning       = { }, -- Used to color "Warning" diagnostic messages in diagnostics float
     -- LspDiagnosticsFloatingInformation   = { }, -- Used to color "Information" diagnostic messages in diagnostics float
