@@ -78,16 +78,16 @@ Color=102,102,102
 Color=102,102,102
 
 [Color7Intense]
-Color=66,66,66
+Color=209,213,218
 
 [Foreground]
-Color=66,66,66
+Color=209,213,218
 
 [ForegroundFaint]
-Color=66,66,66
+Color=209,213,218
 
 [ForegroundIntense]
-Color=66,66,66
+Color=209,213,218
 
 [General]
 Description=Github Dark

@@ -26,7 +26,7 @@ function M.setup(config)
       light_default = "#424242"
     }),
     term_fg = themes({
-      dark = "#424242",
+      dark = "#d1d5da",
       dimmed = "#768390",
       light = "#586069",
       dark_default = "#b3b1ad",
