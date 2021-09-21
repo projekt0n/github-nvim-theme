@@ -530,6 +530,24 @@ function M.setup(config)
 
   }
 
+  -- lualine colors are configurable
+  colors.lualine = {
+    normal = {
+      a = {bg = colors.blue, fg = colors.bg},
+      b = {bg = colors.bg2, fg = colors.blue},
+      c = {bg = colors.bg, fg = colors.fg_light}
+    },
+    insert = {a = {bg = colors.green, fg = colors.bg}, b = {bg = colors.bg2, fg = colors.green}},
+    command = {a = {bg = colors.magenta, fg = colors.bg}, b = {bg = colors.bg2, fg = colors.magenta}},
+    visual = {a = {bg = colors.yellow, fg = colors.bg}, b = {bg = colors.bg2, fg = colors.yellow}},
+    replace = {a = {bg = colors.red, fg = colors.bg}, b = {bg = colors.bg2, fg = colors.red}},
+    inactive = {
+      a = {bg = colors.bg_statusline, fg = colors.green},
+      b = {bg = colors.bg_statusline, fg = colors.bg2, gui = "bold"},
+      c = {bg = colors.bg_statusline, fg = colors.bg2}
+    }
+  }
+
   -- EndOfBuffer colors are configurable
   colors.sidebar_eob = config.dark_sidebar and colors.bg2 or colors.bg
   colors.sidebar_eob = config.hide_end_of_buffer and colors.sidebar_eob or colors.fg_light

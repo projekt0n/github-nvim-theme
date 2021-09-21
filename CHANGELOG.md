@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `hide_inactive_statusline` default value is `true`
 - `dark_float` default value is `false`
 - feat: vim config support with "vim.g"
+- lualine colors refactored inside `colors.lua` (related to #80)
 
 ### Fixes
 
@@ -24,6 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Screenshots and docs updated #63 #16
 - #72 fixed
 - #73 fixed
+- #80 fixed
 
 ## [v0.0.2] - 15 Sep 2021
 
