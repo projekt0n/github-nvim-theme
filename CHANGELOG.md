@@ -27,6 +27,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - #73 fixed
 - #80 fixed
 - #76 fixed
+- `IncSearch` highlight linked with `Search`
+- `Search` highlight enhanced for `transparent` mode
 
 ## [v0.0.2] - 15 Sep 2021
 
