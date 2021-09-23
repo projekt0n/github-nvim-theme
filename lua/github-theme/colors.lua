@@ -530,6 +530,8 @@ function M.setup(config)
 
   }
 
+  util.bg = colors.bg
+
   -- lualine colors are configurable
   colors.lualine = {
     normal = {
@@ -552,9 +554,6 @@ function M.setup(config)
   colors.sidebar_eob = config.dark_sidebar and colors.bg2 or colors.bg
   colors.sidebar_eob = config.hide_end_of_buffer and colors.sidebar_eob or colors.fg_light
   colors.eob = config.hide_end_of_buffer and colors.bg or colors.fg_light
-
-  util.bg = colors.bg
-  colors.bg = config.transparent and colors.none or colors.bg
 
   colors.fg_search = colors.none
   colors.border_highlight = colors.blue
