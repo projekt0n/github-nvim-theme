@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `dark_float` default value is `false`
 - feat: vim config support with "vim.g"
 - lualine colors refactored inside `colors.lua` (related to #80)
+- `NvimTreeIndentMarker` highlight is light #74
 
 ### Fixes
 
@@ -30,6 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `IncSearch` highlight linked with `Search`
 - `Search` highlight enhanced for `transparent` mode
 - `LineNr` highlight enhanced for `transparent` mode
+- refactor: `git_signs` & `dev_icons` colors
 
 ## [v0.0.2] - 15 Sep 2021
 

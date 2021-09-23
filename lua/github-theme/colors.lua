@@ -476,7 +476,7 @@ function M.setup(config)
       })
     },
 
-    gitSigns = {
+    git_signs = {
       add = themes({
         dark = "#28a745",
         dimmed = "#2b6a30",
@@ -500,7 +500,7 @@ function M.setup(config)
       })
     },
 
-    devIcons = {
+    dev_icons = {
       c = "#519aba",
       clojure = "#8dc149",
       coffeescript = "#cbcb41",
@@ -527,7 +527,6 @@ function M.setup(config)
       xml = "#e37933",
       yml = "#a074c4"
     }
-
   }
 
   util.bg = colors.bg

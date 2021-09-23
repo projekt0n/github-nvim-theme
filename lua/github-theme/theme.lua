@@ -369,14 +369,14 @@ function M.setup(config)
     NeogitDiffAddHighlight = {fg = c.diff.add_fg, bg = c.diff.add},
 
     -- GitGutter
-    GitGutterAdd = {fg = c.gitSigns.add}, -- diff mode: Added line |diff.txt|
-    GitGutterChange = {fg = c.gitSigns.change}, -- diff mode: Changed line |diff.txt|
-    GitGutterDelete = {fg = c.gitSigns.delete}, -- diff mode: Deleted line |diff.txt|
+    GitGutterAdd = {fg = c.git_signs.add}, -- diff mode: Added line |diff.txt|
+    GitGutterChange = {fg = c.git_signs.change}, -- diff mode: Changed line |diff.txt|
+    GitGutterDelete = {fg = c.git_signs.delete}, -- diff mode: Deleted line |diff.txt|
 
     -- GitSigns
-    GitSignsAdd = {fg = c.gitSigns.add}, -- diff mode: Added line |diff.txt|
-    GitSignsChange = {fg = c.gitSigns.change}, -- diff mode: Changed line |diff.txt|
-    GitSignsDelete = {fg = c.gitSigns.delete}, -- diff mode: Deleted line |diff.txt|
+    GitSignsAdd = {fg = c.git_signs.add}, -- diff mode: Added line |diff.txt|
+    GitSignsChange = {fg = c.git_signs.change}, -- diff mode: Changed line |diff.txt|
+    GitSignsDelete = {fg = c.git_signs.delete}, -- diff mode: Deleted line |diff.txt|
 
     -- Telescope
     TelescopeBorder = {fg = c.border},
@@ -447,33 +447,33 @@ function M.setup(config)
     ALEErrorSign = {fg = c.error},
 
     -- DevIcons
-    DevIconC = {fg = c.devIcons.c},
-    DevIconClojure = {fg = c.devIcons.clojure},
-    DevIconCoffee = {fg = c.devIcons.coffeescript},
-    DevIconCs = {fg = c.devIcons.csharp},
-    DevIconCss = {fg = c.devIcons.css},
-    DevIconMarkdown = {fg = c.devIcons.markdown},
-    DevIconGo = {fg = c.devIcons.go},
-    DevIconHtm = {fg = c.devIcons.html},
-    DevIconHtml = {fg = c.devIcons.html},
-    DevIconJava = {fg = c.devIcons.java},
-    DevIconJs = {fg = c.devIcons.javascript},
-    DevIconJson = {fg = c.devIcons.json},
-    DevIconLess = {fg = c.devIcons.less},
-    DevIconMakefile = {fg = c.devIcons.make},
-    DevIconMustache = {fg = c.devIcons.mustache},
-    DevIconPhp = {fg = c.devIcons.php},
-    DevIconPython = {fg = c.devIcons.python},
-    DevIconErb = {fg = c.devIcons.ruby_on_rails},
-    DevIconRb = {fg = c.devIcons.ruby},
-    DevIconSass = {fg = c.devIcons.sass},
-    DevIconScss = {fg = c.devIcons.scss},
-    DevIconSh = {fg = c.devIcons.shellscript},
-    DevIconSql = {fg = c.devIcons.sql},
-    DevIconTs = {fg = c.devIcons.typescript},
-    DevIconXml = {fg = c.devIcons.xml},
-    DevIconYaml = {fg = c.devIcons.yml},
-    DevIconYml = {fg = c.devIcons.yml}
+    DevIconC = {fg = c.dev_icons.c},
+    DevIconClojure = {fg = c.dev_icons.clojure},
+    DevIconCoffee = {fg = c.dev_icons.coffeescript},
+    DevIconCs = {fg = c.dev_icons.csharp},
+    DevIconCss = {fg = c.dev_icons.css},
+    DevIconMarkdown = {fg = c.dev_icons.markdown},
+    DevIconGo = {fg = c.dev_icons.go},
+    DevIconHtm = {fg = c.dev_icons.html},
+    DevIconHtml = {fg = c.dev_icons.html},
+    DevIconJava = {fg = c.dev_icons.java},
+    DevIconJs = {fg = c.dev_icons.javascript},
+    DevIconJson = {fg = c.dev_icons.json},
+    DevIconLess = {fg = c.dev_icons.less},
+    DevIconMakefile = {fg = c.dev_icons.make},
+    DevIconMustache = {fg = c.dev_icons.mustache},
+    DevIconPhp = {fg = c.dev_icons.php},
+    DevIconPython = {fg = c.dev_icons.python},
+    DevIconErb = {fg = c.dev_icons.ruby_on_rails},
+    DevIconRb = {fg = c.dev_icons.ruby},
+    DevIconSass = {fg = c.dev_icons.sass},
+    DevIconScss = {fg = c.dev_icons.scss},
+    DevIconSh = {fg = c.dev_icons.shellscript},
+    DevIconSql = {fg = c.dev_icons.sql},
+    DevIconTs = {fg = c.dev_icons.typescript},
+    DevIconXml = {fg = c.dev_icons.xml},
+    DevIconYaml = {fg = c.dev_icons.yml},
+    DevIconYml = {fg = c.dev_icons.yml}
   }
 
   if config.hide_inactive_statusline then
