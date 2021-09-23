@@ -38,7 +38,7 @@ function M.setup(config)
     SignColumn = {bg = config.transparent and c.none or c.bg, fg = c.fg_gutter}, -- column where |signs| are displayed
     SignColumnSB = {bg = c.bg_sidebar, fg = c.fg_gutter}, -- column where |signs| are displayed
     Substitute = {bg = c.red, fg = c.black}, -- |:substitute| replacement text highlighting
-    LineNr = {fg = c.line_nr}, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+    LineNr = {fg = config.transparent and c.cursor_line_nr or c.line_nr}, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     CursorLineNr = {fg = c.cursor_line_nr}, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
     MatchParen = {bg = c.syntax.match_paren_bg, fg = c.fg}, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     ModeMsg = {fg = c.fg, style = "bold"}, -- 'showmode' message (e.g., "-- INSERT -- ")
@@ -57,8 +57,8 @@ function M.setup(config)
     PmenuThumb = {bg = c.pmenu.sbar}, -- Popup menu: Thumb of the scrollbar.
     Question = {fg = c.blue}, -- |hit-enter| prompt and yes/no questions
     QuickFixLine = {bg = c.bg_visual, style = "bold"}, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
-    Search = {bg = c.bg_search, fg = c.fg_search}, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
-    IncSearch = {bg = c.orange, fg = c.black}, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
+    Search = {bg = config.transparent and c.orange or c.bg_search, fg = config.transparent and c.black or c.fg_search}, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
+    IncSearch = {link = "Search"}, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     SpecialKey = {fg = c.fg_gutter}, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
     SpellBad = {sp = c.error, style = "undercurl"}, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
     SpellCap = {sp = c.warning, style = "undercurl"}, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
