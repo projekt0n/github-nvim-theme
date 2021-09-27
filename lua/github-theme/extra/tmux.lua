@@ -12,7 +12,7 @@ function M.tmux(config)
   local tmux = util.template([[
 #!/usr/bin/env bash
 
-# TokyoNight colors for Tmux
+# Github colors for Tmux
 
 set -g mode-style "fg=${fg},bg=${fg_gutter}"
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# TokyoNight colors for Tmux
+# Github colors for Tmux
 
 set -g mode-style "fg=#adbac7,bg=#768390"
 

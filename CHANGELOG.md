@@ -34,6 +34,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `LineNr` highlight enhanced for `transparent` mode
 - refactor: `git_signs` & `dev_icons` colors
 - docs: removed `lua` table assignment from `vim` example (related to #89 #77)
+- Linting inside `tmux.lua`
 
 ## [v0.0.2] - 15 Sep 2021
 
