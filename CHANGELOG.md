@@ -35,6 +35,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - refactor: `git_signs` & `dev_icons` colors
 - docs: removed `lua` table assignment from `vim` example (related to #89 #77)
 - Linting inside `tmux.lua`
+- NvimTree git highlight
 
 ## [v0.0.2] - 15 Sep 2021
 
