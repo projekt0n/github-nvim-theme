@@ -402,9 +402,9 @@ function M.setup(config)
         light_default = "#22863a"
       }),
       change = themes({
-        dark = "#79b8ff",
+        dark = "#e2c08d",
         dimmed = "#daaa3f",
-        light = "#005cc8",
+        light = "#895503",
         dark_default = "#ac8934",
         light_default = "#b08800"
       }),
@@ -428,6 +428,13 @@ function M.setup(config)
         light = "#959da5",
         dark_default = "#484f58",
         light_default = "#959da5"
+      }),
+      renamed = themes({
+        dark = "#73c991",
+        dimmed = "#73c991",
+        light = "#007100",
+        dark_default = "#73c991",
+        light_default = "#007100"
       })
     },
 
