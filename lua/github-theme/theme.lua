@@ -474,7 +474,16 @@ function M.setup(config)
     DevIconTs = {fg = c.dev_icons.typescript},
     DevIconXml = {fg = c.dev_icons.xml},
     DevIconYaml = {fg = c.dev_icons.yml},
-    DevIconYml = {fg = c.dev_icons.yml}
+    DevIconYml = {fg = c.dev_icons.yml},
+
+    -- Compe
+    CompeDocumentation = {links = "NormalFloat"},
+    CompeDocumentationBorder = {links = "FloatBorder"},
+
+    -- Cmp
+    CmpDocumentation = {links = "NormalFloat"},
+    CmpDocumentationBorder = {links = "FloatBorder"}
+
   }
 
   if config.hide_inactive_statusline then
