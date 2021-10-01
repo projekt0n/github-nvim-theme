@@ -570,7 +570,7 @@ function M.setup(config)
   colors.bg_sidebar = config.transparent and colors.none or colors.bg_sidebar
   colors.bg_float = config.dark_float and colors.bg2 or colors.bg
 
-  util.color_overrides(colors, config)
+  util.color_overrides(colors, config, colors)
 
   return colors
 end
