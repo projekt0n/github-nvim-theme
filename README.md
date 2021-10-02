@@ -384,6 +384,10 @@ require("github-theme").setup({
   <img src="https://imgur.com/WBRiOwx.png" alt="github_telescope" />
 </p>
 
+## Contributing
+
+Check [CONTRIBUTING.md](./CONTRIBUTING.md), any suggestions for features and contributions to the continuing code masterelopment can be made via the issue tracker or code contributions via a `Fork` & `Pull requests`.
+
 <!-- Ninja  -->
 <p align="center">
   <h3 align="center">|| || ||</h1>
