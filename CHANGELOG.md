@@ -37,6 +37,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - docs: removed `lua` table assignment from `vim` example (related to #89 #77)
 - Linting inside `tmux.lua`
 - NvimTree git highlight
+- refactor: de-attach 'bg_statusline' color from lualine
 
 ## [v0.0.2] - 15 Sep 2021
 
