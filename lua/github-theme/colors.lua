@@ -550,7 +550,7 @@ function M.setup(config)
     visual = {a = {bg = colors.yellow, fg = colors.bg}, b = {bg = colors.bg2, fg = colors.yellow}},
     replace = {a = {bg = colors.red, fg = colors.bg}, b = {bg = colors.bg2, fg = colors.red}},
     inactive = {
-      a = {bg = colors.blue, fg = colors.green},
+      a = {bg = colors.blue, fg = colors.bg2},
       b = {bg = colors.blue, fg = colors.bg2, gui = "bold"},
       c = {bg = colors.blue, fg = colors.bg2}
     }
