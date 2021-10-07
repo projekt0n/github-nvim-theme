@@ -538,7 +538,11 @@ function M.setup(config)
 
   util.bg = colors.bg
 
-  -- lualine colors are configurable
+  --
+  -- NOTE: These colors are also configurable
+  --
+
+  -- lualine
   colors.lualine = {
     normal = {
       a = {bg = colors.blue, fg = colors.bg},
@@ -568,23 +572,28 @@ function M.setup(config)
     }
   }
 
-  -- EndOfBuffer colors are configurable
+  -- EndOfBuffer
   colors.sidebar_eob = config.dark_sidebar and colors.bg2 or colors.bg
   colors.sidebar_eob = config.hide_end_of_buffer and colors.sidebar_eob or colors.fg_light
   colors.eob = config.hide_end_of_buffer and colors.bg or colors.fg_light
 
-  colors.fg_search = colors.none
-  colors.border_highlight = colors.blue
+  -- Statusline
   colors.bg_statusline = colors.blue
 
-  -- Folded colors are configurable
+  -- Search
+  colors.fg_search = colors.none
+
+  -- Border
+  colors.border_highlight = colors.blue
+
+  -- Folded
   colors.fg_folded = colors.fg
   colors.bg_folded = colors.bg_visual_selection
 
-  -- Popups always get a dark background
+  -- Popups
   colors.bg_popup = colors.bg2
 
-  -- Sidebar and Floats are configurable
+  -- Sidebar and Floats
   colors.bg_sidebar = config.dark_sidebar and colors.bg2 or colors.bg
   colors.bg_sidebar = config.transparent and colors.none or colors.bg_sidebar
   colors.bg_float = config.dark_float and colors.bg2 or colors.bg
