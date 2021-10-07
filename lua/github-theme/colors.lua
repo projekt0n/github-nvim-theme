@@ -536,41 +536,13 @@ function M.setup(config)
     }
   }
 
+  -- useful for 'util.darken()' and 'util.lighten()'
   util.bg = colors.bg
+  util.fg = colors.fg
 
   --
   -- NOTE: These colors are also configurable
   --
-
-  -- lualine
-  colors.lualine = {
-    normal = {
-      a = {bg = colors.blue, fg = colors.bg},
-      b = {bg = colors.bg2, fg = colors.blue},
-      c = {bg = colors.bg, fg = colors.fg_light}
-    },
-    insert = {
-      a = {bg = colors.green, fg = colors.bg},
-      b = {bg = colors.bg2, fg = colors.green}
-    },
-    command = {
-      a = {bg = colors.magenta, fg = colors.bg},
-      b = {bg = colors.bg2, fg = colors.magenta}
-    },
-    visual = {
-      a = {bg = colors.yellow, fg = colors.bg},
-      b = {bg = colors.bg2, fg = colors.yellow}
-    },
-    replace = {
-      a = {bg = colors.red, fg = colors.bg},
-      b = {bg = colors.bg2, fg = colors.red}
-    },
-    inactive = {
-      a = {bg = colors.blue, fg = colors.bg2},
-      b = {bg = colors.blue, fg = colors.bg2, gui = "bold"},
-      c = {bg = colors.blue, fg = colors.bg2}
-    }
-  }
 
   -- EndOfBuffer
   colors.sidebar_eob = config.dark_sidebar and colors.bg2 or colors.bg
@@ -597,6 +569,44 @@ function M.setup(config)
   colors.bg_sidebar = config.dark_sidebar and colors.bg2 or colors.bg
   colors.bg_sidebar = config.transparent and colors.none or colors.bg_sidebar
   colors.bg_float = config.dark_float and colors.bg2 or colors.bg
+
+  -- lualine
+
+  --- create lualine group colors for github-theme
+  ---@param color string
+  ---@return table
+  local tint_lualine_group = function(color)
+    local group = {
+      a = {bg = color, fg = colors.bg},
+      b = {bg = util.darken(color, 0.2), fg = util.lighten(color, 0.2)}
+    }
+    if vim.o.background == "dark" then
+      group.c = {
+        bg = util.darken(color, 0.01, colors.bg2),
+        fg = util.lighten(color, 0.4, colors.fg)
+      }
+    else
+      -- inverting colors for light colorschemes
+      group.c = {
+        bg = util.darken(color, 0.01, colors.fg),
+        fg = util.lighten(color, 0.4, colors.bg2)
+      }
+    end
+    return group
+  end
+
+  colors.lualine = {
+    normal = tint_lualine_group(colors.blue),
+    insert = tint_lualine_group(colors.green),
+    command = tint_lualine_group(colors.brightMagenta),
+    visual = tint_lualine_group(colors.yellow),
+    replace = tint_lualine_group(colors.red),
+    inactive = {
+      a = {bg = colors.blue, fg = colors.bg2},
+      b = {bg = colors.blue, fg = colors.bg2, gui = "bold"},
+      c = {bg = colors.blue, fg = colors.bg2}
+    }
+  }
 
   util.color_overrides(colors, config)
 
