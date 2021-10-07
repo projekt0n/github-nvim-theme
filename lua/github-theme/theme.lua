@@ -57,7 +57,10 @@ function M.setup(config)
     PmenuThumb = {bg = c.pmenu.sbar}, -- Popup menu: Thumb of the scrollbar.
     Question = {fg = c.blue}, -- |hit-enter| prompt and yes/no questions
     QuickFixLine = {bg = c.bg_visual, style = "bold"}, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
-    Search = {bg = config.transparent and c.orange or c.bg_search, fg = config.transparent and c.black or c.fg_search}, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
+    Search = {
+      bg = config.transparent and c.orange or c.bg_search,
+      fg = config.transparent and c.black or c.fg_search
+    }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
     IncSearch = {link = "Search"}, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     SpecialKey = {fg = c.fg_gutter}, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
     SpellBad = {sp = c.error, style = "undercurl"}, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
@@ -498,7 +501,9 @@ function M.setup(config)
       theme.base.StatusLine = {bg = c.bg}
 
       -- LuaLine
-      for _, section in pairs({"a", "b", "c"}) do theme.plugins["lualine_" .. section .. "_inactive"] = inactive end
+      for _, section in pairs({"a", "b", "c"}) do
+        theme.plugins["lualine_" .. section .. "_inactive"] = inactive
+      end
     end
   end
 

@@ -9,7 +9,9 @@ function M.alacritty(config)
   local colors = require("github-theme.colors").setup(config)
 
   local alacrittyColors = {}
-  for k, v in pairs(colors) do if type(v) == "string" then alacrittyColors[k] = v:gsub("^#", "0x") end end
+  for k, v in pairs(colors) do
+    if type(v) == "string" then alacrittyColors[k] = v:gsub("^#", "0x") end
+  end
 
   local alacritty = util.template([[
 # github Alacritty Colors
