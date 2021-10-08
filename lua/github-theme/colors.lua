@@ -551,6 +551,7 @@ function M.setup(config)
 
   -- Statusline
   colors.bg_statusline = colors.blue
+  colors.fg_nc_statusline = util.darken(colors.fg, 0.5)
 
   -- Search
   colors.fg_search = colors.none
@@ -588,8 +589,8 @@ function M.setup(config)
     else
       -- inverting colors for light colorschemes
       group.c = {
-        bg = util.darken(color, 0.01, colors.fg),
-        fg = util.lighten(color, 0.4, colors.bg2)
+        bg = util.darken(color, 0.1, colors.fg),
+        fg = util.lighten(color, 0.01, colors.bg2)
       }
     end
     return group
@@ -602,9 +603,9 @@ function M.setup(config)
     visual = tint_lualine_group(colors.yellow),
     replace = tint_lualine_group(colors.red),
     inactive = {
-      a = {bg = colors.blue, fg = colors.bg2},
-      b = {bg = colors.blue, fg = colors.bg2, gui = "bold"},
-      c = {bg = colors.blue, fg = colors.bg2}
+      a = {bg = colors.bg, fg = colors.fg_nc_statusline},
+      b = {bg = colors.bg, fg = colors.fg_nc_statusline},
+      c = {bg = colors.bg, fg = colors.fg_nc_statusline}
     }
   }
 
