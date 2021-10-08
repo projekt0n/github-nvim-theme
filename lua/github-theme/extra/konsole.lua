@@ -6,7 +6,8 @@ local M = {}
 function M.Hex2rgb(hex)
   hex = hex:gsub("#", "")
   return table.concat({
-    tonumber("0x" .. hex:sub(1, 2)), tonumber("0x" .. hex:sub(3, 4)), tonumber("0x" .. hex:sub(5, 6))
+    tonumber("0x" .. hex:sub(1, 2)), tonumber("0x" .. hex:sub(3, 4)),
+    tonumber("0x" .. hex:sub(5, 6))
   }, ",")
 end
 
@@ -16,7 +17,9 @@ function M.konsole(config)
   local colors = require("github-theme.colors").setup(config)
 
   local konsoleColors = {}
-  for k, v in pairs(colors) do if type(v) == "string" then konsoleColors[k] = M.Hex2rgb(v) end end
+  for k, v in pairs(colors) do
+    if type(v) == "string" then konsoleColors[k] = M.Hex2rgb(v) end
+  end
 
   local description = "Github " .. config.theme_style:lower():gsub("^%l", string.upper)
 

@@ -536,46 +536,78 @@ function M.setup(config)
     }
   }
 
+  -- useful for 'util.darken()' and 'util.lighten()'
   util.bg = colors.bg
+  util.fg = colors.fg
 
-  -- lualine colors are configurable
-  colors.lualine = {
-    normal = {
-      a = {bg = colors.blue, fg = colors.bg},
-      b = {bg = colors.bg2, fg = colors.blue},
-      c = {bg = colors.bg, fg = colors.fg_light}
-    },
-    insert = {a = {bg = colors.green, fg = colors.bg}, b = {bg = colors.bg2, fg = colors.green}},
-    command = {a = {bg = colors.magenta, fg = colors.bg}, b = {bg = colors.bg2, fg = colors.magenta}},
-    visual = {a = {bg = colors.yellow, fg = colors.bg}, b = {bg = colors.bg2, fg = colors.yellow}},
-    replace = {a = {bg = colors.red, fg = colors.bg}, b = {bg = colors.bg2, fg = colors.red}},
-    inactive = {
-      a = {bg = colors.blue, fg = colors.bg2},
-      b = {bg = colors.blue, fg = colors.bg2, gui = "bold"},
-      c = {bg = colors.blue, fg = colors.bg2}
-    }
-  }
+  --
+  -- NOTE: These colors are also configurable
+  --
 
-  -- EndOfBuffer colors are configurable
+  -- EndOfBuffer
   colors.sidebar_eob = config.dark_sidebar and colors.bg2 or colors.bg
   colors.sidebar_eob = config.hide_end_of_buffer and colors.sidebar_eob or colors.fg_light
   colors.eob = config.hide_end_of_buffer and colors.bg or colors.fg_light
 
-  colors.fg_search = colors.none
-  colors.border_highlight = colors.blue
+  -- Statusline
   colors.bg_statusline = colors.blue
+  colors.fg_nc_statusline = util.darken(colors.fg, 0.5)
 
-  -- Folded colors are configurable
+  -- Search
+  colors.fg_search = colors.none
+
+  -- Border
+  colors.border_highlight = colors.blue
+
+  -- Folded
   colors.fg_folded = colors.fg
   colors.bg_folded = colors.bg_visual_selection
 
-  -- Popups always get a dark background
+  -- Popups
   colors.bg_popup = colors.bg2
 
-  -- Sidebar and Floats are configurable
+  -- Sidebar and Floats
   colors.bg_sidebar = config.dark_sidebar and colors.bg2 or colors.bg
   colors.bg_sidebar = config.transparent and colors.none or colors.bg_sidebar
   colors.bg_float = config.dark_float and colors.bg2 or colors.bg
+
+  -- lualine
+
+  --- create lualine group colors for github-theme
+  ---@param color string
+  ---@return table
+  local tint_lualine_group = function(color)
+    local group = {
+      a = {bg = color, fg = colors.bg},
+      b = {bg = util.darken(color, 0.2), fg = util.lighten(color, 0.2)}
+    }
+    if vim.o.background == "dark" then
+      group.c = {
+        bg = util.darken(color, 0.01, colors.bg2),
+        fg = util.lighten(color, 0.4, colors.fg)
+      }
+    else
+      -- inverting colors for light colorschemes
+      group.c = {
+        bg = util.lighten(color, 0.01, colors.bg2),
+        fg = util.darken(color, 0.4, colors.fg)
+      }
+    end
+    return group
+  end
+
+  colors.lualine = {
+    normal = tint_lualine_group(colors.blue),
+    insert = tint_lualine_group(colors.green),
+    command = tint_lualine_group(colors.brightMagenta),
+    visual = tint_lualine_group(colors.yellow),
+    replace = tint_lualine_group(colors.red),
+    inactive = {
+      a = {bg = colors.bg, fg = colors.fg_nc_statusline},
+      b = {bg = colors.bg, fg = colors.fg_nc_statusline},
+      c = {bg = colors.bg, fg = colors.fg_nc_statusline}
+    }
+  }
 
   util.color_overrides(colors, config)
 

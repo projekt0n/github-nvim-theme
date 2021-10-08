@@ -9,7 +9,13 @@ local function write(str, fileName)
   file:close()
 end
 
-local extras = {kitty = "conf", alacritty = "yml", iterm = "itermcolors", konsole = "colorscheme", tmux = "tmux"}
+local extras = {
+  kitty = "conf",
+  alacritty = "yml",
+  iterm = "itermcolors",
+  konsole = "colorscheme",
+  tmux = "tmux"
+}
 for _, style in ipairs({"dark", "dimmed", "light", "dark_default", "light_default"}) do
   configModule.theme_style = style
   for extra, ext in pairs(extras) do

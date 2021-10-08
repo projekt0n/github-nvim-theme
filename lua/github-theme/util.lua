@@ -13,7 +13,8 @@ local function hexToRgb(hex_str)
   local pat = "^#(" .. hex .. ")(" .. hex .. ")(" .. hex .. ")$"
   hex_str = string.lower(hex_str)
 
-  assert(string.find(hex_str, pat) ~= nil, "hex_to_rgb: invalid hex_str: " .. tostring(hex_str))
+  assert(string.find(hex_str, pat) ~= nil,
+         "hex_to_rgb: invalid hex_str: " .. tostring(hex_str))
 
   local r, g, b = string.match(hex_str, pat)
   return {tonumber(r, 16), tonumber(g, 16), tonumber(b, 16)}
@@ -108,7 +109,9 @@ function util.debug(colors)
     if type(color) == "table" then
       util.debug(color)
     else
-      if util.colorsUsed[color] == nil then print("not used: " .. name .. " : " .. color) end
+      if util.colorsUsed[color] == nil then
+        print("not used: " .. name .. " : " .. color)
+      end
     end
   end
 end
@@ -126,12 +129,16 @@ function util.autocmds(config)
   vim.cmd([[augroup github]])
   vim.cmd([[  autocmd!]])
   vim.cmd([[  autocmd ColorScheme * lua require("github-theme.util").onColorScheme()]])
-  if config.dev then vim.cmd([[  autocmd BufWritePost */lua/github-theme/** nested colorscheme github]]) end
+  if config.dev then
+    vim.cmd([[  autocmd BufWritePost */lua/github-theme/** nested colorscheme github]])
+  end
   for _, sidebar in ipairs(config.sidebars) do
     if sidebar == "terminal" then
-      vim.cmd([[  autocmd TermOpen * setlocal winhighlight=Normal:NormalSB,SignColumn:SignColumnSB]])
+      vim.cmd(
+          [[  autocmd TermOpen * setlocal winhighlight=Normal:NormalSB,SignColumn:SignColumnSB]])
     else
-      vim.cmd([[  autocmd FileType ]] .. sidebar .. [[ setlocal winhighlight=Normal:NormalSB,SignColumn:SignColumnSB]])
+      vim.cmd([[  autocmd FileType ]] .. sidebar ..
+                  [[ setlocal winhighlight=Normal:NormalSB,SignColumn:SignColumnSB]])
     end
   end
   vim.cmd([[augroup end]])
@@ -183,7 +190,9 @@ function util.terminal(colors)
   vim.g.terminal_color_14 = colors.brightCyan
 
   if vim.o.background == "light" then
-    for i = 0, 15, 1 do vim.g["terminal_color_" .. i] = util.getColor(vim.g["terminal_color_" .. i]) end
+    for i = 0, 15, 1 do
+      vim.g["terminal_color_" .. i] = util.getColor(vim.g["terminal_color_" .. i])
+    end
   end
 end
 

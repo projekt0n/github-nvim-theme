@@ -39,6 +39,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - NvimTree git highlight
 - refactor: de-attach 'bg_statusline' color from lualine
 - fix #83: inactive lualine colors
+- enhance: inactive statusline
 
 ## [v0.0.2] - 15 Sep 2021
 
