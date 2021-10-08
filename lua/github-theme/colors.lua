@@ -589,8 +589,8 @@ function M.setup(config)
     else
       -- inverting colors for light colorschemes
       group.c = {
-        bg = util.darken(color, 0.1, colors.fg),
-        fg = util.lighten(color, 0.01, colors.bg2)
+        bg = util.lighten(color, 0.01, colors.bg2),
+        fg = util.darken(color, 0.4, colors.fg)
       }
     end
     return group

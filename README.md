@@ -14,7 +14,7 @@
 - vim terminal colors
 - darker background for sidebar-like windows
 - color configs for [kitty](https://sw.kovidgoyal.net/kitty/conf.html?highlight=include), [iTerm2](https://iterm2.com/), [Konsole](https://konsole.kde.org/), [tmux](https://github.com/tmux/tmux/wiki) and [Alacritty](https://github.com/alacritty/alacritty)
-- dynamic **lualine** theme
+- Most elegant [**lualine** theme](./LUALINE.md#screenshots)
 
 ## Terminal Themes (Extras)
 
@@ -22,7 +22,7 @@
 
 Extra color configs for **kitty**, **iTerm**, **Konsole**, **tmux** and **Alacritty** can be found in [extras](extras/) directory. To use them, refer to their respective documentation.
 
-### Plugin Support
+## Plugin Support
 
 - [ALE](https://github.com/dense-analysis/ale)
 - [circles.nvim](https://github.com/projekt0n/circles.nvim)
@@ -126,59 +126,7 @@ require("github-theme").setup({
 
 ### Lualine Support
 
-To enable the `github` theme for `Lualine`, simply specify it in your lualine settings:
-
-> ⚠️ Set `lualine` configuration **before** `github-theme`. otherwise, the `hide_inactive_statusline` option won't work.
-
-#### packer
-
-```lua
-use {
-  "hoob3rt/lualine.nvim",
-  config = function()
-    require("lualine").setup {
-      options = {
-        theme = "github"
-        -- ... your lualine config
-      }
-    }
-  end
-}
-use {
-  "projekt0n/github-nvim-theme",
-  after = "lualine.nvim",
-  config = function()
-    require("github-theme").setup({
-      theme_style = "dark_default"
-      -- your github config
-    })
-  end
-}
-```
-
-#### init.vim
-
-```vim
-lua << EOF
-require('lualine').setup {
-  options = {
-    theme = 'github',
-    -- ... your lualine config
-  }
-}
-EOF
-```
-
-#### init.lua
-
-```lua
-require('lualine').setup {
-  options = {
-    theme = 'github',
-    -- ... your lualine config
-  }
-}
-```
+check [LUALINE.md](./LUALINE.md)
 
 ### Making `undercurls` work properly in **Tmux**
 
