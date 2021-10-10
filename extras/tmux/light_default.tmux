@@ -27,5 +27,5 @@ set -g status-right "#[fg=#f6f8fa,bg=#f6f8fa,nobold,nounderscore,noitalics]#[
 setw -g window-status-activity-style "underscore,fg=#24292e,bg=#f6f8fa"
 setw -g window-status-separator ""
 setw -g window-status-style "NONE,fg=#ffffff,bg=#f6f8fa"
-setw -g window-status-format "#[fg=#f6f8fa,bg=#f6f8fa,nobold,nounderscore,noitalics]#[default] #I  #W #F #[fg=#f6f8fa,bg=#f6f8fa,nobold,nounderscore,noitalics]"
+setw -g window-status-format "#[fg=#f6f8fa,bg=#f6f8fa,nobold,nounderscore,noitalics]#[fg=#424242,bg=#f6f8fa,nobold,nounderscore,noitalics] #I  #W #F #[fg=#f6f8fa,bg=#f6f8fa,nobold,nounderscore,noitalics]"
 setw -g window-status-current-format "#[fg=#f6f8fa,bg=#24292e,nobold,nounderscore,noitalics]#[fg=#24292e,bg=#24292e,bold] #I  #W #F #[fg=#24292e,bg=#f6f8fa,nobold,nounderscore,noitalics]"
