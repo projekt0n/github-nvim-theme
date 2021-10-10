@@ -39,7 +39,7 @@ set -g status-right "#[fg=${bg2},bg=${bg2},nobold,nounderscore,noitalics]#[fg
 setw -g window-status-activity-style "underscore,fg=${fg_light},bg=${bg2}"
 setw -g window-status-separator ""
 setw -g window-status-style "${none},fg=${bg},bg=${bg2}"
-setw -g window-status-format "#[fg=${bg2},bg=${bg2},nobold,nounderscore,noitalics]#[default] #I  #W #F #[fg=${bg2},bg=${bg2},nobold,nounderscore,noitalics]"
+setw -g window-status-format "#[fg=${bg2},bg=${bg2},nobold,nounderscore,noitalics]#[fg=${fg_dark},bg=${bg2},nobold,nounderscore,noitalics] #I  #W #F #[fg=${bg2},bg=${bg2},nobold,nounderscore,noitalics]"
 setw -g window-status-current-format "#[fg=${bg2},bg=${fg_gutter},nobold,nounderscore,noitalics]#[fg=${black},bg=${fg_gutter},bold] #I  #W #F #[fg=${fg_gutter},bg=${bg2},nobold,nounderscore,noitalics]"
 ]], colors)
 
