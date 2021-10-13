@@ -1,18 +1,17 @@
 local util = require("github-theme.util")
-local configModule = require("github-theme.config")
+local config_module = require("github-theme.config")
 
 local M = {}
 
 local rgb = function(hex)
-  local _, redColor, greenColor, blueColor = hex:match("(.)(..)(..)(..)")
-  redColor, greenColor, blueColor =
-      string.format("%0.16f", (tonumber(redColor, 16) / 255)),
-      string.format("%0.16f", (tonumber(greenColor, 16) / 255)),
-      string.format("%0.16f", (tonumber(blueColor, 16) / 255))
-  return {r = redColor, g = greenColor, b = blueColor}
+  local _, r, g, b = hex:match("(.)(..)(..)(..)")
+  r, g, b = string.format("%0.16f", (tonumber(r, 16) / 255)),
+            string.format("%0.16f", (tonumber(g, 16) / 255)),
+            string.format("%0.16f", (tonumber(b, 16) / 255))
+  return {r = r, g = g, b = b}
 end
 
-local keyToXML = function(key, color)
+local xml_from_color_group = function(key, color)
   local xml = util.template([[
 	<key>${k} Color</key>
 ]], {k = key:gsub("__", " ")})
@@ -34,11 +33,11 @@ local keyToXML = function(key, color)
 end
 
 function M.iterm(config)
-  config = config or configModule.config
+  config = config or config_module.config
   config.transform_colors = true
   local colors = require("github-theme.colors").setup(config)
 
-  local itermColor = {
+  local groups = {
     Ansi__0 = rgb(colors.black),
     Ansi__1 = rgb(colors.red),
     Ansi__2 = rgb(colors.green),
@@ -64,21 +63,24 @@ function M.iterm(config)
     Bold = rgb(colors.fg)
   }
 
-  local iterm = [[
+  -- XML start
+  local xml = [[
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
 ]]
 
-  for k, c in pairs(itermColor) do iterm = iterm .. keyToXML(k, c) end
+  -- appending color groups to XML
+  for k, c in next, groups do xml = xml .. xml_from_color_group(k, c) end
 
-  iterm = iterm .. [[
+  -- end
+  xml = xml .. [[
 </dict>
 </plist>
 ]]
 
-  return iterm
+  return xml
 end
 
 return M
