@@ -118,6 +118,7 @@ end
 
 --- Delete the autocmds when the theme changes to something else
 function util.onColorScheme()
+  print(vim.g.github_theme_style)
   if vim.g.colors_name ~= "github" then
     vim.cmd([[autocmd! github]])
     vim.cmd([[augroup! github]])
@@ -211,14 +212,16 @@ function util.load(theme)
   vim.o.termguicolors = true
   vim.g.colors_name = "github"
   -- vim.api.nvim__set_hl_ns(ns)
+
   -- load base theme
   util.syntax(theme.base)
 
-  -- load syntax for plugins and terminal async
+  -- load syntax for plugins and terminal
+  util.autocmds(theme.config)
+  util.terminal(theme.colors)
+  util.syntax(theme.plugins)
   vim.defer_fn(function()
-    util.autocmds(theme.config)
-    util.terminal(theme.colors)
-    util.syntax(theme.plugins)
+    util.syntax(theme.defer)
   end, 100)
 end
 
