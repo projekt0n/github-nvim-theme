@@ -41,6 +41,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - fix #83: inactive lualine colors
 - enhance: inactive statusline
 - load colorscheme according to `theme_style` config
+- revert 41f844a #113
 
 ## [v0.0.2] - 15 Sep 2021
 
