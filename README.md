@@ -43,6 +43,7 @@ Extra color configs for **kitty**, **iTerm**, **Konsole**, **tmux** and **Alacri
 - [TreeSitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
 - [which-key.nvim](https://github.com/folke/which-key.nvim/)
+- [nvim-notify](https://github.com/rcarriga/nvim-notify)
 
 ## Requirements
 
@@ -80,7 +81,7 @@ require('github-theme').setup()
 
 ## Configuration
 
-> ❗configuration needs to be set BEFORE loading the color scheme with `colorscheme github_*`
+> Note: set `vim.o.background = "light"` before loading light github colorschemes.
 
 | Option                   | Default  | Description                                                                                                                                                     |
 | ------------------------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -100,6 +101,7 @@ require('github-theme').setup()
 
 ```vim
 " Example config in VimScript
+" configuration needs to be set BEFORE loading the color scheme with `colorscheme` command
 let g:github_function_style = "italic"
 let g:github_sidebars = ["qf", "vista_kind", "terminal", "packer"]
 
