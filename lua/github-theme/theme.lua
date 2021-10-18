@@ -491,7 +491,7 @@ function M.setup(config)
     NotifyERRORTitle = {fg = util.darken(c.error, 0.9)},
     NotifyWARNTitle = {fg = util.darken(c.warning, 0.9)},
     NotifyINFOTitle = {fg = util.darken(c.green, 0.9)},
-    NotifyDEBUGTitle = {fg = util.darken(c.white, 0.9)},
+    NotifyDEBUGTitle = {fg = util.darken(c.fg, 0.7)},
     NotifyTRACETitle = {fg = util.darken(c.brightMagenta, 0.9)},
 
     NotifyERRORIcon = {link = "NotifyERRORTitle"},
