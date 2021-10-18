@@ -485,7 +485,33 @@ function M.setup(config)
 
     -- Cmp
     CmpDocumentation = {links = "NormalFloat"},
-    CmpDocumentationBorder = {links = "FloatBorder"}
+    CmpDocumentationBorder = {links = "FloatBorder"},
+
+    -- nvim-notify
+    NotifyERRORTitle = {fg = util.darken(c.error, 0.9)},
+    NotifyWARNTitle = {fg = util.darken(c.warning, 0.9)},
+    NotifyINFOTitle = {fg = util.darken(c.green, 0.9)},
+    NotifyDEBUGTitle = {fg = util.darken(c.white, 0.9)},
+    NotifyTRACETitle = {fg = util.darken(c.brightMagenta, 0.9)},
+
+    NotifyERRORIcon = {link = "NotifyERRORTitle"},
+    NotifyWARNIcon = {link = "NotifyWARNTitle"},
+    NotifyINFOIcon = {link = "NotifyINFOTitle"},
+    NotifyDEBUGIcon = {link = "NotifyDEBUGTitle"},
+    NotifyTRACEIcon = {link = "NotifyTRACETitle"},
+
+    NotifyERRORBorder = {link = "NotifyERRORTitle"},
+    NotifyWARNBorder = {link = "NotifyWARNTitle"},
+    NotifyINFOBorder = {link = "NotifyINFOTitle"},
+    NotifyDEBUGBorder = {link = "NotifyDEBUGTitle"},
+    NotifyTRACEBorder = {link = "NotifyTRACETitle"},
+
+    NotifyERRORBody = {fg = util.lighten(c.error, 0.1)},
+    NotifyWARNBody = {fg = util.lighten(c.warning, 0.1)},
+    NotifyINFOBody = {fg = util.lighten(c.green, 0.1)},
+    NotifyDEBUGBody = {link = "NotifyDEBUGTitle"},
+    NotifyTRACEBody = {fg = util.lighten(c.brightMagenta, 0.1)}
+
   }
 
   theme.defer = {}

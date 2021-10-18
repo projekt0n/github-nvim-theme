@@ -20,7 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - lualine colors refactored inside `colors.lua` (related to #80)
 - `NvimTreeIndentMarker` highlight is light #74
 - Github's default themes for `tmux`
-- plugin support: nvim-compe and nvim-cmp
+- plugin support: nvim-compe, nvim-cmp and nvim-notify
 
 ### Fixes
 

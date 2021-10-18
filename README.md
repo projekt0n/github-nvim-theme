@@ -43,6 +43,7 @@ Extra color configs for **kitty**, **iTerm**, **Konsole**, **tmux** and **Alacri
 - [TreeSitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
 - [which-key.nvim](https://github.com/folke/which-key.nvim/)
+- [nvim-notify](https://github.com/rcarriga/nvim-notify)
 
 ## Requirements
 
