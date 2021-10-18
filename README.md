@@ -81,7 +81,7 @@ require('github-theme').setup()
 
 ## Configuration
 
-> ❗configuration needs to be set BEFORE loading the color scheme with `colorscheme github_*`
+> Note: set `vim.o.background = "light"` before loading light github colorschemes.
 
 | Option                   | Default  | Description                                                                                                                                                     |
 | ------------------------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -101,6 +101,7 @@ require('github-theme').setup()
 
 ```vim
 " Example config in VimScript
+" configuration needs to be set BEFORE loading the color scheme with `colorscheme` command
 let g:github_function_style = "italic"
 let g:github_sidebars = ["qf", "vista_kind", "terminal", "packer"]
 
