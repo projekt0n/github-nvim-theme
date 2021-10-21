@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `NvimTreeIndentMarker` highlight is light #74
 - Github's default themes for `tmux`
 - plugin support: nvim-compe, nvim-cmp and nvim-notify
+- set `vim.o.background` while loading individual colorscheme (folke/tokyonight.nvim#102)
 
 ### Fixes
 
@@ -44,6 +45,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - revert 41f844a #113
 - todo highlight foreground color fixed #115
 - make `CursorLine` and `CursorColumn` background highlight more visible #109
+- `qfLineNr` & `QuickFixLine` colors updated #119
 
 ## [v0.0.2] - 15 Sep 2021
 

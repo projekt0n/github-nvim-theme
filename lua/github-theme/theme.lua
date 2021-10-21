@@ -56,7 +56,7 @@ function M.setup(config)
     PmenuSbar = {bg = c.pmenu.bg}, -- Popup menu: scrollbar.
     PmenuThumb = {bg = c.pmenu.sbar}, -- Popup menu: Thumb of the scrollbar.
     Question = {fg = c.blue}, -- |hit-enter| prompt and yes/no questions
-    QuickFixLine = {bg = c.bg_visual, style = "bold"}, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
+    QuickFixLine = {bg = util.darken(c.blue, 0.2), style = "bold"}, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
     Search = {
       bg = config.transparent and c.orange or c.bg_search,
       fg = config.transparent and c.black or c.fg_search
@@ -128,7 +128,7 @@ function M.setup(config)
 
     Error = {fg = c.error}, -- (preferred) any erroneous construct
     Todo = {bg = c.yellow, fg = c.bg}, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
-    qfLineNr = {fg = c.line_nr},
+    qfLineNr = {fg = c.syntax.keyword},
     qfFileName = {fg = c.blue},
 
     -- mkdCode = { bg = c.bg2, fg = c.fg },
