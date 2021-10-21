@@ -179,9 +179,9 @@ function M.setup(config)
     bg_highlight = themes({
       dark = "#2c313a",
       dimmed = "#2d333b",
-      light = "#f6f8fa",
+      light = "#d5e5f6",
       dark_default = "#161b22",
-      light_default = "#fafbfc"
+      light_default = "#d5e5f6"
     }),
 
     border = themes({

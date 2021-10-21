@@ -43,6 +43,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - load colorscheme according to `theme_style` config
 - revert 41f844a #113
 - todo highlight foreground color fixed #115
+- make `CursorLine` and `CursorColumn` background highlight more visible #109
 
 ## [v0.0.2] - 15 Sep 2021
 
