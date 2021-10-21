@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `NvimTreeIndentMarker` highlight is light #74
 - Github's default themes for `tmux`
 - plugin support: nvim-compe, nvim-cmp and nvim-notify
+- set `vim.o.background` while loading individual colorscheme
 
 ### Fixes
 
