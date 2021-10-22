@@ -7,6 +7,7 @@ vim = vim or {g = {}, o = {}}
 local function opt(key, default)
   key = "github_" .. key
   if vim.g[key] == nil then
+    vim.g[key] = default
     return default
   else
     if vim.g[key] == 1 then

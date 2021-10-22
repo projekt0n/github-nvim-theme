@@ -22,6 +22,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Github's default themes for `tmux`
 - plugin support: nvim-compe, nvim-cmp and nvim-notify
 - set `vim.o.background` while loading individual colorscheme (folke/tokyonight.nvim#102)
+- enhance: assign config default value to `vim.g` variables
+- re-patch: #72
+- breaking change: `github` deprecated from `colorscheme` command
 
 ### Fixes
 

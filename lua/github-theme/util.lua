@@ -2,6 +2,7 @@ local hsluv = require("github-theme.hsluv")
 
 local util = {}
 
+util.colors_name = ""
 util.colorsUsed = {}
 util.colorCache = {}
 
@@ -118,19 +119,20 @@ end
 
 --- Delete the autocmds when the theme changes to something else
 function util.onColorScheme()
-  if vim.g.colors_name ~= "github" then
-    vim.cmd([[autocmd! github]])
-    vim.cmd([[augroup! github]])
+  if vim.g.colors_name ~= util.colors_name then
+    vim.cmd("autocmd! " .. util.colors_name)
+    vim.cmd("augroup!" .. util.colors_name)
   end
 end
 
 ---@param config Config
 function util.autocmds(config)
-  vim.cmd([[augroup github]])
+  vim.cmd("augroup " .. util.colors_name)
   vim.cmd([[  autocmd!]])
   vim.cmd([[  autocmd ColorScheme * lua require("github-theme.util").onColorScheme()]])
   if config.dev then
-    vim.cmd([[  autocmd BufWritePost */lua/github-theme/** nested colorscheme github]])
+    vim.cmd("  autocmd BufWritePost */lua/github-theme/** nested colorscheme " ..
+                util.colors_name)
   end
   for _, sidebar in ipairs(config.sidebars) do
     if sidebar == "terminal" then
@@ -196,20 +198,15 @@ function util.terminal(colors)
   end
 end
 
-function util.light_colors(colors)
-  if type(colors) == "string" then return util.getColor(colors) end
-  local ret = {}
-  for key, value in pairs(colors) do ret[key] = util.light_colors(value) end
-  return ret
-end
-
 ---@param theme Theme
 function util.load(theme)
   vim.cmd("hi clear")
   if vim.fn.exists("syntax_on") then vim.cmd("syntax reset") end
 
+  util.colors_name = "github_" .. vim.g.github_theme_style
+
   vim.o.termguicolors = true
-  vim.g.colors_name = "github"
+  vim.g.colors_name = util.colors_name
   -- vim.api.nvim__set_hl_ns(ns)
 
   -- load base theme
