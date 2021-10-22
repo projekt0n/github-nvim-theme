@@ -118,7 +118,8 @@ colorscheme github_dark
 ```lua
 -- Example config in Lua
 require("github-theme").setup({
-  functionStyle = "italic",
+  theme_style = "dark",
+  function_style = "italic",
   sidebars = {"qf", "vista_kind", "terminal", "packer"},
 
   -- Change the "hint" color to the "orange" color, and make the "error" color bright red
