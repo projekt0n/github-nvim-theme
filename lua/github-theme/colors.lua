@@ -372,17 +372,10 @@ function M.setup(config)
     pmenu = {
       bg = themes({
         dark = "#1f2428",
-        dimmed = "#323941",
+        dimmed = "#2d333b",
         light = "#f6f8fa",
-        dark_default = "#1c2128",
-        light_default = "#fafbfc"
-      }),
-      select = themes({
-        dark = "#044289",
-        dimmed = "#373e47",
-        light = "#cce5ff",
-        dark_default = "#39414a",
-        light_default = "#e2e5e9"
+        dark_default = "#161b22",
+        light_default = "#f6f8fa"
       }),
       sbar = themes({
         dark = "#32383e",
