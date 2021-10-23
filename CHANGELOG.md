@@ -25,6 +25,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - enhance: assign config default value to `vim.g` variables
 - re-patch: #72
 - breaking change: `github` deprecated from `colorscheme` command
+- `pmenu.select` color removed
+- pmenu select background color with dynamic blue color
 
 ### Fixes
 
