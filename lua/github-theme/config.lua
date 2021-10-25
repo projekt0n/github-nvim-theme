@@ -38,9 +38,9 @@ config = {
   transform_colors = false
 }
 
----@param userConfig Config
-local function applyConfiguration(userConfig)
-  for key, value in pairs(userConfig) do
+---@param user_config Config
+local function apply_configuration(user_config)
+  for key, value in pairs(user_config) do
     if value ~= nil then
       if config[key] ~= nil then
         config[key] = value
@@ -51,4 +51,4 @@ local function applyConfiguration(userConfig)
   end
 end
 
-return {config = config, applyConfiguration = applyConfiguration}
+return {config = config, apply_configuration = apply_configuration}

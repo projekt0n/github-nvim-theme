@@ -1,11 +1,11 @@
 local util = require("github-theme.util")
-local configModule = require("github-theme.config")
+local config_module = require("github-theme.config")
 
 local M = {}
 
 ---@param config Config
 function M.tmux(config)
-  config = config or configModule.config
+  config = config or config_module.config
   config.transform_colors = true
   local colors = require("github-theme.colors").setup(config)
 
