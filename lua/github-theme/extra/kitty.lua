@@ -1,10 +1,10 @@
 local util = require("github-theme.util")
-local configModule = require("github-theme.config")
+local config_module = require("github-theme.config")
 
 local M = {}
 
 function M.kitty(config)
-  config = config or configModule.config
+  config = config or config_module.config
   config.transform_colors = true
   local colors = require("github-theme.colors").setup(config)
 
@@ -40,17 +40,17 @@ color7 ${fg_dark}
 
 # bright
 color8 ${fg_dark}
-color9 ${brightRed}
-color10 ${brightGreen}
-color11 ${brightYellow}
-color12 ${brightBlue}
-color13 ${brightMagenta}
-color14 ${brightCyan}
+color9 ${bright_red}
+color10 ${bright_green}
+color11 ${bright_yellow}
+color12 ${bright_blue}
+color13 ${bright_magenta}
+color14 ${bright_cyan}
 color15 ${term_fg}
 
 # extended colors
-color16 ${brightYellow}
-color17 ${brightRed}
+color16 ${bright_yellow}
+color17 ${bright_red}
 ]], colors)
   return kitty
 end

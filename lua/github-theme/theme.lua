@@ -52,7 +52,7 @@ function M.setup(config)
     NormalFloat = {fg = c.fg, bg = c.bg_float}, -- Normal text in floating windows.
     FloatBorder = {fg = c.border},
     Pmenu = {bg = c.pmenu.bg, fg = c.fg}, -- Popup menu: normal item.
-    PmenuSel = {bg = util.darken(c.brightBlue, 0.75), fg = c.pmenu.bg}, -- Popup menu: selected item.
+    PmenuSel = {bg = util.darken(c.bright_blue, 0.75), fg = c.pmenu.bg}, -- Popup menu: selected item.
     PmenuSbar = {bg = c.pmenu.bg}, -- Popup menu: scrollbar.
     PmenuThumb = {bg = c.pmenu.sbar}, -- Popup menu: Thumb of the scrollbar.
     Question = {fg = c.blue}, -- |hit-enter| prompt and yes/no questions
@@ -346,7 +346,7 @@ function M.setup(config)
     -- LspTrouble
     LspTroubleText = {fg = c.fg},
     LspTroubleCount = {fg = c.magenta, bg = c.fg_gutter},
-    LspTroubleNormal = {fg = c.brightYellow, bg = c.bg_sidebar},
+    LspTroubleNormal = {fg = c.bright_yellow, bg = c.bg_sidebar},
 
     -- Illuminate
     illuminatedWord = {bg = c.lsp.referenceText},
@@ -385,14 +385,14 @@ function M.setup(config)
     TelescopeBorder = {fg = c.border},
     TelescopePromptPrefix = {fg = c.fg},
     TelescopeMatching = {fg = c.syntax.constant, style = "bold"},
-    TelescopePreviewPipe = {fg = c.brightYellow},
-    TelescopePreviewRead = {fg = c.brightYellow},
-    TelescopePreviewSize = {fg = c.brightGreen},
-    TelescopePreviewUser = {fg = c.brightYellow},
-    TelescopePreviewBlock = {fg = c.brightYellow},
-    TelescopePreviewGroup = {fg = c.brightYellow},
-    TelescopePreviewWrite = {fg = c.brightMagenta},
-    TelescopePreviewSticky = {fg = c.brightCyan},
+    TelescopePreviewPipe = {fg = c.bright_yellow},
+    TelescopePreviewRead = {fg = c.bright_yellow},
+    TelescopePreviewSize = {fg = c.bright_green},
+    TelescopePreviewUser = {fg = c.bright_yellow},
+    TelescopePreviewBlock = {fg = c.bright_yellow},
+    TelescopePreviewGroup = {fg = c.bright_yellow},
+    TelescopePreviewWrite = {fg = c.bright_magenta},
+    TelescopePreviewSticky = {fg = c.bright_cyan},
 
     -- NvimTree
     NvimTreeNormal = {fg = c.fg_light, bg = c.bg_sidebar},
@@ -404,7 +404,7 @@ function M.setup(config)
     NvimTreeGitDeleted = {fg = c.git.delete},
     NvimTreeSpecialFile = {fg = c.yellow, style = "underline"},
     NvimTreeIndentMarker = {fg = c.syntax.comment},
-    NvimTreeImageFile = {fg = c.brightYellow},
+    NvimTreeImageFile = {fg = c.bright_yellow},
     NvimTreeSymlink = {fg = c.magenta},
     NvimTreeFolderName = {fg = c.fg_light},
     NvimTreeOpenedFolderName = {fg = c.fg_light, style = "bold"},
@@ -421,7 +421,7 @@ function M.setup(config)
     DashboardHeader = {fg = c.blue},
     DashboardCenter = {fg = c.green, style = "bold"},
     DashboardShortCut = {fg = c.yellow},
-    DashboardFooter = {fg = c.brightWhite, style = "italic"},
+    DashboardFooter = {fg = c.bright_white, style = "italic"},
 
     -- WhichKey
     WhichKey = {fg = c.blue}, -- the key
@@ -492,7 +492,7 @@ function M.setup(config)
     NotifyWARNTitle = {fg = util.darken(c.warning, 0.9)},
     NotifyINFOTitle = {fg = util.darken(c.green, 0.9)},
     NotifyDEBUGTitle = {fg = util.darken(c.fg, 0.7)},
-    NotifyTRACETitle = {fg = util.darken(c.brightMagenta, 0.9)},
+    NotifyTRACETitle = {fg = util.darken(c.bright_magenta, 0.9)},
 
     NotifyERRORIcon = {link = "NotifyERRORTitle"},
     NotifyWARNIcon = {link = "NotifyWARNTitle"},
@@ -510,8 +510,7 @@ function M.setup(config)
     NotifyWARNBody = {fg = util.lighten(c.warning, 0.1)},
     NotifyINFOBody = {fg = util.lighten(c.green, 0.1)},
     NotifyDEBUGBody = {link = "NotifyDEBUGTitle"},
-    NotifyTRACEBody = {fg = util.lighten(c.brightMagenta, 0.1)}
-
+    NotifyTRACEBody = {fg = util.lighten(c.bright_magenta, 0.1)}
   }
 
   theme.defer = {}

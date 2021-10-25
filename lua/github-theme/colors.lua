@@ -1,12 +1,12 @@
 local util = require("github-theme.util")
-local configModule = require("github-theme.config")
+local config_module = require("github-theme.config")
 
 local M = {}
 
 ---@param config Config
 ---@return ColorScheme
 function M.setup(config)
-  config = config or configModule.config
+  config = config or config_module.config
 
   local themes = function(options)
     return options[config.theme_style]
@@ -40,7 +40,7 @@ function M.setup(config)
       dark_default = "#484f58",
       light_default = "#24292e"
     }),
-    brightBlack = themes({
+    bright_black = themes({
       dark = "#666666",
       dimmed = "#636e7b",
       light = "#666666",
@@ -54,7 +54,7 @@ function M.setup(config)
       dark_default = "#b1bac4",
       light_default = "#6a737d"
     }),
-    brightWhite = themes({
+    bright_white = themes({
       dark = "#e5e5e5",
       dimmed = "#cdd9e5",
       light = "#a5a5a5",
@@ -68,7 +68,7 @@ function M.setup(config)
       dark_default = "#ff7b72",
       light_default = "#d73a49"
     }),
-    brightRed = themes({
+    bright_red = themes({
       dark = "#f14c4c",
       dimmed = "#ff938a",
       light = "#cd3131",
@@ -82,7 +82,7 @@ function M.setup(config)
       dark_default = "#3fb950",
       light_default = "#22863a"
     }),
-    brightGreen = themes({
+    bright_green = themes({
       dark = "#23d18b",
       dimmed = "#6bc46d",
       light = "#14ce14",
@@ -96,7 +96,7 @@ function M.setup(config)
       dark_default = "#d29922",
       light_default = "#b08800"
     }),
-    brightYellow = themes({
+    bright_yellow = themes({
       dark = "#f5f543",
       dimmed = "#daaa3f",
       light = "#b5ba00",
@@ -110,7 +110,7 @@ function M.setup(config)
       dark_default = "#58a6ff",
       light_default = "#0366d6"
     }),
-    brightBlue = themes({
+    bright_blue = themes({
       dark = "#3b8eea",
       dimmed = "#6cb6ff",
       light = "#0451a5",
@@ -124,7 +124,7 @@ function M.setup(config)
       dark_default = "#bc8cff",
       light_default = "#6f42c1"
     }),
-    brightMagenta = themes({
+    bright_magenta = themes({
       dark = "#d670d6",
       dimmed = "#dcbdfb",
       light = "#bc05bc",
@@ -138,7 +138,7 @@ function M.setup(config)
       dark_default = "#39c5cf",
       light_default = "#1b7c83"
     }),
-    brightCyan = themes({
+    bright_cyan = themes({
       dark = "#29b8db",
       dimmed = "#56d4dd",
       light = "#0598bc",
@@ -592,7 +592,7 @@ function M.setup(config)
   colors.lualine = {
     normal = tint_lualine_group(colors.blue),
     insert = tint_lualine_group(colors.green),
-    command = tint_lualine_group(colors.brightMagenta),
+    command = tint_lualine_group(colors.bright_magenta),
     visual = tint_lualine_group(colors.yellow),
     replace = tint_lualine_group(colors.red),
     inactive = {
