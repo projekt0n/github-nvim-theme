@@ -38,6 +38,11 @@ config = {
   transform_colors = false
 }
 
+-- setting light background
+local light_background = {["light"] = true, ["light_default"] = true}
+
+if light_background[config.theme_style] then vim.o.background = "light" end
+
 ---@param user_config Config
 local function apply_configuration(user_config)
   for key, value in pairs(user_config) do

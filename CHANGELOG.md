@@ -28,6 +28,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `pmenu.select` color removed
 - pmenu select background color with dynamic blue color
 - breaking change: terminal colors are renamed
+- feat: set `vim.o.background` with config module (re-patch #60 #116)
 
 ### Fixes
 
