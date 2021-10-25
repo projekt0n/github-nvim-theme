@@ -81,8 +81,6 @@ require('github-theme').setup()
 
 ## Configuration
 
-> Note: set `vim.o.background = "light"` before loading light github colorschemes.
-
 | Option                   | Default  | Description                                                                                                                                                     |
 | ------------------------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | theme_style              | `dark`   | Set theme variant (options: `dark`/`dark_default`/`dimmed`/`light`/`light_default`)                                                                             |
@@ -101,13 +99,13 @@ require('github-theme').setup()
 
 ```vim
 " Example config in VimScript
-" configuration needs to be set BEFORE loading the color scheme with `colorscheme` command
+" NOTE: Configuration needs to be set BEFORE loading the color scheme with `colorscheme` command
 let g:github_function_style = "italic"
 let g:github_sidebars = ["qf", "vista_kind", "terminal", "packer"]
 
 " Change the "hint" color to the "orange" color, and make the "error" color bright red
 let g:github_colors = {
-  \ 'hint': 'orange',
+  \ 'hint: 'orange',
   \ 'error': '#ff0000'
 \ }
 
