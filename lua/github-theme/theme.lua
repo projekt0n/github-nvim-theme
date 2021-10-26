@@ -399,6 +399,7 @@ function M.setup(config)
     NvimTreeGitNew = {fg = c.git.add},
     NvimTreeGitRenamed = {fg = c.git.renamed},
     NvimTreeGitDeleted = {fg = c.git.delete},
+    NvimTreeGitIgnored = {fg = c.syntax.comment},
     NvimTreeSpecialFile = {fg = c.yellow, style = "underline"},
     NvimTreeIndentMarker = {fg = c.syntax.comment},
     NvimTreeImageFile = {fg = c.bright_yellow},
