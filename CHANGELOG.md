@@ -50,7 +50,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - fix #83: inactive lualine colors
 - enhance: inactive statusline
 - load colorscheme according to `theme_style` config
-- revert 41f844a #113
+- removed `search` colors force assignments from `transparent` mode #113
 - todo highlight foreground color fixed #115
 - make `CursorLine` and `CursorColumn` background highlight more visible #109
 - `qfLineNr` & `QuickFixLine` colors updated #119
