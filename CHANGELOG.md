@@ -30,6 +30,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - breaking change: terminal colors are renamed
 - feat: set `vim.o.background` with config module (re-patch #60 #116)
 - enhance: support colorschemes with fzf `Colors` command
+- enhance: unlink `NvimTreeGitIgnored` from `Comment`
 
 ### Fixes
 
