@@ -31,6 +31,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - feat: set `vim.o.background` with config module (re-patch #60 #116)
 - enhance: support colorschemes with fzf `Colors` command
 - enhance: unlink `NvimTreeGitIgnored` from `Comment`
+- fix: `vim.o.background` setting in config module
+- fix: assign `user_config` value to `vim.g` global variables
+- refactor: global variable prefix store in `key_prefix` variable
 
 ### Fixes
 
