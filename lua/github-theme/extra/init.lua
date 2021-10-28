@@ -16,11 +16,12 @@ local extras = {
   konsole = "colorscheme",
   tmux = "tmux"
 }
+
 for _, style in ipairs({"dark", "dimmed", "light", "dark_default", "light_default"}) do
-  config_module.theme_style = style
+  local config = {theme_style = style, transform_colors = true}
   for extra, ext in pairs(extras) do
     local plugin = require("github-theme.extra." .. extra)
     local file_name = "extras/" .. extra .. "/" .. style .. "." .. ext
-    write(plugin[extra](config_module), file_name)
+    write(plugin[extra](config), file_name)
   end
 end

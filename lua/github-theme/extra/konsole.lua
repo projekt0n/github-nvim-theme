@@ -13,7 +13,6 @@ end
 
 function M.konsole(config)
   config = config or config_module.config
-  config.transform_colors = true
   local colors = require("github-theme.colors").setup(config)
 
   local konsole_colors = {}
