@@ -34,6 +34,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - fix: `vim.o.background` setting in config module
 - fix: assign `user_config` value to `vim.g` global variables
 - refactor: global variable prefix store in `key_prefix` variable
+- refactor: pass common config in `extra` module
+- docs: docs init inside `extra` module
 
 ### Fixes
 

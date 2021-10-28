@@ -3,10 +3,10 @@ local config_module = require("github-theme.config")
 
 local M = {}
 
+---Generate github theme for tmux.
 ---@param config Config
 function M.tmux(config)
   config = config or config_module.config
-  config.transform_colors = true
   local colors = require("github-theme.colors").setup(config)
 
   local tmux = util.template([[
