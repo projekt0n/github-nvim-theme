@@ -3,6 +3,8 @@ local config_module = require("github-theme.config")
 
 local M = {}
 
+---Generate github theme for Alacritty terminal.
+---@param config Config
 function M.alacritty(config)
   config = config or config_module.config
   local colors = require("github-theme.colors").setup(config)

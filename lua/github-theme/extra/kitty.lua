@@ -3,6 +3,8 @@ local config_module = require("github-theme.config")
 
 local M = {}
 
+---Generate github theme for kitty terminal.
+---@param config Config
 function M.kitty(config)
   config = config or config_module.config
   local colors = require("github-theme.colors").setup(config)

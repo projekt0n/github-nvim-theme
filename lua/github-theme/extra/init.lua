@@ -1,7 +1,8 @@
 package.path = "./lua/?/init.lua;./lua/?.lua"
 
-local config_module = require("github-theme.config")
-
+---Write content to file.
+---@param str string content of file.
+---@param file_name string path of file.
 local function write(str, file_name)
   print("[write]" .. file_name)
   local file = io.open(file_name, "w")

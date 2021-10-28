@@ -3,6 +3,9 @@ local config_module = require("github-theme.config")
 
 local M = {}
 
+---Convert hex color to rgb.
+---@param hex string color hex.
+---@return table rgb color in form of lua table.
 local rgb = function(hex)
   local _, r, g, b = hex:match("(.)(..)(..)(..)")
   r, g, b = string.format("%0.16f", (tonumber(r, 16) / 255)),
@@ -11,6 +14,10 @@ local rgb = function(hex)
   return {r = r, g = g, b = b}
 end
 
+---Create iterm color XML code from hexa-decimal.
+---@param key string iterm color group name.
+---@param color string iterm color group name.
+---@return string xml XML code for color.
 local xml_from_color_group = function(key, color)
   local xml = util.template([[
 	<key>${k} Color</key>
@@ -32,6 +39,8 @@ local xml_from_color_group = function(key, color)
   return xml
 end
 
+--- Generate github theme for iterm terminal.
+---@param config Config
 function M.iterm(config)
   config = config or config_module.config
   local colors = require("github-theme.colors").setup(config)
