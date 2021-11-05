@@ -40,7 +40,7 @@ local xml_from_color_group = function(key, color)
 end
 
 --- Generate github theme for iterm terminal.
----@param config Config
+---@param config github-theme.Config
 function M.iterm(config)
   config = config or config_module.config
   local colors = require("github-theme.colors").setup(config)

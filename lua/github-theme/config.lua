@@ -1,4 +1,4 @@
----@class Config
+---@class github-theme.Config
 local config
 
 -- shim vim for kitty and other generators
@@ -42,7 +42,7 @@ config = {
 --  `set background=light` for these themes
 local light_background = {light = true, light_default = true}
 
----@param user_config Config
+---@param user_config github-theme.Config
 local function apply_configuration(user_config)
   for key, value in pairs(user_config) do
     if value ~= nil then
