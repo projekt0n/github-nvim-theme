@@ -3,7 +3,7 @@ local config_module = require("github-theme.config")
 
 local M = {}
 
----@param config Config
+---@param config github-theme.Config
 ---@return ColorScheme
 function M.setup(config)
   config = config or config_module.config
@@ -13,7 +13,7 @@ function M.setup(config)
   end
 
   -- Color Palette
-  ---@class ColorScheme
+  ---@class github-theme.ColorScheme
   local colors = {
     none = "NONE",
 

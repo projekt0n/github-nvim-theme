@@ -4,12 +4,12 @@ local configModule = require("github-theme.config")
 
 local M = {}
 
----@param config Config
----@return Theme
+---@param config github-theme.Config
+---@return github-theme.Theme
 function M.setup(config)
   config = config or configModule.config
 
-  ---@class Theme
+  ---@class github-theme.Theme
   local theme = {}
   theme.config = config
   theme.colors = colors.setup(config)
