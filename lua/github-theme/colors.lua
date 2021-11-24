@@ -544,6 +544,8 @@ function M.setup(config)
 
   -- Statusline
   colors.bg_statusline = colors.blue
+  colors.fg_statusline = colors.bg
+  colors.bg_nc_statusline = colors.bg
   colors.fg_nc_statusline = util.darken(colors.fg, 0.5)
 
   -- Search
