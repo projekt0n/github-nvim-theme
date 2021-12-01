@@ -36,6 +36,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - refactor: global variable prefix store in `key_prefix` variable
 - refactor: pass common config in `extra` module
 - enhance: `StatusLine` foreground & `StatusLineNC` background colors are customizable ( related to #11 )
+- feat: vscode like lspkind highlighting inside `nvim-cmp` #137
 
 ### Fixes
 
