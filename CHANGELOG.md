@@ -64,6 +64,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - LuaDocs: duplicate warning fixed
 - missing `'` in vim config (README.md) fixed #134
 - typo inisde `theme.lua`
+- missing alias fixed inside `colors.lua`
 
 ## [v0.0.2] - 15 Sep 2021
 

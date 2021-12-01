@@ -4,7 +4,7 @@ local config_module = require("github-theme.config")
 local M = {}
 
 ---@param config github-theme.Config
----@return ColorScheme
+---@return github-theme.ColorScheme
 function M.setup(config)
   config = config or config_module.config
 
