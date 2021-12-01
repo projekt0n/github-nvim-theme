@@ -1,13 +1,13 @@
 local util = require("github-theme.util")
 local colors = require("github-theme.colors")
-local configModule = require("github-theme.config")
+local config_module = require("github-theme.config")
 
 local M = {}
 
 ---@param config github-theme.Config
 ---@return github-theme.Theme
 function M.setup(config)
-  config = config or configModule.config
+  config = config or config_module.config
 
   ---@class github-theme.Theme
   local theme = {}
@@ -45,7 +45,7 @@ function M.setup(config)
     MsgArea = {fg = c.fg, style = config.msg_area_style}, -- Area for messages and cmdline
     -- MsgSeparator= { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     MoreMsg = {fg = c.blue}, -- |more-prompt|
-    NonText = {fg = c.eof}, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
+    NonText = {fg = c.eob}, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
     Normal = {fg = c.fg, bg = config.transparent and c.none or c.bg}, -- normal text
     NormalNC = {fg = c.fg, bg = config.transparent and c.none or c.bg}, -- normal text in non-current windows
     NormalSB = {fg = c.fg, bg = c.bg_sidebar}, -- normal text in non-current windows
@@ -267,7 +267,7 @@ function M.setup(config)
     javascriptTSParameter = {fg = c.syntax.param},
     javascriptTSVariable = {fg = c.syntax.variable},
     javascriptTSPunctDelimiter = {fg = c.fg},
-    javascriptTSStringRegex = {fg = c.string},
+    javascriptTSStringRegex = {fg = c.syntax.string},
     javascriptTSConstructor = {fg = c.syntax.func},
     javascriptTSProperty = {fg = c.syntax.func},
     regexTSStringEscape = {fg = c.syntax.keyword},
@@ -484,6 +484,18 @@ function M.setup(config)
     -- Cmp
     CmpDocumentation = {links = "NormalFloat"},
     CmpDocumentationBorder = {links = "FloatBorder"},
+
+    CmpItemAbbrDeprecated = {fg = c.syntax.comment, style = "strikethrough"},
+    CmpItemAbbrMatch = {fg = c.blue},
+    CmpItemAbbrMatchFuzzy = {link = "CmpItemAbbrMatch"},
+    CmpItemKindVariable = {fg = c.syntax.variable},
+    CmpItemKindInterface = {link = "CmpItemKindVariable"},
+    CmpItemKindText = {link = "CmpItemKindVariable"},
+    CmpItemKindFunction = {fg = c.syntax.func},
+    CmpItemKindMethod = {link = "CmpItemKindFunction"},
+    CmpItemKindKeyword = {fg = c.syntax.keyword},
+    CmpItemKindProperty = {link = "CmpItemKindKeyword"},
+    CmpItemKindUnit = {link = "CmpItemKindKeyword"},
 
     -- nvim-notify
     NotifyERRORTitle = {fg = util.darken(c.error, 0.9)},

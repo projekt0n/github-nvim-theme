@@ -36,6 +36,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - refactor: global variable prefix store in `key_prefix` variable
 - refactor: pass common config in `extra` module
 - enhance: `StatusLine` foreground & `StatusLineNC` background colors are customizable ( related to #11 )
+- feat: vscode like lspkind highlighting inside `nvim-cmp` #137
 
 ### Fixes
 
@@ -62,6 +63,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `qfLineNr` & `QuickFixLine` colors updated #119
 - LuaDocs: duplicate warning fixed
 - missing `'` in vim config (README.md) fixed #134
+- typo inisde `theme.lua`
+- missing alias fixed inside `colors.lua`
 
 ## [v0.0.2] - 15 Sep 2021
 
