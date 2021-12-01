@@ -62,6 +62,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `qfLineNr` & `QuickFixLine` colors updated #119
 - LuaDocs: duplicate warning fixed
 - missing `'` in vim config (README.md) fixed #134
+- typo inisde `theme.lua`
 
 ## [v0.0.2] - 15 Sep 2021
 
