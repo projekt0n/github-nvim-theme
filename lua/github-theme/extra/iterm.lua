@@ -1,17 +1,24 @@
 local util = require("github-theme.util")
-local configModule = require("github-theme.config")
+local config_module = require("github-theme.config")
 
 local M = {}
 
+---Convert hex color to rgb.
+---@param hex string color hex.
+---@return table rgb color in form of lua table.
 local rgb = function(hex)
-  local _, redColor, greenColor, blueColor = hex:match("(.)(..)(..)(..)")
-  redColor, greenColor, blueColor = string.format("%0.16f", (tonumber(redColor, 16) / 255)),
-                                    string.format("%0.16f", (tonumber(greenColor, 16) / 255)),
-                                    string.format("%0.16f", (tonumber(blueColor, 16) / 255))
-  return {r = redColor, g = greenColor, b = blueColor}
+  local _, r, g, b = hex:match("(.)(..)(..)(..)")
+  r, g, b = string.format("%0.16f", (tonumber(r, 16) / 255)),
+            string.format("%0.16f", (tonumber(g, 16) / 255)),
+            string.format("%0.16f", (tonumber(b, 16) / 255))
+  return {r = r, g = g, b = b}
 end
 
-local keyToXML = function(key, color)
+---Create iterm color XML code from hexa-decimal.
+---@param key string iterm color group name.
+---@param color string iterm color group name.
+---@return string xml XML code for color.
+local xml_from_color_group = function(key, color)
   local xml = util.template([[
 	<key>${k} Color</key>
 ]], {k = key:gsub("__", " ")})
@@ -32,12 +39,13 @@ local keyToXML = function(key, color)
   return xml
 end
 
+--- Generate github theme for iterm terminal.
+---@param config github-theme.Config
 function M.iterm(config)
-  config = config or configModule.config
-  config.transform_colors = true
+  config = config or config_module.config
   local colors = require("github-theme.colors").setup(config)
 
-  local itermColor = {
+  local groups = {
     Ansi__0 = rgb(colors.black),
     Ansi__1 = rgb(colors.red),
     Ansi__2 = rgb(colors.green),
@@ -47,12 +55,12 @@ function M.iterm(config)
     Ansi__6 = rgb(colors.cyan),
     Ansi__7 = rgb(colors.fg_dark),
     Ansi__8 = rgb(colors.fg_dark),
-    Ansi__9 = rgb(colors.brightRed),
-    Ansi__10 = rgb(colors.brightGreen),
-    Ansi__11 = rgb(colors.brightYellow),
-    Ansi__12 = rgb(colors.brightBlue),
-    Ansi__13 = rgb(colors.brightMagenta),
-    Ansi__14 = rgb(colors.brightCyan),
+    Ansi__9 = rgb(colors.bright_red),
+    Ansi__10 = rgb(colors.bright_green),
+    Ansi__11 = rgb(colors.bright_yellow),
+    Ansi__12 = rgb(colors.bright_blue),
+    Ansi__13 = rgb(colors.bright_magenta),
+    Ansi__14 = rgb(colors.bright_cyan),
     Ansi__15 = rgb(colors.term_fg),
     Background = rgb(colors.bg),
     Foreground = rgb(colors.fg),
@@ -63,21 +71,24 @@ function M.iterm(config)
     Bold = rgb(colors.fg)
   }
 
-  local iterm = [[
+  -- XML start
+  local xml = [[
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
 ]]
 
-  for k, c in pairs(itermColor) do iterm = iterm .. keyToXML(k, c) end
+  -- appending color groups to XML
+  for k, c in next, groups do xml = xml .. xml_from_color_group(k, c) end
 
-  iterm = iterm .. [[
+  -- end
+  xml = xml .. [[
 </dict>
 </plist>
 ]]
 
-  return iterm
+  return xml
 end
 
 return M

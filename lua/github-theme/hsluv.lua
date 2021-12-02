@@ -103,13 +103,16 @@ end
 
 hsluv.xyz_to_rgb = function(tuple)
   return {
-    hsluv.from_linear(hsluv.dot_product(hsluv.m[1], tuple)), hsluv.from_linear(hsluv.dot_product(hsluv.m[2], tuple)),
+    hsluv.from_linear(hsluv.dot_product(hsluv.m[1], tuple)),
+    hsluv.from_linear(hsluv.dot_product(hsluv.m[2], tuple)),
     hsluv.from_linear(hsluv.dot_product(hsluv.m[3], tuple))
   }
 end
 
 hsluv.rgb_to_xyz = function(tuple)
-  local rgbl = {hsluv.to_linear(tuple[1]), hsluv.to_linear(tuple[2]), hsluv.to_linear(tuple[3])}
+  local rgbl = {
+    hsluv.to_linear(tuple[1]), hsluv.to_linear(tuple[2]), hsluv.to_linear(tuple[3])
+  }
   return {
     hsluv.dot_product(hsluv.minv[1], rgbl), hsluv.dot_product(hsluv.minv[2], rgbl),
     hsluv.dot_product(hsluv.minv[3], rgbl)
@@ -289,11 +292,13 @@ hsluv.hex_to_hpluv = function(s)
 end
 
 hsluv.m = {
-  {3.240969941904521, -1.537383177570093, -0.498610760293}, {-0.96924363628087, 1.87596750150772, 0.041555057407175},
+  {3.240969941904521, -1.537383177570093, -0.498610760293},
+  {-0.96924363628087, 1.87596750150772, 0.041555057407175},
   {0.055630079696993, -0.20397695888897, 1.056971514242878}
 }
 hsluv.minv = {
-  {0.41239079926595, 0.35758433938387, 0.18048078840183}, {0.21263900587151, 0.71516867876775, 0.072192315360733},
+  {0.41239079926595, 0.35758433938387, 0.18048078840183},
+  {0.21263900587151, 0.71516867876775, 0.072192315360733},
   {0.019330818715591, 0.11919477979462, 0.95053215224966}
 }
 hsluv.refY = 1.0

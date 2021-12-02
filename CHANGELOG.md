@@ -20,6 +20,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - lualine colors refactored inside `colors.lua` (related to #80)
 - `NvimTreeIndentMarker` highlight is light #74
 - Github's default themes for `tmux`
+- plugin support: nvim-compe, nvim-cmp and nvim-notify
+- set `vim.o.background` while loading individual colorscheme (folke/tokyonight.nvim#102)
+- enhance: assign config default value to `vim.g` variables
+- re-patch: #72
+- breaking change: `github` deprecated from `colorscheme` command
+- `pmenu.select` color removed
+- pmenu select background color with dynamic blue color
+- breaking change: terminal colors are renamed
+- feat: set `vim.o.background` with config module (re-patch #60 #116)
+- enhance: support colorschemes with fzf `Colors` command
+- enhance: unlink `NvimTreeGitIgnored` from `Comment`
+- fix: `vim.o.background` setting in config module
+- fix: assign `user_config` value to `vim.g` global variables
+- refactor: global variable prefix store in `key_prefix` variable
+- refactor: pass common config in `extra` module
+- enhance: `StatusLine` foreground & `StatusLineNC` background colors are customizable ( related to #11 )
+- feat: vscode like lspkind highlighting inside `nvim-cmp` #137
 
 ### Fixes
 
@@ -35,6 +52,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - refactor: `git_signs` & `dev_icons` colors
 - docs: removed `lua` table assignment from `vim` example (related to #89 #77)
 - Linting inside `tmux.lua`
+- NvimTree git highlight
+- refactor: de-attach 'bg_statusline' color from lualine
+- fix #83: inactive lualine colors
+- enhance: inactive statusline
+- load colorscheme according to `theme_style` config
+- removed `search` colors force assignments from `transparent` mode #113
+- todo highlight foreground color fixed #115
+- make `CursorLine` and `CursorColumn` background highlight more visible #109
+- `qfLineNr` & `QuickFixLine` colors updated #119
+- LuaDocs: duplicate warning fixed
+- missing `'` in vim config (README.md) fixed #134
+- typo inisde `theme.lua`
+- missing alias fixed inside `colors.lua`
 
 ## [v0.0.2] - 15 Sep 2021
 

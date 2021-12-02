@@ -2,6 +2,7 @@ local hsluv = require("github-theme.hsluv")
 
 local util = {}
 
+util.colors_name = ""
 util.colorsUsed = {}
 util.colorCache = {}
 
@@ -13,7 +14,8 @@ local function hexToRgb(hex_str)
   local pat = "^#(" .. hex .. ")(" .. hex .. ")(" .. hex .. ")$"
   hex_str = string.lower(hex_str)
 
-  assert(string.find(hex_str, pat) ~= nil, "hex_to_rgb: invalid hex_str: " .. tostring(hex_str))
+  assert(string.find(hex_str, pat) ~= nil,
+         "hex_to_rgb: invalid hex_str: " .. tostring(hex_str))
 
   local r, g, b = string.match(hex_str, pat)
   return {tonumber(r, 16), tonumber(g, 16), tonumber(b, 16)}
@@ -108,30 +110,37 @@ function util.debug(colors)
     if type(color) == "table" then
       util.debug(color)
     else
-      if util.colorsUsed[color] == nil then print("not used: " .. name .. " : " .. color) end
+      if util.colorsUsed[color] == nil then
+        print("not used: " .. name .. " : " .. color)
+      end
     end
   end
 end
 
 --- Delete the autocmds when the theme changes to something else
 function util.onColorScheme()
-  if vim.g.colors_name ~= "github" then
-    vim.cmd([[autocmd! github]])
-    vim.cmd([[augroup! github]])
+  if vim.g.colors_name ~= util.colors_name then
+    vim.cmd("autocmd! " .. util.colors_name)
+    vim.cmd("augroup!" .. util.colors_name)
   end
 end
 
----@param config Config
+---@param config github-theme.Config
 function util.autocmds(config)
-  vim.cmd([[augroup github]])
+  vim.cmd("augroup " .. util.colors_name)
   vim.cmd([[  autocmd!]])
   vim.cmd([[  autocmd ColorScheme * lua require("github-theme.util").onColorScheme()]])
-  if config.dev then vim.cmd([[  autocmd BufWritePost */lua/github-theme/** nested colorscheme github]]) end
+  if config.dev then
+    vim.cmd("  autocmd BufWritePost */lua/github-theme/** nested colorscheme " ..
+                util.colors_name)
+  end
   for _, sidebar in ipairs(config.sidebars) do
     if sidebar == "terminal" then
-      vim.cmd([[  autocmd TermOpen * setlocal winhighlight=Normal:NormalSB,SignColumn:SignColumnSB]])
+      vim.cmd(
+          [[  autocmd TermOpen * setlocal winhighlight=Normal:NormalSB,SignColumn:SignColumnSB]])
     else
-      vim.cmd([[  autocmd FileType ]] .. sidebar .. [[ setlocal winhighlight=Normal:NormalSB,SignColumn:SignColumnSB]])
+      vim.cmd([[  autocmd FileType ]] .. sidebar ..
+                  [[ setlocal winhighlight=Normal:NormalSB,SignColumn:SignColumnSB]])
     end
   end
   vim.cmd([[augroup end]])
@@ -153,7 +162,7 @@ function util.syntax(syntax)
   for group, colors in pairs(syntax) do util.highlight(group, colors) end
 end
 
----@param colors ColorScheme
+---@param colors github-theme.ColorScheme
 function util.terminal(colors)
   -- dark
   vim.g.terminal_color_0 = colors.black
@@ -165,52 +174,50 @@ function util.terminal(colors)
 
   -- colors
   vim.g.terminal_color_1 = colors.red
-  vim.g.terminal_color_9 = colors.brightRed
+  vim.g.terminal_color_9 = colors.bright_red
 
   vim.g.terminal_color_2 = colors.green
-  vim.g.terminal_color_10 = colors.brightGreen
+  vim.g.terminal_color_10 = colors.bright_green
 
   vim.g.terminal_color_3 = colors.yellow
-  vim.g.terminal_color_11 = colors.brightYellow
+  vim.g.terminal_color_11 = colors.bright_yellow
 
   vim.g.terminal_color_4 = colors.blue
-  vim.g.terminal_color_12 = colors.brightBlue
+  vim.g.terminal_color_12 = colors.bright_blue
 
   vim.g.terminal_color_5 = colors.magenta
-  vim.g.terminal_color_13 = colors.brightMagenta
+  vim.g.terminal_color_13 = colors.bright_magenta
 
   vim.g.terminal_color_6 = colors.cyan
-  vim.g.terminal_color_14 = colors.brightCyan
+  vim.g.terminal_color_14 = colors.bright_cyan
 
   if vim.o.background == "light" then
-    for i = 0, 15, 1 do vim.g["terminal_color_" .. i] = util.getColor(vim.g["terminal_color_" .. i]) end
+    for i = 0, 15, 1 do
+      vim.g["terminal_color_" .. i] = util.getColor(vim.g["terminal_color_" .. i])
+    end
   end
 end
 
-function util.light_colors(colors)
-  if type(colors) == "string" then return util.getColor(colors) end
-  local ret = {}
-  for key, value in pairs(colors) do ret[key] = util.light_colors(value) end
-  return ret
-end
-
----@param theme Theme
+---@param theme github-theme.Theme
 function util.load(theme)
   vim.cmd("hi clear")
   if vim.fn.exists("syntax_on") then vim.cmd("syntax reset") end
 
+  util.colors_name = "github_" .. vim.g.github_theme_style
+
   vim.o.termguicolors = true
-  vim.g.colors_name = "github"
+  vim.g.colors_name = util.colors_name
   -- vim.api.nvim__set_hl_ns(ns)
+
   -- load base theme
   util.syntax(theme.base)
+  util.autocmds(theme.config)
+  util.terminal(theme.colors)
+  util.syntax(theme.plugins)
 
-  -- load syntax for plugins and terminal async
   vim.defer_fn(function()
-    util.terminal(theme.colors)
-    util.syntax(theme.plugins)
-    util.autocmds(theme.config)
-  end, 0)
+    util.syntax(theme.defer)
+  end, 100)
 end
 
 ---@param colors ColorScheme

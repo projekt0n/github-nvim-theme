@@ -1,19 +1,19 @@
 local util = require("github-theme.util")
-local configModule = require("github-theme.config")
+local config_module = require("github-theme.config")
 
 local M = {}
 
----@param config Config
----@return ColorScheme
+---@param config github-theme.Config
+---@return github-theme.ColorScheme
 function M.setup(config)
-  config = config or configModule.config
+  config = config or config_module.config
 
   local themes = function(options)
     return options[config.theme_style]
   end
 
   -- Color Palette
-  ---@class ColorScheme
+  ---@class github-theme.ColorScheme
   local colors = {
     none = "NONE",
 
@@ -40,7 +40,7 @@ function M.setup(config)
       dark_default = "#484f58",
       light_default = "#24292e"
     }),
-    brightBlack = themes({
+    bright_black = themes({
       dark = "#666666",
       dimmed = "#636e7b",
       light = "#666666",
@@ -54,7 +54,7 @@ function M.setup(config)
       dark_default = "#b1bac4",
       light_default = "#6a737d"
     }),
-    brightWhite = themes({
+    bright_white = themes({
       dark = "#e5e5e5",
       dimmed = "#cdd9e5",
       light = "#a5a5a5",
@@ -68,7 +68,7 @@ function M.setup(config)
       dark_default = "#ff7b72",
       light_default = "#d73a49"
     }),
-    brightRed = themes({
+    bright_red = themes({
       dark = "#f14c4c",
       dimmed = "#ff938a",
       light = "#cd3131",
@@ -82,7 +82,7 @@ function M.setup(config)
       dark_default = "#3fb950",
       light_default = "#22863a"
     }),
-    brightGreen = themes({
+    bright_green = themes({
       dark = "#23d18b",
       dimmed = "#6bc46d",
       light = "#14ce14",
@@ -96,7 +96,7 @@ function M.setup(config)
       dark_default = "#d29922",
       light_default = "#b08800"
     }),
-    brightYellow = themes({
+    bright_yellow = themes({
       dark = "#f5f543",
       dimmed = "#daaa3f",
       light = "#b5ba00",
@@ -110,7 +110,7 @@ function M.setup(config)
       dark_default = "#58a6ff",
       light_default = "#0366d6"
     }),
-    brightBlue = themes({
+    bright_blue = themes({
       dark = "#3b8eea",
       dimmed = "#6cb6ff",
       light = "#0451a5",
@@ -124,7 +124,7 @@ function M.setup(config)
       dark_default = "#bc8cff",
       light_default = "#6f42c1"
     }),
-    brightMagenta = themes({
+    bright_magenta = themes({
       dark = "#d670d6",
       dimmed = "#dcbdfb",
       light = "#bc05bc",
@@ -138,7 +138,7 @@ function M.setup(config)
       dark_default = "#39c5cf",
       light_default = "#1b7c83"
     }),
-    brightCyan = themes({
+    bright_cyan = themes({
       dark = "#29b8db",
       dimmed = "#56d4dd",
       light = "#0598bc",
@@ -179,9 +179,9 @@ function M.setup(config)
     bg_highlight = themes({
       dark = "#2c313a",
       dimmed = "#2d333b",
-      light = "#f6f8fa",
+      light = "#d5e5f6",
       dark_default = "#161b22",
-      light_default = "#fafbfc"
+      light_default = "#d5e5f6"
     }),
 
     border = themes({
@@ -372,17 +372,10 @@ function M.setup(config)
     pmenu = {
       bg = themes({
         dark = "#1f2428",
-        dimmed = "#323941",
+        dimmed = "#2d333b",
         light = "#f6f8fa",
-        dark_default = "#1c2128",
-        light_default = "#fafbfc"
-      }),
-      select = themes({
-        dark = "#044289",
-        dimmed = "#373e47",
-        light = "#cce5ff",
-        dark_default = "#39414a",
-        light_default = "#e2e5e9"
+        dark_default = "#161b22",
+        light_default = "#f6f8fa"
       }),
       sbar = themes({
         dark = "#32383e",
@@ -402,9 +395,9 @@ function M.setup(config)
         light_default = "#22863a"
       }),
       change = themes({
-        dark = "#79b8ff",
+        dark = "#e2c08d",
         dimmed = "#daaa3f",
-        light = "#005cc8",
+        light = "#895503",
         dark_default = "#ac8934",
         light_default = "#b08800"
       }),
@@ -428,6 +421,13 @@ function M.setup(config)
         light = "#959da5",
         dark_default = "#484f58",
         light_default = "#959da5"
+      }),
+      renamed = themes({
+        dark = "#73c991",
+        dimmed = "#73c991",
+        light = "#007100",
+        dark_default = "#73c991",
+        light_default = "#007100"
       })
     },
 
@@ -529,43 +529,39 @@ function M.setup(config)
     }
   }
 
+  -- useful for 'util.darken()' and 'util.lighten()'
   util.bg = colors.bg
+  util.fg = colors.fg
 
-  -- lualine colors are configurable
-  colors.lualine = {
-    normal = {
-      a = {bg = colors.blue, fg = colors.bg},
-      b = {bg = colors.bg2, fg = colors.blue},
-      c = {bg = colors.bg, fg = colors.fg_light}
-    },
-    insert = {a = {bg = colors.green, fg = colors.bg}, b = {bg = colors.bg2, fg = colors.green}},
-    command = {a = {bg = colors.magenta, fg = colors.bg}, b = {bg = colors.bg2, fg = colors.magenta}},
-    visual = {a = {bg = colors.yellow, fg = colors.bg}, b = {bg = colors.bg2, fg = colors.yellow}},
-    replace = {a = {bg = colors.red, fg = colors.bg}, b = {bg = colors.bg2, fg = colors.red}},
-    inactive = {
-      a = {bg = colors.bg_statusline, fg = colors.green},
-      b = {bg = colors.bg_statusline, fg = colors.bg2, gui = "bold"},
-      c = {bg = colors.bg_statusline, fg = colors.bg2}
-    }
-  }
+  --
+  -- NOTE: These colors are also configurable
+  --
 
-  -- EndOfBuffer colors are configurable
+  -- EndOfBuffer
   colors.sidebar_eob = config.dark_sidebar and colors.bg2 or colors.bg
   colors.sidebar_eob = config.hide_end_of_buffer and colors.sidebar_eob or colors.fg_light
   colors.eob = config.hide_end_of_buffer and colors.bg or colors.fg_light
 
-  colors.fg_search = colors.none
-  colors.border_highlight = colors.blue
+  -- Statusline
   colors.bg_statusline = colors.blue
+  colors.fg_statusline = colors.bg
+  colors.bg_nc_statusline = colors.bg
+  colors.fg_nc_statusline = util.darken(colors.fg, 0.5)
 
-  -- Folded colors are configurable
+  -- Search
+  colors.fg_search = colors.none
+
+  -- Border
+  colors.border_highlight = colors.blue
+
+  -- Folded
   colors.fg_folded = colors.fg
   colors.bg_folded = colors.bg_visual_selection
 
-  -- Popups always get a dark background
+  -- Popups
   colors.bg_popup = colors.bg2
 
-  -- Sidebar and Floats are configurable
+  -- Sidebar and Floats
   colors.bg_sidebar = config.dark_sidebar and colors.bg2 or colors.bg
   colors.bg_sidebar = config.transparent and colors.none or colors.bg_sidebar
   colors.bg_float = config.dark_float and colors.bg2 or colors.bg
