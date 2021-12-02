@@ -1,15 +1,15 @@
 local util = require("github-theme.util")
 local colors = require("github-theme.colors")
-local configModule = require("github-theme.config")
+local config_module = require("github-theme.config")
 
 local M = {}
 
----@param config Config
----@return Theme
+---@param config github-theme.Config
+---@return github-theme.Theme
 function M.setup(config)
-  config = config or configModule.config
+  config = config or config_module.config
 
-  ---@class Theme
+  ---@class github-theme.Theme
   local theme = {}
   theme.config = config
   theme.colors = colors.setup(config)
@@ -45,27 +45,27 @@ function M.setup(config)
     MsgArea = {fg = c.fg, style = config.msg_area_style}, -- Area for messages and cmdline
     -- MsgSeparator= { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     MoreMsg = {fg = c.blue}, -- |more-prompt|
-    NonText = {fg = c.eof}, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
+    NonText = {fg = c.eob}, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
     Normal = {fg = c.fg, bg = config.transparent and c.none or c.bg}, -- normal text
     NormalNC = {fg = c.fg, bg = config.transparent and c.none or c.bg}, -- normal text in non-current windows
     NormalSB = {fg = c.fg, bg = c.bg_sidebar}, -- normal text in non-current windows
     NormalFloat = {fg = c.fg, bg = c.bg_float}, -- Normal text in floating windows.
     FloatBorder = {fg = c.border},
     Pmenu = {bg = c.pmenu.bg, fg = c.fg}, -- Popup menu: normal item.
-    PmenuSel = {bg = c.pmenu.select, fg = c.fg}, -- Popup menu: selected item.
+    PmenuSel = {bg = util.darken(c.bright_blue, 0.75), fg = c.pmenu.bg}, -- Popup menu: selected item.
     PmenuSbar = {bg = c.pmenu.bg}, -- Popup menu: scrollbar.
     PmenuThumb = {bg = c.pmenu.sbar}, -- Popup menu: Thumb of the scrollbar.
     Question = {fg = c.blue}, -- |hit-enter| prompt and yes/no questions
-    QuickFixLine = {bg = c.bg_visual, style = "bold"}, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
-    Search = {bg = config.transparent and c.orange or c.bg_search, fg = config.transparent and c.black or c.fg_search}, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
+    QuickFixLine = {bg = util.darken(c.blue, 0.2), style = "bold"}, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
+    Search = {bg = c.bg_search, fg = c.fg_search}, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
     IncSearch = {link = "Search"}, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     SpecialKey = {fg = c.fg_gutter}, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
     SpellBad = {sp = c.error, style = "undercurl"}, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
     SpellCap = {sp = c.warning, style = "undercurl"}, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
     SpellLocal = {sp = c.info, style = "undercurl"}, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
     SpellRare = {sp = c.hint, style = "undercurl"}, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
-    StatusLine = {fg = c.bg, bg = c.bg_statusline}, -- status line of current window
-    StatusLineNC = {fg = c.fg, bg = c.bg}, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
+    StatusLine = {fg = c.fg_statusline, bg = c.bg_statusline}, -- status line of current window
+    StatusLineNC = {fg = c.fg_nc_statusline, bg = c.bg_nc_statusline}, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
     TabLine = {bg = c.bg, fg = c.fg}, -- tab pages line, not active tab page label
     TabLineFill = {bg = c.bg2}, -- tab pages line, where there are no labels
     TabLineSel = {fg = c.pmenu.select, bg = c.blue}, -- tab pages line, active tab page label
@@ -124,8 +124,8 @@ function M.setup(config)
     -- Ignore = { }, -- (preferred) left blank, hidden  |hl-Ignore|
 
     Error = {fg = c.error}, -- (preferred) any erroneous construct
-    Todo = {bg = c.yellow, fg = c.none}, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
-    qfLineNr = {fg = c.line_nr},
+    Todo = {bg = c.yellow, fg = c.bg}, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+    qfLineNr = {fg = c.syntax.keyword},
     qfFileName = {fg = c.blue},
 
     -- mkdCode = { bg = c.bg2, fg = c.fg },
@@ -267,7 +267,7 @@ function M.setup(config)
     javascriptTSParameter = {fg = c.syntax.param},
     javascriptTSVariable = {fg = c.syntax.variable},
     javascriptTSPunctDelimiter = {fg = c.fg},
-    javascriptTSStringRegex = {fg = c.string},
+    javascriptTSStringRegex = {fg = c.syntax.string},
     javascriptTSConstructor = {fg = c.syntax.func},
     javascriptTSProperty = {fg = c.syntax.func},
     regexTSStringEscape = {fg = c.syntax.keyword},
@@ -343,7 +343,7 @@ function M.setup(config)
     -- LspTrouble
     LspTroubleText = {fg = c.fg},
     LspTroubleCount = {fg = c.magenta, bg = c.fg_gutter},
-    LspTroubleNormal = {fg = c.brightYellow, bg = c.bg_sidebar},
+    LspTroubleNormal = {fg = c.bright_yellow, bg = c.bg_sidebar},
 
     -- Illuminate
     illuminatedWord = {bg = c.lsp.referenceText},
@@ -382,14 +382,14 @@ function M.setup(config)
     TelescopeBorder = {fg = c.border},
     TelescopePromptPrefix = {fg = c.fg},
     TelescopeMatching = {fg = c.syntax.constant, style = "bold"},
-    TelescopePreviewPipe = {fg = c.brightYellow},
-    TelescopePreviewRead = {fg = c.brightYellow},
-    TelescopePreviewSize = {fg = c.brightGreen},
-    TelescopePreviewUser = {fg = c.brightYellow},
-    TelescopePreviewBlock = {fg = c.brightYellow},
-    TelescopePreviewGroup = {fg = c.brightYellow},
-    TelescopePreviewWrite = {fg = c.brightMagenta},
-    TelescopePreviewSticky = {fg = c.brightCyan},
+    TelescopePreviewPipe = {fg = c.bright_yellow},
+    TelescopePreviewRead = {fg = c.bright_yellow},
+    TelescopePreviewSize = {fg = c.bright_green},
+    TelescopePreviewUser = {fg = c.bright_yellow},
+    TelescopePreviewBlock = {fg = c.bright_yellow},
+    TelescopePreviewGroup = {fg = c.bright_yellow},
+    TelescopePreviewWrite = {fg = c.bright_magenta},
+    TelescopePreviewSticky = {fg = c.bright_cyan},
 
     -- NvimTree
     NvimTreeNormal = {fg = c.fg_light, bg = c.bg_sidebar},
@@ -397,10 +397,12 @@ function M.setup(config)
     NvimTreeRootFolder = {fg = c.fg_light, style = "bold"},
     NvimTreeGitDirty = {fg = c.git.change},
     NvimTreeGitNew = {fg = c.git.add},
+    NvimTreeGitRenamed = {fg = c.git.renamed},
     NvimTreeGitDeleted = {fg = c.git.delete},
+    NvimTreeGitIgnored = {fg = c.syntax.comment},
     NvimTreeSpecialFile = {fg = c.yellow, style = "underline"},
     NvimTreeIndentMarker = {fg = c.syntax.comment},
-    NvimTreeImageFile = {fg = c.brightYellow},
+    NvimTreeImageFile = {fg = c.bright_yellow},
     NvimTreeSymlink = {fg = c.magenta},
     NvimTreeFolderName = {fg = c.fg_light},
     NvimTreeOpenedFolderName = {fg = c.fg_light, style = "bold"},
@@ -417,7 +419,7 @@ function M.setup(config)
     DashboardHeader = {fg = c.blue},
     DashboardCenter = {fg = c.green, style = "bold"},
     DashboardShortCut = {fg = c.yellow},
-    DashboardFooter = {fg = c.brightWhite, style = "italic"},
+    DashboardFooter = {fg = c.bright_white, style = "italic"},
 
     -- WhichKey
     WhichKey = {fg = c.blue}, -- the key
@@ -473,8 +475,55 @@ function M.setup(config)
     DevIconTs = {fg = c.dev_icons.typescript},
     DevIconXml = {fg = c.dev_icons.xml},
     DevIconYaml = {fg = c.dev_icons.yml},
-    DevIconYml = {fg = c.dev_icons.yml}
+    DevIconYml = {fg = c.dev_icons.yml},
+
+    -- Compe
+    CompeDocumentation = {links = "NormalFloat"},
+    CompeDocumentationBorder = {links = "FloatBorder"},
+
+    -- Cmp
+    CmpDocumentation = {links = "NormalFloat"},
+    CmpDocumentationBorder = {links = "FloatBorder"},
+
+    CmpItemAbbrDeprecated = {fg = c.syntax.comment, style = "strikethrough"},
+    CmpItemAbbrMatch = {fg = c.blue},
+    CmpItemAbbrMatchFuzzy = {link = "CmpItemAbbrMatch"},
+    CmpItemKindVariable = {fg = c.syntax.variable},
+    CmpItemKindInterface = {link = "CmpItemKindVariable"},
+    CmpItemKindText = {link = "CmpItemKindVariable"},
+    CmpItemKindFunction = {fg = c.syntax.func},
+    CmpItemKindMethod = {link = "CmpItemKindFunction"},
+    CmpItemKindKeyword = {fg = c.syntax.keyword},
+    CmpItemKindProperty = {link = "CmpItemKindKeyword"},
+    CmpItemKindUnit = {link = "CmpItemKindKeyword"},
+
+    -- nvim-notify
+    NotifyERRORTitle = {fg = util.darken(c.error, 0.9)},
+    NotifyWARNTitle = {fg = util.darken(c.warning, 0.9)},
+    NotifyINFOTitle = {fg = util.darken(c.green, 0.9)},
+    NotifyDEBUGTitle = {fg = util.darken(c.fg, 0.7)},
+    NotifyTRACETitle = {fg = util.darken(c.bright_magenta, 0.9)},
+
+    NotifyERRORIcon = {link = "NotifyERRORTitle"},
+    NotifyWARNIcon = {link = "NotifyWARNTitle"},
+    NotifyINFOIcon = {link = "NotifyINFOTitle"},
+    NotifyDEBUGIcon = {link = "NotifyDEBUGTitle"},
+    NotifyTRACEIcon = {link = "NotifyTRACETitle"},
+
+    NotifyERRORBorder = {link = "NotifyERRORTitle"},
+    NotifyWARNBorder = {link = "NotifyWARNTitle"},
+    NotifyINFOBorder = {link = "NotifyINFOTitle"},
+    NotifyDEBUGBorder = {link = "NotifyDEBUGTitle"},
+    NotifyTRACEBorder = {link = "NotifyTRACETitle"},
+
+    NotifyERRORBody = {fg = util.lighten(c.error, 0.1)},
+    NotifyWARNBody = {fg = util.lighten(c.warning, 0.1)},
+    NotifyINFOBody = {fg = util.lighten(c.green, 0.1)},
+    NotifyDEBUGBody = {link = "NotifyDEBUGTitle"},
+    NotifyTRACEBody = {fg = util.lighten(c.bright_magenta, 0.1)}
   }
+
+  theme.defer = {}
 
   if config.hide_inactive_statusline then
     local inactive = {style = "underline", bg = c.bg, fg = c.bg, sp = c.bg_visual}
@@ -488,7 +537,9 @@ function M.setup(config)
       theme.base.StatusLine = {bg = c.bg}
 
       -- LuaLine
-      for _, section in pairs({"a", "b", "c"}) do theme.plugins["lualine_" .. section .. "_inactive"] = inactive end
+      for _, section in pairs({"a", "b", "c"}) do
+        theme.defer["lualine_" .. section .. "_inactive"] = inactive
+      end
     end
   end
 

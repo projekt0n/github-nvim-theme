@@ -1,12 +1,14 @@
----@class Config
+---@class github-theme.Config
 local config
 
 -- shim vim for kitty and other generators
 vim = vim or {g = {}, o = {}}
+local key_prefix = "github_"
 
 local function opt(key, default)
-  key = "github_" .. key
+  key = key_prefix .. key
   if vim.g[key] == nil then
+    vim.g[key] = default
     return default
   else
     if vim.g[key] == 1 then
@@ -37,12 +39,22 @@ config = {
   transform_colors = false
 }
 
----@param userConfig Config
-local function applyConfiguration(userConfig)
-  for key, value in pairs(userConfig) do
+--  `set background=light` for these themes
+local light_background = {light = true, light_default = true}
+
+---@param user_config github-theme.Config
+local function apply_configuration(user_config)
+  for key, value in pairs(user_config) do
     if value ~= nil then
       if config[key] ~= nil then
+        -- override value
         config[key] = value
+        vim.g[key_prefix .. key] = value
+
+        -- background set
+        if key == "theme_style" then
+          if light_background[config.theme_style] then vim.o.background = "light" end
+        end
       else
         error("projekt0n/github-nvim-theme: Config " .. key .. " does not exist") -- luacheck: ignore
       end
@@ -50,4 +62,4 @@ local function applyConfiguration(userConfig)
   end
 end
 
-return {config = config, applyConfiguration = applyConfiguration}
+return {config = config, apply_configuration = apply_configuration}
