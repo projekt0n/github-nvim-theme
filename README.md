@@ -324,7 +324,7 @@ require("github-theme").setup({
 ```
 
 <p align="center">
-  <img src="https://imgur.com/SuPtKdk.png" alt="github_minimal" />
+  <img src="https://imgur.com/TyaLR4n.png" alt="github_minimal" />
 </p>
 
 ### Telescope
