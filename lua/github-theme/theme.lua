@@ -484,18 +484,43 @@ function M.setup(config)
     -- Cmp
     CmpDocumentation = {links = "NormalFloat"},
     CmpDocumentationBorder = {links = "FloatBorder"},
-
     CmpItemAbbrDeprecated = {fg = c.syntax.comment, style = "strikethrough"},
     CmpItemAbbrMatch = {fg = c.blue},
     CmpItemAbbrMatchFuzzy = {link = "CmpItemAbbrMatch"},
-    CmpItemKindVariable = {fg = c.syntax.variable},
-    CmpItemKindInterface = {link = "CmpItemKindVariable"},
-    CmpItemKindText = {link = "CmpItemKindVariable"},
-    CmpItemKindFunction = {fg = c.syntax.func},
-    CmpItemKindMethod = {link = "CmpItemKindFunction"},
-    CmpItemKindKeyword = {fg = c.syntax.keyword},
-    CmpItemKindProperty = {link = "CmpItemKindKeyword"},
-    CmpItemKindUnit = {link = "CmpItemKindKeyword"},
+
+    -- Cmp Item Kind
+    CmpItemKindColorDefault = {fg = c.bright_red},
+    CmpItemKindPropertyDefault = {fg = c.syntax.func},
+    CmpItemKindSnippetDefault = {fg = c.bright_yellow},
+
+    CmpItemKindVariableDefault = {fg = c.syntax.variable},
+    CmpItemKindClassDefault = {link = "CmpItemKindVariableDefault"},
+    CmpItemKindEnumDefault = {link = "CmpItemKindVariableDefault"},
+    CmpItemKindInterfaceDefault = {link = "CmpItemKindVariableDefault"},
+    CmpItemKindTextDefault = {link = "CmpItemKindVariableDefault"},
+
+    CmpItemKindKeywordDefault = {fg = c.syntax.keyword},
+    CmpItemKindFieldDefault = {link = "CmpItemKindKeywordDefault"},
+    CmpItemKindUnitDefault = {link = "CmpItemKindKeywordDefault"},
+    CmpItemKindValueDefault = {link = "CmpItemKindKeywordDefault"},
+
+    CmpItemKindFileDefault = {fg = c.orange},
+    CmpItemKindFolderDefault = {link = "CmpItemKindFileDefault"},
+
+    CmpItemKindFunctionDefault = {fg = c.syntax.func},
+    CmpItemKindConstructorDefault = {link = "CmpItemKindFunctionDefault"},
+    CmpItemKindEventDefault = {link = "CmpItemKindFunctionDefault"},
+    CmpItemKindMethodDefault = {link = "CmpItemKindFunctionDefault"},
+
+    CmpItemKindOperatorDefault = {fg = c.syntax.operator},
+    CmpItemKindEnumMemberDefault = {link = "CmpItemKindOperatorDefault"},
+    CmpItemKindReferenceDefault = {link = "CmpItemKindOperatorDefault"},
+    CmpItemKindTypeParameter = {link = "CmpItemKindOperatorDefault"},
+
+    CmpItemKindConstantDefault = {fg = c.syntax.constant},
+    CmpItemKindModuleDefault = {link = "CmpItemKindConstantDefault"},
+    CmpItemKindStructDefault = {link = "CmpItemKindConstantDefault"},
+    CmpItemKindTypeParameterDefault = {link = "CmpItemKindConstantDefault"},
 
     -- nvim-notify
     NotifyERRORTitle = {fg = util.darken(c.error, 0.9)},
