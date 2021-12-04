@@ -19,14 +19,14 @@ function M.setup(config)
     ColorColumn = {bg = c.bg_visual}, -- used for the columns set with 'colorcolumn'
     Conceal = {fg = c.fg_gutter}, -- placeholder characters substituted for concealed text (see 'conceallevel')
     Cursor = {fg = c.bg, bg = c.fg}, -- character under the cursor
-    lCursor = {fg = c.bg, bg = c.fg}, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
-    CursorIM = {fg = c.bg, bg = c.fg}, -- like Cursor, but used when in IME mode |CursorIM|
+    lCursor = {link = "Cursor"}, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
+    CursorIM = {link = "Cursor"}, -- like Cursor, but used when in IME mode |CursorIM|
     CursorColumn = {bg = c.bg_highlight}, -- Screen-column at the cursor, when 'cursorcolumn' is set.
-    CursorLine = {bg = c.bg_highlight}, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
+    CursorLine = {link = "CursorColumn"}, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
     Directory = {fg = c.blue}, -- directory names (and other special names in listings)
-    DiffAdd = {bg = c.diff.add}, -- diff mode: Added line |diff.txt|
-    DiffChange = {bg = c.diff.change}, -- diff mode: Changed line |diff.txt|
-    DiffDelete = {bg = c.diff.delete}, -- diff mode: Deleted line |diff.txt|
+    DiffAdd = {fg = c.diff.add_fg, bg = c.diff.add}, -- diff mode: Added line |diff.txt|
+    DiffChange = {fg = c.diff.change_fg, bg = c.diff.change}, -- diff mode: Changed line |diff.txt|
+    DiffDelete = {fg = c.diff.delete_fg, bg = c.diff.delete}, -- diff mode: Deleted line |diff.txt|
     DiffText = {fg = c.fg_gutter}, -- diff mode: Changed text within a changed line |diff.txt|
     EndOfBuffer = {fg = c.eob}, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
     -- TermCursor  = { }, -- cursor in a focused terminal
@@ -34,7 +34,7 @@ function M.setup(config)
     ErrorMsg = {fg = c.error}, -- error messages on the command line
     VertSplit = {fg = c.bg_visual, bg = c.bg}, -- the column separating vertically split windows
     Folded = {fg = c.fg_folded, bg = c.bg_folded}, -- line used for closed folds
-    FoldColumn = {fg = c.fg_folded, bg = c.bg_folded}, -- 'foldcolumn'
+    FoldColumn = {link = "Folded"}, -- 'foldcolumn'
     SignColumn = {bg = config.transparent and c.none or c.bg, fg = c.fg_gutter}, -- column where |signs| are displayed
     SignColumnSB = {bg = c.bg_sidebar, fg = c.fg_gutter}, -- column where |signs| are displayed
     Substitute = {bg = c.red, fg = c.black}, -- |:substitute| replacement text highlighting
@@ -350,9 +350,9 @@ function M.setup(config)
     illuminatedCurWord = {bg = c.lsp.referenceText},
 
     -- diff
-    diffAdded = {bg = c.diff.add, fg = c.diff.add_fg},
-    diffRemoved = {bg = c.diff.delete, fg = c.diff.delete_fg},
-    diffChanged = {bg = c.diff.change, fg = c.diff.change_fg},
+    diffAdded = {link = "DiffAdd"},
+    diffChanged = {link = "DiffChange"},
+    diffRemoved = {link = "DiffDelete"},
     diffOldFile = {fg = c.yellow},
     diffNewFile = {fg = c.orange},
     diffFile = {fg = c.blue},
@@ -365,8 +365,8 @@ function M.setup(config)
     NeogitHunkHeader = {bg = c.bg_highlight, fg = c.fg},
     NeogitHunkHeaderHighlight = {bg = c.bg_highlight, fg = c.blue, style = "italic"},
     NeogitDiffContextHighlight = {bg = c.bg, fg = c.fg},
-    NeogitDiffDeleteHighlight = {fg = c.diff.delete_fg, bg = c.diff.delete},
-    NeogitDiffAddHighlight = {fg = c.diff.add_fg, bg = c.diff.add},
+    NeogitDiffAddHighlight = {link = "DiffAdd"},
+    NeogitDiffDeleteHighlight = {link = "DiffDelete"},
 
     -- GitGutter
     GitGutterAdd = {fg = c.git_signs.add}, -- diff mode: Added line |diff.txt|
