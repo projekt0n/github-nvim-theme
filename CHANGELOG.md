@@ -38,6 +38,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - enhance: `StatusLine` foreground & `StatusLineNC` background colors are customizable ( related to #11 )
 - feat: vscode like lspkind highlighting inside `nvim-cmp` #137
 - enhance: highlight all lspkind list in `nvim-cmp` #137
+- Link common highlights for `diff` group
 
 ### Fixes
 
