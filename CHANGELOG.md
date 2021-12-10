@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+### Added
+
+-
+
+### Fixes
+
+- dark foreground color for visited entries in telescope.nvim
+
 ## [v0.0.3] - 09 Dec 2021
 
 ### Added
