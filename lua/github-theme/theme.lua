@@ -382,14 +382,7 @@ function M.setup(config)
     TelescopeBorder = {fg = c.border},
     TelescopePromptPrefix = {fg = c.fg},
     TelescopeMatching = {fg = c.syntax.constant, style = "bold"},
-    TelescopePreviewPipe = {fg = c.bright_yellow},
-    TelescopePreviewRead = {fg = c.bright_yellow},
-    TelescopePreviewSize = {fg = c.bright_green},
-    TelescopePreviewUser = {fg = c.bright_yellow},
-    TelescopePreviewBlock = {fg = c.bright_yellow},
-    TelescopePreviewGroup = {fg = c.bright_yellow},
-    TelescopePreviewWrite = {fg = c.bright_magenta},
-    TelescopePreviewSticky = {fg = c.bright_cyan},
+    TelescopeMultiSelection = {fg = c.syntax.comment},
 
     -- NvimTree
     NvimTreeNormal = {fg = c.fg_light, bg = c.bg_sidebar},
