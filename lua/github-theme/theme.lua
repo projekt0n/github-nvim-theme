@@ -437,6 +437,12 @@ function M.setup(config)
     BufferLineIndicatorSelected = {fg = c.blue},
     BufferLineFill = {bg = c.bg2},
 
+    -- Hop
+    HopNextKey = {fg = c.magenta, style = "bold"},
+    HopNextKey1 = {fg = c.blue, style = "bold"},
+    HopNextKey2 = {fg = util.darken(c.bright_blue, 0.8)},
+    HopUnmatched = {fg = c.fg_dark},
+
     -- ALE
     ALEWarningSign = {fg = c.warning},
     ALEErrorSign = {fg = c.error},
