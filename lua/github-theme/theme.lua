@@ -15,7 +15,7 @@ function M.setup(config)
   theme.colors = colors.setup(config)
   local c = theme.colors
 
-  theme.base = { -- luacheck: ignore
+  theme.base = {
     ColorColumn = {bg = c.bg_visual}, -- used for the columns set with 'colorcolumn'
     Conceal = {fg = c.fg_gutter}, -- placeholder characters substituted for concealed text (see 'conceallevel')
     Cursor = {fg = c.bg, bg = c.fg}, -- character under the cursor
@@ -564,6 +564,10 @@ function M.setup(config)
       for _, section in pairs({"a", "b", "c"}) do
         theme.defer["lualine_" .. section .. "_inactive"] = inactive
       end
+
+      -- Fix inactive tab highlights
+      -- https://github.com/projekt0n/github-nvim-theme/issues/133
+      theme.defer.lualine_tabs_active_0_no_mode = {fg = c.blue, bg = c.bg}
     end
   end
 
