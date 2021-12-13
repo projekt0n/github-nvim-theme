@@ -597,6 +597,7 @@ function M.setup(config)
     command = tint_lualine_group(colors.bright_magenta),
     visual = tint_lualine_group(colors.yellow),
     replace = tint_lualine_group(colors.red),
+    terminal = tint_lualine_group(colors.orange),
     inactive = {
       a = {bg = colors.bg_nc_statusline, fg = colors.fg_nc_statusline},
       b = {bg = colors.bg_nc_statusline, fg = colors.fg_nc_statusline},

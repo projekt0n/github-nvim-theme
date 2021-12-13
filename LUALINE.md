@@ -56,35 +56,40 @@ require('lualine').setup {
 
 #### dark
 
-![normal](https://imgur.com/jUr5BVk.png)
-![insert](https://imgur.com/g0N8LzF.png)
-![visual](https://imgur.com/MfJmoKn.png)
-![command](https://imgur.com/kpkvWsA.png)
+![normal](https://imgur.com/zBRwlUm.png)
+![insert](https://imgur.com/n5DG48e.png)
+![visual](https://imgur.com/MWQXJLD.png)
+![command](https://imgur.com/HGIYVSN.png)
+![terminal](https://imgur.com/pEWjIJ8.png)
 
 #### dark_default
 
-![normal](https://imgur.com/BpoAoRK.png)
-![insert](https://imgur.com/3ZOGEV7.png)
-![visual](https://imgur.com/7NpCZiP.png)
-![command](https://imgur.com/XfiPni9.png)
+![normal](https://imgur.com/yHa1cK1.png)
+![insert](https://imgur.com/mMX2364.png)
+![visual](https://imgur.com/SNwhnph.png)
+![command](https://imgur.com/aLifoAv.png)
+![terminal](https://imgur.com/Q7mG5m8.png)
 
 #### dimmed
 
-![normal](https://imgur.com/vQcPu6L.png)
-![insert](https://imgur.com/FfFPpKB.png)
-![visual](https://imgur.com/pR5j9oE.png)
-![command](https://imgur.com/oKnjGrj.png)
+![normal](https://imgur.com/R800MhA.png)
+![insert](https://imgur.com/42M0X0O.png)
+![visual](https://imgur.com/euIfZtW.png)
+![command](https://imgur.com/E4tzBCD.png)
+![terminal](https://imgur.com/RASnrFw.png)
 
 #### light
 
-![normal](https://imgur.com/KBsO3JX.png)
-![insert](https://imgur.com/yMvEPRR.png)
-![visual](https://imgur.com/30aMdJl.png)
-![command](https://imgur.com/DIgPCoa.png)
+![normal](https://imgur.com/om8f3S5.png)
+![insert](https://imgur.com/qawZ4G6.png)
+![visual](https://imgur.com/3j3ThxU.png)
+![command](https://imgur.com/ItcANVN.png)
+![terminal](https://imgur.com/8SgNyIU.png)
 
 #### light_default
 
-![normal](https://imgur.com/qzXLS8f.png)
-![insert](https://imgur.com/AWTAIXy.png)
-![visual](https://imgur.com/5rfuCuA.png)
-![command](https://imgur.com/CEREFqn.png)
+![normal](https://imgur.com/lwTCVXc.png)
+![insert](https://imgur.com/zh9uPGS.png)
+![visual](https://imgur.com/e3xYvfu.png)
+![command](https://imgur.com/TrjrA3i.png)
+![terminal](https://imgur.com/7ukHRhL.png)
