@@ -550,24 +550,19 @@ function M.setup(config)
   theme.defer = {}
 
   if config.hide_inactive_statusline then
-    local inactive = {style = "underline", bg = c.bg, fg = c.bg, sp = c.bg_visual}
+    local inactive
 
     -- StatusLine
+    inactive = {style = "underline", bg = c.bg, fg = c.bg, sp = c.bg_visual}
     theme.base.StatusLineNC = inactive
 
+    -- LuaLine
     if vim.o.statusline ~= nil and string.find(vim.o.statusline, "lualine") then
       -- Fix VertSplit & StatusLine crossover when lualine is active
       -- https://github.com/hoob3rt/lualine.nvim/issues/274
-      theme.base.StatusLine = {bg = c.bg}
-
-      -- LuaLine
-      for _, section in pairs({"a", "b", "c"}) do
-        theme.defer["lualine_" .. section .. "_inactive"] = inactive
-      end
-
-      -- Fix inactive tab highlights
-      -- https://github.com/projekt0n/github-nvim-theme/issues/133
-      theme.defer.lualine_tabs_active_0_no_mode = {fg = c.blue, bg = c.bg}
+      inactive = {bg = c.bg2}
+      theme.base.StatusLine = inactive
+      theme.base.StatusLineNC = inactive
     end
   end
 
