@@ -81,21 +81,21 @@ require('github-theme').setup()
 
 ## Configuration
 
-| Option                   | Default  | Description                                                                                                                                                     |
-| ------------------------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| theme_style              | `dark`   | Set theme variant (options: `dark`/`dark_default`/`dimmed`/`light`/`light_default`)                                                                             |
-| comment_style            | `italic` | Highlight style for comments (check `:help highlight-args` for options)                                                                                         |
-| keyword_style            | `italic` | Highlight style for keywords (check `:help highlight-args` for options)                                                                                         |
-| function_style           | `NONE`   | Highlight style for functions (check `:help highlight-args` for options)                                                                                        |
-| variable_style           | `NONE`   | Highlight style for variables and identifiers (check `:help highlight-args` for options)                                                                        |
-| msg_area_style           | `NONE`   | Highlight style for messages and cmdline (check `:help highlight-args` for options)                                                                             |
-| transparent              | `false`  | Enable this to disable setting the background color                                                                                                             |
-| hide_end_of_buffer       | `true`   | Enabling this option, will hide filler lines (~) after the end of the buffer                                                                                    |
-| hide_inactive_statusline | `true`   | Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**. |
-| sidebars                 | `{}`     | Set a darker background on sidebar-like windows. For example: `{"qf", "vista_kind", "terminal", "packer"}`                                                      |
-| dark_sidebar             | `true`   | Sidebar like windows like `NvimTree` get a darker background                                                                                                    |
-| dark_float               | `false`  | Float windows like the lsp diagnostics windows get a darker background.                                                                                         |
-| colors                   | `{}`     | You can override specific color groups to use other groups or a hex color                                                                                       |
+| Option                   | Default  | Description                                                                                                                                     |
+| ------------------------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| theme_style              | `dark`   | Set theme variant (options: `dark`/`dark_default`/`dimmed`/`light`/`light_default`)                                                             |
+| comment_style            | `italic` | Highlight style for comments (check `:help highlight-args` for options)                                                                         |
+| keyword_style            | `italic` | Highlight style for keywords (check `:help highlight-args` for options)                                                                         |
+| function_style           | `NONE`   | Highlight style for functions (check `:help highlight-args` for options)                                                                        |
+| variable_style           | `NONE`   | Highlight style for variables and identifiers (check `:help highlight-args` for options)                                                        |
+| msg_area_style           | `NONE`   | Highlight style for messages and cmdline (check `:help highlight-args` for options)                                                             |
+| transparent              | `false`  | Enable this to disable setting the background color                                                                                             |
+| hide_end_of_buffer       | `true`   | Enabling this option, will hide filler lines (~) after the end of the buffer                                                                    |
+| hide_inactive_statusline | `true`   | Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine**. |
+| sidebars                 | `{}`     | Set a darker background on sidebar-like windows. For example: `{"qf", "vista_kind", "terminal", "packer"}`                                      |
+| dark_sidebar             | `true`   | Sidebar like windows like `NvimTree` get a darker background                                                                                    |
+| dark_float               | `false`  | Float windows like the lsp diagnostics windows get a darker background.                                                                         |
+| colors                   | `{}`     | You can override specific color groups to use other groups or a hex color                                                                       |
 
 ```vim
 " Example config in VimScript
