@@ -1,6 +1,7 @@
 To enable the `github` theme for `Lualine`, simply specify it in your lualine settings:
 
-> Set `lualine` configuration **before** `github-theme`. otherwise, the `hide_inactive_statusline` option won't work.
+> ~Set `lualine` configuration **before** `github-theme`. otherwise, the `hide_inactive_statusline` option won't work.~
+> !!Note!! `hide_inactive_statusline` option is deprecated for lualine b699121 4ab803f
 
 ### packer
 
@@ -10,7 +11,7 @@ use {
   config = function()
     require("lualine").setup {
       options = {
-        theme = "github"
+        theme = "github" -- or "auto"
         -- ... your lualine config
       }
     }
@@ -34,7 +35,7 @@ use {
 lua << EOF
 require('lualine').setup {
   options = {
-    theme = 'github',
+    theme = 'github', -- or "auto"
     -- ... your lualine config
   }
 }
@@ -46,7 +47,7 @@ EOF
 ```lua
 require('lualine').setup {
   options = {
-    theme = 'github',
+    theme = 'github', -- or "auto"
     -- ... your lualine config
   }
 }
