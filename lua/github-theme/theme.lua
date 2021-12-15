@@ -162,6 +162,11 @@ function M.setup(config)
     LspDiagnosticsUnderlineInformation = {style = "undercurl", sp = c.info}, -- Used to underline "Information" diagnostics
     LspDiagnosticsUnderlineHint = {style = "undercurl", sp = c.hint}, -- Used to underline "Hint" diagnostics
 
+    LspDiagnosticsError = {fg = c.error},
+    LspDiagnosticsWarning = {fg = c.warning},
+    LspDiagnosticsInformation = {fg = c.info},
+    LspDiagnosticsHint = {fg = c.hint},
+
     DiagnosticError = {link = "LspDiagnosticsDefaultError"}, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
     DiagnosticWarn = {link = "LspDiagnosticsDefaultWarning"}, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
     DiagnosticInfo = {link = "LspDiagnosticsDefaultInformation"}, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
@@ -400,11 +405,6 @@ function M.setup(config)
     NvimTreeFolderName = {fg = c.fg_light},
     NvimTreeOpenedFolderName = {fg = c.fg_light, style = "bold"},
 
-    LspDiagnosticsError = {fg = c.error},
-    LspDiagnosticsWarning = {fg = c.warning},
-    LspDiagnosticsInformation = {fg = c.info},
-    LspDiagnosticsHint = {fg = c.hint},
-
     -- Git Default
     gitcommitSummary = {fg = c.syntax.tag},
 
@@ -544,7 +544,31 @@ function M.setup(config)
     NotifyWARNBody = {fg = util.lighten(c.warning, 0.1)},
     NotifyINFOBody = {fg = util.lighten(c.green, 0.1)},
     NotifyDEBUGBody = {link = "NotifyDEBUGTitle"},
-    NotifyTRACEBody = {fg = util.lighten(c.bright_magenta, 0.1)}
+    NotifyTRACEBody = {fg = util.lighten(c.bright_magenta, 0.1)},
+
+    -- Coc
+    CocErrorSign = {link = "ErrorMsg"},
+    CocWarningSign = {link = "WarningMsg"},
+    CocInfoSign = {link = "DiagnosticInfo"},
+    CocHintSign = {link = "DiagnosticHint"},
+    CocErrorFloat = {link = "ErrorMsg"},
+    CocWarningFloat = {link = "WarningMsg"},
+    CocInfoFloat = {link = "DiagnosticInfo"},
+    CocHintFloat = {link = "DiagnosticHint"},
+    CocDiagnosticsError = {link = "ErrorMsg"},
+    CocDiagnosticsWarning = {link = "WarningMsg"},
+    CocDiagnosticsInfo = {link = "DiagnosticInfo"},
+    CocDiagnosticsHint = {link = "DiagnosticHint"},
+    CocSelectedText = {fg = c.red},
+    CocCodeLens = {fg = c.fg_dark},
+
+    CocErrorHighlight = {link = "LspDiagnosticsUnderlineError"},
+    CocWarningHighlight = {link = "LspDiagnosticsUnderlineWarning"},
+    CocInfoHighlight = {link = "LspDiagnosticsUnderlineInformation"},
+    CocHintHighlight = {link = "LspDiagnosticsUnderlineHint"},
+
+    CocHighlightText = {link = "Visual"},
+    CocUnderline = {style = "undercurl"}
   }
 
   theme.defer = {}
