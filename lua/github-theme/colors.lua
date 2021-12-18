@@ -539,8 +539,9 @@ function M.setup(config)
 
   -- EndOfBuffer
   colors.sidebar_eob = config.dark_sidebar and colors.bg2 or colors.bg
-  colors.sidebar_eob = config.hide_end_of_buffer and colors.sidebar_eob or colors.fg_light
-  colors.eob = config.hide_end_of_buffer and colors.bg or colors.fg_light
+  colors.sidebar_eob = config.hide_end_of_buffer and colors.sidebar_eob or
+                           colors.fg_gutter
+  colors.eob = config.hide_end_of_buffer and colors.bg or colors.fg_gutter
 
   -- Statusline
   colors.bg_statusline = colors.blue

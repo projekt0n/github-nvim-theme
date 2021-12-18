@@ -13,12 +13,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Minimal look (`hide_inactive_statusline`) removed from lualine
 - `terminal` highlight added for lualine
 - Added basic [coc.nvim](https://github.com/neoclide/coc.nvim) highlights #141
+- define global in project `luarc` config file.
 
 ### Fixes
 
 - dark foreground color for visited entries in telescope.nvim
 - Fix #144 - Repatch removed hop.nvim highlights
 - Fix #133 - highlights of inactive tabline in lualine plugin
+- inherit `eof` color from `fg_gutter` #150
 
 ## [v0.0.3] - 09 Dec 2021
 
