@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Minimal look (`hide_inactive_statusline`) removed from lualine
 - `terminal` highlight added for lualine
 - Added basic [coc.nvim](https://github.com/neoclide/coc.nvim) highlights #141
+- define global in project `luarc` config file.
 
 ### Fixes
 
