@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - dark foreground color for visited entries in telescope.nvim
 - Fix #144 - Repatch removed hop.nvim highlights
 - Fix #133 - highlights of inactive tabline in lualine plugin
+- inherit `eof` color from `fg_gutter` #150
 
 ## [v0.0.3] - 09 Dec 2021
 

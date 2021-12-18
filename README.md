@@ -24,7 +24,7 @@ Extra color configs for **kitty**, **iTerm**, **Konsole**, **tmux** and **Alacri
 
 ## Plugin Support
 
-- [Bultin lsp diagnostics](https://neovim.io/doc/user/lsp.html)
+- [Builtin lsp diagnostics](https://neovim.io/doc/user/lsp.html)
 - [ale](https://github.com/dense-analysis/ale)
 - [circles.nvim](https://github.com/projekt0n/circles.nvim)
 - [coc.nvim](https://github.com/neoclide/coc.nvim)
