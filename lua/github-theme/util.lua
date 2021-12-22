@@ -209,15 +209,10 @@ function util.load(theme)
   vim.g.colors_name = util.colors_name
   -- vim.api.nvim__set_hl_ns(ns)
 
-  -- load base theme
   util.syntax(theme.base)
   util.autocmds(theme.config)
   util.terminal(theme.colors)
   util.syntax(theme.plugins)
-
-  vim.defer_fn(function()
-    util.syntax(theme.defer)
-  end, 100)
 end
 
 ---@param colors github-theme.ColorScheme
