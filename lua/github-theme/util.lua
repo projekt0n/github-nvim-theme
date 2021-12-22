@@ -198,6 +198,15 @@ function util.terminal(colors)
   end
 end
 
+---Override custom highlights in `group`
+---@param group table
+---@param overrides table
+function util.apply_overrides(group, overrides)
+  for k, v in pairs(overrides) do
+    if group[k] ~= nil and type(v) == "table" then group[k] = v end
+  end
+end
+
 ---@param theme github-theme.Theme
 function util.load(theme)
   vim.cmd("hi clear")
@@ -209,15 +218,10 @@ function util.load(theme)
   vim.g.colors_name = util.colors_name
   -- vim.api.nvim__set_hl_ns(ns)
 
-  -- load base theme
   util.syntax(theme.base)
   util.autocmds(theme.config)
   util.terminal(theme.colors)
   util.syntax(theme.plugins)
-
-  vim.defer_fn(function()
-    util.syntax(theme.defer)
-  end, 100)
 end
 
 ---@param colors github-theme.ColorScheme

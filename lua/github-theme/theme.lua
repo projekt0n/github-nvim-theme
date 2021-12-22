@@ -571,8 +571,6 @@ function M.setup(config)
     CocUnderline = {style = "undercurl"}
   }
 
-  theme.defer = {}
-
   if config.hide_inactive_statusline then
     local inactive
 
@@ -589,6 +587,10 @@ function M.setup(config)
       theme.base.StatusLineNC = inactive
     end
   end
+
+  local overrides = config.overrides(c)
+  util.apply_overrides(theme.base, overrides)
+  util.apply_overrides(theme.plugins, overrides)
 
   return theme
 end
