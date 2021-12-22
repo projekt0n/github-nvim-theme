@@ -82,21 +82,22 @@ require('github-theme').setup()
 
 ## Configuration
 
-| Option                   | Default  | Description                                                                                                                                     |
-| ------------------------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| theme_style              | `dark`   | Set theme variant (options: `dark`/`dark_default`/`dimmed`/`light`/`light_default`)                                                             |
-| comment_style            | `italic` | Highlight style for comments (check `:help highlight-args` for options)                                                                         |
-| keyword_style            | `italic` | Highlight style for keywords (check `:help highlight-args` for options)                                                                         |
-| function_style           | `NONE`   | Highlight style for functions (check `:help highlight-args` for options)                                                                        |
-| variable_style           | `NONE`   | Highlight style for variables and identifiers (check `:help highlight-args` for options)                                                        |
-| msg_area_style           | `NONE`   | Highlight style for messages and cmdline (check `:help highlight-args` for options)                                                             |
-| transparent              | `false`  | Enable this to disable setting the background color                                                                                             |
-| hide_end_of_buffer       | `true`   | Enabling this option, will hide filler lines (~) after the end of the buffer                                                                    |
-| hide_inactive_statusline | `true`   | Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine**. |
-| sidebars                 | `{}`     | Set a darker background on sidebar-like windows. For example: `{"qf", "vista_kind", "terminal", "packer"}`                                      |
-| dark_sidebar             | `true`   | Sidebar like windows like `NvimTree` get a darker background                                                                                    |
-| dark_float               | `false`  | Float windows like the lsp diagnostics windows get a darker background.                                                                         |
-| colors                   | `{}`     | You can override specific color groups to use other groups or a hex color                                                                       |
+| Option                   | Default    | Description                                                                                                                                     |
+| ------------------------ | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| colors                   | `{}`       | You can override specific color groups to use other groups or a hex color                                                                       |
+| comment_style            | `italic`   | Highlight style for comments (check `:help highlight-args` for options)                                                                         |
+| dark_float               | `false`    | Float windows like the lsp diagnostics windows get a darker background.                                                                         |
+| dark_sidebar             | `true`     | Sidebar like windows like `NvimTree` get a darker background                                                                                    |
+| function_style           | `NONE`     | Highlight style for functions (check `:help highlight-args` for options)                                                                        |
+| hide_end_of_buffer       | `true`     | Enabling this option, will hide filler lines (~) after the end of the buffer                                                                    |
+| hide_inactive_statusline | `true`     | Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine**. |
+| keyword_style            | `italic`   | Highlight style for keywords (check `:help highlight-args` for options)                                                                         |
+| msg_area_style           | `NONE`     | Highlight style for messages and cmdline (check `:help highlight-args` for options)                                                             |
+| overrides                | `function` | Override specific highlight groups. The function accpet colors as argument.                                                                     |
+| sidebars                 | `{}`       | Set a darker background on sidebar-like windows. For example: `{"qf", "vista_kind", "terminal", "packer"}`                                      |
+| theme_style              | `dark`     | Set theme variant (options: `dark`/`dark_default`/`dimmed`/`light`/`light_default`)                                                             |
+| transparent              | `false`    | Enable this to disable setting the background color                                                                                             |
+| variable_style           | `NONE`     | Highlight style for variables and identifiers (check `:help highlight-args` for options)                                                        |
 
 ```vim
 " Example config in VimScript
@@ -122,7 +123,17 @@ require("github-theme").setup({
   sidebars = {"qf", "vista_kind", "terminal", "packer"},
 
   -- Change the "hint" color to the "orange" color, and make the "error" color bright red
-  colors = {hint = "orange", error = "#ff0000"}
+  colors = {hint = "orange", error = "#ff0000"},
+
+  -- Overwrite the highlight groups
+  overrides = function(c)
+    return {
+      htmlTag = {fg = c.red, bg = "#282c34", sp = c.hint, style = "underline"},
+      DiagnosticHint = {link = "LspDiagnosticsDefaultHint"},
+      -- this will remove the highlight groups
+      TSField = {},
+    }
+  end
 })
 ```
 

@@ -588,6 +588,10 @@ function M.setup(config)
     end
   end
 
+  local overrides = config.overrides(c)
+  util.apply_overrides(theme.base, overrides)
+  util.apply_overrides(theme.plugins, overrides)
+
   return theme
 end
 

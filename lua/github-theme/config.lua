@@ -22,21 +22,24 @@ local function opt(key, default)
 end
 
 config = {
-  theme_style = opt("theme_style", "dark"),
+  colors = opt("colors", {}),
+  comment_style = opt("comment_style", "italic"),
   dark_float = opt("dark_float", false),
   dark_sidebar = opt("dark_sidebar", true),
-  transparent = opt("transparent", false),
-  comment_style = opt("comment_style", "italic"),
-  keyword_style = opt("keyword_style", "italic"),
-  function_style = opt("function_style", "NONE"),
-  variable_style = opt("variable_style", "NONE"),
-  msg_area_style = opt("msg_area_style", "NONE"),
-  hide_inactive_statusline = opt("hide_inactive_statusline", true),
-  hide_end_of_buffer = opt("hide_end_of_buffer", true),
-  sidebars = opt("sidebars", {}),
-  colors = opt("colors", {}),
   dev = opt("dev", false),
-  transform_colors = false
+  function_style = opt("function_style", "NONE"),
+  hide_end_of_buffer = opt("hide_end_of_buffer", true),
+  hide_inactive_statusline = opt("hide_inactive_statusline", true),
+  keyword_style = opt("keyword_style", "italic"),
+  msg_area_style = opt("msg_area_style", "NONE"),
+  overrides = opt("overrides", function()
+    return {}
+  end),
+  sidebars = opt("sidebars", {}),
+  theme_style = opt("theme_style", "dark"),
+  transform_colors = false,
+  transparent = opt("transparent", false),
+  variable_style = opt("variable_style", "NONE")
 }
 
 --  `set background=light` for these themes

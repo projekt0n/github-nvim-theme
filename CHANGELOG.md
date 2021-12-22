@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added basic [coc.nvim](https://github.com/neoclide/coc.nvim) highlights #141
 - define global in project `luarc` config file.
 - Removed unnecessary defer function & highlights
+- allow customizing highlight group ful1e5/onedark.nvim#91
 
 ### Fixes
 
