@@ -4,12 +4,11 @@ local config_module = require("github-theme.config")
 local M = {}
 
 ---@param config github-theme.Config
----@return github-theme.ColorScheme
+---@return gt.Palette
 function M.setup(config)
   config = config or config_module.config
 
-  -- Color Palette
-  ---@class github-theme.ColorScheme
+  ---@type gt.Palette
   local colors = require("github-theme.palette")(config.theme_style)
 
   -- useful for 'util.darken()' and 'util.lighten()'
