@@ -16,8 +16,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - define global in project `luarc` config file.
 - Removed unnecessary defer function & highlights
 - allow customizing highlight group ful1e5/onedark.nvim#91
-- Refactor: Colors moved to `palette` module
+- refactor: Colors moved to `palette` module
 - `types` module initiate
+- proper color docs with `gt.Palette` type
 
 ### Fixes
 
@@ -25,6 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fix #144 - Repatch removed hop.nvim highlights
 - Fix #133 - highlights of inactive tabline in lualine plugin
 - inherit `eof` color from `fg_gutter` #150
+- cleanup: _getColor()_ from `util` module
 
 ## [v0.0.3] - 09 Dec 2021
 

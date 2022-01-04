@@ -21,8 +21,8 @@ local function hexToRgb(hex_str)
   return {tonumber(r, 16), tonumber(g, 16), tonumber(b, 16)}
 end
 
----@param fg string foreground color
----@param bg string background color
+---@param fg gt.HexColor foreground color
+---@param bg gt.HexColor background color
 ---@param alpha number number between 0 and 1. 0 results in bg, 1 results in fg
 function util.blend(fg, bg, alpha)
   bg = hexToRgb(bg)
@@ -70,13 +70,6 @@ function util.randomColor(color)
   return color
 end
 
-function util.getColor(color)
-  if vim.o.background == "dark" then return color end
-  if vim.o.background == "light" then return color end
-  if not util.colorCache[color] then util.colorCache[color] = util.invertColor(color) end
-  return util.colorCache[color]
-end
-
 -- local ns = vim.api.nvim_create_namespace("github-theme")
 function util.highlight(group, color)
   if color.fg then util.colorsUsed[color.fg] = true end
@@ -84,9 +77,9 @@ function util.highlight(group, color)
   if color.sp then util.colorsUsed[color.sp] = true end
 
   local style = color.style and "gui=" .. color.style or "gui=NONE"
-  local fg = color.fg and "guifg=" .. util.getColor(color.fg) or "guifg=NONE"
-  local bg = color.bg and "guibg=" .. util.getColor(color.bg) or "guibg=NONE"
-  local sp = color.sp and "guisp=" .. util.getColor(color.sp) or ""
+  local fg = color.fg and "guifg=" .. color.fg or "guifg=NONE"
+  local bg = color.bg and "guibg=" .. color.bg or "guibg=NONE"
+  local sp = color.sp and "guisp=" .. color.sp or ""
 
   local hl = "highlight " .. group .. " " .. style .. " " .. fg .. " " .. bg .. " " .. sp
 
@@ -162,7 +155,7 @@ function util.syntax(syntax)
   for group, colors in pairs(syntax) do util.highlight(group, colors) end
 end
 
----@param colors github-theme.ColorScheme
+---@param colors gt.Palette
 function util.terminal(colors)
   -- dark
   vim.g.terminal_color_0 = colors.black
@@ -190,12 +183,6 @@ function util.terminal(colors)
 
   vim.g.terminal_color_6 = colors.cyan
   vim.g.terminal_color_14 = colors.bright_cyan
-
-  if vim.o.background == "light" then
-    for i = 0, 15, 1 do
-      vim.g["terminal_color_" .. i] = util.getColor(vim.g["terminal_color_" .. i])
-    end
-  end
 end
 
 ---Override custom highlights in `group`
@@ -224,7 +211,7 @@ function util.load(theme)
   util.syntax(theme.plugins)
 end
 
----@param colors github-theme.ColorScheme
+---@param colors gt.Palette
 ---@param config github-theme.Config
 function util.color_overrides(colors, config)
   if type(config.colors) == "table" then
