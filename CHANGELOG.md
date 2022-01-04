@@ -16,6 +16,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - define global in project `luarc` config file.
 - Removed unnecessary defer function & highlights
 - allow customizing highlight group ful1e5/onedark.nvim#91
+- Refactor: Colors moved to `palette` module
+- `types` module initiate
 
 ### Fixes
 
