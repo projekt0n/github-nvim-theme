@@ -28,7 +28,7 @@ local light_palette = {
   warning = "#bf8803",
   info = "#75beff",
   hint = "#6c6c6c",
-  lsp = {referenceText = "#c6eed2"},
+  lsp = {ref_txt = "#c6eed2"},
 
   -- Auto-Complication Colors
   pmenu = {bg = "#f6f8fa", sbar = "#f0f1f3"},

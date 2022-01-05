@@ -28,7 +28,7 @@ local dark_pallete = {
   warning = "#cca700",
   info = "#75beff",
   hint = "#eeeeb3",
-  lsp = {referenceText = "#265459"},
+  lsp = {ref_txt = "#265459"},
 
   -- Auto-Complication Colors
   pmenu = {bg = "#1f2428", sbar = "#32383e"},

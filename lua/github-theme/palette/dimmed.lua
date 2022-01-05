@@ -28,7 +28,7 @@ local dimmed_palette = {
   warning = "#cca700",
   info = "#75beff",
   hint = "#eeeeb3",
-  lsp = {referenceText = "#28575d"},
+  lsp = {ref_txt = "#28575d"},
 
   -- Auto-Complication Colors
   pmenu = {bg = "#2d333b", sbar = "#363b44"},

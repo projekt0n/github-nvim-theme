@@ -68,7 +68,7 @@ function M.setup(config)
     StatusLineNC = {fg = c.fg_nc_statusline, bg = c.bg_nc_statusline}, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
     TabLine = {bg = c.bg, fg = c.fg}, -- tab pages line, not active tab page label
     TabLineFill = {bg = c.bg2}, -- tab pages line, where there are no labels
-    TabLineSel = {fg = c.pmenu.select, bg = c.blue}, -- tab pages line, active tab page label
+    TabLineSel = {link = "PmenuSel"}, -- tab pages line, active tab page label
     Title = {fg = c.syntax.variable, style = "bold"}, -- titles for output from ":set all", ":autocmd" etc.
     Visual = {bg = c.bg_visual_selection}, -- Visual mode selection
     VisualNOS = {bg = c.bg_visual_selection}, -- Visual mode selection when vim is "Not Owning the Selection".
@@ -146,9 +146,9 @@ function M.setup(config)
     -- These groups are for the native LSP client. Some other LSP clients may
     -- use these groups, or use their own. Consult your LSP client's
     -- documentation.
-    LspReferenceText = {bg = c.lsp.referenceText}, -- used for highlighting "text" references
-    LspReferenceRead = {bg = c.lsp.referenceText}, -- used for highlighting "read" references
-    LspReferenceWrite = {bg = c.lsp.referenceText}, -- used for highlighting "write" references
+    LspReferenceText = {bg = c.lsp.ref_txt}, -- used for highlighting "text" references
+    LspReferenceRead = {link = "LspReferenceText"}, -- used for highlighting "read" references
+    LspReferenceWrite = {link = "LspReferenceText"}, -- used for highlighting "write" references
     LspDiagnosticsDefaultError = {fg = c.error}, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
     LspDiagnosticsDefaultWarning = {fg = c.warning}, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
     LspDiagnosticsDefaultInformation = {fg = c.info}, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
@@ -351,8 +351,8 @@ function M.setup(config)
     LspTroubleNormal = {fg = c.bright_yellow, bg = c.bg_sidebar},
 
     -- Illuminate
-    illuminatedWord = {bg = c.lsp.referenceText},
-    illuminatedCurWord = {bg = c.lsp.referenceText},
+    illuminatedWord = {bg = c.lsp.ref_txt},
+    illuminatedCurWord = {bg = c.lsp.ref_txt},
 
     -- diff
     diffAdded = {link = "DiffAdd"},
@@ -382,6 +382,7 @@ function M.setup(config)
     GitSignsAdd = {fg = c.git_signs.add}, -- diff mode: Added line |diff.txt|
     GitSignsChange = {fg = c.git_signs.change}, -- diff mode: Changed line |diff.txt|
     GitSignsDelete = {fg = c.git_signs.delete}, -- diff mode: Deleted line |diff.txt|
+    GitSignsCurrentLineBlame = {fg = util.darken(c.syntax.comment, 0.4)}, -- diff mode: Deleted line |diff.txt|
 
     -- Telescope
     TelescopeBorder = {fg = c.border},
@@ -511,7 +512,7 @@ function M.setup(config)
     CmpItemKindEventDefault = {link = "CmpItemKindFunctionDefault"},
     CmpItemKindMethodDefault = {link = "CmpItemKindFunctionDefault"},
 
-    CmpItemKindOperatorDefault = {fg = c.syntax.operator},
+    CmpItemKindOperatorDefault = {link = "Operator"},
     CmpItemKindEnumMemberDefault = {link = "CmpItemKindOperatorDefault"},
     CmpItemKindReferenceDefault = {link = "CmpItemKindOperatorDefault"},
     CmpItemKindTypeParameter = {link = "CmpItemKindOperatorDefault"},

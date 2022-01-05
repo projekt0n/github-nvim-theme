@@ -27,6 +27,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fix #133 - highlights of inactive tabline in lualine plugin
 - inherit `eof` color from `fg_gutter` #150
 - cleanup: _getColor()_ from `util` module
+- fix #156 - highlight added for `GitSignsCurrentLineBlame`
+- refactor: color renamed `lsp.referenceText` -> `lsp.ref_txt`
+- `TabLineSel` highlight link with `PmenuSel`
 
 ## [v0.0.3] - 09 Dec 2021
 

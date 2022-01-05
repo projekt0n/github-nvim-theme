@@ -28,7 +28,7 @@ local dark_default_palette = {
   warning = "#f0883e",
   info = "#75beff",
   hint = "#eeeeb3",
-  lsp = {referenceText = "#164449"},
+  lsp = {ref_txt = "#164449"},
 
   -- Auto-Complication Colors
   pmenu = {bg = "#161b22", sbar = "#31373d"},

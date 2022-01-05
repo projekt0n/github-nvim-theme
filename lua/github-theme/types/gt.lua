@@ -2,6 +2,9 @@ local gt = {}
 
 ---@class gt.HexColor string
 
+---@class gt.LspPalette
+---@field ref_txt gt.HexColor
+
 ---@class gt.PMenuPalette
 ---@field bg gt.HexColor
 ---@field sbar gt.HexColor
@@ -66,7 +69,7 @@ local gt = {}
 ---@field warning gt.HexColor
 ---@field info gt.HexColor
 ---@field hint gt.HexColor
----@field lsp gt.HexColor
+---@field lsp gt.LspPalette
 ---DropDown Menu Colors
 ---@field pmenu gt.PMenuPalette
 ---Git Colors
