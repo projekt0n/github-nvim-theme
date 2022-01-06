@@ -1,6 +1,2 @@
-color = false
-global = true
-width = 90
-globals = {"vim"}
-max_comment_line_length = false
-max_string_line_length = false
+globals = { 'vim', 'describe', 'it', 'before_each', 'after_each', 'assert', 'async' }
+max_line_length = false

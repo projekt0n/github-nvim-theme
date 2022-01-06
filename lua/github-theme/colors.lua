@@ -1,5 +1,5 @@
-local util = require("github-theme.util")
-local config = require("github-theme.config")
+local util = require('github-theme.util')
+local config = require('github-theme.config')
 
 ---Setup Colors
 ---@param cfg gt.ConfigSchema
@@ -8,7 +8,7 @@ return function(cfg)
   cfg = cfg or config.global
 
   ---@type gt.Palette
-  local colors = require("github-theme.palette")(cfg.theme_style)
+  local colors = require('github-theme.palette')(cfg.theme_style)
 
   -- useful for 'util.darken()' and 'util.lighten()'
   util.bg = colors.bg
@@ -54,19 +54,19 @@ return function(cfg)
   ---@return table
   local tint_lualine_group = function(color)
     local group = {
-      a = {bg = color, fg = colors.bg},
-      b = {bg = util.darken(color, 0.2), fg = util.lighten(color, 0.2)}
+      a = { bg = color, fg = colors.bg },
+      b = { bg = util.darken(color, 0.2), fg = util.lighten(color, 0.2) },
     }
-    if vim.o.background == "dark" then
+    if vim.o.background == 'dark' then
       group.c = {
         bg = util.darken(color, 0.01, colors.bg2),
-        fg = util.lighten(color, 0.4, colors.fg)
+        fg = util.lighten(color, 0.4, colors.fg),
       }
     else
       -- inverting colors for light colorschemes
       group.c = {
         bg = util.lighten(color, 0.01, colors.bg2),
-        fg = util.darken(color, 0.4, colors.fg)
+        fg = util.darken(color, 0.4, colors.fg),
       }
     end
     return group
@@ -80,10 +80,10 @@ return function(cfg)
     replace = tint_lualine_group(colors.red),
     terminal = tint_lualine_group(colors.orange),
     inactive = {
-      a = {bg = colors.bg_nc_statusline, fg = colors.fg_nc_statusline},
-      b = {bg = colors.bg_nc_statusline, fg = colors.fg_nc_statusline},
-      c = {bg = colors.bg_nc_statusline, fg = colors.fg_nc_statusline}
-    }
+      a = { bg = colors.bg_nc_statusline, fg = colors.fg_nc_statusline },
+      b = { bg = colors.bg_nc_statusline, fg = colors.fg_nc_statusline },
+      c = { bg = colors.bg_nc_statusline, fg = colors.fg_nc_statusline },
+    },
   }
 
   util.color_overrides(colors, cfg)

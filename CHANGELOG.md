@@ -21,6 +21,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - proper color docs with `gt.Palette` type
 - Support `ConfigSchema` type with all modules
 - refactor: config module
+- feat: `githooks` init
+- formatter changed `LuaFormatter`-> `StyLua`
 
 ### Fixes
 

@@ -1,11 +1,12 @@
-local util = require("github-theme.util")
+local util = require('github-theme.util')
 
 ---Generate github theme for kitty terminal.
 ---@param cfg gt.ConfigSchema
 return function(cfg)
-  local colors = require("github-theme.colors")(cfg)
+  local colors = require('github-theme.colors')(cfg)
 
-  local kitty = util.template([[
+  local kitty = util.template(
+    [[
 # github colors for Kitty
 
 background ${bg}
@@ -48,6 +49,8 @@ color15 ${term_fg}
 # extended colors
 color16 ${bright_yellow}
 color17 ${bright_red}
-]], colors)
+]],
+    colors
+  )
   return kitty
 end

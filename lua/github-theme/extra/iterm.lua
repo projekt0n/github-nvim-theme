@@ -1,7 +1,9 @@
-local util = require("github-theme.util")
+local util = require('github-theme.util')
 local kpairs = function(t, f)
   local a = {}
-  for n in pairs(t) do table.insert(a, n) end
+  for n in pairs(t) do
+    table.insert(a, n)
+  end
   table.sort(a, f)
   local i = 0 -- iterator variable
   local iter = function() -- iterator function
@@ -19,11 +21,9 @@ end
 ---@param hex string color hex.
 ---@return table rgb color in form of lua table.
 local rgb = function(hex)
-  local _, r, g, b = hex:match("(.)(..)(..)(..)")
-  r, g, b = string.format("%0.16f", (tonumber(r, 16) / 255)),
-            string.format("%0.16f", (tonumber(g, 16) / 255)),
-            string.format("%0.16f", (tonumber(b, 16) / 255))
-  return {r = r, g = g, b = b}
+  local _, r, g, b = hex:match('(.)(..)(..)(..)')
+  r, g, b = string.format('%0.16f', (tonumber(r, 16) / 255)), string.format('%0.16f', (tonumber(g, 16) / 255)), string.format('%0.16f', (tonumber(b, 16) / 255))
+  return { r = r, g = g, b = b }
 end
 
 ---Create iterm color XML code from hexa-decimal.
@@ -31,11 +31,15 @@ end
 ---@param color string iterm color group name.
 ---@return string xml XML code for color.
 local xml_from_color_group = function(key, color)
-  local xml = util.template([[
+  local xml = util.template(
+    [[
 	<key>${k} Color</key>
-]], {k = key:gsub("__", " ")})
+]],
+    { k = key:gsub('__', ' ') }
+  )
 
-  xml = xml .. util.template([[
+  xml = xml .. util.template(
+    [[
 	<dict>
 		<key>Color Space</key>
 		<string>sRGB</string>
@@ -46,7 +50,9 @@ local xml_from_color_group = function(key, color)
 		<key>Red Component</key>
 		<real>${r}</real>
 	</dict>
-]], color)
+]],
+    color
+  )
 
   return xml
 end
@@ -54,7 +60,7 @@ end
 --- Generate github theme for iterm terminal.
 ---@param cfg gt.ConfigSchema
 return function(cfg)
-  local colors = require("github-theme.colors")(cfg)
+  local colors = require('github-theme.colors')(cfg)
 
   local groups = {
     Ansi__0 = rgb(colors.black),
@@ -79,7 +85,7 @@ return function(cfg)
     Cursor__Text = rgb(colors.bg),
     Selected__Text = rgb(colors.fg),
     Selection = rgb(colors.bg_visual_selection),
-    Bold = rgb(colors.fg)
+    Bold = rgb(colors.fg),
   }
 
   -- XML start
@@ -91,7 +97,9 @@ return function(cfg)
 ]]
 
   -- appending color groups to XML
-  for k, c in kpairs(groups) do xml = xml .. xml_from_color_group(k, c) end
+  for k, c in kpairs(groups) do
+    xml = xml .. xml_from_color_group(k, c)
+  end
 
   -- end
   xml = xml .. [[

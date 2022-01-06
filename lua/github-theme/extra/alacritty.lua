@@ -1,16 +1,19 @@
-local util = require("github-theme.util")
+local util = require('github-theme.util')
 
 ---Generate github theme for Alacritty terminal.
 ---@param cfg gt.ConfigSchema
 return function(cfg)
-  local colors = require("github-theme.colors")(cfg)
+  local colors = require('github-theme.colors')(cfg)
 
   local alacritty_colors = {}
   for k, v in pairs(colors) do
-    if type(v) == "string" then alacritty_colors[k] = v:gsub("^#", "0x") end
+    if type(v) == 'string' then
+      alacritty_colors[k] = v:gsub('^#', '0x')
+    end
   end
 
-  local alacritty = util.template([[
+  local alacritty = util.template(
+    [[
 # github Alacritty Colors
 colors:
   # Default colors
@@ -43,7 +46,9 @@ colors:
   indexed_colors:
     - { index: 16, color: '${orange}' }
     - { index: 17, color: '${bright_red}' }
-]], alacritty_colors)
+]],
+    alacritty_colors
+  )
 
   return alacritty
 end

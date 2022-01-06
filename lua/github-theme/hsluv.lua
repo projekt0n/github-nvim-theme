@@ -18,9 +18,10 @@ LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE A
 NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-]] local hsluv = {}
+]]
+local hsluv = {}
 
-local hexChars = "0123456789abcdef"
+local hexChars = '0123456789abcdef'
 
 local distance_line_from_origin = function(line)
   return math.abs(line.intercept) / math.sqrt((line.slope ^ 2) + 1)
@@ -49,7 +50,7 @@ hsluv.get_bounds = function(l)
       local top1 = (284517 * m1 - 94839 * m3) * sub2
       local top2 = (838422 * m3 + 769860 * m2 + 731718 * m1) * l * sub2 - 769860 * t * l
       local bottom = (632260 * m3 - 126452 * m2) * sub2 + 126452 * t
-      table.insert(result, {slope = top1 / bottom, intercept = top2 / bottom})
+      table.insert(result, { slope = top1 / bottom, intercept = top2 / bottom })
     end
   end
   return result
@@ -61,7 +62,9 @@ hsluv.max_safe_chroma_for_l = function(l)
 
   for i = 1, 6 do
     local length = distance_line_from_origin(bounds[i])
-    if length >= 0 then min = math.min(min, length) end
+    if length >= 0 then
+      min = math.min(min, length)
+    end
   end
   return min
 end
@@ -74,14 +77,18 @@ hsluv.max_safe_chroma_for_lh = function(l, h)
   for i = 1, 6 do
     local bound = bounds[i]
     local length = length_of_ray_until_intersect(hrad, bound)
-    if length >= 0 then min = math.min(min, length) end
+    if length >= 0 then
+      min = math.min(min, length)
+    end
   end
   return min
 end
 
 hsluv.dot_product = function(a, b)
   local sum = 0
-  for i = 1, 3 do sum = sum + a[i] * b[i] end
+  for i = 1, 3 do
+    sum = sum + a[i] * b[i]
+  end
   return sum
 end
 
@@ -105,17 +112,20 @@ hsluv.xyz_to_rgb = function(tuple)
   return {
     hsluv.from_linear(hsluv.dot_product(hsluv.m[1], tuple)),
     hsluv.from_linear(hsluv.dot_product(hsluv.m[2], tuple)),
-    hsluv.from_linear(hsluv.dot_product(hsluv.m[3], tuple))
+    hsluv.from_linear(hsluv.dot_product(hsluv.m[3], tuple)),
   }
 end
 
 hsluv.rgb_to_xyz = function(tuple)
   local rgbl = {
-    hsluv.to_linear(tuple[1]), hsluv.to_linear(tuple[2]), hsluv.to_linear(tuple[3])
+    hsluv.to_linear(tuple[1]),
+    hsluv.to_linear(tuple[2]),
+    hsluv.to_linear(tuple[3]),
   }
   return {
-    hsluv.dot_product(hsluv.minv[1], rgbl), hsluv.dot_product(hsluv.minv[2], rgbl),
-    hsluv.dot_product(hsluv.minv[3], rgbl)
+    hsluv.dot_product(hsluv.minv[1], rgbl),
+    hsluv.dot_product(hsluv.minv[2], rgbl),
+    hsluv.dot_product(hsluv.minv[3], rgbl),
   }
 end
 
@@ -149,20 +159,24 @@ hsluv.xyz_to_luv = function(tuple)
     varV = 0
   end
   local L = hsluv.y_to_l(Y)
-  if L == 0 then return {0, 0, 0} end
-  return {L, 13 * L * (varU - hsluv.refU), 13 * L * (varV - hsluv.refV)}
+  if L == 0 then
+    return { 0, 0, 0 }
+  end
+  return { L, 13 * L * (varU - hsluv.refU), 13 * L * (varV - hsluv.refV) }
 end
 
 hsluv.luv_to_xyz = function(tuple)
   local L = tuple[1]
   local U = tuple[2]
   local V = tuple[3]
-  if L == 0 then return {0, 0, 0} end
+  if L == 0 then
+    return { 0, 0, 0 }
+  end
   local varU = U / (13 * L) + hsluv.refU
   local varV = V / (13 * L) + hsluv.refV
   local Y = hsluv.l_to_y(L)
   local X = 0 - (9 * Y * varU) / (((varU - 4) * varV) - varU * varV)
-  return {X, Y, (9 * Y - 15 * varV * Y - varV * X) / (3 * varV)}
+  return { X, Y, (9 * Y - 15 * varV * Y - varV * X) / (3 * varV) }
 end
 
 hsluv.luv_to_lch = function(tuple)
@@ -175,25 +189,31 @@ hsluv.luv_to_lch = function(tuple)
     H = 0
   else
     H = math.atan2(V, U) * 180.0 / 3.1415926535897932
-    if H < 0 then H = 360 + H end
+    if H < 0 then
+      H = 360 + H
+    end
   end
-  return {L, C, H}
+  return { L, C, H }
 end
 
 hsluv.lch_to_luv = function(tuple)
   local L = tuple[1]
   local C = tuple[2]
   local Hrad = tuple[3] / 360.0 * 2 * math.pi
-  return {L, math.cos(Hrad) * C, math.sin(Hrad) * C}
+  return { L, math.cos(Hrad) * C, math.sin(Hrad) * C }
 end
 
 hsluv.hsluv_to_lch = function(tuple)
   local H = tuple[1]
   local S = tuple[2]
   local L = tuple[3]
-  if L > 99.9999999 then return {100, 0, H} end
-  if L < 0.00000001 then return {0, 0, H} end
-  return {L, hsluv.max_safe_chroma_for_lh(L, H) / 100 * S, H}
+  if L > 99.9999999 then
+    return { 100, 0, H }
+  end
+  if L < 0.00000001 then
+    return { 0, 0, H }
+  end
+  return { L, hsluv.max_safe_chroma_for_lh(L, H) / 100 * S, H }
 end
 
 hsluv.lch_to_hsluv = function(tuple)
@@ -201,32 +221,44 @@ hsluv.lch_to_hsluv = function(tuple)
   local C = tuple[2]
   local H = tuple[3]
   local max_chroma = hsluv.max_safe_chroma_for_lh(L, H)
-  if L > 99.9999999 then return {H, 0, 100} end
-  if L < 0.00000001 then return {H, 0, 0} end
+  if L > 99.9999999 then
+    return { H, 0, 100 }
+  end
+  if L < 0.00000001 then
+    return { H, 0, 0 }
+  end
 
-  return {H, C / max_chroma * 100, L}
+  return { H, C / max_chroma * 100, L }
 end
 
 hsluv.hpluv_to_lch = function(tuple)
   local H = tuple[1]
   local S = tuple[2]
   local L = tuple[3]
-  if L > 99.9999999 then return {100, 0, H} end
-  if L < 0.00000001 then return {0, 0, H} end
-  return {L, hsluv.max_safe_chroma_for_l(L) / 100 * S, H}
+  if L > 99.9999999 then
+    return { 100, 0, H }
+  end
+  if L < 0.00000001 then
+    return { 0, 0, H }
+  end
+  return { L, hsluv.max_safe_chroma_for_l(L) / 100 * S, H }
 end
 
 hsluv.lch_to_hpluv = function(tuple)
   local L = tuple[1]
   local C = tuple[2]
   local H = tuple[3]
-  if L > 99.9999999 then return {H, 0, 100} end
-  if L < 0.00000001 then return {H, 0, 0} end
-  return {H, C / hsluv.max_safe_chroma_for_l(L) * 100, L}
+  if L > 99.9999999 then
+    return { H, 0, 100 }
+  end
+  if L < 0.00000001 then
+    return { H, 0, 0 }
+  end
+  return { H, C / hsluv.max_safe_chroma_for_l(L) * 100, L }
 end
 
 hsluv.rgb_to_hex = function(tuple)
-  local h = "#"
+  local h = '#'
   for i = 1, 3 do
     local c = math.floor(tuple[i] * 255 + 0.5)
     local digit2 = math.fmod(c, 16)
@@ -292,14 +324,14 @@ hsluv.hex_to_hpluv = function(s)
 end
 
 hsluv.m = {
-  {3.240969941904521, -1.537383177570093, -0.498610760293},
-  {-0.96924363628087, 1.87596750150772, 0.041555057407175},
-  {0.055630079696993, -0.20397695888897, 1.056971514242878}
+  { 3.240969941904521, -1.537383177570093, -0.498610760293 },
+  { -0.96924363628087, 1.87596750150772, 0.041555057407175 },
+  { 0.055630079696993, -0.20397695888897, 1.056971514242878 },
 }
 hsluv.minv = {
-  {0.41239079926595, 0.35758433938387, 0.18048078840183},
-  {0.21263900587151, 0.71516867876775, 0.072192315360733},
-  {0.019330818715591, 0.11919477979462, 0.95053215224966}
+  { 0.41239079926595, 0.35758433938387, 0.18048078840183 },
+  { 0.21263900587151, 0.71516867876775, 0.072192315360733 },
+  { 0.019330818715591, 0.11919477979462, 0.95053215224966 },
 }
 hsluv.refY = 1.0
 hsluv.refU = 0.19783000664283

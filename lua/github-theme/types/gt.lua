@@ -101,23 +101,23 @@ local gt = {}
 
 ---@alias gt.ThemeStyle "'dark'" | "'dark_default'" | "'dimmed'" | "'light'" | "'light_default'"
 gt.ThemeStyle = {}
-gt.ThemeStyle.Dark = "dark"
-gt.ThemeStyle.DarkDefault = "dark_default"
-gt.ThemeStyle.Dimmed = "dimmed"
-gt.ThemeStyle.Light = "light"
-gt.ThemeStyle.LightDefault = "light_default"
+gt.ThemeStyle.Dark = 'dark'
+gt.ThemeStyle.DarkDefault = 'dark_default'
+gt.ThemeStyle.Dimmed = 'dimmed'
+gt.ThemeStyle.Light = 'light'
+gt.ThemeStyle.LightDefault = 'light_default'
 
 ---@alias gt.HighlightStyle "'NONE'" | "'bold'" | "'underline'" | "'undercurl'" | "'undercurl'" | "'inverse'" | "'italic'" | "'stanout'" | "'nocombine'" | "'strikethrough'"
 gt.HighlightStyle = {}
-gt.HighlightStyle.None = "NONE"
-gt.HighlightStyle.Bold = "bold"
-gt.HighlightStyle.Underline = "underline"
-gt.HighlightStyle.Undercurl = "undercurl"
-gt.HighlightStyle.Inverse = "inverse"
-gt.HighlightStyle.Italic = "italic"
-gt.HighlightStyle.Stanout = "stanout"
-gt.HighlightStyle.NoCombine = "nocombine"
-gt.HighlightStyle.Strikethrough = "strikethrough"
+gt.HighlightStyle.None = 'NONE'
+gt.HighlightStyle.Bold = 'bold'
+gt.HighlightStyle.Underline = 'underline'
+gt.HighlightStyle.Undercurl = 'undercurl'
+gt.HighlightStyle.Inverse = 'inverse'
+gt.HighlightStyle.Italic = 'italic'
+gt.HighlightStyle.Stanout = 'stanout'
+gt.HighlightStyle.NoCombine = 'nocombine'
+gt.HighlightStyle.Strikethrough = 'strikethrough'
 
 ---@class gt.Highlight
 ---Foreground Color
