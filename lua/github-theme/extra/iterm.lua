@@ -1,7 +1,19 @@
 local util = require("github-theme.util")
-local config_module = require("github-theme.config")
-
-local M = {}
+local kpairs = function(t, f)
+  local a = {}
+  for n in pairs(t) do table.insert(a, n) end
+  table.sort(a, f)
+  local i = 0 -- iterator variable
+  local iter = function() -- iterator function
+    i = i + 1
+    if a[i] == nil then
+      return nil
+    else
+      return a[i], t[a[i]]
+    end
+  end
+  return iter
+end
 
 ---Convert hex color to rgb.
 ---@param hex string color hex.
@@ -40,10 +52,9 @@ local xml_from_color_group = function(key, color)
 end
 
 --- Generate github theme for iterm terminal.
----@param config github-theme.Config
-function M.iterm(config)
-  config = config or config_module.config
-  local colors = require("github-theme.colors").setup(config)
+---@param cfg gt.ConfigSchema
+return function(cfg)
+  local colors = require("github-theme.colors")(cfg)
 
   local groups = {
     Ansi__0 = rgb(colors.black),
@@ -80,7 +91,7 @@ function M.iterm(config)
 ]]
 
   -- appending color groups to XML
-  for k, c in next, groups do xml = xml .. xml_from_color_group(k, c) end
+  for k, c in kpairs(groups) do xml = xml .. xml_from_color_group(k, c) end
 
   -- end
   xml = xml .. [[
@@ -90,5 +101,3 @@ function M.iterm(config)
 
   return xml
 end
-
-return M

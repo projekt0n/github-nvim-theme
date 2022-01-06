@@ -1,5 +1,7 @@
----@class github-theme.Config
-local config
+local types = require("github-theme.types")
+
+---@class gt.Config
+local config = {}
 
 -- shim vim for kitty and other generators
 vim = vim or {g = {}, o = {}}
@@ -21,42 +23,45 @@ local function opt(key, default)
   end
 end
 
-config = {
+---@type gt.ConfigSchema
+config.schema = {
   colors = opt("colors", {}),
-  comment_style = opt("comment_style", "italic"),
+  comment_style = opt("comment_style", types.gt.HighlightStyle.Italic),
   dark_float = opt("dark_float", false),
   dark_sidebar = opt("dark_sidebar", true),
   dev = opt("dev", false),
-  function_style = opt("function_style", "NONE"),
+  function_style = opt("function_style", types.gt.HighlightStyle.None),
   hide_end_of_buffer = opt("hide_end_of_buffer", true),
   hide_inactive_statusline = opt("hide_inactive_statusline", true),
-  keyword_style = opt("keyword_style", "italic"),
-  msg_area_style = opt("msg_area_style", "NONE"),
+  keyword_style = opt("keyword_style", types.gt.HighlightStyle.Italic),
+  msg_area_style = opt("msg_area_style", types.gt.HighlightStyle.None),
   overrides = opt("overrides", function()
     return {}
   end),
   sidebars = opt("sidebars", {}),
-  theme_style = opt("theme_style", "dark"),
+  theme_style = opt("theme_style", types.gt.ThemeStyle.Dark),
   transform_colors = false,
   transparent = opt("transparent", false),
-  variable_style = opt("variable_style", "NONE")
+  variable_style = opt("variable_style", types.gt.HighlightStyle.None)
 }
 
---  `set background=light` for these themes
-local light_background = {light = true, light_default = true}
-
----@param user_config github-theme.Config
-local function apply_configuration(user_config)
+---Override user's configuration
+---@param user_config gt.ConfigSchema
+config.apply_configuration = function(user_config)
+  --  `set background=light` for these themes
+  local light_background = {light = true, light_default = true}
   for key, value in pairs(user_config) do
     if value ~= nil then
-      if config[key] ~= nil then
+      if config.schema[key] ~= nil then
         -- override value
-        config[key] = value
+        config.schema[key] = value
         vim.g[key_prefix .. key] = value
 
         -- background set
         if key == "theme_style" then
-          if light_background[config.theme_style] then vim.o.background = "light" end
+          if light_background[config.schema.theme_style] then
+            vim.o.background = "light"
+          end
         end
       else
         error("projekt0n/github-nvim-theme: Config " .. key .. " does not exist") -- luacheck: ignore
@@ -65,4 +70,4 @@ local function apply_configuration(user_config)
   end
 end
 
-return {config = config, apply_configuration = apply_configuration}
+return config

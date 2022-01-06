@@ -19,6 +19,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - refactor: Colors moved to `palette` module
 - `types` module initiate
 - proper color docs with `gt.Palette` type
+- Support `ConfigSchema` type with all modules
+- refactor: config module
 
 ### Fixes
 
@@ -30,6 +32,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - fix #156 - highlight added for `GitSignsCurrentLineBlame`
 - refactor: color renamed `lsp.referenceText` -> `lsp.ref_txt`
 - `TabLineSel` highlight link with `PmenuSel`
+- Fixed `iterm` theme generation
 
 ## [v0.0.3] - 09 Dec 2021
 

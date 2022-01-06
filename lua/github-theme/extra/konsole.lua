@@ -1,12 +1,9 @@
 local util = require("github-theme.util")
-local config_module = require("github-theme.config")
-
-local M = {}
 
 ---Convert hex color to rgb.
 ---@param hex string color hex.
 ---@return string rgb color string.
-function M.hex_to_rgb(hex)
+local hex_to_rgb = function(hex)
   hex = hex:gsub("#", "")
   return table.concat({
     tonumber("0x" .. hex:sub(1, 2)), tonumber("0x" .. hex:sub(3, 4)),
@@ -15,17 +12,16 @@ function M.hex_to_rgb(hex)
 end
 
 ---Generate github theme for kitty terminal.
----@param config github-theme.Config
-function M.konsole(config)
-  config = config or config_module.config
-  local colors = require("github-theme.colors").setup(config)
+---@param cfg gt.ConfigSchema
+return function(cfg)
+  local colors = require("github-theme.colors")(cfg)
 
   local konsole_colors = {}
   for k, v in pairs(colors) do
-    if type(v) == "string" then konsole_colors[k] = M.hex_to_rgb(v) end
+    if type(v) == "string" then konsole_colors[k] = hex_to_rgb(v) end
   end
 
-  local description = "Github " .. config.theme_style:lower():gsub("^%l", string.upper)
+  local description = "Github " .. cfg.theme_style:lower():gsub("^%l", string.upper)
 
   local konsole = util.template([[
 # github Konsole Colors
@@ -129,5 +125,3 @@ Wallpaper=
 
   return konsole
 end
-
-return M

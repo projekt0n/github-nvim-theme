@@ -1,15 +1,14 @@
 local util = require("github-theme.util")
-local config_module = require("github-theme.config")
+local config = require("github-theme.config")
 
-local M = {}
-
----@param config github-theme.Config
+---Setup Colors
+---@param cfg gt.ConfigSchema
 ---@return gt.Palette
-function M.setup(config)
-  config = config or config_module.config
+return function(cfg)
+  cfg = cfg or config.global
 
   ---@type gt.Palette
-  local colors = require("github-theme.palette")(config.theme_style)
+  local colors = require("github-theme.palette")(cfg.theme_style)
 
   -- useful for 'util.darken()' and 'util.lighten()'
   util.bg = colors.bg
@@ -20,10 +19,9 @@ function M.setup(config)
   --
 
   -- EndOfBuffer
-  colors.sidebar_eob = config.dark_sidebar and colors.bg2 or colors.bg
-  colors.sidebar_eob = config.hide_end_of_buffer and colors.sidebar_eob or
-                           colors.fg_gutter
-  colors.eob = config.hide_end_of_buffer and colors.bg or colors.fg_gutter
+  colors.sidebar_eob = cfg.dark_sidebar and colors.bg2 or colors.bg
+  colors.sidebar_eob = cfg.hide_end_of_buffer and colors.sidebar_eob or colors.fg_gutter
+  colors.eob = cfg.hide_end_of_buffer and colors.bg or colors.fg_gutter
 
   -- Statusline
   colors.bg_statusline = colors.blue
@@ -45,9 +43,9 @@ function M.setup(config)
   colors.bg_popup = colors.bg2
 
   -- Sidebar and Floats
-  colors.bg_sidebar = config.dark_sidebar and colors.bg2 or colors.bg
-  colors.bg_sidebar = config.transparent and colors.none or colors.bg_sidebar
-  colors.bg_float = config.dark_float and colors.bg2 or colors.bg
+  colors.bg_sidebar = cfg.dark_sidebar and colors.bg2 or colors.bg
+  colors.bg_sidebar = cfg.transparent and colors.none or colors.bg_sidebar
+  colors.bg_float = cfg.dark_float and colors.bg2 or colors.bg
 
   -- Lualine
 
@@ -88,9 +86,7 @@ function M.setup(config)
     }
   }
 
-  util.color_overrides(colors, config)
+  util.color_overrides(colors, cfg)
 
   return colors
 end
-
-return M

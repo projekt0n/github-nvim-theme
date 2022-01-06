@@ -1,20 +1,18 @@
 local util = require("github-theme.util")
-local colors = require("github-theme.colors")
-local config_module = require("github-theme.config")
+local config = require("github-theme.config")
 
-local M = {}
+---@param cfg gt.ConfigSchema
+---@return gt.Theme
+return function(cfg)
+  cfg = cfg or config.schema
 
----@param config github-theme.Config
----@return github-theme.Theme
-function M.setup(config)
-  config = config or config_module.config
-
-  ---@class github-theme.Theme
+  ---@class gt.Theme
   local theme = {}
-  theme.config = config
-  theme.colors = colors.setup(config)
+  theme.config = cfg
+  theme.colors = require("github-theme.colors")(cfg)
   local c = theme.colors
 
+  ---@type gt.HighlightGroup
   theme.base = {
     ColorColumn = {bg = c.bg_visual}, -- used for the columns set with 'colorcolumn'
     Conceal = {fg = c.fg_gutter}, -- placeholder characters substituted for concealed text (see 'conceallevel')
@@ -35,19 +33,19 @@ function M.setup(config)
     VertSplit = {fg = c.bg_visual, bg = c.bg}, -- the column separating vertically split windows
     Folded = {fg = c.fg_folded, bg = c.bg_folded}, -- line used for closed folds
     FoldColumn = {link = "Folded"}, -- 'foldcolumn'
-    SignColumn = {bg = config.transparent and c.none or c.bg, fg = c.fg_gutter}, -- column where |signs| are displayed
+    SignColumn = {bg = cfg.transparent and c.none or c.bg, fg = c.fg_gutter}, -- column where |signs| are displayed
     SignColumnSB = {bg = c.bg_sidebar, fg = c.fg_gutter}, -- column where |signs| are displayed
     Substitute = {bg = c.red, fg = c.black}, -- |:substitute| replacement text highlighting
-    LineNr = {fg = config.transparent and c.cursor_line_nr or c.line_nr}, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+    LineNr = {fg = cfg.transparent and c.cursor_line_nr or c.line_nr}, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     CursorLineNr = {fg = c.cursor_line_nr}, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
     MatchParen = {bg = c.syntax.match_paren_bg, fg = c.fg}, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     ModeMsg = {fg = c.fg, style = "bold"}, -- 'showmode' message (e.g., "-- INSERT -- ")
-    MsgArea = {fg = c.fg, style = config.msg_area_style}, -- Area for messages and cmdline
+    MsgArea = {fg = c.fg, style = cfg.msg_area_style}, -- Area for messages and cmdline
     -- MsgSeparator= { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     MoreMsg = {fg = c.blue}, -- |more-prompt|
     NonText = {fg = c.eob}, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-    Normal = {fg = c.fg, bg = config.transparent and c.none or c.bg}, -- normal text
-    NormalNC = {fg = c.fg, bg = config.transparent and c.none or c.bg}, -- normal text in non-current windows
+    Normal = {fg = c.fg, bg = cfg.transparent and c.none or c.bg}, -- normal text
+    NormalNC = {fg = c.fg, bg = cfg.transparent and c.none or c.bg}, -- normal text in non-current windows
     NormalSB = {fg = c.fg, bg = c.bg_sidebar}, -- normal text in non-current windows
     NormalFloat = {fg = c.fg, bg = c.bg_float}, -- Normal text in floating windows.
     FloatBorder = {fg = c.border},
@@ -81,7 +79,7 @@ function M.setup(config)
     -- default,
     -- Uncomment and edit if you want more specific syntax highlighting.
 
-    Comment = {fg = c.syntax.comment, style = config.comment_style}, -- any comment
+    Comment = {fg = c.syntax.comment, style = cfg.comment_style}, -- any comment
     Constant = {fg = c.syntax.constant}, -- (preferred) any constant
     String = {fg = c.syntax.string}, --   a string constant: "this is a string"
     Character = {fg = c.syntax.variable}, --  a character constant: 'c', '\n'
@@ -89,14 +87,14 @@ function M.setup(config)
     -- Boolean       = { }, --  a boolean constant: TRUE, false
     -- Float         = { }, --    a floating point constant: 2.3e10
 
-    Identifier = {fg = c.syntax.variable, style = config.variable_style}, -- (preferred) any variable name
-    Function = {fg = c.syntax.func, style = config.function_style}, -- function name (also: methods for classes)
+    Identifier = {fg = c.syntax.variable, style = cfg.variable_style}, -- (preferred) any variable name
+    Function = {fg = c.syntax.func, style = cfg.function_style}, -- function name (also: methods for classes)
     Statement = {fg = c.syntax.keyword}, -- (preferred) any statement
     -- Conditional   = { }, --  if, then, else, endif, switch, etc.
     -- Repeat        = { }, --   for, do, while, etc.
     -- Label         = { }, --    case, default, etc.
     Operator = {fg = c.syntax.keyword}, -- "sizeof", "+", "*", etc.
-    Keyword = {fg = c.syntax.keyword, style = config.keyword_style}, --  any other keyword
+    Keyword = {fg = c.syntax.keyword, style = cfg.keyword_style}, --  any other keyword
     -- Exception     = { }, --  try, catch, throw
 
     PreProc = {fg = c.syntax.keyword}, -- (preferred) generic Preprocessor
@@ -187,6 +185,7 @@ function M.setup(config)
     -- LspDiagnosticsSignHint              = { }, -- Used for "Hint" signs in sign column
   }
 
+  ---@type gt.HighlightGroup
   theme.plugins = {
     -- These groups are for the neovim tree-sitter highlights.
     -- As of writing, tree-sitter support is a WIP, group names may change.
@@ -216,8 +215,8 @@ function M.setup(config)
     -- TSFuncBuiltin       = { };    -- For builtin functions: `table.insert` in Lua.
     -- TSFuncMacro         = { };    -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
     TSInclude = {fg = c.syntax.keyword}, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
-    TSKeyword = {fg = c.syntax.keyword, style = config.keyword_style}, -- For keywords that don't fall in previous categories.
-    TSKeywordFunction = {fg = c.syntax.keyword, style = config.function_style}, -- For keywords used to define a fuction.
+    TSKeyword = {fg = c.syntax.keyword, style = cfg.keyword_style}, -- For keywords that don't fall in previous categories.
+    TSKeywordFunction = {fg = c.syntax.keyword, style = cfg.function_style}, -- For keywords used to define a fuction.
     TSLabel = {fg = c.blue}, -- For labels: `label:` in C and `:label:` in Lua.
     -- TSMethod            = { };    -- For method calls and definitions.
     TSNamespace = {fg = c.fg}, -- For identifiers referring to modules and namespaces.
@@ -237,7 +236,7 @@ function M.setup(config)
     -- TSSymbol            = { };    -- For identifiers referring to symbols or atoms.
     TSType = {fg = c.syntax.keyword}, -- For types.
     -- TSTypeBuiltin       = { };    -- For builtin types.
-    TSVariable = {fg = c.syntax.variable, style = config.variable_style}, -- Any variable name that does not have another highlight.
+    TSVariable = {fg = c.syntax.variable, style = cfg.variable_style}, -- Any variable name that does not have another highlight.
     TSVariableBuiltin = {fg = c.syntax.variable}, -- Variable names that are defined by the languages, like `this` or `self`.
     TSTag = {fg = c.syntax.tag}, -- Tags like html tag names.
     TSTagDelimiter = {fg = c.fg}, -- Tag delimiter like `<` `>` `/`
@@ -572,7 +571,7 @@ function M.setup(config)
     CocUnderline = {style = "undercurl"}
   }
 
-  if config.hide_inactive_statusline then
+  if cfg.hide_inactive_statusline then
     local inactive
 
     -- StatusLine
@@ -589,11 +588,9 @@ function M.setup(config)
     end
   end
 
-  local overrides = config.overrides(c)
+  local overrides = cfg.overrides(c)
   util.apply_overrides(theme.base, overrides)
   util.apply_overrides(theme.plugins, overrides)
 
   return theme
 end
-
-return M

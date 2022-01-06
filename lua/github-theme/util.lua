@@ -70,7 +70,8 @@ function util.randomColor(color)
   return color
 end
 
--- local ns = vim.api.nvim_create_namespace("github-theme")
+---@param group string
+---@param color gt.Highlight|gt.LinkHighlight
 function util.highlight(group, color)
   if color.fg then util.colorsUsed[color.fg] = true end
   if color.bg then util.colorsUsed[color.bg] = true end
@@ -118,7 +119,7 @@ function util.onColorScheme()
   end
 end
 
----@param config github-theme.Config
+---@param config gt.ConfigSchema
 function util.autocmds(config)
   vim.cmd("augroup " .. util.colors_name)
   vim.cmd([[  autocmd!]])
@@ -194,12 +195,12 @@ function util.apply_overrides(group, overrides)
   end
 end
 
----@param theme github-theme.Theme
+---@param theme gt.Theme
 function util.load(theme)
   vim.cmd("hi clear")
   if vim.fn.exists("syntax_on") then vim.cmd("syntax reset") end
 
-  util.colors_name = "github_" .. vim.g.github_theme_style
+  util.colors_name = "github_" .. theme.config.theme_style
 
   vim.o.termguicolors = true
   vim.g.colors_name = util.colors_name
@@ -212,7 +213,7 @@ function util.load(theme)
 end
 
 ---@param colors gt.Palette
----@param config github-theme.Config
+---@param config gt.ConfigSchema
 function util.color_overrides(colors, config)
   if type(config.colors) == "table" then
     for key, value in pairs(config.colors) do

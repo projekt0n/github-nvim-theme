@@ -1,13 +1,9 @@
 local util = require("github-theme.util")
-local config_module = require("github-theme.config")
-
-local M = {}
 
 ---Generate github theme for Alacritty terminal.
----@param config github-theme.Config
-function M.alacritty(config)
-  config = config or config_module.config
-  local colors = require("github-theme.colors").setup(config)
+---@param cfg gt.ConfigSchema
+return function(cfg)
+  local colors = require("github-theme.colors")(cfg)
 
   local alacritty_colors = {}
   for k, v in pairs(colors) do
@@ -51,5 +47,3 @@ colors:
 
   return alacritty
 end
-
-return M

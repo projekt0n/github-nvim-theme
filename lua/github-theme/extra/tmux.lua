@@ -1,13 +1,9 @@
 local util = require("github-theme.util")
-local config_module = require("github-theme.config")
-
-local M = {}
 
 ---Generate github theme for tmux.
----@param config github-theme.Config
-function M.tmux(config)
-  config = config or config_module.config
-  local colors = require("github-theme.colors").setup(config)
+---@param cfg gt.ConfigSchema
+return function(cfg)
+  local colors = require("github-theme.colors")(cfg)
 
   local tmux = util.template([[
 #!/usr/bin/env bash
@@ -45,5 +41,3 @@ setw -g window-status-current-format "#[fg=${bg2},bg=${fg_gutter},nobold,nounder
 
   return tmux
 end
-
-return M
