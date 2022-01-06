@@ -1,5 +1,5 @@
 ---@type gt.Palette
-local dark_pallete = {
+return {
   -- Background Colors
   bg = '#24292e',
   bg2 = '#1f2428',
@@ -89,5 +89,3 @@ local dark_pallete = {
   -- Plugin Colors
   git_signs = { add = '#28a745', change = '#2188ff', delete = '#ea4a5a' },
 }
-
-return dark_pallete

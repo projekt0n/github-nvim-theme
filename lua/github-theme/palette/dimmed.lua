@@ -1,5 +1,5 @@
 ---@type gt.Palette
-local dimmed_palette = {
+return {
   -- Background Colors
   bg = '#22272e',
   bg2 = '#1e2228',
@@ -55,7 +55,7 @@ local dimmed_palette = {
   syntax = {
     comment = '#768390',
     constant = '#6cb6ff',
-    -- string = "#96d0ff",
+    string = '#96d0ff',
     variable = '#6cb6ff',
     keyword = '#f47067',
     func = '#dcbdfb',
@@ -89,5 +89,3 @@ local dimmed_palette = {
   -- Plugin Colors
   git_signs = { add = '#2b6a30', change = '#966600', delete = '#ad2e2c' },
 }
-
-return dimmed_palette

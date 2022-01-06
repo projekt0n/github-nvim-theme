@@ -1,4 +1,4 @@
-.DEFAULT_GOAL = check
+.DEFAULT_GOAL = lint
 
 src = lua/github-theme
 
@@ -10,7 +10,6 @@ fmt:
 
 lint: $(src)
 	luacheck $(src)
-
 
 # reload kitty theme
 # https://github.com/ful1e5/dotfiles

@@ -1,5 +1,5 @@
 ---@type gt.Palette
-local light_default_palette = {
+return {
   -- Background Colors
   bg = '#ffffff',
   bg2 = '#f6f8fa',
@@ -89,5 +89,3 @@ local light_default_palette = {
   -- Plugin Colors
   git_signs = { add = '#34d058', change = '#f9c513', delete = '#d73a49' },
 }
-
-return light_default_palette

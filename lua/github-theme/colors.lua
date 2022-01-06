@@ -2,10 +2,10 @@ local util = require('github-theme.util')
 local config = require('github-theme.config')
 
 ---Setup Colors
----@param cfg gt.ConfigSchema
+---@param cfg gt.ConfigSchema|nil
 ---@return gt.Palette
 return function(cfg)
-  cfg = cfg or config.global
+  cfg = cfg or config.schema
 
   ---@type gt.Palette
   local colors = require('github-theme.palette')(cfg.theme_style)
@@ -86,7 +86,6 @@ return function(cfg)
     },
   }
 
-  util.color_overrides(colors, cfg)
-
+  colors = util.color_overrides(colors, cfg.colors)
   return colors
 end

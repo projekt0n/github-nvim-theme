@@ -1,7 +1,7 @@
 local util = require('github-theme.util')
 local config = require('github-theme.config')
 
----@param cfg gt.ConfigSchema
+---@param cfg gt.ConfigSchema|nil
 ---@return gt.Theme
 return function(cfg)
   cfg = cfg or config.schema

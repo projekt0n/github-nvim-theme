@@ -23,6 +23,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - refactor: config module
 - feat: `githooks` init
 - formatter changed `LuaFormatter`-> `StyLua`
+- chore: removed unnecessary module (`hsluv.lua`)
+- feat: luadoc and type added inside `util.lua`
 
 ### Fixes
 
