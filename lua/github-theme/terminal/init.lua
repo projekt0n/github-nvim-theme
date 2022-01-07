@@ -14,9 +14,9 @@ end
 
 for _, style in pairs(types.gt.ThemeStyle) do
   local config = { theme_style = style, transform_colors = true }
-  for extra, ext in pairs(types.gt.TerminalConf) do
-    local theme = require('github-theme.extra.' .. extra)
-    local file_name = 'extras/' .. extra .. '/' .. style .. '.' .. ext
+  for terminal, ext in pairs(types.gt.TerminalConf) do
+    local theme = require('github-theme.terminal.' .. terminal)
+    local file_name = 'terminal/' .. terminal .. '/github_' .. style .. '.' .. ext
     write(theme(config), file_name)
   end
 end

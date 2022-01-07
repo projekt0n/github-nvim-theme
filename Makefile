@@ -2,8 +2,8 @@
 
 src = lua/github-theme
 
-extra: $(extra_path)
-	@lua $(src)/extra/init.lua
+terminal: $(src)/terminal
+	@lua $(src)/terminal/init.lua
 	
 fmt:
 	stylua --config-path stylua.toml --glob 'lua/**/*.lua' -- lua
@@ -14,26 +14,26 @@ lint: $(src)
 # reload kitty theme
 # https://github.com/ful1e5/dotfiles
 kitty_theme = ~/.config/kitty/themes/github.conf
-exts = ./extras/
+exts = ./terminal/
 
 kitty_pre:
 	@rm -rf $(kitty_theme)
 	@touch $(kitty_theme)
 
 kitty_dark: kitty_pre
-	@cat $(exts)/kitty/dark.conf > $(kitty_theme)
+	@cat $(exts)/kitty/github_dark.conf > $(kitty_theme)
 
 kitty_dark_default: kitty_pre
-	@cat $(exts)/kitty/dark_default.conf > $(kitty_theme)
+	@cat $(exts)/kitty/github_dark_default.conf > $(kitty_theme)
 
 kitty_dimmed: kitty_pre
-	@cat $(exts)/kitty/dimmed.conf > $(kitty_theme)
+	@cat $(exts)/kitty/github_dimmed.conf > $(kitty_theme)
 
 kitty_light: kitty_pre
-	@cat $(exts)/kitty/light.conf > $(kitty_theme)
+	@cat $(exts)/kitty/github_light.conf > $(kitty_theme)
 
 kitty_light_default: kitty_pre
-	@cat $(exts)/kitty/light_default.conf > $(kitty_theme)
+	@cat $(exts)/kitty/github_light_default.conf > $(kitty_theme)
 
 # reload tmux theme
 tmux_theme = ~/.github-theme.tmux
@@ -43,16 +43,16 @@ tmux_pre:
 	@touch $(tmux_theme)
 
 tmux_dark: tmux_pre
-	@cat $(exts)/tmux/dark.tmux > $(tmux_theme)
+	@cat $(exts)/tmux/github_dark.tmux > $(tmux_theme)
 
 tmux_dimmed: tmux_pre
-	@cat $(exts)/tmux/dimmed.tmux > $(tmux_theme)
+	@cat $(exts)/tmux/github_dimmed.tmux > $(tmux_theme)
 
 tmux_light: tmux_pre
-	@cat $(exts)/tmux/light.tmux > $(tmux_theme)
+	@cat $(exts)/tmux/github_light.tmux > $(tmux_theme)
 
 tmux_dark_default: tmux_pre
-	@cat $(exts)/tmux/dark_default.tmux > $(tmux_theme)
+	@cat $(exts)/tmux/github_dark_default.tmux > $(tmux_theme)
 
 tmux_light_default: tmux_pre
-	@cat $(exts)/tmux/light_default.tmux > $(tmux_theme)
+	@cat $(exts)/tmux/github_light_default.tmux > $(tmux_theme)

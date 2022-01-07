@@ -9,42 +9,48 @@
 
 ## Features
 
-- supports the latest Neovim 0.5 features like TreeSitter and LSP
-- minimal inactive statusline
-- vim terminal colors
-- darker background for sidebar-like windows
-- color configs for [kitty](https://sw.kovidgoyal.net/kitty/conf.html?highlight=include), [iTerm2](https://iterm2.com/), [Konsole](https://konsole.kde.org/), [tmux](https://github.com/tmux/tmux/wiki) and [Alacritty](https://github.com/alacritty/alacritty)
+- Supports the latest Neovim 0.5 features like TreeSitter and LSP
+- Minimal inactive statusline (only work with **Vim's Default StatusLine**)
+- Vim terminal colors
+- Darker background for sidebar-like windows
+- Color configs for [kitty](https://sw.kovidgoyal.net/kitty/conf.html?highlight=include), [iTerm2](https://iterm2.com/), [Konsole](https://konsole.kde.org/), [tmux](https://github.com/tmux/tmux/wiki) and [Alacritty](https://github.com/alacritty/alacritty)
 - Most elegant [**lualine** theme](./LUALINE.md#screenshots)
 
-## Terminal Themes (Extras)
+## Terminal Themes
 
-> To generate the configs `make extra` or `:luafile lua/github-theme/extra/init.lua`
+> To generate the configs `make terminal` or `:luafile lua/github-theme/terminal/init.lua`
 
-Extra color configs for **kitty**, **iTerm**, **Konsole**, **tmux** and **Alacritty** can be found in [extras](extras/) directory. To use them, refer to their respective documentation.
+Extra color configs for **kitty**, **iTerm**, **Konsole**, **tmux** and **Alacritty** can be found in [terminal](terminal/) directory. To use them, refer to their respective documentation.
+
+- kitty - [./terminal/kitty](https://github.com/projekt0n/github-nvim-theme/tree/main/terminal/kitty)
+- iTerm - [./terminal/iterm](https://github.com/projekt0n/github-nvim-theme/tree/main/terminal/iterm)
+- Konsole - [./terminal/konsole](https://github.com/projekt0n/github-nvim-theme/tree/main/terminal/konsole)
+- tmux - [./terminal/tmux](https://github.com/projekt0n/github-nvim-theme/tree/main/terminal/tmux)
+- Alacritty - [./terminal/alacritty](https://github.com/projekt0n/github-nvim-theme/tree/main/terminal/alacritty)
 
 ## Plugin Support
 
 - [Builtin lsp diagnostics](https://neovim.io/doc/user/lsp.html)
-- [ale](https://github.com/dense-analysis/ale)
-- [circles.nvim](https://github.com/projekt0n/circles.nvim)
-- [coc.nvim](https://github.com/neoclide/coc.nvim)
-- [dashboard-nvim](https://github.com/glepnir/dashboard-nvim)
-- [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
-- [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
-- [lsp-trouble.nvim](https://github.com/folke/lsp-trouble.nvim)
-- [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
-- [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
-- [neogit](https://github.com/TimUntersberger/neogit)
-- [nvim-bufferline.lua](https://github.com/akinsho/nvim-bufferline.lua)
-- [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
-- [nvim-compe](https://github.com/hrsh7th/nvim-compe)
-- [nvim-notify](https://github.com/rcarriga/nvim-notify)
-- [nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)
-- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
-- [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
-- [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
-- [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
-- [which-key.nvim](https://github.com/folke/which-key.nvim)
+- [dense-analysis/ale](https://github.com/dense-analysis/ale)
+- [projekt0n/circles.nvim](https://github.com/projekt0n/circles.nvim)
+- [neoclide/coc.nvim](https://github.com/neoclide/coc.nvim)
+- [glepnir/dashboard-nvim](https://github.com/glepnir/dashboard-nvim)
+- [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
+- [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
+- [folke/lsp-trouble.nvim](https://github.com/folke/lsp-trouble.nvim)
+- [glepnir/lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
+- [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
+- [TimUntersberger/neogit](https://github.com/TimUntersberger/neogit)
+- [akinsho/nvim-bufferline.lua](https://github.com/akinsho/nvim-bufferline.lua)
+- [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+- [hrsh7th/nvim-compe](https://github.com/hrsh7th/nvim-compe)
+- [rcarriga/nvim-notify](https://github.com/rcarriga/nvim-notify)
+- [kyazdani42/nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)
+- [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
+- [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+- [airblade/vim-gitgutter](https://github.com/airblade/vim-gitgutter)
+- [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
 
 ## Requirements
 
