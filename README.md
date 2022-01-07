@@ -16,42 +16,6 @@
 - Color configs for [kitty](https://sw.kovidgoyal.net/kitty/conf.html?highlight=include), [iTerm2](https://iterm2.com/), [Konsole](https://konsole.kde.org/), [tmux](https://github.com/tmux/tmux/wiki) and [Alacritty](https://github.com/alacritty/alacritty)
 - Most elegant [**lualine** theme](./LUALINE.md#screenshots)
 
-## Terminal Themes
-
-> To generate the configs `make terminal` or `:luafile lua/github-theme/terminal/init.lua`
-
-Extra color configs for **kitty**, **iTerm**, **Konsole**, **tmux** and **Alacritty** can be found in [terminal](terminal/) directory. To use them, refer to their respective documentation.
-
-- kitty - [./terminal/kitty](https://github.com/projekt0n/github-nvim-theme/tree/main/terminal/kitty)
-- iTerm - [./terminal/iterm](https://github.com/projekt0n/github-nvim-theme/tree/main/terminal/iterm)
-- Konsole - [./terminal/konsole](https://github.com/projekt0n/github-nvim-theme/tree/main/terminal/konsole)
-- tmux - [./terminal/tmux](https://github.com/projekt0n/github-nvim-theme/tree/main/terminal/tmux)
-- Alacritty - [./terminal/alacritty](https://github.com/projekt0n/github-nvim-theme/tree/main/terminal/alacritty)
-
-## Plugin Support
-
-- [Builtin lsp diagnostics](https://neovim.io/doc/user/lsp.html)
-- [dense-analysis/ale](https://github.com/dense-analysis/ale)
-- [projekt0n/circles.nvim](https://github.com/projekt0n/circles.nvim)
-- [neoclide/coc.nvim](https://github.com/neoclide/coc.nvim)
-- [glepnir/dashboard-nvim](https://github.com/glepnir/dashboard-nvim)
-- [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
-- [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
-- [folke/lsp-trouble.nvim](https://github.com/folke/lsp-trouble.nvim)
-- [glepnir/lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
-- [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
-- [TimUntersberger/neogit](https://github.com/TimUntersberger/neogit)
-- [akinsho/nvim-bufferline.lua](https://github.com/akinsho/nvim-bufferline.lua)
-- [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
-- [hrsh7th/nvim-compe](https://github.com/hrsh7th/nvim-compe)
-- [rcarriga/nvim-notify](https://github.com/rcarriga/nvim-notify)
-- [kyazdani42/nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)
-- [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
-- [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
-- [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
-- [airblade/vim-gitgutter](https://github.com/airblade/vim-gitgutter)
-- [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
-
 ## Requirements
 
 - Neovim >= 0.5.0
@@ -99,7 +63,7 @@ require('github-theme').setup()
 | hide_inactive_statusline | `true`     | Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine**. |
 | keyword_style            | `italic`   | Highlight style for keywords (check `:help highlight-args` for options)                                                                         |
 | msg_area_style           | `NONE`     | Highlight style for messages and cmdline (check `:help highlight-args` for options)                                                             |
-| overrides                | `function` | Override specific highlight groups. The function accpet colors as argument.                                                                     |
+| overrides                | `function` | Override specific highlight groups. The function accept colors as argument.                                                                     |
 | sidebars                 | `{}`       | Set a darker background on sidebar-like windows. For example: `{"qf", "vista_kind", "terminal", "packer"}`                                      |
 | theme_style              | `dark`     | Set theme variant (options: `dark`/`dark_default`/`dimmed`/`light`/`light_default`)                                                             |
 | transparent              | `false`    | Enable this to disable setting the background color                                                                                             |
@@ -147,6 +111,18 @@ require("github-theme").setup({
 
 check [LUALINE.md](./LUALINE.md)
 
+## Terminal Themes
+
+> To generate the configs `make terminal` or `:luafile lua/github-theme/terminal/init.lua`
+
+Extra color configs for **kitty**, **iTerm**, **Konsole**, **tmux** and **Alacritty** can be found in [terminal](terminal/) directory. To use them, refer to their respective documentation.
+
+- kitty - [./terminal/kitty](https://github.com/projekt0n/github-nvim-theme/tree/main/terminal/kitty)
+- iTerm - [./terminal/iterm](https://github.com/projekt0n/github-nvim-theme/tree/main/terminal/iterm)
+- Konsole - [./terminal/konsole](https://github.com/projekt0n/github-nvim-theme/tree/main/terminal/konsole)
+- tmux - [./terminal/tmux](https://github.com/projekt0n/github-nvim-theme/tree/main/terminal/tmux)
+- Alacritty - [./terminal/alacritty](https://github.com/projekt0n/github-nvim-theme/tree/main/terminal/alacritty)
+
 ### Making `undercurls` work properly in **Tmux**
 
 To have undercurls show up and in color, add the following to your **Tmux** config file:
@@ -158,11 +134,29 @@ set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'  # undercurl support
 set -as terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d%;m'  # underscore colours - needs tmux-3.0
 ```
 
-## Reference
+## Plugin Support
 
-- [primer/github-vscode-theme](https://github.com/primer/github-vscode-theme)
-- [folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
-- [monsonjeremy/onedark.nvim](https://github.com/monsonjeremy/onedark.nvim)
+- [Builtin lsp diagnostics](https://neovim.io/doc/user/lsp.html)
+- [dense-analysis/ale](https://github.com/dense-analysis/ale)
+- [projekt0n/circles.nvim](https://github.com/projekt0n/circles.nvim)
+- [neoclide/coc.nvim](https://github.com/neoclide/coc.nvim)
+- [glepnir/dashboard-nvim](https://github.com/glepnir/dashboard-nvim)
+- [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
+- [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
+- [folke/lsp-trouble.nvim](https://github.com/folke/lsp-trouble.nvim)
+- [glepnir/lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
+- [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
+- [TimUntersberger/neogit](https://github.com/TimUntersberger/neogit)
+- [akinsho/nvim-bufferline.lua](https://github.com/akinsho/nvim-bufferline.lua)
+- [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+- [hrsh7th/nvim-compe](https://github.com/hrsh7th/nvim-compe)
+- [rcarriga/nvim-notify](https://github.com/rcarriga/nvim-notify)
+- [kyazdani42/nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)
+- [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
+- [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+- [airblade/vim-gitgutter](https://github.com/airblade/vim-gitgutter)
+- [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
 
 ## 📺 Screenshot
 
