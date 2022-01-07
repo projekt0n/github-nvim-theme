@@ -1,6 +1,6 @@
-local config_module = require('github-theme.config')
+local config = require('github-theme.config')
 
-local config = config_module.config
-local colors = require('github-theme.colors').setup(config)
+local cfg = config.schema
+local colors = require('github-theme.colors')(cfg)
 
 return colors.lualine

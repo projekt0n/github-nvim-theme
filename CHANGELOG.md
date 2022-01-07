@@ -37,6 +37,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - refactor: color renamed `lsp.referenceText` -> `lsp.ref_txt`
 - `TabLineSel` highlight link with `PmenuSel`
 - Fixed `iterm` theme generation
+- fix: lualine theme
 
 ## [v0.0.3] - 09 Dec 2021
 
