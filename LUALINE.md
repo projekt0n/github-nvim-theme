@@ -1,8 +1,5 @@
 To enable the `github` theme for `Lualine`, simply specify it in your lualine settings:
 
-Note `hide_inactive_statusline` option is deprecated for lualine
-ref: b699121 4ab803f
-
 ### packer
 
 ```lua

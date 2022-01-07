@@ -69,6 +69,8 @@ require('github-theme').setup()
 | transparent              | `false`    | Enable this to disable setting the background color                                                                                             |
 | variable_style           | `NONE`     | Highlight style for variables and identifiers (check `:help highlight-args` for options)                                                        |
 
+### Using `vim`
+
 ```vim
 " Example config in VimScript
 " NOTE: Configuration needs to be set BEFORE loading the color scheme with `colorscheme` command
@@ -84,6 +86,8 @@ let g:github_colors = {
 " Load the colorscheme
 colorscheme github_dark
 ```
+
+### Using `lua`
 
 ```lua
 -- Example config in Lua
@@ -109,7 +113,9 @@ require("github-theme").setup({
 
 ### Lualine Support
 
-check [LUALINE.md](./LUALINE.md)
+> Note: `hide_inactive_statusline` option is deprecated for lualine. Thats mean its doesn't force `_`(underline) style to `StatusLineNC` highlight. Reference b6991218c13d7310ea2de6ed7b22a381df727044 and 4ab803fd959c903b3a32a0de8440034bb31ecea4 for diff.
+
+Installation docs and screenshots at [LUALINE.md](./LUALINE.md).
 
 ## Terminal Themes
 
@@ -158,13 +164,13 @@ set -as terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{25
 - [airblade/vim-gitgutter](https://github.com/airblade/vim-gitgutter)
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
 
-## 📺 Screenshot
+## 📺 Screenshots
 
 - Font: [Ubuntu Mono](https://design.ubuntu.com/font/)
 - Terminal: [kitty](https://sw.kovidgoyal.net/kitty)
 - Icon: [circles.nvim](https://github.com/projekt0n/circles.nvim)
 - StatusLine: **Default**. [dotfiles/nvim/.config/nvim/lua/options.lua#L19-L30](https://github.com/ful1e5/dotfiles/blob/a2777f85b104622dd82f4adfc6ad032e3ff074bf/nvim/.config/nvim/lua/options.lua#L19-L30)
-- dotfiles: [dotfiles](https://github.com/ful1e5/dotfiles)
+- dotfiles: [ful1e5/dotfiles/nvim](https://github.com/ful1e5/dotfiles/tree/main/nvim/.config/nvim)
 
 ### Theme Styles
 
