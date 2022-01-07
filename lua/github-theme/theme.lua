@@ -1,19 +1,19 @@
 local util = require('github-theme.util')
-local config = require('github-theme.config')
+local colors = require('github-theme.colors')
 
----@param cfg gt.ConfigSchema|nil
----@return gt.Theme
-return function(cfg)
-  cfg = cfg or config.schema
+---@class gt.Theme
+local theme = {}
 
-  ---@class gt.Theme
-  local theme = {}
-  theme.config = cfg
-  theme.colors = require('github-theme.colors')(cfg)
-  local c = theme.colors
+---@param cfg gt.ConfigSchema
+---@return gt.Highlights
+theme.setup = function(cfg)
+  ---@class gt.Highlights
+  local hi = {}
+  hi.config = cfg
+  hi.colors = colors.setup(cfg)
+  local c = hi.colors
 
-  ---@type gt.HighlightGroup
-  theme.base = {
+  hi.base = {
     ColorColumn = { bg = c.bg_visual }, -- used for the columns set with 'colorcolumn'
     Conceal = { fg = c.fg_gutter }, -- placeholder characters substituted for concealed text (see 'conceallevel')
     Cursor = { fg = c.bg, bg = c.fg }, -- character under the cursor
@@ -185,8 +185,7 @@ return function(cfg)
     -- LspDiagnosticsSignHint              = { }, -- Used for "Hint" signs in sign column
   }
 
-  ---@type gt.HighlightGroup
-  theme.plugins = {
+  hi.plugins = {
     -- These groups are for the neovim tree-sitter highlights.
     -- As of writing, tree-sitter support is a WIP, group names may change.
     -- By default, most of these groups link to an appropriate Vim group,
@@ -469,7 +468,7 @@ return function(cfg)
     DevIconRb = { fg = c.dev_icons.ruby },
     DevIconSass = { fg = c.dev_icons.sass },
     DevIconScss = { fg = c.dev_icons.scss },
-    DevIconSh = { fg = c.dev_icons.shellscript },
+    DevIconSh = { fg = c.dev_icons.shellscipt },
     DevIconSql = { fg = c.dev_icons.sql },
     DevIconTs = { fg = c.dev_icons.typescript },
     DevIconXml = { fg = c.dev_icons.xml },
@@ -576,21 +575,23 @@ return function(cfg)
 
     -- StatusLine
     inactive = { style = 'underline', bg = c.bg, fg = c.bg, sp = c.bg_visual }
-    theme.base.StatusLineNC = inactive
+    hi.base.StatusLineNC = inactive
 
     -- LuaLine
     if vim.o.statusline ~= nil and string.find(vim.o.statusline, 'lualine') then
       -- Fix VertSplit & StatusLine crossover when lualine is active
       -- https://github.com/hoob3rt/lualine.nvim/issues/274
       inactive = { bg = c.bg2 }
-      theme.base.StatusLine = inactive
-      theme.base.StatusLineNC = inactive
+      hi.base.StatusLine = inactive
+      hi.base.StatusLineNC = inactive
     end
   end
 
   local overrides = cfg.overrides(c)
-  util.apply_overrides(theme.base, overrides)
-  util.apply_overrides(theme.plugins, overrides)
+  util.apply_overrides(hi.base, overrides)
+  util.apply_overrides(hi.plugins, overrides)
 
-  return theme
+  return hi
 end
+
+return theme

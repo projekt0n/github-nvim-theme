@@ -1,3 +1,4 @@
+---@diagnostic disable: duplicate-doc-class
 local gt = {}
 
 ---@class gt.HexColor string
@@ -44,7 +45,36 @@ local gt = {}
 ---@field public change gt.HexColor
 ---@field public delete gt.HexColor
 
----@class gt.Palette
+---@class gt.DevIconsPalette
+---@field public c gt.HexColor
+---@field public clojure gt.HexColor
+---@field public coffeescript gt.HexColor
+---@field public csharp gt.HexColor
+---@field public css gt.HexColor
+---@field public markdown gt.HexColor
+---@field public go gt.HexColor
+---@field public html gt.HexColor
+---@field public java gt.HexColor
+---@field public javascript gt.HexColor
+---@field public json gt.HexColor
+---@field public less gt.HexColor
+---@field public make gt.HexColor
+---@field public mustache gt.HexColor
+---@field public php gt.HexColor
+---@field public python gt.HexColor
+---@field public ruby_on_rails gt.HexColor
+---@field public ruby gt.HexColor
+---@field public sass gt.HexColor
+---@field public scss gt.HexColor
+---@field public shellscipt gt.HexColor
+---@field public sql gt.HexColor
+---@field public typescript gt.HexColor
+---@field public xml gt.HexColor
+---@field public yml gt.HexColor
+
+---@class gt.ColorPalette
+---NONE Color
+---@field public none gt.HexColor
 ---Background Colors
 ---@field public bg gt.HexColor
 ---@field public bg2 gt.HexColor
@@ -96,6 +126,21 @@ local gt = {}
 ---@field public bright_magenta gt.HexColor
 ---@field public cyan gt.HexColor
 ---@field public bright_cyan gt.HexColor
+---Configurable Dynamic Colors
+---@field public sidebar_eob gt.HexColor
+---@field public eob gt.HexColor
+---@field public bg_statusline gt.HexColor
+---@field public fg_statusline gt.HexColor
+---@field public bg_nc_statusline gt.HexColor
+---@field public fg_nc_statusline gt.HexColor
+---@field public fg_search gt.HexColor
+---@field public border_highlight gt.HexColor
+---@field public fg_folded gt.HexColor
+---@field public bg_folded gt.HexColor
+---@field public bg_sidebar gt.HexColor
+---@field public bg_float gt.HexColor
+---DevIcons Plugin Colors
+---@field public dev_icons gt.DevIconsPalette
 ---GitSign Plugin Colors
 ---@field public git_signs gt.GitSignPalette
 
@@ -133,10 +178,8 @@ gt.HighlightStyle.Strikethrough = 'strikethrough'
 ---Existing Highlight
 ---@field public link string
 
----@class gt.HighlightGroup table<string, gt.Highlight|gt.LinkHighlight>
-
 ---@class gt.ConfigSchema
----@field public colors gt.Palette
+---@field public colors gt.ColorPalette
 ---@field public comment_style gt.HighlightStyle
 ---@field public dark_float boolean
 ---@field public dark_sidebar boolean
@@ -152,5 +195,13 @@ gt.HighlightStyle.Strikethrough = 'strikethrough'
 ---@field public transform_colors boolean
 ---@field public transparent boolean
 ---@field public variable_style gt.HighlightStyle
+
+---@alias gt.TerminalConf "'conf'" | "'yml'" | "'itermcolors'" | "'colorscheme'" | "'tmux'"
+gt.TerminalConf = {}
+gt.TerminalConf.kitty = 'conf'
+gt.TerminalConf.alacritty = 'yml'
+gt.TerminalConf.iterm = 'itermcolors'
+gt.TerminalConf.konsole = 'colorscheme'
+gt.TerminalConf.tmux = 'tmux'
 
 return gt

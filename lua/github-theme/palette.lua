@@ -1,11 +1,14 @@
+---@class gt.Palette
+local palette = {}
+
 ---@param theme_style gt.ThemeStyle
-return function(theme_style)
-  ---@class gt.Palette
-  local color_palette = require('github-theme.palette.' .. theme_style)
+---@return gt.ColorPalette
+palette.get_palette = function(theme_style)
+  local p = require('github-theme.palette.' .. theme_style)
 
   -- Adding common colors
-  color_palette.none = 'NONE'
-  color_palette.dev_icons = {
+  p.none = 'NONE'
+  p.dev_icons = {
     c = '#519aba',
     clojure = '#8dc149',
     coffeescript = '#cbcb41',
@@ -33,5 +36,7 @@ return function(theme_style)
     yml = '#a074c4',
   }
 
-  return color_palette
+  return p
 end
+
+return palette

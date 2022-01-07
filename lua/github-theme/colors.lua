@@ -1,51 +1,51 @@
 local util = require('github-theme.util')
-local config = require('github-theme.config')
+local palette = require('github-theme.palette')
+
+---@class gt.Colors
+local colors = {}
 
 ---Setup Colors
----@param cfg gt.ConfigSchema|nil
----@return gt.Palette
-return function(cfg)
-  cfg = cfg or config.schema
-
-  ---@type gt.Palette
-  local colors = require('github-theme.palette')(cfg.theme_style)
+---@param cfg gt.ConfigSchema
+---@return gt.ColorPalette
+colors.setup = function(cfg)
+  local c = palette.get_palette(cfg.theme_style)
 
   -- useful for 'util.darken()' and 'util.lighten()'
-  util.bg = colors.bg
-  util.fg = colors.fg
+  util.bg = c.bg
+  util.fg = c.fg
 
   --
   -- NOTE: These colors are also configurable
   --
 
   -- EndOfBuffer
-  colors.sidebar_eob = cfg.dark_sidebar and colors.bg2 or colors.bg
-  colors.sidebar_eob = cfg.hide_end_of_buffer and colors.sidebar_eob or colors.fg_gutter
-  colors.eob = cfg.hide_end_of_buffer and colors.bg or colors.fg_gutter
+  c.sidebar_eob = cfg.dark_sidebar and c.bg2 or c.bg
+  c.sidebar_eob = cfg.hide_end_of_buffer and c.sidebar_eob or c.fg_gutter
+  c.eob = cfg.hide_end_of_buffer and c.bg or c.fg_gutter
 
   -- Statusline
-  colors.bg_statusline = colors.blue
-  colors.fg_statusline = colors.bg
-  colors.bg_nc_statusline = colors.bg2
-  colors.fg_nc_statusline = util.darken(colors.fg, 0.3)
+  c.bg_statusline = c.blue
+  c.fg_statusline = c.bg
+  c.bg_nc_statusline = c.bg2
+  c.fg_nc_statusline = util.darken(c.fg, 0.3)
 
   -- Search
-  colors.fg_search = colors.none
+  c.fg_search = c.none
 
   -- Border
-  colors.border_highlight = colors.blue
+  c.border_highlight = c.blue
 
   -- Folded
-  colors.fg_folded = colors.fg
-  colors.bg_folded = colors.bg_visual_selection
+  c.fg_folded = c.fg
+  c.bg_folded = c.bg_visual_selection
 
   -- Popups
-  colors.bg_popup = colors.bg2
+  c.bg_popup = c.bg2
 
   -- Sidebar and Floats
-  colors.bg_sidebar = cfg.dark_sidebar and colors.bg2 or colors.bg
-  colors.bg_sidebar = cfg.transparent and colors.none or colors.bg_sidebar
-  colors.bg_float = cfg.dark_float and colors.bg2 or colors.bg
+  c.bg_sidebar = cfg.dark_sidebar and c.bg2 or c.bg
+  c.bg_sidebar = cfg.transparent and c.none or c.bg_sidebar
+  c.bg_float = cfg.dark_float and c.bg2 or c.bg
 
   -- Lualine
 
@@ -54,38 +54,40 @@ return function(cfg)
   ---@return table
   local tint_lualine_group = function(color)
     local group = {
-      a = { bg = color, fg = colors.bg },
+      a = { bg = color, fg = c.bg },
       b = { bg = util.darken(color, 0.2), fg = util.lighten(color, 0.2) },
     }
     if vim.o.background == 'dark' then
       group.c = {
-        bg = util.darken(color, 0.01, colors.bg2),
-        fg = util.lighten(color, 0.4, colors.fg),
+        bg = util.darken(color, 0.01, c.bg2),
+        fg = util.lighten(color, 0.4, c.fg),
       }
     else
       -- inverting colors for light colorschemes
       group.c = {
-        bg = util.lighten(color, 0.01, colors.bg2),
-        fg = util.darken(color, 0.4, colors.fg),
+        bg = util.lighten(color, 0.01, c.bg2),
+        fg = util.darken(color, 0.4, c.fg),
       }
     end
     return group
   end
 
-  colors.lualine = {
-    normal = tint_lualine_group(colors.blue),
-    insert = tint_lualine_group(colors.green),
-    command = tint_lualine_group(colors.bright_magenta),
-    visual = tint_lualine_group(colors.yellow),
-    replace = tint_lualine_group(colors.red),
-    terminal = tint_lualine_group(colors.orange),
+  c.lualine = {
+    normal = tint_lualine_group(c.blue),
+    insert = tint_lualine_group(c.green),
+    command = tint_lualine_group(c.bright_magenta),
+    visual = tint_lualine_group(c.yellow),
+    replace = tint_lualine_group(c.red),
+    terminal = tint_lualine_group(c.orange),
     inactive = {
-      a = { bg = colors.bg_nc_statusline, fg = colors.fg_nc_statusline },
-      b = { bg = colors.bg_nc_statusline, fg = colors.fg_nc_statusline },
-      c = { bg = colors.bg_nc_statusline, fg = colors.fg_nc_statusline },
+      a = { bg = c.bg_nc_statusline, fg = c.fg_nc_statusline },
+      b = { bg = c.bg_nc_statusline, fg = c.fg_nc_statusline },
+      c = { bg = c.bg_nc_statusline, fg = c.fg_nc_statusline },
     },
   }
 
-  colors = util.color_overrides(colors, cfg.colors)
-  return colors
+  c = util.color_overrides(c, cfg.colors)
+  return c
 end
+
+return colors

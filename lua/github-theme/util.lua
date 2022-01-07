@@ -1,3 +1,4 @@
+---@class gt.Util
 local util = {}
 
 util.colors_name = ''
@@ -58,7 +59,7 @@ util.lighten = function(hex, amount, fg)
 end
 
 ---Dump unused colors
----@param colors gt.Palette
+---@param colors gt.ColorPalette
 util.debug = function(colors)
   for name, color in pairs(colors) do
     if type(color) == 'table' then
@@ -136,7 +137,7 @@ util.syntax = function(syntax)
   end
 end
 
----@param colors gt.Palette
+---@param colors gt.ColorPalette
 util.terminal = function(colors)
   -- dark
   vim.g.terminal_color_0 = colors.black
@@ -159,20 +160,20 @@ util.terminal = function(colors)
   vim.g.terminal_color_14 = colors.bright_cyan
 end
 
----@param theme gt.Theme
-util.load = function(theme)
+---@param hi gt.Highlights
+util.load = function(hi)
   vim.cmd('hi clear')
   if vim.fn.exists('syntax_on') then
     vim.cmd('syntax reset')
   end
-  util.colors_name = 'github_' .. theme.config.theme_style
+  util.colors_name = 'github_' .. hi.config.theme_style
   vim.o.termguicolors = true
   vim.g.colors_name = util.colors_name
   -- vim.api.nvim__set_hl_ns(ns)
-  util.syntax(theme.base)
-  util.autocmds(theme.config)
-  util.terminal(theme.colors)
-  util.syntax(theme.plugins)
+  util.syntax(hi.base)
+  util.autocmds(hi.config)
+  util.terminal(hi.colors)
+  util.syntax(hi.plugins)
 end
 
 ---Override custom highlights in `group`
@@ -186,9 +187,9 @@ util.apply_overrides = function(group, overrides)
   end
 end
 
----@param colors gt.Palette
----@param new_colors gt.Palette
----@return gt.Palette
+---@param colors gt.ColorPalette
+---@param new_colors gt.ColorPalette
+---@return gt.ColorPalette
 function util.color_overrides(colors, new_colors)
   if type(new_colors) == 'table' then
     for key, value in pairs(new_colors) do

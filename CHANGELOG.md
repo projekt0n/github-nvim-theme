@@ -18,13 +18,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - allow customizing highlight group ful1e5/onedark.nvim#91
 - refactor: Colors moved to `palette` module
 - `types` module initiate
-- proper color docs with `gt.Palette` type
+- proper color docs with `gt.ColorPalette` type
 - Support `ConfigSchema` type with all modules
 - refactor: config module
 - feat: `githooks` init
 - formatter changed `LuaFormatter`-> `StyLua`
 - chore: removed unnecessary module (`hsluv.lua`)
 - feat: luadoc and type added inside `util.lua`
+- feat: TerminalConf type added in `types` module
+- refactor: modules export & typing
 
 ### Fixes
 

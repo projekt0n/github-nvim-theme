@@ -1,4 +1,10 @@
 local util = require('github-theme.util')
+local palette = require('github-theme.palette')
+
+---Sort table
+---@param t table
+---@param f function
+---@return table sorted table according to function.
 local kpairs = function(t, f)
   local a = {}
   for n in pairs(t) do
@@ -60,7 +66,7 @@ end
 --- Generate github theme for iterm terminal.
 ---@param cfg gt.ConfigSchema
 return function(cfg)
-  local colors = require('github-theme.colors')(cfg)
+  local colors = palette.get_palette(cfg.theme_style)
 
   local groups = {
     Ansi__0 = rgb(colors.black),

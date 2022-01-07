@@ -1,6 +1,7 @@
 local config = require('github-theme.config')
+local colors = require('github-theme.colors')
 
 local cfg = config.schema
-local colors = require('github-theme.colors')(cfg)
+local c = colors.setup(cfg)
 
-return colors.lualine
+return c.lualine

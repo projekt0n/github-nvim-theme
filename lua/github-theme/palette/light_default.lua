@@ -1,4 +1,4 @@
----@type gt.Palette
+---@type gt.ColorPalette
 return {
   -- Background Colors
   bg = '#ffffff',

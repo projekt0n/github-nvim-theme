@@ -1,15 +1,18 @@
 local util = require('github-theme.util')
 local config = require('github-theme.config')
+local theme = require('github-theme.theme')
+
+---@class gt.Init
+local init = {}
 
 ---@param user_config gt.ConfigSchema
-local function setup(user_config)
+init.setup = function(user_config)
   if user_config then
     config.apply_configuration(user_config)
   end
 
   -- Load colorscheme
-  local theme = require('github-theme.theme')(config.schema)
-  util.load(theme)
+  util.load(theme.setup(config.schema))
 end
 
-return { setup = setup }
+return init

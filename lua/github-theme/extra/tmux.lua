@@ -1,9 +1,10 @@
 local util = require('github-theme.util')
+local palette = require('github-theme.palette')
 
 ---Generate github theme for tmux.
 ---@param cfg gt.ConfigSchema
 return function(cfg)
-  local colors = require('github-theme.colors')(cfg)
+  local colors = palette.get_palette(cfg.theme_style)
 
   local tmux = util.template(
     [[

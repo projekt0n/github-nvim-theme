@@ -1,4 +1,5 @@
 local util = require('github-theme.util')
+local palette = require('github-theme.palette')
 
 ---Convert hex color to rgb.
 ---@param hex string color hex.
@@ -15,7 +16,7 @@ end
 ---Generate github theme for kitty terminal.
 ---@param cfg gt.ConfigSchema
 return function(cfg)
-  local colors = require('github-theme.colors')(cfg)
+  local colors = palette.get_palette(cfg.theme_style)
 
   local konsole_colors = {}
   for k, v in pairs(colors) do

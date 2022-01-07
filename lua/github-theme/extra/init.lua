@@ -12,17 +12,9 @@ local function write(str, file_name)
   file:close()
 end
 
-local extras = {
-  kitty = 'conf',
-  alacritty = 'yml',
-  iterm = 'itermcolors',
-  konsole = 'colorscheme',
-  tmux = 'tmux',
-}
-
 for _, style in pairs(types.gt.ThemeStyle) do
   local config = { theme_style = style, transform_colors = true }
-  for extra, ext in pairs(extras) do
+  for extra, ext in pairs(types.gt.TerminalConf) do
     local theme = require('github-theme.extra.' .. extra)
     local file_name = 'extras/' .. extra .. '/' .. style .. '.' .. ext
     write(theme(config), file_name)
