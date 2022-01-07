@@ -113,7 +113,7 @@ require("github-theme").setup({
 
 ### Lualine Support
 
-> Note: `hide_inactive_statusline` option is deprecated for lualine. Thats mean its doesn't force `_`(underline) style to `StatusLineNC` highlight. Reference b6991218c13d7310ea2de6ed7b22a381df727044 and 4ab803fd959c903b3a32a0de8440034bb31ecea4 for diff.
+> Note: _hide_inactive_statusline_ option is deprecated for lualine. Thats mean its doesn't force '_'(underline) style to \_StatusLineNC_ highlight.
 
 Installation docs and screenshots at [LUALINE.md](./LUALINE.md).
 
