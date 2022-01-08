@@ -1,3 +1,5 @@
+local types = require('github-theme.types')
+
 ---@class gt.Util
 local util = {}
 
@@ -66,7 +68,7 @@ util.debug = function(colors)
       util.debug(color)
     else
       if util.used_color[color] == nil then
-        print('not used: ' .. name .. ' : ' .. color)
+        print('not used color: ' .. name .. ' : ' .. color)
       end
     end
   end
@@ -188,11 +190,11 @@ util.apply_overrides = function(group, overrides)
 end
 
 ---@param colors gt.ColorPalette
----@param new_colors gt.ColorPalette
+---@param oride_colors gt.ColorPalette
 ---@return gt.ColorPalette
-function util.color_overrides(colors, new_colors)
-  if type(new_colors) == 'table' then
-    for key, value in pairs(new_colors) do
+function util.color_overrides(colors, oride_colors)
+  if type(oride_colors) == 'table' then
+    for key, value in pairs(oride_colors) do
       if not colors[key] then
         error('Color ' .. key .. ' does not exist')
       end
@@ -200,9 +202,9 @@ function util.color_overrides(colors, new_colors)
       if type(colors[key]) == 'table' then
         util.color_overrides(colors[key], value)
       else
-        if value:lower() == 'none' then
+        if value:lower() == types.gt.HighlightStyle.None:lower() then
           -- set to none
-          colors[key] = 'NONE'
+          colors[key] = types.gt.HighlightStyle.None
         elseif string.sub(value, 1, 1) == '#' then
           -- hex override
           colors[key] = value

@@ -1,6 +1,6 @@
-local util = require('github-theme.util')
 local config = require('github-theme.config')
 local theme = require('github-theme.theme')
+local util = require('github-theme.util')
 
 ---@class gt.Init
 local init = {}

@@ -28,6 +28,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - feat: TerminalConf type added in `types` module
 - refactor: modules export & typing
 - refactor: terminal themes moved 'extras' -> 'terminal'
+- feat: Apply highlight's style using `types.HighlightStyle` type
 
 ### Fixes
 

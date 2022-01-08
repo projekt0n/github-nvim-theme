@@ -1,5 +1,5 @@
-local util = require('github-theme.util')
 local palette = require('github-theme.palette')
+local util = require('github-theme.util')
 
 ---Convert hex color to rgb.
 ---@param hex string color hex.
