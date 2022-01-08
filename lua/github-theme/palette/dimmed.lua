@@ -9,7 +9,7 @@ return {
   fg_dark = '#636e7b',
   fg_gutter = '#768390',
   fg_light = '#adbac7',
-  term_fg = '#768390',
+  fg_term = '#768390',
 
   -- Background Highlights Colors
   bg_highlight = '#2d333b',

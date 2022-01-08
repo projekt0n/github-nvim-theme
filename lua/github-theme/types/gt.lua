@@ -83,7 +83,7 @@ local gt = {}
 ---@field public fg_dark gt.HexColor
 ---@field public fg_gutter gt.HexColor
 ---@field public fg_light gt.HexColor
----@field public term_fg gt.HexColor
+---@field public fg_term gt.HexColor
 ---Background Highlights Colors
 ---@field public bg_highlight gt.HexColor
 ---@field public bg_search gt.HexColor

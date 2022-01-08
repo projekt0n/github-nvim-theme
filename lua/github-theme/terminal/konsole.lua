@@ -108,16 +108,16 @@ Color=${fg_dark}
 Color=${fg_dark}
 
 [Color7Intense]
-Color=${term_fg}
+Color=${fg_term}
 
 [Foreground]
-Color=${term_fg}
+Color=${fg_term}
 
 [ForegroundFaint]
-Color=${term_fg}
+Color=${fg_term}
 
 [ForegroundIntense]
-Color=${term_fg}
+Color=${fg_term}
 
 ]] .. [[
 [General]

@@ -11,16 +11,16 @@ return function(cfg)
 # github colors for Kitty
 
 background ${bg}
-foreground ${term_fg}
+foreground ${fg_term}
 selection_background ${bg_visual_selection}
-selection_foreground ${term_fg}
-url_color ${term_fg}
+selection_foreground ${fg_term}
+url_color ${fg_term}
 cursor ${cursor}
 
 # Tabs
 active_tab_background ${blue}
 active_tab_foreground ${bg2}
-inactive_tab_background ${term_fg}
+inactive_tab_background ${fg_term}
 inactive_tab_foreground ${bg2}
 
 # Windows Border
@@ -45,7 +45,7 @@ color11 ${bright_yellow}
 color12 ${bright_blue}
 color13 ${bright_magenta}
 color14 ${bright_cyan}
-color15 ${term_fg}
+color15 ${fg_term}
 
 # extended colors
 color16 ${bright_yellow}

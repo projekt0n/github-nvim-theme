@@ -20,7 +20,7 @@ colors:
   # Default colors
   primary:
     background: '${bg}'
-    foreground: '${term_fg}'
+    foreground: '${fg_term}'
 
   # Normal colors
   normal:
@@ -31,7 +31,7 @@ colors:
     blue:    '${blue}'
     magenta: '${magenta}'
     cyan:    '${cyan}'
-    white:   '${term_fg}'
+    white:   '${fg_term}'
 
   # Bright colors
   bright:
@@ -42,7 +42,7 @@ colors:
     blue:    '${bright_blue}'
     magenta: '${bright_magenta}'
     cyan:    '${cyan}'
-    white:   '${term_fg}'
+    white:   '${fg_term}'
 
   indexed_colors:
     - { index: 16, color: '${orange}' }

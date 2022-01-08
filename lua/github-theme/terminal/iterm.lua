@@ -84,7 +84,7 @@ return function(cfg)
     Ansi__12 = rgb(colors.bright_blue),
     Ansi__13 = rgb(colors.bright_magenta),
     Ansi__14 = rgb(colors.bright_cyan),
-    Ansi__15 = rgb(colors.term_fg),
+    Ansi__15 = rgb(colors.fg_term),
     Background = rgb(colors.bg),
     Foreground = rgb(colors.fg),
     Cursor = rgb(colors.cursor),
