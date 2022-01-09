@@ -74,31 +74,14 @@ gt.TerminalConf.tmux = 'tmux'
 ---@field public delete gt.HexColor
 
 ---@class gt.DevIconsPalette
----@field public c gt.HexColor
----@field public clojure gt.HexColor
----@field public coffeescript gt.HexColor
----@field public csharp gt.HexColor
----@field public css gt.HexColor
----@field public markdown gt.HexColor
----@field public go gt.HexColor
----@field public html gt.HexColor
----@field public java gt.HexColor
----@field public javascript gt.HexColor
----@field public json gt.HexColor
----@field public less gt.HexColor
----@field public make gt.HexColor
----@field public mustache gt.HexColor
----@field public php gt.HexColor
----@field public python gt.HexColor
----@field public ruby_on_rails gt.HexColor
----@field public ruby gt.HexColor
----@field public sass gt.HexColor
----@field public scss gt.HexColor
----@field public shellscipt gt.HexColor
----@field public sql gt.HexColor
----@field public typescript gt.HexColor
----@field public xml gt.HexColor
----@field public yml gt.HexColor
+---@field public blue gt.HexColor
+---@field public green gt.HexColor
+---@field public yellow gt.HexColor
+---@field public orange gt.HexColor
+---@field public red gt.HexColor
+---@field public purple gt.HexColor
+---@field public pink gt.HexColor
+---@field public gray gt.HexColor
 
 ---@class gt.ColorPalette
 ---NONE Color
