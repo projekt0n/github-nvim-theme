@@ -30,6 +30,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - refactor: terminal themes moved 'extras' -> 'terminal'
 - feat: Apply highlight's style using `types.HighlightStyle` type
 - refactor: color name changed 'term_fg' -> 'fg_term'
+- feat: suggest config in `vim.g` autocompletion
 
 ### Fixes
 
