@@ -7,7 +7,7 @@ palette.get_palette = function(theme_style)
   ---@type gt.ColorPalette
   local p
 
-  p = require('github-theme.palette.' .. theme_style)
+  p = require('github-theme.palette.' .. theme_style)()
   p.none = 'NONE'
   p.dev_icons = {
     blue = '#519aba',

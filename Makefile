@@ -4,7 +4,7 @@ src = lua/github-theme
 
 terminal: $(src)/terminal
 	@lua $(src)/terminal/init.lua
-	
+
 fmt:
 	stylua --config-path stylua.toml --glob 'lua/**/*.lua' -- lua
 

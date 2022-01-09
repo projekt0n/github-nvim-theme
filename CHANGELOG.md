@@ -31,6 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - feat: Apply highlight's style using `types.HighlightStyle` type
 - refactor: color name changed 'term_fg' -> 'fg_term'
 - feat: suggest config in `vim.g` autocompletion
+- feat: reuse common color in palettes
 
 ### Fixes
 
