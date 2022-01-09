@@ -13,7 +13,7 @@ local function write(str, file_name)
 end
 
 for _, style in pairs(types.gt.ThemeStyle) do
-  local config = { theme_style = style, transform_colors = true }
+  local config = { theme_style = style }
   for terminal, ext in pairs(types.gt.TerminalConf) do
     local theme = require('github-theme.terminal.' .. terminal)
     local file_name = 'terminal/' .. terminal .. '/github_' .. style .. '.' .. ext

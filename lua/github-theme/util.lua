@@ -19,7 +19,7 @@ util.fg = '#ffffff'
 ---@return table<number, number>
 local hex_to_rgb = function(hex_str)
   local hex = '[abcdef0-9][abcdef0-9]'
-  local pat = '^#(' .. hex .. ')(' .. hex .. ')(' .. hex .. ')$'
+  local pat = string.format('^#(%s)(%s)(%s)$', hex, hex, hex)
   hex_str = string.lower(hex_str)
 
   assert(string.find(hex_str, pat) ~= nil, 'hex_to_rgb: invalid hex_str: ' .. tostring(hex_str))
@@ -68,34 +68,34 @@ util.debug = function(colors)
       util.debug(color)
     else
       if util.used_color[color] == nil then
-        print('not used color: ' .. name .. ' : ' .. color)
+        print(string.format('not used color: %s=%s', name, color))
       end
     end
   end
 end
 
----@param group string
----@param color gt.Highlight|gt.LinkHighlight
-util.highlight = function(group, color)
-  if color.fg then
-    util.used_color[color.fg] = true
+---@param hi_name string
+---@param hi gt.Highlight|gt.LinkHighlight
+util.highlight = function(hi_name, hi)
+  if hi.fg then
+    util.used_color[hi.fg] = true
   end
-  if color.bg then
-    util.used_color[color.bg] = true
+  if hi.bg then
+    util.used_color[hi.bg] = true
   end
-  if color.sp then
-    util.used_color[color.sp] = true
+  if hi.sp then
+    util.used_color[hi.sp] = true
   end
 
-  local style = color.style and 'gui=' .. color.style or 'gui=NONE'
-  local fg = color.fg and 'guifg=' .. color.fg or 'guifg=NONE'
-  local bg = color.bg and 'guibg=' .. color.bg or 'guibg=NONE'
-  local sp = color.sp and 'guisp=' .. color.sp or ''
+  local style = hi.style and 'gui=' .. hi.style or 'gui=NONE'
+  local fg = hi.fg and 'guifg=' .. hi.fg or 'guifg=NONE'
+  local bg = hi.bg and 'guibg=' .. hi.bg or 'guibg=NONE'
+  local sp = hi.sp and 'guisp=' .. hi.sp or ''
 
-  local hl = 'highlight ' .. group .. ' ' .. style .. ' ' .. fg .. ' ' .. bg .. ' ' .. sp
+  local hi_cmd = string.format('highlight %s %s %s %s %s', hi_name, style, fg, bg, sp)
 
-  if color.link then
-    vim.cmd('highlight! link ' .. group .. ' ' .. color.link)
+  if hi.link then
+    vim.cmd(string.format('highlight! link %s %s', hi_name, hi.link))
   else
     -- local data = {}
     -- if color.fg then data.foreground = color.fg end
@@ -103,7 +103,7 @@ util.highlight = function(group, color)
     -- if color.sp then data.special = color.sp end
     -- if color.style then data[color.style] = true end
     -- vim.api.nvim_set_hl(ns, group, data)
-    vim.cmd(hl)
+    vim.cmd(hi_cmd)
   end
 end
 
@@ -117,25 +117,26 @@ end
 
 ---@param config gt.ConfigSchema
 util.autocmds = function(config)
-  vim.cmd('augroup ' .. util.colors_name)
-  vim.cmd([[  autocmd!]])
-  vim.cmd([[  autocmd ColorScheme * lua require("github-theme.util").on_colorscheme()]])
+  vim.cmd(string.format('augroup %s ', util.colors_name))
+  vim.cmd('autocmd!')
+  vim.cmd('autocmd ColorScheme * lua require("github-theme.util").on_colorscheme()')
   if config.dev then
-    vim.cmd('  autocmd BufWritePost */lua/github-theme/** nested colorscheme ' .. util.colors_name)
+    vim.cmd(string.format('autocmd BufWritePost */lua/github-theme/** nested colorscheme %s', util.colors_name))
   end
   for _, sidebar in ipairs(config.sidebars) do
     if sidebar == 'terminal' then
-      vim.cmd([[  autocmd TermOpen * setlocal winhighlight=Normal:NormalSB,SignColumn:SignColumnSB]])
+      vim.cmd('autocmd TermOpen * setlocal winhighlight=Normal:NormalSB,SignColumn:SignColumnSB')
     else
-      vim.cmd([[  autocmd FileType ]] .. sidebar .. [[ setlocal winhighlight=Normal:NormalSB,SignColumn:SignColumnSB]])
+      vim.cmd(string.format('autocmd FileType %s setlocal winhighlight=Normal:NormalSB,SignColumn:SignColumnSB', sidebar))
     end
   end
-  vim.cmd([[augroup end]])
+  vim.cmd('augroup end')
 end
 
-util.syntax = function(syntax)
-  for group, colors in pairs(syntax) do
-    util.highlight(group, colors)
+---@param base gt.Highlights.Base
+util.syntax = function(base)
+  for hi_name, hi in pairs(base) do
+    util.highlight(hi_name, hi)
   end
 end
 
@@ -164,14 +165,24 @@ end
 
 ---@param hi gt.Highlights
 util.load = function(hi)
+  local theme_style = hi.config.theme_style
+  util.colors_name = 'github_' .. theme_style
+
+  --Setting
   vim.cmd('hi clear')
   if vim.fn.exists('syntax_on') then
     vim.cmd('syntax reset')
   end
-  util.colors_name = 'github_' .. hi.config.theme_style
+
   vim.o.termguicolors = true
+  if theme_style == 'light' or theme_style == 'light_default' then
+    vim.o.background = 'light'
+  else
+    vim.o.background = 'dark'
+  end
   vim.g.colors_name = util.colors_name
-  -- vim.api.nvim__set_hl_ns(ns)
+
+  --Load ColorScheme
   util.syntax(hi.base)
   util.autocmds(hi.config)
   util.terminal(hi.colors)
@@ -195,8 +206,10 @@ end
 function util.color_overrides(colors, oride_colors)
   if type(oride_colors) == 'table' then
     for key, value in pairs(oride_colors) do
+      local err_msg = string.format('color "%s" does not exist', key)
+
       if not colors[key] then
-        error('Color ' .. key .. ' does not exist')
+        error(err_msg)
       end
       -- Patch: https://github.com/ful1e5/onedark.nvim/issues/6
       if type(colors[key]) == 'table' then
@@ -211,7 +224,7 @@ function util.color_overrides(colors, oride_colors)
         else
           -- another group
           if not colors[value] then
-            error('Color ' .. value .. ' does not exist')
+            error(err_msg)
           end
           colors[key] = colors[value]
         end
@@ -221,10 +234,10 @@ function util.color_overrides(colors, oride_colors)
   return colors
 end
 
--- Simple string interpolation.
---
--- Example template: "${name} is ${value}"
---
+---Simple string interpolation.
+---
+---Example template: "${name} is ${value}"
+---
 ---@param str string template string
 ---@param table table key value pairs to replace in the string
 util.template = function(str, table)

@@ -16,6 +16,7 @@ theme.setup = function(cfg)
 
   local Styles = types.gt.HighlightStyle
 
+  ---@class gt.Highlights.Base
   hi.base = {
     ColorColumn = { bg = c.bg_visual }, -- used for the columns set with 'colorcolumn'
     Conceal = { fg = c.fg_gutter }, -- placeholder characters substituted for concealed text (see 'conceallevel')
@@ -72,7 +73,7 @@ theme.setup = function(cfg)
     TabLineSel = { link = 'PmenuSel' }, -- tab pages line, active tab page label
     Title = { fg = c.syntax.variable, style = Styles.Bold }, -- titles for output from ":set all", ":autocmd" etc.
     Visual = { bg = c.bg_visual_selection }, -- Visual mode selection
-    VisualNOS = { bg = c.bg_visual_selection }, -- Visual mode selection when vim is "Not Owning the Selection".
+    VisualNOS = { link = 'Visual' }, -- Visual mode selection when vim is "Not Owning the Selection".
     WarningMsg = { fg = c.warning }, -- warning messages
     Whitespace = { fg = util.darken(c.syntax.comment, 0.4) }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
     WildMenu = { bg = c.bg_visual }, -- current match in 'wildmenu' completion
@@ -188,6 +189,7 @@ theme.setup = function(cfg)
     -- LspDiagnosticsSignHint              = { }, -- Used for "Hint" signs in sign column
   }
 
+  ---@class gt.Highlights.Plugins
   hi.plugins = {
     -- These groups are for the neovim tree-sitter highlights.
     -- As of writing, tree-sitter support is a WIP, group names may change.
