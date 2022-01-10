@@ -26,6 +26,9 @@ kitty_dark: kitty_pre
 kitty_dark_default: kitty_pre
 	@cat $(exts)/kitty/github_dark_default.conf > $(kitty_theme)
 
+kitty_dark_colorblind: kitty_pre
+	@cat $(exts)/kitty/github_dark_colorblind.conf > $(kitty_theme)
+
 kitty_dimmed: kitty_pre
 	@cat $(exts)/kitty/github_dimmed.conf > $(kitty_theme)
 
@@ -48,11 +51,14 @@ tmux_dark: tmux_pre
 tmux_dimmed: tmux_pre
 	@cat $(exts)/tmux/github_dimmed.tmux > $(tmux_theme)
 
-tmux_light: tmux_pre
-	@cat $(exts)/tmux/github_light.tmux > $(tmux_theme)
-
 tmux_dark_default: tmux_pre
 	@cat $(exts)/tmux/github_dark_default.tmux > $(tmux_theme)
+
+tmux_dark_colorblind: tmux_pre
+	@cat $(exts)/tmux/github_dark_colorblind.tmux > $(tmux_theme)
+
+tmux_light: tmux_pre
+	@cat $(exts)/tmux/github_light.tmux > $(tmux_theme)
 
 tmux_light_default: tmux_pre
 	@cat $(exts)/tmux/github_light_default.tmux > $(tmux_theme)

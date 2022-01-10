@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Github Dark ColorBlind theme added 🎉 #96
 - Dark background color for inactive statusline and lualine
 - Minimal look (`hide_inactive_statusline`) removed from lualine
 - `terminal` highlight added for lualine
