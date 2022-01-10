@@ -385,7 +385,7 @@ theme.setup = function(cfg)
     GitSignsAdd = { fg = c.git_signs.add }, -- diff mode: Added line |diff.txt|
     GitSignsChange = { fg = c.git_signs.change }, -- diff mode: Changed line |diff.txt|
     GitSignsDelete = { fg = c.git_signs.delete }, -- diff mode: Deleted line |diff.txt|
-    GitSignsCurrentLineBlame = { fg = util.darken(c.syntax.comment, 0.4) }, -- diff mode: Deleted line |diff.txt|
+    GitSignsCurrentLineBlame = { fg = util.darken(c.syntax.comment, 0.6) }, -- diff mode: Deleted line |diff.txt|
 
     -- Telescope
     TelescopeBorder = { fg = c.border },

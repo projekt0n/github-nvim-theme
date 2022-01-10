@@ -1,7 +1,7 @@
 ---@diagnostic disable: duplicate-doc-class
 local gt = {}
 
----@alias gt.ThemeStyle "'dark'" | "'dark_default'" | "'dark_colorblind'" | "'dimmed'" | "'light'" | "'light_default'"
+---@alias gt.ThemeStyle "'dark'" | "'dark_default'" | "'dark_colorblind'" | "'dimmed'" | "'light'" | "'light_default'" | " 'light_colorblind'"
 gt.ThemeStyle = {}
 gt.ThemeStyle.Dark = 'dark'
 gt.ThemeStyle.DarkDefault = 'dark_default'
@@ -9,6 +9,7 @@ gt.ThemeStyle.DarkColorblind = 'dark_colorblind'
 gt.ThemeStyle.Dimmed = 'dimmed'
 gt.ThemeStyle.Light = 'light'
 gt.ThemeStyle.LightDefault = 'light_default'
+gt.ThemeStyle.LightColorblind = 'light_colorblind'
 
 ---@alias gt.HighlightStyle "'NONE'" | "'bold'" | "'underline'" | "'undercurl'" | "'undercurl'" | "'inverse'" | "'italic'" | "'stanout'" | "'nocombine'" | "'strikethrough'"
 gt.HighlightStyle = {}

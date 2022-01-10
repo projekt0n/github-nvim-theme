@@ -38,6 +38,9 @@ kitty_light: kitty_pre
 kitty_light_default: kitty_pre
 	@cat $(exts)/kitty/github_light_default.conf > $(kitty_theme)
 
+kitty_light_colorblind: kitty_pre
+	@cat $(exts)/kitty/github_light_colorblind.conf > $(kitty_theme)
+
 # reload tmux theme
 tmux_theme = ~/.github-theme.tmux
 
@@ -62,3 +65,6 @@ tmux_light: tmux_pre
 
 tmux_light_default: tmux_pre
 	@cat $(exts)/tmux/github_light_default.tmux > $(tmux_theme)
+
+tmux_light_colorblind: tmux_pre
+	@cat $(exts)/tmux/github_light_colorblind.tmux > $(tmux_theme)
