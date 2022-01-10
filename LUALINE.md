@@ -60,6 +60,14 @@ require('lualine').setup {
 ![command](https://imgur.com/HGIYVSN.png)
 ![terminal](https://imgur.com/pEWjIJ8.png)
 
+#### dimmed
+
+![normal](https://imgur.com/R800MhA.png)
+![insert](https://imgur.com/42M0X0O.png)
+![visual](https://imgur.com/euIfZtW.png)
+![command](https://imgur.com/E4tzBCD.png)
+![terminal](https://imgur.com/RASnrFw.png)
+
 #### dark_default
 
 ![normal](https://imgur.com/yHa1cK1.png)
@@ -68,13 +76,13 @@ require('lualine').setup {
 ![command](https://imgur.com/aLifoAv.png)
 ![terminal](https://imgur.com/Q7mG5m8.png)
 
-#### dimmed
+#### dark_colorblind
 
-![normal](https://imgur.com/R800MhA.png)
-![insert](https://imgur.com/42M0X0O.png)
-![visual](https://imgur.com/euIfZtW.png)
-![command](https://imgur.com/E4tzBCD.png)
-![terminal](https://imgur.com/RASnrFw.png)
+![normal](https://imgur.com/yHa1cK1.png)
+![insert](https://imgur.com/mMX2364.png)
+![visual](https://imgur.com/SNwhnph.png)
+![command](https://imgur.com/aLifoAv.png)
+![terminal](https://imgur.com/Q7mG5m8.png)
 
 #### light
 
@@ -85,6 +93,14 @@ require('lualine').setup {
 ![terminal](https://imgur.com/8SgNyIU.png)
 
 #### light_default
+
+![normal](https://imgur.com/lwTCVXc.png)
+![insert](https://imgur.com/zh9uPGS.png)
+![visual](https://imgur.com/e3xYvfu.png)
+![command](https://imgur.com/TrjrA3i.png)
+![terminal](https://imgur.com/7ukHRhL.png)
+
+#### light_colorblind
 
 ![normal](https://imgur.com/lwTCVXc.png)
 ![insert](https://imgur.com/zh9uPGS.png)

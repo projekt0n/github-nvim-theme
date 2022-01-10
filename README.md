@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://imgur.com/OLRFrjD.png" alt="github-nvim-theme" />
+  <img src="https://imgur.com/S6SlCiV.png" alt="github-nvim-theme" />
 </p>
 
 ### Status
@@ -65,7 +65,7 @@ require('github-theme').setup()
 | msg_area_style           | `NONE`     | Highlight style for messages and cmdline (check `:help highlight-args` for options)                                                             |
 | overrides                | `function` | Override specific highlight groups. The function accept colors as argument.                                                                     |
 | sidebars                 | `{}`       | Set a darker background on sidebar-like windows. For example: `{"qf", "vista_kind", "terminal", "packer"}`                                      |
-| theme_style              | `dark`     | Set theme variant (options: `dark`/`dark_default`/`dimmed`/`light`/`light_default`)                                                             |
+| theme_style              | `dark`     | Set theme variant (options: `dark`/`dimmed`/`dark_default`/`dark_colorblind`/`light`/`light_default`/`light_colorblind`)                        |
 | transparent              | `false`    | Enable this to disable setting the background color                                                                                             |
 | variable_style           | `NONE`     | Highlight style for variables and identifiers (check `:help highlight-args` for options)                                                        |
 
@@ -166,9 +166,9 @@ set -as terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{25
 
 ## 📺 Screenshots
 
-- Font: [Ubuntu Mono](https://design.ubuntu.com/font/)
+- Font: [JetBrains Mono](https://www.jetbrains.com/lp/mono/)
 - Terminal: [kitty](https://sw.kovidgoyal.net/kitty)
-- Icon: [circles.nvim](https://github.com/projekt0n/circles.nvim)
+- Icon: [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
 - StatusLine: **Default**. [dotfiles/nvim/.config/nvim/lua/options.lua#L19-L30](https://github.com/ful1e5/dotfiles/blob/a2777f85b104622dd82f4adfc6ad032e3ff074bf/nvim/.config/nvim/lua/options.lua#L19-L30)
 - dotfiles: [ful1e5/dotfiles/nvim](https://github.com/ful1e5/dotfiles/tree/main/nvim/.config/nvim)
 
@@ -190,26 +190,7 @@ require("github-theme").setup({
 ```
 
 <p align="center">
-  <img src="https://imgur.com/wsST2ZB.png" alt="github_dark" />
-</p>
-
-#### Dark Default
-
-```vim
-" VimScript
-colorscheme github_dark_default
-```
-
-```lua
--- Lua
-require("github-theme").setup({
-  theme_style = "dark_default",
-  -- other config
-})
-```
-
-<p align="center">
-  <img src="https://imgur.com/pNJDMft.png" alt="github_dark_default" />
+  <img src="https://imgur.com/XWxKWc8.png" alt="github_dark" />
 </p>
 
 #### Dimmed
@@ -228,7 +209,45 @@ require("github-theme").setup({
 ```
 
 <p align="center">
-  <img src="https://imgur.com/LLp5qnT.png" alt="github_dimmed" />
+  <img src="https://imgur.com/lMk4ifs.png" alt="github_dimmed" />
+</p>
+
+#### Dark Default
+
+```vim
+" VimScript
+colorscheme github_dark_default
+```
+
+```lua
+-- Lua
+require("github-theme").setup({
+  theme_style = "dark_default",
+  -- other config
+})
+```
+
+<p align="center">
+  <img src="https://imgur.com/ZfZcBGN.png" alt="github_dark_default" />
+</p>
+
+#### Dark Colorblind (Beta)
+
+```vim
+" VimScript
+colorscheme github_dark_colorblind
+```
+
+```lua
+-- Lua
+require("github-theme").setup({
+  theme_style = "dark_colorblind",
+  -- other config
+})
+```
+
+<p align="center">
+  <img src="https://imgur.com/OIXgRL4.png" alt="github_dark_colorblind" />
 </p>
 
 #### Light
@@ -247,7 +266,7 @@ require("github-theme").setup({
 ```
 
 <p align="center">
-  <img src="https://imgur.com/yXEj746.png" alt="github_light" />
+  <img src="https://imgur.com/OPwBDI4.png" alt="github_light" />
 </p>
 
 #### Light Default
@@ -266,7 +285,26 @@ require("github-theme").setup({
 ```
 
 <p align="center">
-  <img src="https://imgur.com/fykVFCr.png" alt="github_light_default" />
+  <img src="https://imgur.com/r9uPo5B.png" alt="github_light_default" />
+</p>
+
+#### Light Colorblind (Beta)
+
+```vim
+" VimScript
+colorscheme github_light_colorblind
+```
+
+```lua
+-- Lua
+require("github-theme").setup({
+  theme_style = "light_colorblind",
+  -- other config
+})
+```
+
+<p align="center">
+  <img src="https://imgur.com/fL4ZOUg.png" alt="github_light_colorblind" />
 </p>
 
 ### Syntax Styles
@@ -274,7 +312,7 @@ require("github-theme").setup({
 #### Default
 
 <p align="center">
-  <img src="https://imgur.com/GbemreO.png" alt="github_default_syntax" />
+  <img src="https://imgur.com/V0DsNa0.png" alt="github_default_syntax" />
 </p>
 
 #### Normal
@@ -299,7 +337,7 @@ require("github-theme").setup({
 ```
 
 <p align="center">
-  <img src="https://imgur.com/qrJwUDb.png" alt="github_normal_syntax" />
+  <img src="https://imgur.com/aRDXkWp.png" alt="github_normal_syntax" />
 </p>
 
 #### Italic
@@ -324,7 +362,7 @@ require("github-theme").setup({
 ```
 
 <p align="center">
-  <img src="https://imgur.com/TK6HEA4.png" alt="github_italic_syntax" />
+  <img src="https://imgur.com/5wr3dyQ.png" alt="github_italic_syntax" />
 </p>
 
 ### Minimal config
@@ -343,13 +381,13 @@ require("github-theme").setup({
 ```
 
 <p align="center">
-  <img src="https://imgur.com/TyaLR4n.png" alt="github_minimal" />
+  <img src="https://imgur.com/rAsEukW.png" alt="github_minimal" />
 </p>
 
 ### Telescope
 
 <p align="center">
-  <img src="https://imgur.com/vVFjJad.png" alt="github_telescope" />
+  <img src="https://imgur.com/XX7tixL.png" alt="github_telescope" />
 </p>
 
 ## Contributing
