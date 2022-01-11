@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+## [v0.0.4] - 11 Jan 2022
+
 ### Added
 
 - Github Dark ColorBlind(Beta) added 🎉 #96
@@ -34,6 +36,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - refactor: color name changed 'term_fg' -> 'fg_term'
 - feat: suggest config in `vim.g` autocompletion
 - feat: reuse common color in palettes
+- docs: team account added in funding
 
 ### Fixes
 
@@ -157,7 +160,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release 🎊
 
-[unreleased]: https://github.com/projekt0n/github-nvim-theme/compare/v0.0.3...main
+[unreleased]: https://github.com/projekt0n/github-nvim-theme/compare/v0.0.4...main
+[v0.0.4]: https://github.com/projekt0n/github-nvim-theme/compare/v0.0.4...v0.0.3
 [v0.0.3]: https://github.com/projekt0n/github-nvim-theme/compare/v0.0.3...v0.0.2
 [v0.0.2]: https://github.com/projekt0n/github-nvim-theme/compare/v0.0.2...v0.0.1
 [v0.0.1]: https://github.com/projekt0n/github-nvim-theme/tree/v0.0.1
