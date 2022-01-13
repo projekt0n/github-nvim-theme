@@ -185,7 +185,6 @@ gt.TerminalConf.tmux = 'tmux'
 ---@field public overrides function(c: gt.ColorPalette): gt.Highlights
 ---@field public sidebars table<number, string>
 ---@field public theme_style gt.ThemeStyle
----@field public transform_colors boolean
 ---@field public transparent boolean
 ---@field public variable_style gt.HighlightStyle
 
