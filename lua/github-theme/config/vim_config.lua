@@ -1,7 +1,9 @@
 ---@class gt.VimConfig
 local vim_config = {}
 
----Get value from vim's global (vim.g) table with 'github_' prefix.
+---Get value if exists, neither return the default value.
+---@param value any
+---@param default_value any
 ---@return any
 vim_config.get = function(value, default_value)
   if value == nil then

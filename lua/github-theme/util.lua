@@ -144,10 +144,10 @@ end
 util.terminal = function(colors)
   -- dark
   vim.g.terminal_color_0 = colors.black
-  vim.g.terminal_color_8 = colors.fg_dark
+  vim.g.terminal_color_8 = colors.bright_black
   -- light
-  vim.g.terminal_color_7 = colors.fg_dark
-  vim.g.terminal_color_15 = colors.fg_term
+  vim.g.terminal_color_7 = colors.white
+  vim.g.terminal_color_15 = colors.bright_white
   -- colors
   vim.g.terminal_color_1 = colors.red
   vim.g.terminal_color_9 = colors.bright_red

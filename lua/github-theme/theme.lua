@@ -576,17 +576,14 @@ theme.setup = function(cfg)
   }
 
   if cfg.hide_inactive_statusline then
-    local inactive
-
     -- StatusLine
-    inactive = { style = Styles.Underline, bg = c.bg, fg = c.bg, sp = c.bg_visual }
+    local inactive = { style = 'underline', bg = c.bg, fg = c.bg, sp = c.bg_visual }
     hi.base.StatusLineNC = inactive
 
-    -- LuaLine
     if vim.o.statusline ~= nil and string.find(vim.o.statusline, 'lualine') then
       -- Fix VertSplit & StatusLine crossover when lualine is active
       -- https://github.com/hoob3rt/lualine.nvim/issues/274
-      inactive = { bg = c.bg2 }
+      hi.base.StatusLine = { bg = c.bg }
       hi.base.StatusLine = inactive
       hi.base.StatusLineNC = inactive
     end

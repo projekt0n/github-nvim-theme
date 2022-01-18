@@ -6,11 +6,11 @@ return function()
     bg2 = '#f6f8fa',
 
     -- foreground colors
-    fg = '#24292e',
+    fg = '#24292f',
     fg_dark = '#666666',
     fg_gutter = '#babbbd',
     fg_light = '#586069',
-    fg_term = '#586069',
+    fg_term = '#24292f',
 
     -- Background Highlights Colors
     bg_highlight = '#d5e5f6',
@@ -70,22 +70,22 @@ return function()
 
     -- Terminal Colors
     orange = '#d18616',
-    black = '#697179',
-    bright_black = '#666666',
-    white = '#e1e4e8',
-    bright_white = '#a5a5a5',
-    red = '#d03d3d',
-    bright_red = '#cd3131',
-    green = '#14ce14',
-    bright_green = '#14ce14',
-    yellow = '#949800',
-    bright_yellow = '#b5ba00',
-    blue = '#0451a5',
-    bright_blue = '#0451a5',
-    magenta = '#bc05bc',
-    bright_magenta = '#bc05bc',
+    black = '#24292e',
+    bright_black = '#959da5',
+    white = '#6a737d',
+    bright_white = '#d1d5da',
+    red = '#d73a49',
+    bright_red = '#cb2431',
+    green = '#28a745',
+    bright_green = '#22863a',
+    yellow = '#dbab09',
+    bright_yellow = '#b08800',
+    blue = '#0366d6',
+    bright_blue = '#005cc5',
+    magenta = '#5a32a3',
+    bright_magenta = '#5a32a3',
     cyan = '#0598bc',
-    bright_cyan = '#0598bc',
+    bright_cyan = '#3192aa',
 
     -- Plugin Colors
     git_signs = { add = '#28a745', change = '#2188ff', delete = '#d73a49' },

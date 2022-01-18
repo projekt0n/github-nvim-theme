@@ -73,21 +73,21 @@ return function()
 
     -- Terminal Colors
     -- orange = '#d18616',
-    black = '#22272e',
+    black = '#545d68',
     bright_black = '#636e7b',
     white = '#909dab',
     bright_white = '#cdd9e5',
-    red = '#ff938a',
+    red = '#f47067',
     bright_red = '#ff938a',
-    green = '#6bc46d',
+    green = '#57ab5a',
     bright_green = '#6bc46d',
     yellow = '#c69026',
     bright_yellow = '#daaa3f',
-    blue = '#6cb6ff',
+    blue = '#539bf5',
     bright_blue = '#6cb6ff',
     magenta = '#b083f0',
     bright_magenta = '#dcbdfb',
-    cyan = '#56d4dd',
+    cyan = '#39c5cf',
     bright_cyan = '#56d4dd',
 
     -- Plugin Colors

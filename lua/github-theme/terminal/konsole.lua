@@ -45,7 +45,7 @@ Color=${black}
 Color=${black}
 
 [Color0Intense]
-Color=${fg_dark}
+Color=${bright_black}
 
 [Color1]
 Color=${red}
@@ -102,13 +102,13 @@ Color=${cyan}
 Color=${bright_cyan}
 
 [Color7]
-Color=${fg_dark}
+Color=${white}
 
 [Color7Faint]
-Color=${fg_dark}
+Color=${white}
 
 [Color7Intense]
-Color=${fg_term}
+Color=${bright_white}
 
 [Foreground]
 Color=${fg_term}

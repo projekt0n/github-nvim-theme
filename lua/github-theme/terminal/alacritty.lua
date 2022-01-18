@@ -31,7 +31,7 @@ colors:
     blue:    '${blue}'
     magenta: '${magenta}'
     cyan:    '${cyan}'
-    white:   '${fg_term}'
+    white:   '${white}'
 
   # Bright colors
   bright:
@@ -41,8 +41,8 @@ colors:
     yellow:  '${bright_yellow}'
     blue:    '${bright_blue}'
     magenta: '${bright_magenta}'
-    cyan:    '${cyan}'
-    white:   '${fg_term}'
+    cyan:    '${bright_cyan}'
+    white:   '${bright_white}'
 
   indexed_colors:
     - { index: 16, color: '${orange}' }

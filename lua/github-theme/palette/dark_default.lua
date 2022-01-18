@@ -75,7 +75,7 @@ return function()
     -- orange = '#d18616',
     black = '#484f58',
     bright_black = '#6e7681',
-    -- white = '#b1bac4',
+    white = '#b1bac4',
     bright_white = '#f0f6fc',
     red = '#ff7b72',
     bright_red = '#ffa198',

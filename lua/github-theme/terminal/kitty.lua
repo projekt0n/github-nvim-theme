@@ -20,7 +20,7 @@ cursor ${cursor}
 # Tabs
 active_tab_background ${blue}
 active_tab_foreground ${bg2}
-inactive_tab_background ${fg_term}
+inactive_tab_background ${fg_dark}
 inactive_tab_foreground ${bg2}
 
 # Windows Border
@@ -35,17 +35,17 @@ color3 ${yellow}
 color4 ${blue}
 color5 ${magenta}
 color6 ${cyan}
-color7 ${fg_dark}
+color7 ${white}
 
 # bright
-color8 ${fg_dark}
+color8 ${bright_black}
 color9 ${bright_red}
 color10 ${bright_green}
 color11 ${bright_yellow}
 color12 ${bright_blue}
 color13 ${bright_magenta}
 color14 ${bright_cyan}
-color15 ${fg_term}
+color15 ${bright_white}
 
 # extended colors
 color16 ${bright_yellow}
