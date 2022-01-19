@@ -13,8 +13,8 @@ lint: $(src)
 
 # reload kitty theme
 # https://github.com/ful1e5/dotfiles
-kitty_theme = ~/.config/kitty/themes/github.conf
-exts = ./terminal/
+kitty_theme = ~/.dotfiles/kitty/.config/kitty/themes/github.conf
+exts = ./terminal
 
 kitty_pre:
 	@rm -rf $(kitty_theme)
@@ -42,7 +42,7 @@ kitty_light_colorblind: kitty_pre
 	@cat $(exts)/kitty/github_light_colorblind.conf > $(kitty_theme)
 
 # reload tmux theme
-tmux_theme = ~/.github-theme.tmux
+kitty_theme = ~/.dotfiles/tmux/.config/tmux/.github-theme.tmux
 
 tmux_pre:
 	@rm -rf $(tmux_theme)
