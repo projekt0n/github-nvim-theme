@@ -14,6 +14,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixes
 
+- tmp-fix: deleted lua queries #159
+
 ## [v0.0.4] - 11 Jan 2022
 
 ### Added
