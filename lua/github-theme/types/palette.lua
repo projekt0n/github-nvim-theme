@@ -42,16 +42,6 @@
 ---@field public change gt.HexColor
 ---@field public delete gt.HexColor
 
----@class gt.DevIconsPalette
----@field public blue gt.HexColor
----@field public green gt.HexColor
----@field public yellow gt.HexColor
----@field public orange gt.HexColor
----@field public red gt.HexColor
----@field public purple gt.HexColor
----@field public pink gt.HexColor
----@field public gray gt.HexColor
-
 ---@class gt.ColorPalette
 ---NONE Color
 ---@field public none gt.HexColor
@@ -119,7 +109,5 @@
 ---@field public bg_folded gt.HexColor
 ---@field public bg_sidebar gt.HexColor
 ---@field public bg_float gt.HexColor
----DevIcons Plugin Colors
----@field public dev_icons gt.DevIconsPalette
 ---GitSign Plugin Colors
 ---@field public git_signs gt.GitSignPalette
