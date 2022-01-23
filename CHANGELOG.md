@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - tmp-fix: deleted lua queries #159
 - nvim-dev-icons colors fixed projekt0n/circles.nvim#6
+- make: tmux prefix fixed
 
 ## [v0.0.4] - 11 Jan 2022
 

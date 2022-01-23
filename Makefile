@@ -42,7 +42,7 @@ kitty_light_colorblind: kitty_pre
 	@cat $(exts)/kitty/github_light_colorblind.conf > $(kitty_theme)
 
 # reload tmux theme
-kitty_theme = ~/.dotfiles/tmux/.config/tmux/.github-theme.tmux
+tmux_theme = ~/.dotfiles/tmux/.github-theme.tmux
 
 tmux_pre:
 	@rm -rf $(tmux_theme)
