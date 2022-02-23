@@ -12,10 +12,10 @@ return function(cfg)
 
 # Github colors for Tmux
 
-set -g mode-style "fg=${fg},bg=${fg_gutter}"
+set -g mode-style "fg=${fg},bg=${bg2}"
 
-set -g message-style "fg=${fg},bg=${fg_gutter}"
-set -g message-command-style "fg=${fg},bg=${fg_gutter}"
+set -g message-style "fg=${fg},bg=${bg2}"
+set -g message-command-style "fg=${fg},bg=${bg2}"
 
 set -g pane-border-style "fg=${bg_visual}"
 set -g pane-active-border-style "fg=${blue}"

@@ -49,22 +49,22 @@ tmux_pre:
 	@touch $(tmux_theme)
 
 tmux_dark: tmux_pre
-	@cat $(exts)/tmux/github_dark.tmux > $(tmux_theme)
+	@cat $(exts)/tmux/github_dark.conf > $(tmux_theme)
 
 tmux_dimmed: tmux_pre
-	@cat $(exts)/tmux/github_dimmed.tmux > $(tmux_theme)
+	@cat $(exts).conf/github_dimmed.conf > $.conf_theme)
 
 tmux_dark_default: tmux_pre
-	@cat $(exts)/tmux/github_dark_default.tmux > $(tmux_theme)
+	@cat $(exts).conf/github_dark_default.conf > $.conf_theme)
 
 tmux_dark_colorblind: tmux_pre
-	@cat $(exts)/tmux/github_dark_colorblind.tmux > $(tmux_theme)
+	@cat $(exts).conf/github_dark_colorblind.conf > $.conf_theme)
 
 tmux_light: tmux_pre
-	@cat $(exts)/tmux/github_light.tmux > $(tmux_theme)
+	@cat $(exts).conf/github_light.conf > $.conf_theme)
 
 tmux_light_default: tmux_pre
-	@cat $(exts)/tmux/github_light_default.tmux > $(tmux_theme)
+	@cat $(exts).conf/github_light_default.conf > $.conf_theme)
 
 tmux_light_colorblind: tmux_pre
-	@cat $(exts)/tmux/github_light_colorblind.tmux > $(tmux_theme)
+	@cat $(exts).conf/github_light_colorblind.conf > $.conf_theme)
