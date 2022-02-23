@@ -37,12 +37,12 @@ theme.setup = function(cfg)
     VertSplit = { fg = c.bg_visual, bg = c.bg }, -- the column separating vertically split windows
     Folded = { fg = c.fg_folded, bg = c.bg_folded }, -- line used for closed folds
     FoldColumn = { link = 'Folded' }, -- 'foldcolumn'
-    SignColumn = { bg = cfg.transparent and c.none or c.bg, fg = c.fg_gutter }, -- column where |signs| are displayed
-    SignColumnSB = { bg = c.bg_sidebar, fg = c.fg_gutter }, -- column where |signs| are displayed
-    Substitute = { bg = c.red, fg = c.black }, -- |:substitute| replacement text highlighting
+    SignColumn = { fg = c.fg_gutter, bg = cfg.transparent and c.none or c.bg }, -- column where |signs| are displayed
+    SignColumnSB = { fg = c.fg_gutter, bg = c.bg_sidebar }, -- column where |signs| are displayed
+    Substitute = { fg = c.black, bg = c.red }, -- |:substitute| replacement text highlighting
     LineNr = { fg = cfg.transparent and c.cursor_line_nr or c.line_nr }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     CursorLineNr = { fg = c.cursor_line_nr }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
-    MatchParen = { bg = c.syntax.match_paren_bg, fg = c.fg }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+    MatchParen = { fg = c.fg, bg = c.syntax.match_paren_bg }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     ModeMsg = { fg = c.fg, style = Styles.Bold }, -- 'showmode' message (e.g., "-- INSERT -- ")
     MsgArea = { fg = c.fg, style = cfg.msg_area_style }, -- Area for messages and cmdline
     -- MsgSeparator= { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
@@ -53,22 +53,22 @@ theme.setup = function(cfg)
     NormalSB = { fg = c.fg, bg = c.bg_sidebar }, -- normal text in non-current windows
     NormalFloat = { fg = c.fg, bg = c.bg_float }, -- Normal text in floating windows.
     FloatBorder = { fg = c.border },
-    Pmenu = { bg = c.pmenu.bg, fg = c.fg }, -- Popup menu: normal item.
-    PmenuSel = { bg = util.darken(c.bright_blue, 0.75), fg = c.pmenu.bg }, -- Popup menu: selected item.
+    Pmenu = { fg = c.fg, bg = c.pmenu.bg }, -- Popup menu: normal item.
+    PmenuSel = { fg = c.pmenu.bg, bg = util.darken(c.bright_blue, 0.75) }, -- Popup menu: selected item.
     PmenuSbar = { bg = c.pmenu.bg }, -- Popup menu: scrollbar.
     PmenuThumb = { bg = c.pmenu.sbar }, -- Popup menu: Thumb of the scrollbar.
     Question = { fg = c.blue }, -- |hit-enter| prompt and yes/no questions
     QuickFixLine = { bg = util.darken(c.blue, 0.2), style = Styles.Bold }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
-    Search = { bg = c.bg_search, fg = c.fg_search }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
+    Search = { fg = c.fg_search, bg = c.bg_search }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
     IncSearch = { link = 'Search' }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     SpecialKey = { fg = c.fg_gutter }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
     SpellBad = { sp = c.error, style = Styles.Undercurl }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
     SpellCap = { sp = c.warning, style = Styles.Undercurl }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
     SpellLocal = { sp = c.info, style = Styles.Undercurl }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
     SpellRare = { sp = c.hint, style = Styles.Undercurl }, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
-    StatusLine = { fg = c.fg_statusline, bg = c.bg_statusline }, -- status line of current window
-    StatusLineNC = { fg = c.fg_nc_statusline, bg = c.bg_nc_statusline }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
-    TabLine = { bg = c.bg, fg = c.fg }, -- tab pages line, not active tab page label
+    StatusLine = { fg = c.bg, bg = c.blue }, -- status line of current window
+    StatusLineNC = { fg = util.darken(c.fg, 0.5), bg = c.bg }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
+    TabLine = { fg = c.fg, bg = c.bg }, -- tab pages line, not active tab page label
     TabLineFill = { bg = c.bg2 }, -- tab pages line, where there are no labels
     TabLineSel = { link = 'PmenuSel' }, -- tab pages line, active tab page label
     Title = { fg = c.syntax.variable, style = Styles.Bold }, -- titles for output from ":set all", ":autocmd" etc.
@@ -126,13 +126,10 @@ theme.setup = function(cfg)
     -- Ignore = { }, -- (preferred) left blank, hidden  |hl-Ignore|
 
     Error = { fg = c.error }, -- (preferred) any erroneous construct
-    Todo = { bg = c.yellow, fg = c.bg }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+    Todo = { fg = c.bg, bg = c.yellow }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
     qfLineNr = { fg = c.syntax.keyword },
     qfFileName = { fg = c.blue },
 
-    -- mkdCode = { bg = c.bg2, fg = c.fg },
-    -- mkdHeading = { fg = c.orange, style = Styles.Bold },
-    -- mkdLink = { fg = c.blue, style = Style.Underline },
     mkdCodeDelimiter = { fg = c.fg },
     mkdCodeStart = { fg = c.syntax.variable, style = Styles.Bold },
     mkdCodeEnd = { fg = c.syntax.variable, style = Styles.Bold },
@@ -144,7 +141,8 @@ theme.setup = function(cfg)
     markdownUrl = { fg = c.fg, style = Styles.Underline },
 
     debugPC = { bg = c.bg_sidebar }, -- used for highlighting the current line in terminal-debug
-    debugBreakpoint = { bg = util.darken(c.info, 0.1), fg = c.info }, -- used for breakpoint colors in terminal-debug
+    debugBreakpoint = { fg = c.info, bg = util.darken(c.info, 0.1) }, -- used for breakpoint colors in terminal-debug
+
     -- These groups are for the native LSP client. Some other LSP clients may
     -- use these groups, or use their own. Consult your LSP client's
     -- documentation.
@@ -155,10 +153,10 @@ theme.setup = function(cfg)
     LspDiagnosticsDefaultWarning = { fg = c.warning }, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
     LspDiagnosticsDefaultInformation = { fg = c.info }, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
     LspDiagnosticsDefaultHint = { fg = c.hint }, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
-    LspDiagnosticsVirtualTextError = { bg = util.darken(c.error, 0.1), fg = c.error }, -- Used for "Error" diagnostic virtual text
-    LspDiagnosticsVirtualTextWarning = { bg = util.darken(c.warning, 0.1), fg = c.warning }, -- Used for "Warning" diagnostic virtual text
-    LspDiagnosticsVirtualTextInformation = { bg = util.darken(c.info, 0.1), fg = c.info }, -- Used for "Information" diagnostic virtual text
-    LspDiagnosticsVirtualTextHint = { bg = util.darken(c.hint, 0.1), fg = c.hint }, -- Used for "Hint" diagnostic virtual text
+    LspDiagnosticsVirtualTextError = { fg = c.error, bg = util.darken(c.error, 0.1) }, -- Used for "Error" diagnostic virtual text
+    LspDiagnosticsVirtualTextWarning = { fg = c.warning, bg = util.darken(c.warning, 0.1) }, -- Used for "Warning" diagnostic virtual text
+    LspDiagnosticsVirtualTextInformation = { fg = c.info, bg = util.darken(c.info, 0.1) }, -- Used for "Information" diagnostic virtual text
+    LspDiagnosticsVirtualTextHint = { fg = c.hint, bg = util.darken(c.hint, 0.1) }, -- Used for "Hint" diagnostic virtual text
     LspDiagnosticsUnderlineError = { style = Styles.Undercurl, sp = c.error }, -- Used to underline "Error" diagnostics
     LspDiagnosticsUnderlineWarning = { style = Styles.Undercurl, sp = c.warning }, -- Used to underline "Warning" diagnostics
     LspDiagnosticsUnderlineInformation = { style = Styles.Undercurl, sp = c.info }, -- Used to underline "Information" diagnostics
@@ -370,9 +368,9 @@ theme.setup = function(cfg)
     -- Neogit
     NeogitBranch = { fg = c.syntax.keyword },
     NeogitRemote = { fg = c.syntax.keyword },
-    NeogitHunkHeader = { bg = c.bg_highlight, fg = c.fg },
-    NeogitHunkHeaderHighlight = { bg = c.bg_highlight, fg = c.blue, style = Styles.Italic },
-    NeogitDiffContextHighlight = { bg = c.bg, fg = c.fg },
+    NeogitHunkHeader = { fg = c.fg, bg = c.bg_highlight },
+    NeogitHunkHeaderHighlight = { fg = c.blue, bg = c.bg_highlight, style = Styles.Italic },
+    NeogitDiffContextHighlight = { fg = c.fg, bg = c.bg },
     NeogitDiffAddHighlight = { link = 'DiffAdd' },
     NeogitDiffDeleteHighlight = { link = 'DiffDelete' },
 
@@ -547,17 +545,8 @@ theme.setup = function(cfg)
   }
 
   if cfg.hide_inactive_statusline then
-    -- StatusLine
-    local inactive = { style = 'underline', bg = c.bg, fg = c.bg, sp = c.bg_visual }
-    hi.base.StatusLineNC = inactive
-
-    if vim.o.statusline ~= nil and string.find(vim.o.statusline, 'lualine') then
-      -- Fix VertSplit & StatusLine crossover when lualine is active
-      -- https://github.com/hoob3rt/lualine.nvim/issues/274
-      hi.base.StatusLine = { bg = c.bg }
-      hi.base.StatusLine = inactive
-      hi.base.StatusLineNC = inactive
-    end
+    print('hiding statusline')
+    hi.base.StatusLineNC = { fg = c.bg, bg = c.bg, sp = c.bg_visual, style = Styles.Underline }
   end
 
   local overrides = cfg.overrides(c)
