@@ -3,7 +3,7 @@
 src = lua/github-theme
 
 terminal: $(src)/terminal
-	@lua $(src)/terminal/init.lua
+	lua $(src)/terminal/init.lua
 
 fmt:
 	stylua --config-path stylua.toml --glob 'lua/**/*.lua' -- lua
@@ -42,7 +42,7 @@ kitty_light_colorblind: kitty_pre
 	@cat $(exts)/kitty/github_light_colorblind.conf > $(kitty_theme)
 
 # reload tmux theme
-tmux_theme = ~/.dotfiles/tmux/.github-theme.tmux
+tmux_theme = ~/.dotfiles/tmux/.github-theme.conf
 
 tmux_pre:
 	@rm -rf $(tmux_theme)

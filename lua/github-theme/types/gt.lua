@@ -29,7 +29,7 @@ gt.TerminalConf.kitty = 'conf'
 gt.TerminalConf.alacritty = 'yml'
 gt.TerminalConf.iterm = 'itermcolors'
 gt.TerminalConf.konsole = 'colorscheme'
-gt.TerminalConf.tmux = 'tmux'
+gt.TerminalConf.tmux = 'conf'
 
 ---@class gt.Highlight
 ---Foreground Color
