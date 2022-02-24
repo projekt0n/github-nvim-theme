@@ -27,7 +27,7 @@ local tint_lualine_group = function(color)
   return group
 end
 
-local inactive_hi = { bg = c.bg_nc_statusline, fg = c.fg_nc_statusline }
+local inactive_hi = { bg = c.bg2, fg = util.darken(c.fg, 0.3) }
 return {
   normal = tint_lualine_group(c.blue),
   insert = tint_lualine_group(c.green),

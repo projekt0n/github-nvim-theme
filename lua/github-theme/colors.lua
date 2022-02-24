@@ -23,25 +23,6 @@ colors.setup = function(cfg)
   c.sidebar_eob = cfg.hide_end_of_buffer and c.sidebar_eob or c.fg_gutter
   c.eob = cfg.hide_end_of_buffer and c.bg or c.fg_gutter
 
-  -- Statusline
-  c.bg_statusline = c.blue
-  c.fg_statusline = c.bg
-  c.bg_nc_statusline = c.bg2
-  c.fg_nc_statusline = util.darken(c.fg, 0.3)
-
-  -- Search
-  c.fg_search = c.none
-
-  -- Border
-  c.border_highlight = c.blue
-
-  -- Folded
-  c.fg_folded = c.fg
-  c.bg_folded = c.bg_visual_selection
-
-  -- Popups
-  c.bg_popup = c.bg2
-
   -- Sidebar and Floats
   c.bg_sidebar = cfg.dark_sidebar and c.bg2 or c.bg
   c.bg_sidebar = cfg.transparent and c.none or c.bg_sidebar
