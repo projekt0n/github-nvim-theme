@@ -35,7 +35,7 @@ theme.setup = function(cfg)
     -- TermCursorNC= { }, -- cursor in an unfocused terminal
     ErrorMsg = { fg = c.error }, -- error messages on the command line
     VertSplit = { fg = c.bg_visual, bg = c.bg }, -- the column separating vertically split windows
-    Folded = { fg = c.fg_folded, bg = c.bg_folded }, -- line used for closed folds
+    Folded = { fg = c.fg, bg = c.bg_visual_selection }, -- line used for closed folds
     FoldColumn = { link = 'Folded' }, -- 'foldcolumn'
     SignColumn = { fg = c.fg_gutter, bg = cfg.transparent and c.none or c.bg }, -- column where |signs| are displayed
     SignColumnSB = { fg = c.fg_gutter, bg = c.bg_sidebar }, -- column where |signs| are displayed
@@ -59,7 +59,7 @@ theme.setup = function(cfg)
     PmenuThumb = { bg = c.pmenu.sbar }, -- Popup menu: Thumb of the scrollbar.
     Question = { fg = c.blue }, -- |hit-enter| prompt and yes/no questions
     QuickFixLine = { bg = util.darken(c.blue, 0.2), style = Styles.Bold }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
-    Search = { fg = c.fg_search, bg = c.bg_search }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
+    Search = { fg = c.none, bg = c.bg_search }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
     IncSearch = { link = 'Search' }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     SpecialKey = { fg = c.fg_gutter }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
     SpellBad = { sp = c.error, style = Styles.Undercurl }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
@@ -545,7 +545,6 @@ theme.setup = function(cfg)
   }
 
   if cfg.hide_inactive_statusline then
-    print('hiding statusline')
     hi.base.StatusLineNC = { fg = c.bg, bg = c.bg, sp = c.bg_visual, style = Styles.Underline }
   end
 
