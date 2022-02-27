@@ -548,10 +548,6 @@ theme.setup = function(cfg)
     hi.base.StatusLineNC = { fg = c.bg, bg = c.bg, sp = c.bg_visual, style = Styles.Underline }
   end
 
-  local overrides = cfg.overrides(c)
-  util.apply_overrides(hi.base, overrides)
-  util.apply_overrides(hi.plugins, overrides)
-
   return hi
 end
 

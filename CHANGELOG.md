@@ -13,6 +13,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - chore: terminal colors
 - chore: tmux theme's extension changed to `.conf` from `.tmux`
 - breaking-change: removed some colors from `colors.lua`
+- refactor: implement highlight override function in `util.load`
+- enhance: `overrides` function is now able to add custom highlight in `dev` mode.
+- docs: about developer mode
 
 ### Fixes
 

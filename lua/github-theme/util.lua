@@ -163,6 +163,18 @@ util.terminal = function(colors)
   vim.g.terminal_color_14 = colors.bright_cyan
 end
 
+---Override custom highlights in `group`
+---@param group table
+---@param overrides table
+---@param force boolean
+util.apply_overrides = function(group, overrides, force)
+  for k, v in pairs(overrides) do
+    if type(v) == 'table' and group[k] ~= nil or force then
+      group[k] = v
+    end
+  end
+end
+
 ---@param hi gt.Highlights
 util.load = function(hi)
   local theme_style = hi.config.theme_style
@@ -182,22 +194,16 @@ util.load = function(hi)
   end
   vim.g.colors_name = util.colors_name
 
+  -- override colors
+  local overrides = hi.config.overrides(hi.colors)
+  util.apply_overrides(hi.base, overrides, hi.config.dev)
+  util.apply_overrides(hi.plugins, overrides, hi.config.dev)
+
   --Load ColorScheme
   util.syntax(hi.base)
   util.autocmds(hi.config)
   util.terminal(hi.colors)
   util.syntax(hi.plugins)
-end
-
----Override custom highlights in `group`
----@param group table
----@param overrides table
-util.apply_overrides = function(group, overrides)
-  for k, v in pairs(overrides) do
-    if group[k] ~= nil and type(v) == 'table' then
-      group[k] = v
-    end
-  end
 end
 
 ---@param colors gt.ColorPalette
