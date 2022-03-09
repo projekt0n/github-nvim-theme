@@ -107,30 +107,58 @@ util.highlight = function(hi_name, hi)
   end
 end
 
----Delete the autocmds when the theme changes to something else
-util.on_colorscheme = function()
-  if vim.g.colors_name ~= util.colors_name then
-    vim.cmd('autocmd! ' .. util.colors_name)
-    vim.cmd('augroup!' .. util.colors_name)
-  end
-end
-
 ---@param config gt.ConfigSchema
 util.autocmds = function(config)
-  vim.cmd(string.format('augroup %s ', util.colors_name))
-  vim.cmd('autocmd!')
-  vim.cmd('autocmd ColorScheme * lua require("github-theme.util").on_colorscheme()')
+  local group = vim.api.nvim_create_augroup('github-theme', { clear = false })
+
+  -- Delete the github-theme autocmds when the theme changes to something else
+  vim.api.nvim_create_autocmd('ColorScheme', {
+    pattern = '*',
+    group = group,
+    callback = function()
+      if vim.g.colors_name ~= util.colors_name then
+        vim.api.nvim_del_augroup_by_id(group)
+      end
+    end,
+  })
+
   if config.dev then
-    vim.cmd(string.format('autocmd BufWritePost */lua/github-theme/** nested colorscheme %s', util.colors_name))
+    -- Enables hot-reloading in github-nvim-theme.
+    vim.api.nvim_create_autocmd('BufWritePost', {
+      pattern = '*/lua/github-theme/**',
+      nested = true,
+      group = group,
+      callback = function()
+        vim.cmd(string.format('colorscheme %s', util.colors_name))
+      end,
+    })
   end
+
+  local func_winhightlight = function()
+    vim.wo.winhighlight = 'Normal:NormalSB,SignColumn:SignColumnSB'
+  end
+
   for _, sidebar in ipairs(config.sidebars) do
     if sidebar == 'terminal' then
-      vim.cmd('autocmd TermOpen * setlocal winhighlight=Normal:NormalSB,SignColumn:SignColumnSB')
+      -- Set dark color for terminal background.,
+      vim.api.nvim_create_autocmd('TermOpen', {
+        pattern = '*',
+        group = group,
+        callback = function()
+          func_winhightlight()
+        end,
+      })
     else
-      vim.cmd(string.format('autocmd FileType %s setlocal winhighlight=Normal:NormalSB,SignColumn:SignColumnSB', sidebar))
+      -- Set dark color for custom sidebars background.
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = sidebar,
+        group = group,
+        callback = function()
+          func_winhightlight()
+        end,
+      })
     end
   end
-  vim.cmd('augroup end')
 end
 
 ---@param base gt.Highlights.Base
