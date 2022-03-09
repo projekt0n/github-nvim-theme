@@ -1,10 +1,11 @@
-To enable the `github` theme for `Lualine`, simply specify it in your lualine settings:
+To enable the `github` theme for `Lualine`, simply specify it in your lualine settings **after theme settings**:
 
 ### packer
 
 ```lua
 use {
   "hoob3rt/lualine.nvim",
+  after = "github-nvim-theme",
   config = function()
     require("lualine").setup {
       options = {
@@ -16,7 +17,6 @@ use {
 }
 use {
   "projekt0n/github-nvim-theme",
-  after = "lualine.nvim",
   config = function()
     require("github-theme").setup({
       theme_style = "dark_default"

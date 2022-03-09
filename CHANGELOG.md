@@ -25,6 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - tmux: set `bg2` as background in 'message-style' fixed #164
 - fixed #163
 - fixed #165
+- lualine docs updated (fixed #167)
 
 ## [v0.0.4] - 11 Jan 2022
 
