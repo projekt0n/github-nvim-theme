@@ -1,4 +1,4 @@
-To enable the `github` theme for `Lualine`, simply specify it in your lualine settings **after theme settings**:
+To enable the `github` theme for `Lualine`, simply specify it in your lualine settings **after theme settings**:A
 
 ### packer
 
@@ -9,7 +9,7 @@ use {
   config = function()
     require("lualine").setup {
       options = {
-        theme = "github" -- or "auto"
+        theme = "auto" -- or you can assign github_* themes individually.
         -- ... your lualine config
       }
     }
@@ -32,7 +32,7 @@ use {
 lua << EOF
 require('lualine').setup {
   options = {
-    theme = 'github', -- or "auto"
+    theme = "auto" -- or you can assign github_* themes individually.
     -- ... your lualine config
   }
 }
@@ -44,15 +44,15 @@ EOF
 ```lua
 require('lualine').setup {
   options = {
-    theme = 'github', -- or "auto"
+    theme = "auto" -- or you can assign github_* themes individually.
     -- ... your lualine config
   }
 }
 ```
 
-### Screenshots
+### Lualine Themes
 
-#### dark
+#### github_dark
 
 ![normal](https://imgur.com/zBRwlUm.png)
 ![insert](https://imgur.com/n5DG48e.png)
@@ -60,7 +60,7 @@ require('lualine').setup {
 ![command](https://imgur.com/HGIYVSN.png)
 ![terminal](https://imgur.com/pEWjIJ8.png)
 
-#### dimmed
+#### github_dimmed
 
 ![normal](https://imgur.com/R800MhA.png)
 ![insert](https://imgur.com/42M0X0O.png)
@@ -68,7 +68,7 @@ require('lualine').setup {
 ![command](https://imgur.com/E4tzBCD.png)
 ![terminal](https://imgur.com/RASnrFw.png)
 
-#### dark_default
+#### github_dark_default
 
 ![normal](https://imgur.com/yHa1cK1.png)
 ![insert](https://imgur.com/mMX2364.png)
@@ -76,7 +76,7 @@ require('lualine').setup {
 ![command](https://imgur.com/aLifoAv.png)
 ![terminal](https://imgur.com/Q7mG5m8.png)
 
-#### dark_colorblind
+#### github_dark_colorblind
 
 ![normal](https://imgur.com/yHa1cK1.png)
 ![insert](https://imgur.com/mMX2364.png)
@@ -84,7 +84,7 @@ require('lualine').setup {
 ![command](https://imgur.com/aLifoAv.png)
 ![terminal](https://imgur.com/Q7mG5m8.png)
 
-#### light
+#### github_light
 
 ![normal](https://imgur.com/om8f3S5.png)
 ![insert](https://imgur.com/qawZ4G6.png)
@@ -92,7 +92,7 @@ require('lualine').setup {
 ![command](https://imgur.com/ItcANVN.png)
 ![terminal](https://imgur.com/8SgNyIU.png)
 
-#### light_default
+#### github_light_default
 
 ![normal](https://imgur.com/lwTCVXc.png)
 ![insert](https://imgur.com/zh9uPGS.png)
@@ -100,7 +100,7 @@ require('lualine').setup {
 ![command](https://imgur.com/TrjrA3i.png)
 ![terminal](https://imgur.com/7ukHRhL.png)
 
-#### light_colorblind
+#### github_light_colorblind
 
 ![normal](https://imgur.com/lwTCVXc.png)
 ![insert](https://imgur.com/zh9uPGS.png)
