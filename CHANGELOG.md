@@ -17,7 +17,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - enhance: `overrides` function is now able to add custom highlight in `dev` mode.
 - docs: about developer mode
 - breaking-change: set lualine theme with `theme="auto"`
-- refactor: lua autocmds
 
 ### Fixes
 
