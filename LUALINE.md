@@ -1,4 +1,4 @@
-To enable the `github` theme for `Lualine`, simply specify it in your lualine settings **after theme settings**:A
+To enable the `github` theme for `Lualine`, simply specify it in your lualine settings **after theme settings**.
 
 ### packer
 

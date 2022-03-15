@@ -13,7 +13,7 @@
 - Minimal inactive statusline (only work with **Vim's Default StatusLine**)
 - Vim terminal colors
 - Darker background for sidebar-like windows
-- Color configs for [kitty](https://sw.kovidgoyal.net/kitty/conf.html?highlight=include), [iTerm2](https://iterm2.com/), [Konsole](https://konsole.kde.org/), [tmux](https://github.com/tmux/tmux/wiki) and [Alacritty](https://github.com/alacritty/alacritty)
+- Color configs for [kitty](https://sw.kovidgoyal.net/kitty/conf.html?highlight=include), [iTerm2](https://iterm2.com/), [Konsole](https://konsole.kde.org/), [tmux](https://github.com/tmux/tmux/wiki), [Xresources](https://wiki.archlinux.org/title/x_resources) and [Alacritty](https://github.com/alacritty/alacritty)
 - Most elegant [**lualine** theme](./LUALINE.md#screenshots)
 
 ## Requirements
@@ -129,6 +129,7 @@ Extra color configs for **kitty**, **iTerm**, **Konsole**, **tmux** and **Alacri
 - Konsole - [./terminal/konsole](https://github.com/projekt0n/github-nvim-theme/tree/main/terminal/konsole)
 - tmux - [./terminal/tmux](https://github.com/projekt0n/github-nvim-theme/tree/main/terminal/tmux)
 - Alacritty - [./terminal/alacritty](https://github.com/projekt0n/github-nvim-theme/tree/main/terminal/alacritty)
+- Xresources - [./terminal/xresources](https://github.com/projekt0n/github-nvim-theme/tree/main/terminal/xresources)
 
 ### Making `undercurls` work properly in **Tmux**
 

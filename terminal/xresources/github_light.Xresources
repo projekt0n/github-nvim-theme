@@ -1,0 +1,26 @@
+
+*.foreground:   #24292f
+#ifdef background_opacity
+*.background:   [background_opacity]#ffffff
+#else
+*.background:   #ffffff
+#endif
+*.cursorColor:  #044289
+
+*.color0:       #24292e
+*.color1:       #d73a49
+*.color2:       #28a745
+*.color3:       #dbab09
+*.color4:       #0366d6
+*.color5:       #5a32a3
+*.color6:       #0598bc
+*.color7:       #6a737d
+
+*.color8:       #959da5
+*.color9:       #cb2431
+*.color10:      #22863a
+*.color11:      #b08800
+*.color12:      #005cc5
+*.color13:      #5a32a3
+*.color14:      #3192aa
+*.color15:      #d1d5da

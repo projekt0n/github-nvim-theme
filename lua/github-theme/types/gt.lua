@@ -23,13 +23,14 @@ gt.HighlightStyle.Stanout = 'stanout'
 gt.HighlightStyle.NoCombine = 'nocombine'
 gt.HighlightStyle.Strikethrough = 'strikethrough'
 
----@alias gt.TerminalConf "'conf'" | "'yml'" | "'itermcolors'" | "'colorscheme'" | "'tmux'"
+---@alias gt.TerminalConf "'conf'" | "'yml'" | "'itermcolors'" | "'colorscheme'" | "'tmux'" | "'xresources'"
 gt.TerminalConf = {}
 gt.TerminalConf.kitty = 'conf'
 gt.TerminalConf.alacritty = 'yml'
 gt.TerminalConf.iterm = 'itermcolors'
 gt.TerminalConf.konsole = 'colorscheme'
 gt.TerminalConf.tmux = 'conf'
+gt.TerminalConf.xresources = 'Xresources'
 
 ---@class gt.Highlight
 ---Foreground Color
