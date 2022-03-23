@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - docs: about developer mode
 - breaking-change: set lualine theme with `theme="auto"`
 - terminal-theme: Xresources theme added #166
+- chore: unlink 'Visual' highlight from plugin highlights
 
 ### Fixes
 

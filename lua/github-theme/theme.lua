@@ -23,8 +23,8 @@ theme.setup = function(cfg)
     Cursor = { fg = c.bg, bg = c.fg }, -- character under the cursor
     lCursor = { link = 'Cursor' }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
     CursorIM = { link = 'Cursor' }, -- like Cursor, but used when in IME mode |CursorIM|
-    CursorColumn = { bg = c.bg_highlight }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
-    CursorLine = { link = 'CursorColumn' }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
+    CursorLine = { bg = c.bg_highlight }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
+    CursorColumn = { link = 'CursorColumn' }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     Directory = { fg = c.blue }, -- directory names (and other special names in listings)
     DiffAdd = { fg = c.diff.add_fg, bg = c.diff.add }, -- diff mode: Added line |diff.txt|
     DiffChange = { fg = c.diff.change_fg, bg = c.diff.change }, -- diff mode: Changed line |diff.txt|
@@ -390,6 +390,7 @@ theme.setup = function(cfg)
     TelescopePromptPrefix = { fg = c.fg },
     TelescopeMatching = { fg = c.syntax.constant, style = Styles.Bold },
     TelescopeMultiSelection = { fg = c.syntax.comment },
+    TelescopeSelection = { bg = c.bg_visual_selection },
 
     -- NvimTree
     NvimTreeNormal = { fg = c.fg_light, bg = c.bg_sidebar },
@@ -540,7 +541,7 @@ theme.setup = function(cfg)
     CocInfoHighlight = { link = 'LspDiagnosticsUnderlineInformation' },
     CocHintHighlight = { link = 'LspDiagnosticsUnderlineHint' },
 
-    CocHighlightText = { link = 'Visual' },
+    CocHighlightText = { bg = c.bg_visual_selection },
     CocUnderline = { style = Styles.Undercurl },
   }
 

@@ -122,7 +122,7 @@ Installation docs and screenshots at [LUALINE.md](./LUALINE.md).
 
 > To generate the configs `make terminal` or `:luafile lua/github-theme/terminal/init.lua`
 
-Extra color configs for **kitty**, **iTerm**, **Konsole**, **tmux** and **Alacritty** can be found in [terminal](terminal/) directory. To use them, refer to their respective documentation.
+Extra color configs for **kitty**, **iTerm**, **Konsole**, **tmux**, **Xresources** and **Alacritty** can be found in [terminal](terminal/) directory. To use them, refer to their respective documentation.
 
 - kitty - [./terminal/kitty](https://github.com/projekt0n/github-nvim-theme/tree/main/terminal/kitty)
 - iTerm - [./terminal/iterm](https://github.com/projekt0n/github-nvim-theme/tree/main/terminal/iterm)
