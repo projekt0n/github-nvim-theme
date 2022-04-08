@@ -3,6 +3,7 @@ local types = require('github-theme.types')
 ---@class gt.Util
 local util = {}
 
+---@type string
 util.colors_name = ''
 
 ---@type table<number, gt.HexColor>
@@ -107,32 +108,6 @@ util.highlight = function(hi_name, hi)
   end
 end
 
----Delete the autocmds when the theme changes to something else
-util.on_colorscheme = function()
-  if vim.g.colors_name ~= util.colors_name then
-    vim.cmd('silent! autocmd! ' .. util.colors_name)
-    vim.cmd('silent! augroup!' .. util.colors_name)
-  end
-end
-
----@param config gt.ConfigSchema
-util.autocmds = function(config)
-  vim.cmd(string.format('augroup %s ', util.colors_name))
-  vim.cmd('autocmd!')
-  vim.cmd('autocmd ColorScheme * lua require("github-theme.util").on_colorscheme()')
-  if config.dev then
-    vim.cmd(string.format('autocmd BufWritePost */lua/github-theme/** nested colorscheme %s', util.colors_name))
-  end
-  for _, sidebar in ipairs(config.sidebars) do
-    if sidebar == 'terminal' then
-      vim.cmd('autocmd TermOpen * setlocal winhighlight=Normal:NormalSB,SignColumn:SignColumnSB')
-    else
-      vim.cmd(string.format('autocmd FileType %s setlocal winhighlight=Normal:NormalSB,SignColumn:SignColumnSB', sidebar))
-    end
-  end
-  vim.cmd('augroup end')
-end
-
 ---@param base gt.Highlights.Base
 util.syntax = function(base)
   for hi_name, hi in pairs(base) do
@@ -201,7 +176,14 @@ util.load = function(hi)
 
   --Load ColorScheme
   util.syntax(hi.base)
-  util.autocmds(hi.config)
+
+  local autocmds = require('github-theme.autocmds')
+  if vim.fn.has('nvim-0.7') == 1 then
+    autocmds.native_cmds(hi.config, util.colors_name)
+  else
+    autocmds.viml_cmds(hi.config, util.colors_name)
+  end
+
   util.terminal(hi.colors)
   util.syntax(hi.plugins)
 end

@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - refactor: color types moved to `types/palette.lua`
 - chore: terminal colors
+- feat: use native autocmds on nvim >=0.7 ( fixed #168 )
 - chore: tmux theme's extension changed to `.conf` from `.tmux`
 - breaking-change: removed some colors from `colors.lua`
 - refactor: implement highlight override function in `util.load`
