@@ -18,7 +18,7 @@ autocmds.viml_cmds = function(config, colors_name)
   autocmds.colors_name = colors_name
   vim.cmd(string.format('augroup %s ', autocmds.colors_name))
   vim.cmd('autocmd!')
-  vim.cmd('autocmd ColorScheme * lua require("github-theme.autocmd").on_colorscheme()')
+  vim.cmd('autocmd ColorScheme * lua require("github-theme.autocmds").on_colorscheme()')
   if config.dev then
     vim.cmd(string.format('autocmd BufWritePost */lua/github-theme/** nested colorscheme %s', autocmds.colors_name))
   end

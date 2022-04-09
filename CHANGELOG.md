@@ -31,6 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - fixed #163
 - fixed #165
 - lualine docs updated (fixed #167)
+- fixed #177
 
 ## [v0.0.4] - 11 Jan 2022
 
