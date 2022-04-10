@@ -44,7 +44,7 @@ autocmds.native_cmds = function(config, colors_name)
     group = group,
     callback = function()
       if vim.g.colors_name ~= autocmds.colors_name then
-        vim.api.nvim_del_augroup_by_id(group)
+          pcall(vim.api.nvim_del_augroup_by_id, group)
       end
     end,
   })
