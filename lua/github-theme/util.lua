@@ -174,16 +174,10 @@ util.load = function(hi)
   util.apply_overrides(hi.base, overrides, hi.config.dev)
   util.apply_overrides(hi.plugins, overrides, hi.config.dev)
 
+  local autocmds = require('github-theme.autocmds')
   --Load ColorScheme
   util.syntax(hi.base)
-
-  local autocmds = require('github-theme.autocmds')
-  if vim.fn.has('nvim-0.7') == 1 then
-    autocmds.native_cmds(hi.config, util.colors_name)
-  else
-    autocmds.viml_cmds(hi.config, util.colors_name)
-  end
-
+  autocmds.set(hi.config)
   util.terminal(hi.colors)
   util.syntax(hi.plugins)
 end

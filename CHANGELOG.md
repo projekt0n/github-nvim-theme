@@ -32,6 +32,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - fixed #165
 - lualine docs updated (fixed #167)
 - fixed #177
+- fix: use pcall to clear autocmd silently @xiyaowong #178
+- fix: skip native_autocmds on some neovim0.7 builds
 
 ## [v0.0.4] - 11 Jan 2022
 
