@@ -91,7 +91,7 @@ end
 ---@param config gt.ConfigSchema
 autocmds.set = function(config)
   if vim.fn.has('nvim-0.7') == 1 then
-    if not pcall(autocmds.native_cmds(config)) then
+    if not pcall(autocmds.native_cmds, config) then
       autocmds.viml_cmds(config)
     end
   else
