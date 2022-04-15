@@ -177,7 +177,7 @@ util.load = function(hi)
   local autocmds = require('github-theme.autocmds')
   --Load ColorScheme
   util.syntax(hi.base)
-  autocmds.set(hi.config)
+  autocmds.set(hi.config, util.colors_name)
   util.terminal(hi.colors)
   util.syntax(hi.plugins)
 end

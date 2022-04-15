@@ -89,13 +89,13 @@ autocmds.native_cmds = function(config, colors_name)
 end
 
 ---@param config gt.ConfigSchema
-autocmds.set = function(config)
+autocmds.set = function(config, colors_name)
   if vim.fn.has('nvim-0.7') == 1 then
-    if not pcall(autocmds.native_cmds, config) then
-      autocmds.viml_cmds(config)
+    if not pcall(autocmds.native_cmds, config, colors_name) then
+      autocmds.viml_cmds(config, colors_name)
     end
   else
-    autocmds.viml_cmds(config)
+    autocmds.viml_cmds(config, colors_name)
   end
 end
 
