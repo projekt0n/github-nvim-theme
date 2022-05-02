@@ -1,0 +1,23 @@
+{
+  "background": "#0D1117",
+  "black": "#484F58",
+  "blue": "#58A6FF",
+  "brightBlack": "#6E7681",
+  "brightBlue": "#79C0FF",
+  "brightCyan": "#56D4DD",
+  "brightGreen": "#56D364",
+  "brightPurple": "#D2A8FF",
+  "brightRed": "#FFA198",
+  "brightWhite": "#F0F6FC",
+  "brightYellow": "#E3B341",
+  "cursorColor": "#73B7F2",
+  "cyan": "#39C5CF",
+  "foreground": "#B3B1AD",
+  "green": "#3FB950",
+  "name": "GitHub Dark (Default)",
+  "purple": "#BC8CFF",
+  "red": "#FF7B72",
+  "selectionBackground": "#163356",
+  "white": "#B1BAC4",
+  "yellow": "#D29922"
+}
