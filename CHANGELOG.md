@@ -7,17 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+## [v0.0.5] - 03 May 2022
+
 ### Added
 
 - refactor: color types moved to `types/palette.lua`
 - chore: terminal colors
 - feat: use native autocmds on nvim >=0.7 ( fixed #168 )
 - chore: tmux theme's extension changed to `.conf` from `.tmux`
-- breaking-change: removed some colors from `colors.lua`
+- BREAKING-CHANGE: removed some colors from `colors.lua`
 - refactor: implement highlight override function in `util.load`
 - enhance: `overrides` function is now able to add custom highlight in `dev` mode.
 - docs: about developer mode
-- breaking-change: set lualine theme with `theme="auto"`
+- BREAKING-CHANGE: set lualine theme with `theme="auto"`
 - terminal-theme: Xresources theme added #166
 - chore: unlink 'Visual' highlight from plugin highlights
 - kitty: add cursor foreground color ( fixed #174 )
@@ -89,7 +91,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Github `light_default` theme added #15 #16
 - Make target added for reloading kitty theme with `kitty_dark_default` & `kitty_light_default`
 - Individual themes for `colorscheme` command #68
-- Breaking Change: use **snake_case** inside config instead of ~camelCase~
+- BREAKING-CHANGE: use **snake_case** inside config instead of ~camelCase~
 - `hide_inactive_statusline` default value is `true`
 - `dark_float` default value is `false`
 - feat: vim config support with "vim.g"
@@ -100,10 +102,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - set `vim.o.background` while loading individual colorscheme (folke/tokyonight.nvim#102)
 - enhance: assign config default value to `vim.g` variables
 - re-patch: #72
-- breaking change: `github` deprecated from `colorscheme` command
+- BREAKING-CHANGE: `github` deprecated from `colorscheme` command
 - `pmenu.select` color removed
 - pmenu select background color with dynamic blue color
-- breaking change: terminal colors are renamed
+- BREAKING-CHANGE: terminal colors are renamed
 - feat: set `vim.o.background` with config module (re-patch #60 #116)
 - enhance: support colorschemes with fzf `Colors` command
 - enhance: unlink `NvimTreeGitIgnored` from `Comment`
@@ -184,13 +186,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - use `bg_visiual` color as floating window border
 - use `bg` and `bg2` colors for `EndOfBuffer` `NoneText` fixed #66
 
-## [v0.0.1] - 9 Jul 2021
+## [v0.0.1] - 09 Jul 2021
 
 ### Added
 
 - Initial release 🎊
 
-[unreleased]: https://github.com/projekt0n/github-nvim-theme/compare/v0.0.4...main
+[unreleased]: https://github.com/projekt0n/github-nvim-theme/compare/v0.0.5...main
+[v0.0.5]: https://github.com/projekt0n/github-nvim-theme/compare/v0.0.5...v0.0.4
 [v0.0.4]: https://github.com/projekt0n/github-nvim-theme/compare/v0.0.4...v0.0.3
 [v0.0.3]: https://github.com/projekt0n/github-nvim-theme/compare/v0.0.3...v0.0.2
 [v0.0.2]: https://github.com/projekt0n/github-nvim-theme/compare/v0.0.2...v0.0.1
