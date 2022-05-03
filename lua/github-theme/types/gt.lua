@@ -23,7 +23,7 @@ gt.HighlightStyle.Stanout = 'stanout'
 gt.HighlightStyle.NoCombine = 'nocombine'
 gt.HighlightStyle.Strikethrough = 'strikethrough'
 
----@alias gt.TerminalConf "'conf'" | "'yml'" | "'itermcolors'" | "'colorscheme'" | "'tmux'" | "'xresources'"
+---@alias gt.TerminalConf "'conf'" | "'yml'" | "'itermcolors'" | "'colorscheme'" | "'tmux'" | "'xresources'" | "windows_terminal"
 gt.TerminalConf = {}
 gt.TerminalConf.kitty = 'conf'
 gt.TerminalConf.alacritty = 'yml'
@@ -31,6 +31,7 @@ gt.TerminalConf.iterm = 'itermcolors'
 gt.TerminalConf.konsole = 'colorscheme'
 gt.TerminalConf.tmux = 'conf'
 gt.TerminalConf.xresources = 'Xresources'
+gt.TerminalConf.windows_terminal = 'json'
 
 ---@class gt.Highlight
 ---Foreground Color

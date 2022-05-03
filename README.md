@@ -13,7 +13,7 @@
 - Minimal inactive statusline (only work with **Vim's Default StatusLine**)
 - Vim terminal colors
 - Darker background for sidebar-like windows
-- Color configs for [kitty](https://sw.kovidgoyal.net/kitty/conf.html?highlight=include), [iTerm2](https://iterm2.com/), [Konsole](https://konsole.kde.org/), [tmux](https://github.com/tmux/tmux/wiki), [Xresources](https://wiki.archlinux.org/title/x_resources) and [Alacritty](https://github.com/alacritty/alacritty)
+- Color configs for [kitty](https://sw.kovidgoyal.net/kitty/conf.html?highlight=include), [iTerm2](https://iterm2.com/), [Konsole](https://konsole.kde.org/), [tmux](https://github.com/tmux/tmux/wiki), [Xresources](https://wiki.archlinux.org/title/x_resources), [Windows Terminal](https://github.com/microsoft/terminal) and [Alacritty](https://github.com/alacritty/alacritty)
 - Most elegant [**lualine** theme](./LUALINE.md#screenshots)
 
 ## Requirements
@@ -124,12 +124,13 @@ Installation docs and screenshots at [LUALINE.md](./LUALINE.md).
 
 Extra color configs for **kitty**, **iTerm**, **Konsole**, **tmux**, **Xresources** and **Alacritty** can be found in [terminal](terminal/) directory. To use them, refer to their respective documentation.
 
-- kitty - [./terminal/kitty](https://github.com/projekt0n/github-nvim-theme/tree/main/terminal/kitty)
-- iTerm - [./terminal/iterm](https://github.com/projekt0n/github-nvim-theme/tree/main/terminal/iterm)
-- Konsole - [./terminal/konsole](https://github.com/projekt0n/github-nvim-theme/tree/main/terminal/konsole)
-- tmux - [./terminal/tmux](https://github.com/projekt0n/github-nvim-theme/tree/main/terminal/tmux)
 - Alacritty - [./terminal/alacritty](https://github.com/projekt0n/github-nvim-theme/tree/main/terminal/alacritty)
+- Konsole - [./terminal/konsole](https://github.com/projekt0n/github-nvim-theme/tree/main/terminal/konsole)
+- Windows Terminal - [./terminal/windows_terminal](https://github.com/projekt0n/github-nvim-theme/tree/main/terminal/windows_terminal)
 - Xresources - [./terminal/xresources](https://github.com/projekt0n/github-nvim-theme/tree/main/terminal/xresources)
+- iTerm - [./terminal/iterm](https://github.com/projekt0n/github-nvim-theme/tree/main/terminal/iterm)
+- kitty - [./terminal/kitty](https://github.com/projekt0n/github-nvim-theme/tree/main/terminal/kitty)
+- tmux - [./terminal/tmux](https://github.com/projekt0n/github-nvim-theme/tree/main/terminal/tmux)
 
 ### Making `undercurls` work properly in **Tmux**
 

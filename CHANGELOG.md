@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - terminal-theme: Xresources theme added #166
 - chore: unlink 'Visual' highlight from plugin highlights
 - kitty: add cursor foreground color ( fixed #174 )
+- terminal-theme: Windows Terminal theme added #180 @mutecipher
 
 ### Fixes
 

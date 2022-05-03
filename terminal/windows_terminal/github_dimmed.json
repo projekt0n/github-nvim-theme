@@ -1,0 +1,23 @@
+{
+  "name": "Github Dimmed",
+  "background": "#22272e",
+  "foreground": "#768390",
+  "cursorColor": "#6cb6ff",
+  "selectionBackground": "#264466",
+  "black": "#545d68",
+  "brightBlack": "#636e7b",
+  "white": "#909dab",
+  "brightWhite": "#cdd9e5",
+  "red": "#f47067",
+  "brightRed": "#ff938a",
+  "green": "#57ab5a",
+  "brightGreen": "#6bc46d",
+  "yellow": "#c69026",
+  "brightYellow": "#daaa3f",
+  "blue": "#539bf5",
+  "brightBlue": "#6cb6ff",
+  "purple": "#b083f0",
+  "brightPurple": "#dcbdfb",
+  "cyan": "#39c5cf",
+  "brightCyan": "#56d4dd"
+}
