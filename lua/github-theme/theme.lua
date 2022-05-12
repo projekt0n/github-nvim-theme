@@ -134,6 +134,7 @@ theme.setup = function(cfg)
     mkdCodeStart = { fg = c.syntax.variable, style = Styles.Bold },
     mkdCodeEnd = { fg = c.syntax.variable, style = Styles.Bold },
     markdownHeadingDelimiter = { fg = c.syntax.variable, style = Styles.Bold },
+    markdownTSTextReference = { link = 'Title' },
     markdownH1 = { fg = c.syntax.variable, style = Styles.Bold },
     markdownH2 = { fg = c.syntax.variable, style = Styles.Bold },
     markdownH3 = { fg = c.syntax.variable, style = Styles.Bold },

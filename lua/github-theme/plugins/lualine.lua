@@ -44,4 +44,7 @@ lualine.build_lualine_theme = function(c)
   }
 end
 
+-- Fix for https://github.com/projekt0n/github-nvim-theme/issues/175
+vim.cmd('hi! link StatusLine Normal')
+
 return lualine
