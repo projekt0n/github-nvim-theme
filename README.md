@@ -6,6 +6,7 @@
 
 [![Linting](https://github.com/projekt0n/github-nvim-theme/actions/workflows/lint.yml/badge.svg)](https://github.com/projekt0n/github-nvim-theme/actions/workflows/lint.yml)
 [![Twitter](https://img.shields.io/badge/twitter-projekt0n-blue)](https://twitter.com/projekt0n)
+[![Liberapay Goal Progress](https://img.shields.io/liberapay/goal/projekt0n.svg?logo=liberapay)](https://liberapay.com/projekt0n)
 
 ## Features
 
