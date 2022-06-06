@@ -1,12 +1,7 @@
-<p align="center">
-  <img src="https://imgur.com/S6SlCiV.png" alt="github-nvim-theme" />
-</p>
-
-### Status
+![github-nvim-theme](https://imgur.com/S6SlCiV.png)
 
 [![Linting](https://github.com/projekt0n/github-nvim-theme/actions/workflows/lint.yml/badge.svg)](https://github.com/projekt0n/github-nvim-theme/actions/workflows/lint.yml)
 [![Twitter](https://img.shields.io/badge/twitter-projekt0n-blue)](https://twitter.com/projekt0n)
-[![Liberapay Goal Progress](https://img.shields.io/liberapay/goal/projekt0n.svg?logo=liberapay)](https://liberapay.com/projekt0n)
 
 ## Features
 
@@ -193,9 +188,7 @@ require("github-theme").setup({
 })
 ```
 
-<p align="center">
-  <img src="https://imgur.com/XWxKWc8.png" alt="github_dark" />
-</p>
+![github_dark](https://imgur.com/XWxKWc8.png)
 
 #### Dimmed
 
@@ -212,9 +205,7 @@ require("github-theme").setup({
 })
 ```
 
-<p align="center">
-  <img src="https://imgur.com/lMk4ifs.png" alt="github_dimmed" />
-</p>
+![github_dimmed](https://imgur.com/lMk4ifs.png)
 
 #### Dark Default
 
@@ -231,9 +222,7 @@ require("github-theme").setup({
 })
 ```
 
-<p align="center">
-  <img src="https://imgur.com/ZfZcBGN.png" alt="github_dark_default" />
-</p>
+![github_dark_default](https://imgur.com/ZfZcBGN.png)
 
 #### Dark Colorblind (Beta)
 
@@ -250,9 +239,7 @@ require("github-theme").setup({
 })
 ```
 
-<p align="center">
-  <img src="https://imgur.com/OIXgRL4.png" alt="github_dark_colorblind" />
-</p>
+![github_dark_colorblind](https://imgur.com/OIXgRL4.png)
 
 #### Light
 
@@ -269,9 +256,7 @@ require("github-theme").setup({
 })
 ```
 
-<p align="center">
-  <img src="https://imgur.com/OPwBDI4.png" alt="github_light" />
-</p>
+![github_light](https://imgur.com/OPwBDI4.png)
 
 #### Light Default
 
@@ -288,9 +273,7 @@ require("github-theme").setup({
 })
 ```
 
-<p align="center">
-  <img src="https://imgur.com/r9uPo5B.png" alt="github_light_default" />
-</p>
+![github_light_default](https://imgur.com/r9uPo5B.png)
 
 #### Light Colorblind (Beta)
 
@@ -307,17 +290,13 @@ require("github-theme").setup({
 })
 ```
 
-<p align="center">
-  <img src="https://imgur.com/fL4ZOUg.png" alt="github_light_colorblind" />
-</p>
+![github_light_colorblind](https://imgur.com/fL4ZOUg.png)
 
 ### Syntax Styles
 
 #### Default
 
-<p align="center">
-  <img src="https://imgur.com/V0DsNa0.png" alt="github_default_syntax" />
-</p>
+![github_default_syntax](https://imgur.com/V0DsNa0.png)
 
 #### Normal
 
@@ -340,9 +319,7 @@ require("github-theme").setup({
 })
 ```
 
-<p align="center">
-  <img src="https://imgur.com/aRDXkWp.png" alt="github_normal_syntax" />
-</p>
+![github_normal_syntax](https://imgur.com/aRDXkWp.png)
 
 #### Italic
 
@@ -365,9 +342,7 @@ require("github-theme").setup({
 })
 ```
 
-<p align="center">
-  <img src="https://imgur.com/5wr3dyQ.png" alt="github_italic_syntax" />
-</p>
+![github_italic_syntax](https://imgur.com/5wr3dyQ.png)
 
 ### Minimal config
 
@@ -384,16 +359,8 @@ require("github-theme").setup({
 })
 ```
 
-<p align="center">
-  <img src="https://imgur.com/rAsEukW.png" alt="github_minimal" />
-</p>
+![github_minimal](https://imgur.com/rAsEukW.png)
 
 ### Telescope
 
-<p align="center">
-  <img src="https://imgur.com/XX7tixL.png" alt="github_telescope" />
-</p>
-
-## Contributing
-
-Check [CONTRIBUTING.md](./CONTRIBUTING.md), any suggestions for features and contributions to the continuing code masterelopment can be made via the issue tracker or code contributions via a `Fork` & `Pull requests`.
+![github_telescope](https://imgur.com/XX7tixL.png)

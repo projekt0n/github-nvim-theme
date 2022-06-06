@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - fixed #175
 - removed `hi clear` command from loading colorscheme fixed #181
+- removed html tags from README.md
 
 ## [v0.0.5] - 03 May 2022
 
