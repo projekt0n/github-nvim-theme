@@ -48,6 +48,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - fix: use pcall to clear autocmd silently @xiyaowong #178
 - fix: skip native_autocmds on some neovim0.7 builds
 - fixed #179
+- fixed #189
 
 ## [v0.0.4] - 11 Jan 2022
 

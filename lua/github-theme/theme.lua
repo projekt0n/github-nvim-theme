@@ -442,7 +442,9 @@ theme.setup = function(cfg)
     BufferLineFill = { bg = c.bg2 },
 
     -- Hop
-    HopNextKey = { fg = c.magenta, style = Styles.Bold },
+    -- Deep red color for light themes
+    -- Fixed https://github.com/projekt0n/github-nvim-theme/issues/189
+    HopNextKey = { fg = vim.o.background == 'light' and c.bright_red or c.magenta, style = Styles.Bold },
     HopNextKey1 = { fg = c.blue, style = Styles.Bold },
     HopNextKey2 = { fg = util.darken(c.bright_blue, 0.8) },
     HopUnmatched = { fg = c.fg_dark },
