@@ -9,13 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
--
+- feat: plugin support [sindrets/diffview.nvim](https://github.com/sindrets/diffview.nvim) fixed #182
 
 ### Fixes
 
 - fixed #175
 - removed `hi clear` command from loading colorscheme fixed #181
 - removed html tags from README.md
+- fixed #189
 
 ## [v0.0.5] - 03 May 2022
 
@@ -48,7 +49,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - fix: use pcall to clear autocmd silently @xiyaowong #178
 - fix: skip native_autocmds on some neovim0.7 builds
 - fixed #179
-- fixed #189
 
 ## [v0.0.4] - 11 Jan 2022
 

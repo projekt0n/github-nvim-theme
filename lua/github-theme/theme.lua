@@ -546,6 +546,13 @@ theme.setup = function(cfg)
 
     CocHighlightText = { bg = c.bg_visual_selection },
     CocUnderline = { style = Styles.Undercurl },
+
+    -- DiffView
+    DiffAdd = { fg = c.diff.add_fg, bg = c.diff.add },
+    DiffChange = { fg = c.diff.change_fg, bg = c.diff.change },
+    DiffDelete = { fg = c.diff.delete_fg, bg = c.diff.delete },
+    DiffText = { link = 'DiffChange' },
+    DiffviewFilePanelFileName = { fg = c.fg_light },
   }
 
   if cfg.hide_inactive_statusline then

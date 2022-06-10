@@ -141,29 +141,30 @@ set -as terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{25
 
 ## Plugin Support
 
-- [Builtin lsp diagnostics](https://neovim.io/doc/user/lsp.html)
-- [dense-analysis/ale](https://github.com/dense-analysis/ale)
-- [projekt0n/circles.nvim](https://github.com/projekt0n/circles.nvim)
-- [neoclide/coc.nvim](https://github.com/neoclide/coc.nvim)
-- [glepnir/dashboard-nvim](https://github.com/glepnir/dashboard-nvim)
-- [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
-- [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
-- [folke/lsp-trouble.nvim](https://github.com/folke/lsp-trouble.nvim)
-- [glepnir/lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
-- [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
-- [TimUntersberger/neogit](https://github.com/TimUntersberger/neogit)
-- [akinsho/nvim-bufferline.lua](https://github.com/akinsho/nvim-bufferline.lua)
-- [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
-- [hrsh7th/nvim-compe](https://github.com/hrsh7th/nvim-compe)
-- [rcarriga/nvim-notify](https://github.com/rcarriga/nvim-notify)
-- [kyazdani42/nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)
-- [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
-- [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
-- [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
-- [airblade/vim-gitgutter](https://github.com/airblade/vim-gitgutter)
-- [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
+[Builtin lsp diagnostics](https://neovim.io/doc/user/lsp.html) ·
+[dense-analysis/ale](https://github.com/dense-analysis/ale) ·
+[projekt0n/circles.nvim](https://github.com/projekt0n/circles.nvim) ·
+[neoclide/coc.nvim](https://github.com/neoclide/coc.nvim) ·
+[glepnir/dashboard-nvim](https://github.com/glepnir/dashboard-nvim) ·
+[sindrets/diffview.nvim](https://github.com/sindrets/diffview.nvim) ·
+[lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) ·
+[lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim) ·
+[folke/lsp-trouble.nvim](https://github.com/folke/lsp-trouble.nvim) ·
+[glepnir/lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim) ·
+[nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) ·
+[TimUntersberger/neogit](https://github.com/TimUntersberger/neogit) ·
+[akinsho/nvim-bufferline.lua](https://github.com/akinsho/nvim-bufferline.lua) ·
+[hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp) ·
+[hrsh7th/nvim-compe](https://github.com/hrsh7th/nvim-compe) ·
+[rcarriga/nvim-notify](https://github.com/rcarriga/nvim-notify) ·
+[kyazdani42/nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua) ·
+[nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) ·
+[kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons) ·
+[nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) ·
+[airblade/vim-gitgutter](https://github.com/airblade/vim-gitgutter) ·
+[folke/which-key.nvim](https://github.com/folke/which-key.nvim)
 
-## 📺 Screenshots
+## Screenshots
 
 - Font: [JetBrains Mono](https://www.jetbrains.com/lp/mono/)
 - Terminal: [kitty](https://sw.kovidgoyal.net/kitty)
