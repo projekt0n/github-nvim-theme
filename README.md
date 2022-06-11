@@ -159,6 +159,7 @@ set -as terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{25
 [rcarriga/nvim-notify](https://github.com/rcarriga/nvim-notify) ·
 [kyazdani42/nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua) ·
 [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) ·
+[nvim-treesitter/nvim-treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context) ·
 [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons) ·
 [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) ·
 [airblade/vim-gitgutter](https://github.com/airblade/vim-gitgutter) ·

@@ -461,7 +461,9 @@ theme.setup = function(cfg)
     CmpDocumentationBorder = { links = 'FloatBorder' },
     CmpItemAbbrDeprecated = { fg = c.syntax.comment, style = 'strikethrough' },
     CmpItemAbbrMatch = { fg = c.blue },
+    CmpItemAbbrDefault = { fg = c.fg_light },
     CmpItemAbbrMatchFuzzy = { link = 'CmpItemAbbrMatch' },
+    CmpItemMenuDefault = { link = 'CmpItemAbbrDefault' },
 
     -- Cmp Item Kind
     CmpItemKindColorDefault = { fg = c.bright_red },
@@ -552,6 +554,9 @@ theme.setup = function(cfg)
     DiffDelete = { fg = c.diff.delete_fg, bg = c.diff.delete },
     DiffText = { link = 'DiffChange' },
     DiffviewFilePanelFileName = { fg = c.fg_light },
+
+    -- nvim-treesitter-context
+    TreesitterContext = { bg = vim.o.background == 'light' and util.lighten(c.blue, 0.9) or util.darken(c.blue, 0.2) },
   }
 
   if cfg.hide_inactive_statusline then
