@@ -439,7 +439,6 @@ theme.setup = function(cfg)
 
     -- BufferLine
     BufferLineIndicatorSelected = { fg = c.blue },
-    BufferLineFill = { bg = c.bg2 },
 
     -- Hop
     -- Deep red color for light themes
