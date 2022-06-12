@@ -1,7 +1,9 @@
 ![github-nvim-theme](https://imgur.com/S6SlCiV.png)
 
 [![Linting](https://github.com/projekt0n/github-nvim-theme/actions/workflows/lint.yml/badge.svg)](https://github.com/projekt0n/github-nvim-theme/actions/workflows/lint.yml)
-[![Twitter](https://img.shields.io/badge/twitter-projekt0n-blue)](https://twitter.com/projekt0n)
+[![Twitter](https://img.shields.io/badge/Notifications-twitter-blue)](https://twitter.com/projekt0n)
+
+**Support project with $1 or more on GitHub Sponsors.**
 
 ## Features
 
@@ -9,7 +11,14 @@
 - Minimal inactive statusline (only work with **Vim's Default StatusLine**)
 - Vim terminal colors
 - Darker background for sidebar-like windows
-- Color configs for [Alacritty](https://github.com/alacritty/alacritty), [Konsole](https://konsole.kde.org/), [Windows Terminal](https://github.com/microsoft/terminal), [Xresources](https://wiki.archlinux.org/title/x_resources), [iTerm2](https://iterm2.com/), [kitty](https://sw.kovidgoyal.net/kitty/conf.html?highlight=include) and [tmux](https://github.com/tmux/tmux/wiki)
+- Color configs for [Alacritty](https://github.com/alacritty/alacritty),
+  [Foot](https://codeberg.org/dnkl/foot),
+  [Konsole](https://konsole.kde.org/),
+  [Windows Terminal](https://github.com/microsoft/terminal),
+  [Xresources](https://wiki.archlinux.org/title/x_resources),
+  [iTerm2](https://iterm2.com/),
+  [kitty](https://sw.kovidgoyal.net/kitty/conf.html?highlight=include)
+  and [tmux](https://github.com/tmux/tmux/wiki)
 - Most elegant [**lualine** theme](./LUALINE.md#screenshots)
 
 ## Requirements
@@ -110,7 +119,8 @@ require("github-theme").setup({
 
 ### Lualine Support
 
-**Note:** `hide_inactive_statusline` option is deprecated for lualine. That means it does not force the underline style to StatusLineNC highlight.
+**Note:** `hide_inactive_statusline` option is deprecated for lualine. That means it does not force the underline
+style to StatusLineNC highlight.
 
 Installation docs and screenshots at [LUALINE.md](./LUALINE.md).
 
@@ -118,15 +128,18 @@ Installation docs and screenshots at [LUALINE.md](./LUALINE.md).
 
 > To generate the configs `make terminal` or `:luafile lua/github-theme/terminal/init.lua`
 
-Extra color configs for **Alacritty**, **Konsole**, **Windows Terminal**, **Xresources**, **iTerm**, **kitty**, and **tmux** can be found in [terminal](terminal/) directory. To use them, refer to their respective documentation.
+Extra color configs for **Alacritty**, **Foot**, **Konsole**, **Windows Terminal**, **Xresources**, **iTerm**,
+**kitty**, and **tmux** can be found in [terminal](terminal/) directory. To use them, refer to their respective
+documentation.
 
-- Alacritty - [terminal/alacritty](https://github.com/projekt0n/github-nvim-theme/tree/main/terminal/alacritty)
-- Konsole - [terminal/konsole](https://github.com/projekt0n/github-nvim-theme/tree/main/terminal/konsole)
-- Windows Terminal - [terminal/windows_terminal](https://github.com/projekt0n/github-nvim-theme/tree/main/terminal/windows_terminal)
-- Xresources - [terminal/xresources](https://github.com/projekt0n/github-nvim-theme/tree/main/terminal/xresources)
-- iTerm - [terminal/iterm](https://github.com/projekt0n/github-nvim-theme/tree/main/terminal/iterm)
-- kitty - [terminal/kitty](https://github.com/projekt0n/github-nvim-theme/tree/main/terminal/kitty)
-- tmux - [terminal/tmux](https://github.com/projekt0n/github-nvim-theme/tree/main/terminal/tmux)
+- Alacritty - [terminal/alacritty](./terminal/alacritty)
+- Foot - [terminal/foot](./terminal/foot)
+- Konsole - [terminal/konsole](./terminal/konsole)
+- Windows Terminal - [terminal/windows_terminal](./terminal/windows_terminal)
+- Xresources - [terminal/xresources](./terminal/xresources)
+- iTerm - [terminal/iterm](./terminal/iterm)
+- kitty - [terminal/kitty](./terminal/kitty)
+- tmux - [terminal/tmux](./terminal/tmux)
 
 ### Making `undercurls` work properly in **Tmux**
 

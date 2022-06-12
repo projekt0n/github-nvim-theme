@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - feat: plugin support [sindrets/diffview.nvim](https://github.com/sindrets/diffview.nvim) fixed #182
 - feat: plugin support [nvim-treesitter/nvim-treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context) fixed #184
+- terminal-theme: foot theme added #183
 
 ### Fixes
 
