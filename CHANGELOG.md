@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - removed html tags from README.md
 - fixed #189
 - fixed #186
+- fixed #190
 
 ## [v0.0.5] - 03 May 2022
 

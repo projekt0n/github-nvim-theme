@@ -50,7 +50,7 @@ require('lualine').setup {
 }
 ```
 
-### Lualine Themes
+### Screenshots
 
 #### github_dark
 

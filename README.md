@@ -3,7 +3,7 @@
 [![Linting](https://github.com/projekt0n/github-nvim-theme/actions/workflows/lint.yml/badge.svg)](https://github.com/projekt0n/github-nvim-theme/actions/workflows/lint.yml)
 [![Twitter](https://img.shields.io/badge/Notifications-twitter-blue)](https://twitter.com/projekt0n)
 
-**Support project with $1 or more on GitHub Sponsors.**
+**Support our work with $1 or more on GitHub Sponsors.**
 
 ## Features
 
@@ -183,7 +183,7 @@ set -as terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{25
 - Font: [JetBrains Mono](https://www.jetbrains.com/lp/mono/)
 - Terminal: [kitty](https://sw.kovidgoyal.net/kitty)
 - Icon: [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
-- StatusLine: **Default**. [dotfiles/nvim/.config/nvim/lua/options.lua#L19-L30](https://github.com/ful1e5/dotfiles/blob/a2777f85b104622dd82f4adfc6ad032e3ff074bf/nvim/.config/nvim/lua/options.lua#L19-L30)
+- StatusLine: **Default**. [config](https://github.com/ful1e5/dotfiles/blob/a2777f85b104622dd82f4adfc6ad032e3ff074bf/nvim/.config/nvim/lua/options.lua#L19-L30)
 - dotfiles: [ful1e5/dotfiles/nvim](https://github.com/ful1e5/dotfiles/tree/main/nvim/.config/nvim)
 
 ### Theme Styles
