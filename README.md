@@ -3,24 +3,6 @@
 [![Linting](https://github.com/projekt0n/github-nvim-theme/actions/workflows/lint.yml/badge.svg)](https://github.com/projekt0n/github-nvim-theme/actions/workflows/lint.yml)
 [![Twitter](https://img.shields.io/badge/Notifications-twitter-blue)](https://twitter.com/projekt0n)
 
-**Support our work with $1 or more on GitHub Sponsors.**
-
-## Features
-
-- Supports the latest Neovim 0.5 features like TreeSitter and LSP
-- Minimal inactive statusline (only work with **Vim's Default StatusLine**)
-- Vim terminal colors
-- Darker background for sidebar-like windows
-- Color configs for [Alacritty](https://github.com/alacritty/alacritty),
-  [Foot](https://codeberg.org/dnkl/foot),
-  [Konsole](https://konsole.kde.org/),
-  [Windows Terminal](https://github.com/microsoft/terminal),
-  [Xresources](https://wiki.archlinux.org/title/x_resources),
-  [iTerm2](https://iterm2.com/),
-  [kitty](https://sw.kovidgoyal.net/kitty/conf.html?highlight=include)
-  and [tmux](https://github.com/tmux/tmux/wiki)
-- Most elegant [**lualine** theme](./LUALINE.md#screenshots)
-
 ## Requirements
 
 - Neovim >= 0.5.0
@@ -29,16 +11,49 @@
 
 Install the theme with your preferred package manager:
 
-[vim-plug](https://github.com/junegunn/vim-plug)
+Install with [vim-plug](https://github.com/junegunn/vim-plug):
 
 ```vim
 Plug 'projekt0n/github-nvim-theme'
 ```
 
-[packer](https://github.com/wbthomason/packer.nvim)
+Or with [dein](https://github.com/Shougo/dein.vim):
+
+```vim
+call dein#add('projekt0n/github-nvim-theme')
+```
+
+Or with [minpac](https://github.com/k-takata/minpac):
+
+```vim
+call minpac#add('projekt0n/github-nvim-theme')
+```
+
+Or with [Vundle](https://github.com/vundlevim/vundle.vim):
+
+Place this in your `.vimrc` or `init.vim`,
+
+```vim
+Plugin 'projekt0n/github-nvim-theme'
+```
+
+Or with [Packer.nvim](https://github.com/wbthomason/packer.nvim):
+
+Add this in your `init.lua` or `plugins.lua`
 
 ```lua
-use "projekt0n/github-nvim-theme"
+-- Install without configuration
+use ({ 'projekt0n/github-nvim-theme' })
+
+-- Or with configuration
+use({
+  'projekt0n/github-nvim-theme',
+  config = function()
+    require('github-theme').setup({
+      -- ...
+    })
+  end
+})
 ```
 
 ## Usage
@@ -117,6 +132,46 @@ require("github-theme").setup({
 })
 ```
 
+## Features
+
+- Supports the latest Neovim>=0.5 features like TreeSitter and LSP
+- Minimal inactive statusline (only work with Vim's Default StatusLine)
+- Vim terminal colors
+- Darker background for sidebar-like windows
+- Most elegant lualine theme
+- Color configs for [Alacritty](https://github.com/alacritty/alacritty),
+  [Foot](https://codeberg.org/dnkl/foot),
+  [Konsole](https://konsole.kde.org/),
+  [Windows Terminal](https://github.com/microsoft/terminal),
+  [Xresources](https://wiki.archlinux.org/title/x_resources),
+  [iTerm2](https://iterm2.com/),
+  [kitty](https://sw.kovidgoyal.net/kitty/conf.html?highlight=include), and
+  [tmux](https://github.com/tmux/tmux/wiki)
+- Plugin Support
+  [Builtin lsp diagnostics](https://neovim.io/doc/user/lsp.html),
+  [ale](https://github.com/dense-analysis/ale),
+  [circles.nvim](https://github.com/projekt0n/circles.nvim),
+  [coc.nvim](https://github.com/neoclide/coc.nvim),
+  [dashboard-nvim](https://github.com/glepnir/dashboard-nvim),
+  [diffview.nvim](https://github.com/sindrets/diffview.nvim),
+  [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim),
+  [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim),
+  [lsp-trouble.nvim](https://github.com/folke/lsp-trouble.nvim),
+  [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim),
+  [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim),
+  [neogit](https://github.com/TimUntersberger/neogit),
+  [nvim-bufferline.lua](https://github.com/akinsho/nvim-bufferline.lua),
+  [nvim-cmp](https://github.com/hrsh7th/nvim-cmp),
+  [nvim-compe](https://github.com/hrsh7th/nvim-compe),
+  [nvim-notify](https://github.com/rcarriga/nvim-notify),
+  [nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua),
+  [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter),
+  [nvim-treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context),
+  [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons),
+  [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim),
+  [vim-gitgutter](https://github.com/airblade/vim-gitgutter), and
+  [which-key.nvim](https://github.com/folke/which-key.nvim)
+
 ### Lualine Support
 
 **Note:** `hide_inactive_statusline` option is deprecated for lualine. That means it does not force the underline
@@ -152,39 +207,18 @@ set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'  # undercurl support
 set -as terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d%;m'  # underscore colours - needs tmux-3.0
 ```
 
-## Plugin Support
-
-[Builtin lsp diagnostics](https://neovim.io/doc/user/lsp.html) ·
-[dense-analysis/ale](https://github.com/dense-analysis/ale) ·
-[projekt0n/circles.nvim](https://github.com/projekt0n/circles.nvim) ·
-[neoclide/coc.nvim](https://github.com/neoclide/coc.nvim) ·
-[glepnir/dashboard-nvim](https://github.com/glepnir/dashboard-nvim) ·
-[sindrets/diffview.nvim](https://github.com/sindrets/diffview.nvim) ·
-[lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) ·
-[lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim) ·
-[folke/lsp-trouble.nvim](https://github.com/folke/lsp-trouble.nvim) ·
-[glepnir/lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim) ·
-[nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) ·
-[TimUntersberger/neogit](https://github.com/TimUntersberger/neogit) ·
-[akinsho/nvim-bufferline.lua](https://github.com/akinsho/nvim-bufferline.lua) ·
-[hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp) ·
-[hrsh7th/nvim-compe](https://github.com/hrsh7th/nvim-compe) ·
-[rcarriga/nvim-notify](https://github.com/rcarriga/nvim-notify) ·
-[kyazdani42/nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua) ·
-[nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) ·
-[nvim-treesitter/nvim-treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context) ·
-[kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons) ·
-[nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) ·
-[airblade/vim-gitgutter](https://github.com/airblade/vim-gitgutter) ·
-[folke/which-key.nvim](https://github.com/folke/which-key.nvim)
-
 ## Screenshots
 
-- Font: [JetBrains Mono](https://www.jetbrains.com/lp/mono/)
-- Terminal: [kitty](https://sw.kovidgoyal.net/kitty)
-- Icon: [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
-- StatusLine: **Default**. [config](https://github.com/ful1e5/dotfiles/blob/a2777f85b104622dd82f4adfc6ad032e3ff074bf/nvim/.config/nvim/lua/options.lua#L19-L30)
-- dotfiles: [ful1e5/dotfiles/nvim](https://github.com/ful1e5/dotfiles/tree/main/nvim/.config/nvim)
+- Font:
+  [JetBrains Mono](https://www.jetbrains.com/lp/mono/)
+- Terminal:
+  [kitty](https://sw.kovidgoyal.net/kitty)
+- Icon:
+  [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
+- StatusLine: Default
+  ([.vimrc](https://github.com/ful1e5/dotfiles/blob/a2777f85b104622dd82f4adfc6ad032e3ff074bf/nvim/.config/nvim/lua/options.lua#L19-L30))
+- dotfiles:
+  [ful1e5/dotfiles/nvim](https://github.com/ful1e5/dotfiles/tree/main/nvim/.config/nvim)
 
 ### Theme Styles
 
