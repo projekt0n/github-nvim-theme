@@ -1,4 +1,3 @@
----@diagnostic disable: duplicate-doc-class
 local gt = {}
 
 ---@alias gt.ThemeStyle "'dark'" | "'dark_default'" | "'dark_colorblind'" | "'dimmed'" | "'light'" | "'light_default'" | " 'light_colorblind'"
@@ -36,13 +35,13 @@ gt.TerminalConf.foot = ''
 
 ---@class gt.Highlight
 ---Foreground Color
----@field public fg gt.HexColor|nil
+---@field public fg string?
 ---Background Color
----@field public bg gt.HexColor|nil
+---@field public bg string?
 ---Style Color
----@field public sp gt.HexColor|nil
+---@field public sp string?
 ---Highlight Style
----@field public style gt.HighlightStyle|nil
+---@field public style gt.HighlightStyle?
 
 ---@class gt.LinkHighlight
 ---Existing Highlight

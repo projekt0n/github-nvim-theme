@@ -1,74 +1,72 @@
----@class gt.HexColor string
-
 ---@class gt.LspPalette
----@field public ref_txt gt.HexColor
+---@field public ref_txt string
 
 ---@class gt.PMenuPalette
----@field public bg gt.HexColor
----@field public sbar gt.HexColor
+---@field public bg string
+---@field public sbar string
 
 ---@class gt.GitPalette
----@field public add gt.HexColor
----@field public change gt.HexColor
----@field public delete gt.HexColor
----@field public conflict gt.HexColor
----@field public ignore gt.HexColor
----@field public renamed gt.HexColor
+---@field public add string
+---@field public change string
+---@field public delete string
+---@field public conflict string
+---@field public ignore string
+---@field public renamed string
 
 ---@class gt.DiffPalette
----@field public add gt.HexColor
----@field public add_fg gt.HexColor
----@field public change gt.HexColor
----@field public change_fg gt.HexColor
----@field public delete gt.HexColor
----@field public delete_fg gt.HexColor
+---@field public add string
+---@field public add_fg string
+---@field public change string
+---@field public change_fg string
+---@field public delete string
+---@field public delete_fg string
 
 ---@class gt.SyntaxPalette
----@field public comment gt.HexColor
----@field public constant gt.HexColor
----@field public string gt.HexColor
----@field public variable gt.HexColor
----@field public keyword gt.HexColor
----@field public func gt.HexColor
----@field public func_param gt.HexColor
----@field public match_paren_bg gt.HexColor
----@field public tag gt.HexColor
----@field public html_arg gt.HexColor
----@field public param gt.HexColor
----@field public json_label gt.HexColor
+---@field public comment string
+---@field public constant string
+---@field public string string
+---@field public variable string
+---@field public keyword string
+---@field public func string
+---@field public func_param string
+---@field public match_paren_bg string
+---@field public tag string
+---@field public html_arg string
+---@field public param string
+---@field public json_label string
 
 ---@class gt.GitSignPalette
----@field public add gt.HexColor
----@field public change gt.HexColor
----@field public delete gt.HexColor
+---@field public add string
+---@field public change string
+---@field public delete string
 
 ---@class gt.ColorPalette
 ---NONE Color
----@field public none gt.HexColor
+---@field public none string
 ---Background Colors
----@field public bg gt.HexColor
----@field public bg2 gt.HexColor
+---@field public bg string
+---@field public bg2 string
 ---Foreground Colors
----@field public fg gt.HexColor
----@field public fg_dark gt.HexColor
----@field public fg_gutter gt.HexColor
----@field public fg_light gt.HexColor
----@field public fg_term gt.HexColor
+---@field public fg string
+---@field public fg_dark string
+---@field public fg_gutter string
+---@field public fg_light string
+---@field public fg_term string
 ---Background Highlights Colors
----@field public bg_highlight gt.HexColor
----@field public bg_search gt.HexColor
----@field public bg_visual gt.HexColor
----@field public bg_visual_selection gt.HexColor
----@field public border gt.HexColor
+---@field public bg_highlight string
+---@field public bg_search string
+---@field public bg_visual string
+---@field public bg_visual_selection string
+---@field public border string
 ---Cursor & LineNumber Colors
----@field public cursor gt.HexColor
----@field public cursor_line_nr gt.HexColor
----@field public line_nr gt.HexColor
+---@field public cursor string
+---@field public cursor_line_nr string
+---@field public line_nr string
 ---LSP & Diagnostic Colors
----@field public error gt.HexColor
----@field public warning gt.HexColor
----@field public info gt.HexColor
----@field public hint gt.HexColor
+---@field public error string
+---@field public warning string
+---@field public info string
+---@field public hint string
 ---@field public lsp gt.LspPalette
 ---DropDown Menu Colors
 ---@field public pmenu gt.PMenuPalette
@@ -79,28 +77,28 @@
 ---Syntax Related Colors
 ---@field public syntax gt.SyntaxPalette
 ---Terminal Colors
----@field public orange gt.HexColor
----@field public black gt.HexColor
----@field public bright_black gt.HexColor
----@field public white gt.HexColor
----@field public bright_white gt.HexColor
----@field public red gt.HexColor
----@field public bright_red gt.HexColor
----@field public green gt.HexColor
----@field public bright_green gt.HexColor
----@field public yellow gt.HexColor
----@field public bright_yellow gt.HexColor
----@field public blue gt.HexColor
----@field public bright_blue gt.HexColor
----@field public magenta gt.HexColor
----@field public bright_magenta gt.HexColor
----@field public cyan gt.HexColor
----@field public bright_cyan gt.HexColor
+---@field public orange string
+---@field public black string
+---@field public bright_black string
+---@field public white string
+---@field public bright_white string
+---@field public red string
+---@field public bright_red string
+---@field public green string
+---@field public bright_green string
+---@field public yellow string
+---@field public bright_yellow string
+---@field public blue string
+---@field public bright_blue string
+---@field public magenta string
+---@field public bright_magenta string
+---@field public cyan string
+---@field public bright_cyan string
 ---Configurable Dynamic Colors
----@field public sidebar_eob gt.HexColor
----@field public eob gt.HexColor
----@field public bg_nc_statusline gt.HexColor
----@field public bg_sidebar gt.HexColor
----@field public bg_float gt.HexColor
+---@field public sidebar_eob string
+---@field public eob string
+---@field public bg_nc_statusline string
+---@field public bg_sidebar string
+---@field public bg_float string
 ---GitSign Plugin Colors
 ---@field public git_signs gt.GitSignPalette
