@@ -558,10 +558,63 @@ theme.setup = function(cfg)
 
     -- nvim-treesitter-context
     TreesitterContext = { bg = vim.o.background == 'light' and util.lighten(c.blue, 0.9) or util.darken(c.blue, 0.2) },
+
+    -- mini.nvim
+    MiniCompletionActiveParameter = { style = Styles.Underline },
+
+    MiniCursorword = { bg = c.lsp.ref_txt },
+    MiniCursorwordCurrent = { bg = c.lsp.ref_txt },
+
+    MiniIndentscopeSymbol = { link = 'Delimiter' },
+    MiniIndentscopePrefix = { style = Styles.NoCombine }, -- Make it invisible
+
+    MiniJump = { link = 'SpellRare' },
+
+    MiniJump2dSpot = { fg = vim.o.background == 'light' and c.bright_red or c.magenta, style = Styles.Bold },
+
+    MiniStarterCurrent = { style = Styles.NoCombine },
+    MiniStarterFooter = { fg = c.bright_white, style = Styles.Italic },
+    MiniStarterHeader = { fg = c.blue },
+    MiniStarterInactive = { link = 'Comment' },
+    MiniStarterItem = { link = 'Normal' },
+    MiniStarterItemBullet = { fg = c.border },
+    MiniStarterItemPrefix = { fg = c.warning },
+    MiniStarterSection = { link = 'Special' },
+    MiniStarterQuery = { fg = c.info },
+
+    MiniStatuslineDevinfo = { fg = c.fg, bg = c.bg_highlight },
+    MiniStatuslineFileinfo = { fg = c.fg, bg = c.bg_highlight },
+    MiniStatuslineFilename = { fg = util.darken(c.fg, 0.5), bg = c.bg },
+    MiniStatuslineInactive = { bg = c.bg2, fg = util.darken(c.fg, 0.3) },
+    MiniStatuslineModeCommand = { fg = c.bg, bg = c.bright_magenta, style = Styles.Bold },
+    MiniStatuslineModeInsert = { fg = c.bg, bg = c.green, style = Styles.Bold },
+    MiniStatuslineModeNormal = { fg = c.bg, bg = c.blue, style = Styles.Bold },
+    MiniStatuslineModeOther = { fg = c.bg, bg = c.orange, style = Styles.Bold },
+    MiniStatuslineModeReplace = { fg = c.bg, bg = c.red, style = Styles.Bold },
+    MiniStatuslineModeVisual = { fg = c.bg, bg = c.yellow, style = Styles.Bold },
+
+    MiniSurround = { link = 'IncSearch' },
+
+    MiniTablineCurrent = { fg = c.pmenu.bg, bg = util.darken(c.bright_blue, 0.75), style = Styles.Bold },
+    MiniTablineFill = { link = 'TabLineFill' },
+    MiniTablineHidden = { fg = c.fg, bg = c.bg },
+    MiniTablineModifiedCurrent = { fg = util.darken(c.bright_blue, 0.75), bg = c.pmenu.bg, style = Styles.Bold },
+    MiniTablineModifiedHidden = { fg = c.bg, bg = c.fg },
+    MiniTablineModifiedVisible = { fg = util.darken(c.bright_blue, 0.5), bg = c.pmenu.bg },
+    MiniTablineTabpagesection = { fg = c.none, bg = c.bg_search, style = Styles.Bold },
+    MiniTablineVisible = { fg = c.pmenu.bg, bg = util.darken(c.bright_blue, 0.5) },
+
+    MiniTestEmphasis = { style = Styles.Bold },
+    MiniTestFail = { fg = c.red, style = Styles.Bold },
+    MiniTestPass = { fg = c.green, style = Styles.Bold },
+
+    MiniTrailspace = { bg = c.red },
   }
 
   if cfg.hide_inactive_statusline then
-    hi.base.StatusLineNC = { fg = c.bg, bg = c.bg, sp = c.bg_visual, style = Styles.Underline }
+    local inactive = { fg = c.bg, bg = c.bg, sp = c.bg_visual, style = Styles.Underline }
+    hi.base.StatusLineNC = inactive
+    hi.plugins.MiniStatuslineInactive = inactive
   end
 
   return hi
