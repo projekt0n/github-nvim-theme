@@ -6,17 +6,17 @@ local util = {}
 ---@type string
 util.colors_name = ''
 
----@type table<number, gt.HexColor>
+---@type table<number, string>
 util.used_color = {}
 
----@type gt.HexColor
+---@type string
 util.bg = '#000000'
 
----@type gt.HexColor
+---@type string
 util.fg = '#ffffff'
 
 ---Convert HexColor to RGB
----@param hex_str gt.HexColor
+---@param hex_str string
 ---@return table<number, number>
 local hex_to_rgb = function(hex_str)
   local hex = '[abcdef0-9][abcdef0-9]'
@@ -29,10 +29,10 @@ local hex_to_rgb = function(hex_str)
   return { tonumber(r, 16), tonumber(g, 16), tonumber(b, 16) }
 end
 
----@param fg gt.HexColor foreground color
----@param bg gt.HexColor background color
+---@param fg string foreground color
+---@param bg string background color
 ---@param alpha number number between 0 and 1. 0 results in bg, 1 results in fg
----@return gt.HexColor
+---@return string
 util.blend = function(fg, bg, alpha)
   bg = hex_to_rgb(bg)
   fg = hex_to_rgb(fg)
@@ -45,18 +45,18 @@ util.blend = function(fg, bg, alpha)
   return string.format('#%02X%02X%02X', blend_channel(1), blend_channel(2), blend_channel(3))
 end
 
----@param hex gt.HexColor Color
+---@param hex string Color
 ---@param amount number number between 0 and 1. 0 results in bg, 1 results in fg
----@param bg gt.HexColor Background color
----@return gt.HexColor
+---@param bg string? Background color
+---@return string?
 util.darken = function(hex, amount, bg)
   return util.blend(hex, bg or util.bg, math.abs(amount))
 end
 
----@param hex gt.HexColor Color
+---@param hex string Color
 ---@param amount number number between 0 and 1. 0 results in bg, 1 results in fg
----@param fg gt.HexColor Foreground color
----@return gt.HexColor
+---@param fg string? Foreground color
+---@return string
 util.lighten = function(hex, amount, fg)
   return util.blend(hex, fg or util.fg, math.abs(amount))
 end

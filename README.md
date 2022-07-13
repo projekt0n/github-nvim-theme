@@ -159,6 +159,7 @@ require("github-theme").setup({
   [lsp-trouble.nvim](https://github.com/folke/lsp-trouble.nvim),
   [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim),
   [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim),
+  [mini.nvim](https://github.com/echasnovski/mini.nvim),
   [neogit](https://github.com/TimUntersberger/neogit),
   [nvim-bufferline.lua](https://github.com/akinsho/nvim-bufferline.lua),
   [nvim-cmp](https://github.com/hrsh7th/nvim-cmp),

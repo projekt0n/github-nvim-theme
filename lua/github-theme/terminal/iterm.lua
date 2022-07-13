@@ -3,8 +3,8 @@ local util = require('github-theme.util')
 
 ---Sort table
 ---@param t table
----@param f function
----@return table sorted table according to function.
+---@param f? function
+---@return function Sorted table according to function.
 local kpairs = function(t, f)
   local a = {}
   for n in pairs(t) do
@@ -28,7 +28,9 @@ end
 ---@return table rgb color in form of lua table.
 local rgb = function(hex)
   local _, r, g, b = hex:match('(.)(..)(..)(..)')
-  r, g, b = string.format('%0.16f', (tonumber(r, 16) / 255)), string.format('%0.16f', (tonumber(g, 16) / 255)), string.format('%0.16f', (tonumber(b, 16) / 255))
+  r = string.format('%0.16f', (tonumber(r, 16) / 255))
+  g = string.format('%0.16f', (tonumber(g, 16) / 255))
+  b = string.format('%0.16f', (tonumber(b, 16) / 255))
   return { r = r, g = g, b = b }
 end
 

@@ -7,9 +7,13 @@ local types = require('github-theme.types')
 ---@param file_name string path of file.
 local function write(str, file_name)
   print('[write]' .. file_name)
-  local file = io.open(file_name, 'w')
-  file:write(str)
-  file:close()
+  local f = io.open(file_name, 'w')
+  if f ~= nil then
+    f:write(str)
+    f:close()
+  else
+    print('[error]' .. file_name)
+  end
 end
 
 for _, style in pairs(types.gt.ThemeStyle) do
