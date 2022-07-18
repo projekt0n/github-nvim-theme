@@ -15,13 +15,13 @@ lualine.build_lualine_theme = function(c)
     }
     if vim.o.background == 'dark' then
       group.c = {
-        bg = util.darken(color, 0, c.bg),
+        bg = util.darken(color, 0.01, c.bg2),
         fg = util.lighten(color, 0.4, c.fg),
       }
     else
       -- inverting colors for light colorschemes
       group.c = {
-        bg = util.lighten(color, 0, c.bg),
+        bg = util.lighten(color, 0.01, c.bg2),
         fg = util.darken(color, 0.4, c.fg),
       }
     end
