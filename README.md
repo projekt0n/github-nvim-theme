@@ -1,7 +1,13 @@
 ![github-nvim-theme](https://imgur.com/S6SlCiV.png)
 
-[![Linting](https://github.com/projekt0n/github-nvim-theme/actions/workflows/lint.yml/badge.svg)](https://github.com/projekt0n/github-nvim-theme/actions/workflows/lint.yml)
-[![Twitter](https://img.shields.io/badge/Notifications-twitter-blue)](https://twitter.com/projekt0n)
+## Notices
+
+- **2021-12-13** `hide_inactive_statusline` option is deprecated for lualine.
+  That means it does not force the underline style to `StatusLineNC` highlight. #148
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md)
 
 ## Requirements
 
@@ -174,9 +180,6 @@ require("github-theme").setup({
   [which-key.nvim](https://github.com/folke/which-key.nvim)
 
 ### Lualine Support
-
-**Note:** `hide_inactive_statusline` option is deprecated for lualine. That means it does not force the underline
-style to StatusLineNC highlight.
 
 Installation docs and screenshots at [LUALINE.md](./LUALINE.md).
 
@@ -414,3 +417,11 @@ require("github-theme").setup({
 ### Telescope
 
 ![github_telescope](https://imgur.com/XX7tixL.png)
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md)
+
+## License
+
+This project licensed under `MIT` License.

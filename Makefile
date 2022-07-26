@@ -8,9 +8,6 @@ terminal: $(src)/terminal
 fmt:
 	stylua --config-path stylua.toml --glob 'lua/**/*.lua' -- lua
 
-lint: $(src)
-	luacheck $(src)
-
 # reload kitty theme
 # https://github.com/ful1e5/dotfiles
 kitty_theme = ~/.dotfiles/kitty/.config/kitty/themes/github.conf
