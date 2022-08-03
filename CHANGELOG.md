@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - terminal-theme: foot theme added #183
 - Added `NvimTreeOpenedeFile` highlight
 - feat: plugin support [echasnovski/mini.nvim](https://github.com/echasnovski/mini.nvim)
+- feat: plugin support [romgrk/barbar.nvim](https://github.com/romgrk/barbar.nvim)
 
 ### Fixes
 
