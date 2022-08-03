@@ -2,12 +2,12 @@
 
 ## Notices
 
-- **2021-12-13** `hide_inactive_statusline` option is deprecated for lualine.
-  That means it does not force the underline style to `StatusLineNC` highlight. #148
+Subscribe to this [discussion](https://github.com/projekt0n/github-nvim-theme/discussions/198)
+or `:h github-theme-changelog` to receive updates on breaking changes and deprecations.
 
-## Changelog
-
-See [CHANGELOG.md](CHANGELOG.md)
+- **2022-08-03**: Terminal and other themes have been moved to
+  **[github-theme-contrib](https://github.com/projekt0n/github-theme-contrib)**
+  git repository and related code have been removed from this repository.
 
 ## Requirements
 
@@ -145,14 +145,6 @@ require("github-theme").setup({
 - Vim terminal colors
 - Darker background for sidebar-like windows
 - Most elegant lualine theme
-- Color configs for [Alacritty](https://github.com/alacritty/alacritty),
-  [Foot](https://codeberg.org/dnkl/foot),
-  [Konsole](https://konsole.kde.org/),
-  [Windows Terminal](https://github.com/microsoft/terminal),
-  [Xresources](https://wiki.archlinux.org/title/x_resources),
-  [iTerm2](https://iterm2.com/),
-  [kitty](https://sw.kovidgoyal.net/kitty/conf.html?highlight=include), and
-  [tmux](https://github.com/tmux/tmux/wiki)
 - Plugin Support
   [Builtin lsp diagnostics](https://neovim.io/doc/user/lsp.html),
   [ale](https://github.com/dense-analysis/ale),
@@ -185,20 +177,8 @@ Installation docs and screenshots at [LUALINE.md](./LUALINE.md).
 
 ## Terminal Themes
 
-> To generate the configs `make terminal` or `:luafile lua/github-theme/terminal/init.lua`
-
-Extra color configs for **Alacritty**, **Foot**, **Konsole**, **Windows Terminal**, **Xresources**, **iTerm**,
-**kitty**, and **tmux** can be found in [terminal](terminal/) directory. To use them, refer to their respective
-documentation.
-
-- Alacritty - [terminal/alacritty](./terminal/alacritty)
-- Foot - [terminal/foot](./terminal/foot)
-- Konsole - [terminal/konsole](./terminal/konsole)
-- Windows Terminal - [terminal/windows_terminal](./terminal/windows_terminal)
-- Xresources - [terminal/xresources](./terminal/xresources)
-- iTerm - [terminal/iterm](./terminal/iterm)
-- kitty - [terminal/kitty](./terminal/kitty)
-- tmux - [terminal/tmux](./terminal/tmux)
+Moved to **[projekt0n/github-theme-contrib](https://github.com/projekt0n/github-theme-contrib)**
+git repository
 
 ### Making `undercurls` work properly in **Tmux**
 
@@ -418,10 +398,14 @@ require("github-theme").setup({
 
 ![github_telescope](https://imgur.com/XX7tixL.png)
 
+## Changelog
+
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md)
+See [CONTRIBUTING.md](./CONTRIBUTING.md)
 
-## License
+## Copying
 
-This project licensed under `MIT` License.
+This project is released under the terms of the MIT license.
+See [LICENCE](./LICENSE) for more information or see
+[opensource.org](https://opensource.org/licenses/MIT)

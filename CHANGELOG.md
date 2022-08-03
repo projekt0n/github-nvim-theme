@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+### Changes
+
+- Terminal Themes moved to
+  [github-theme-contrib](https://github.com/projekt0n/github-theme-contrib)
+- Terminal themes related code removed
+
 ### Added
 
 - feat: plugin support [sindrets/diffview.nvim](https://github.com/sindrets/diffview.nvim) fixed #182
@@ -15,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `NvimTreeOpenedeFile` highlight
 - feat: plugin support [echasnovski/mini.nvim](https://github.com/echasnovski/mini.nvim)
 - feat: plugin support [romgrk/barbar.nvim](https://github.com/romgrk/barbar.nvim)
+- docs: Breaking Change logs with `:h github-theme-changelog`
 
 ### Fixes
 

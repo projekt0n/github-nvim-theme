@@ -34,11 +34,11 @@ end
 ---@param alpha number number between 0 and 1. 0 results in bg, 1 results in fg
 ---@return string
 util.blend = function(fg, bg, alpha)
-  bg = hex_to_rgb(bg)
-  fg = hex_to_rgb(fg)
+  local bg_rgb = hex_to_rgb(bg)
+  local fg_rgb = hex_to_rgb(fg)
 
   local blend_channel = function(i)
-    local ret = (alpha * fg[i] + ((1 - alpha) * bg[i]))
+    local ret = (alpha * fg_rgb[i] + ((1 - alpha) * bg_rgb[i]))
     return math.floor(math.min(math.max(0, ret), 255) + 0.5)
   end
 
@@ -108,7 +108,7 @@ util.highlight = function(hi_name, hi)
   end
 end
 
----@param base gt.Highlights.Base
+---@param base gt.Highlights.Base|gt.Highlights.Plugins
 util.syntax = function(base)
   for hi_name, hi in pairs(base) do
     util.highlight(hi_name, hi)
@@ -213,18 +213,6 @@ function util.color_overrides(colors, oride_colors)
     end
   end
   return colors
-end
-
----Simple string interpolation.
----
----Example template: "${name} is ${value}"
----
----@param str string template string
----@param table table key value pairs to replace in the string
-util.template = function(str, table)
-  return (str:gsub('($%b{})', function(w)
-    return table[w:sub(3, -2)] or w
-  end))
 end
 
 return util

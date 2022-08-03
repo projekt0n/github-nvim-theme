@@ -1,0 +1,35 @@
+=====================================================================================
+                                                            *github-theme.changelog*
+
+# Changelog
+
+                                                        *github-theme.changelog-03082022*
+
+Date: August 03, 2022
+
+Terminal themes moved to projekt0n/github-theme-contrib repo and all related
+code have been removed from this repository.
+
+URL: https://github.com/projekt0n/github-theme-contrib
+
+
+
+                                                        *github-theme.changelog-13122021*
+
+Date: December 13, 2021
+PR: https://github.com/projekt0n/github-nvim-theme/pull/148
+
+This small change is made for differentiate the inactive Statusline and
+tabline from the background.
+
+A list of changes that have been made:
+
+- Minimal look deprecated for |lualine|.
+    This deprecation is related to `hide_inactive_statusline` option. This
+    means the theme will not force the |underline| style to inactive lualine.
+- Native lualine theme support terminal highlights |terminal-config|
+- Inactive tabline highlights got enhanced.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:
