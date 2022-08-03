@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+## [v0.0.6] - 03 Aug 2022
+
 ### Changes
 
 - Terminal Themes moved to

@@ -398,8 +398,6 @@ require("github-theme").setup({
 
 ![github_telescope](https://imgur.com/XX7tixL.png)
 
-## Changelog
-
 ## Contributing
 
 See [CONTRIBUTING.md](./CONTRIBUTING.md)
