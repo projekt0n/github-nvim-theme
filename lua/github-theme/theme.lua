@@ -568,6 +568,10 @@ theme.setup = function(cfg)
     CocHighlightText = { bg = c.bg_visual_selection },
     CocUnderline = { style = Styles.Undercurl },
 
+    CocPumMenu = { link = 'Pmenu' },
+    CocPumVirtualText = { link = 'Comment' },
+    CocMenuSel = { link = 'PmenuSel' },
+
     -- DiffView
     DiffAdd = { fg = c.diff.add_fg, bg = c.diff.add },
     DiffChange = { fg = c.diff.change_fg, bg = c.diff.change },
