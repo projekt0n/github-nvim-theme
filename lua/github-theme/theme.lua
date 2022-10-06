@@ -439,7 +439,8 @@ theme.setup = function(cfg)
     healthWarning = { fg = c.warning },
 
     -- BufferLine
-    BufferLineIndicatorSelected = { fg = c.blue },
+    BufferLineIndicatorSelected = { fg = c.syntax.param },
+    BufferLineBackground = { fg = c.syntax.comment },
 
     -- Hop
     -- Deep red color for light themes
