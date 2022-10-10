@@ -633,6 +633,13 @@ theme.setup = function(cfg)
     MiniTestPass = { fg = c.green, style = Styles.Bold },
 
     MiniTrailspace = { bg = c.red },
+
+    -- indent-blankline.nvim
+    IndentBlanklineChar = { fg = util.darken(c.syntax.comment, 0.2) },
+    IndentBlanklineSpaceChar = { fg = util.darken(c.syntax.comment, 0.2) },
+    IndentBlanklineSpaceCharBlankline = { fg = util.darken(c.syntax.comment, 0.2) },
+    IndentBlanklineContextChar = { fg = c.fg },
+    IndentBlanklineContextStart = { sp = c.fg, underline = true },
   }
 
   if cfg.hide_inactive_statusline then
