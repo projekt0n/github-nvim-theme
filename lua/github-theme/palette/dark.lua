@@ -72,7 +72,7 @@ return function()
     orange = '#d18616',
     black = '#545d68',
     bright_black = '#636e7b',
-    white = '#909dab',
+    white = '#d1d5da',
     bright_white = '#cdd9e5',
     red = '#e5534b',
     bright_red = '#ff938a',
