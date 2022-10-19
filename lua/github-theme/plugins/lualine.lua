@@ -31,10 +31,10 @@ lualine.build_lualine_theme = function(c)
   local inactive_hi = { bg = c.bg2, fg = util.darken(c.fg, 0.1) }
   return {
     normal = tint_lualine_group(c.blue),
-    insert = tint_lualine_group(c.bright_green),
-    command = tint_lualine_group(c.bright_magenta),
-    visual = tint_lualine_group(c.bright_yellow),
-    replace = tint_lualine_group(c.bright_red),
+    insert = tint_lualine_group(c.green),
+    command = tint_lualine_group(c.magenta),
+    visual = tint_lualine_group(c.yellow),
+    replace = tint_lualine_group(c.red),
     terminal = tint_lualine_group(c.bright_blue),
     inactive = {
       a = inactive_hi,
