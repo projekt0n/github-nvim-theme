@@ -409,6 +409,7 @@ theme.setup = function(cfg)
     NvimTreeFolderName = { fg = c.fg_light },
     NvimTreeOpenedFolderName = { fg = c.fg_light, style = Styles.Bold },
     NvimTreeOpenedFile = { fg = c.bright_blue },
+    NvimTreeWinSeparator = {fg = c.bg},
 
     -- Git Default
     gitcommitSummary = { fg = c.syntax.tag },
