@@ -393,6 +393,14 @@ theme.setup = function(cfg)
     TelescopeMultiSelection = { fg = c.syntax.comment },
     TelescopeSelection = { bg = c.bg_visual_selection },
 
+    TelescopeSelectionCaret = { fg = c.fg, bg = c.bg_visual_selection },
+    TelescopeNormal = { fg = c.fg, bg = c.bg_float },
+    TelescopePromptTitle = { fg = c.fg, bg = 'NONE' },
+    TelescopeResultsTitle = { fg = c.fg, bg = 'NONE' },
+    TelescopePreviewTitle = { fg = c.fg, bg = 'NONE' },
+    TelescopePromptCounter = { fg = c.bright_blue, bg = 'NONE' },
+    TelescopePreviewHyphen = { fg = c.bright_blue, bg = 'NONE' },
+
     -- NvimTree
     NvimTreeNormal = { fg = c.fg_light, bg = c.bg_sidebar },
     NvimTreeEndOfBuffer = { fg = c.sidebar_eob },
