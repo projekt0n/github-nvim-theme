@@ -403,6 +403,7 @@ theme.setup = function(cfg)
 
     -- NvimTree
     NvimTreeNormal = { fg = c.fg_light, bg = c.bg_sidebar },
+    NvimTreeNormalNC = { fg = c.fg_light, bg = c.bg_sidebar },
     NvimTreeEndOfBuffer = { fg = c.sidebar_eob },
     NvimTreeRootFolder = { fg = c.fg_light, style = Styles.Bold },
     NvimTreeGitDirty = { fg = c.git.change },
