@@ -457,6 +457,10 @@ theme.setup = function(cfg)
     BufferLineIndicatorSelected = { bg = c.bg, fg = c.bg },
     BufferLineIndicatorVisible = { bg = c.bg },
     BufferLineBufferVisible = { fg = c.syntax.comment, bg = c.bg, style = Styles.Bold },
+    BufferLineDuplicate = { fg = c.syntax.comment, bg = c.bg },
+    BufferLineDuplicateVisible = { fg = c.syntax.comment, bg = c.bg },
+    BufferLineDuplicateSelected = { fg = c.fg, bg = c.bg, style = Styles.Bold },
+
 
     -- Hop
     -- Deep red color for light themes
