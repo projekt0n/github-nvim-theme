@@ -77,6 +77,7 @@ theme.setup = function(cfg)
     WarningMsg = { fg = c.warning }, -- warning messages
     Whitespace = { fg = util.darken(c.syntax.comment, 0.4) }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
     WildMenu = { bg = c.bg_visual }, -- current match in 'wildmenu' completion
+    WinSeparator = { bg = c.bg_sidebar, fg = c.bg_sidebar },
     -- These groups are not listed as default vim groups,
     -- but they are defacto standard group names for syntax highlighting.
     -- commented out groups should chain up to their "preferred" group by
