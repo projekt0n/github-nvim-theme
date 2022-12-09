@@ -15,7 +15,7 @@ lualine.build_lualine_theme = function(c)
     }
     if vim.o.background == 'dark' then
       group.c = {
-        bg = c.bg2,
+        bg = c.bg_sidebar,
         fg = util.lighten(color, 0.1, c.fg),
       }
     else

@@ -24,7 +24,8 @@ colors.setup = function(cfg)
   c.eob = cfg.hide_end_of_buffer and c.bg or c.fg_gutter
 
   -- Sidebar and Floats
-  c.bg_sidebar = cfg.dark_sidebar and c.bg2 or c.bg
+  local bg_sidebar = cfg.dark_sidebar and c.bg2 or c.bg
+  c.bg_sidebar = util.lighten(bg_sidebar, 0.95)
   c.bg_sidebar = cfg.transparent and c.none or c.bg_sidebar
   c.bg_float = cfg.dark_float and c.bg2 or c.bg
 

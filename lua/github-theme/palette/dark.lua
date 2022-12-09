@@ -1,3 +1,5 @@
+local util = require('github-theme.util')
+
 return function()
   ---@type gt.ColorPalette
   local palette = {
@@ -37,7 +39,7 @@ return function()
     -- Git & Diff Colors
     git = {
       add = '#57ab5a',
-      change = '#daaa3f',
+      change = util.lighten('#daaa3f', 0.9),
       delete = '#e5534b',
       conflict = '#daaa3f',
       ignore = '#545d68',

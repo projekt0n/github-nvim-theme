@@ -408,11 +408,10 @@ theme.setup = function(cfg)
     NvimTreeEndOfBuffer = { fg = c.sidebar_eob },
     NvimTreeRootFolder = { fg = c.fg_light, style = Styles.Bold },
     NvimTreeGitDirty = { fg = c.git.change },
-    NvimTreeGitNew = { fg = c.git.add },
+    NvimTreeGitNew = { fg = util.lighten(c.git.add, 0.8) },
     NvimTreeGitRenamed = { fg = c.git.renamed },
     NvimTreeGitDeleted = { fg = c.git.delete },
     NvimTreeGitIgnored = { fg = c.syntax.comment },
-    NvimTreeSpecialFile = { fg = c.yellow, style = Styles.Underline },
     NvimTreeIndentMarker = { fg = c.syntax.comment },
     NvimTreeImageFile = { fg = c.bright_yellow },
     NvimTreeSymlink = { fg = c.magenta },
@@ -420,6 +419,10 @@ theme.setup = function(cfg)
     NvimTreeOpenedFolderName = { fg = c.fg_light, style = Styles.Bold },
     NvimTreeOpenedFile = { fg = c.bright_blue },
     NvimTreeWinSeparator = { fg = c.bg },
+    NvimTreeExecFile = { fg = c.fg_light, bg = c.bg_sidebar },
+    NvimTreeSpecialFile = { fg = c.fg_light },
+    NvimTreeCursorLine = { bg = util.lighten(c.bg_sidebar, 0.9)},
+    NvimTreeFileStaged = { fg = c.git.add },
 
     -- Git Default
     gitcommitSummary = { fg = c.syntax.tag },
@@ -460,7 +463,6 @@ theme.setup = function(cfg)
     BufferLineDuplicate = { fg = c.syntax.comment, bg = c.bg },
     BufferLineDuplicateVisible = { fg = c.syntax.comment, bg = c.bg },
     BufferLineDuplicateSelected = { fg = c.fg, bg = c.bg, style = Styles.Bold },
-
 
     -- Hop
     -- Deep red color for light themes
