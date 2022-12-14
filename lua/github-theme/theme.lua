@@ -419,7 +419,7 @@ theme.setup = function(cfg)
     NvimTreeOpenedFolderName = { fg = c.fg_light, style = Styles.Bold },
     NvimTreeOpenedFile = { fg = c.bright_blue },
     NvimTreeWinSeparator = { fg = c.bg },
-    NvimTreeExecFile = { fg = c.fg_light, bg = c.bg_sidebar },
+    NvimTreeExecFile = { fg = c.fg_light},
     NvimTreeSpecialFile = { fg = c.fg_light },
     NvimTreeCursorLine = { bg = util.lighten(c.bg_sidebar, 0.9)},
     NvimTreeFileStaged = { fg = c.git.add },
