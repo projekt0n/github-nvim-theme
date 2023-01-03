@@ -2,6 +2,10 @@
 
 ## Notices
 
+> **Note**
+> Planned major code refactor for upcoming version of neovim (0.9).
+> Discussion on GitHub soon. All features and bug fixes on hold.
+
 Subscribe to this [discussion](https://github.com/projekt0n/github-nvim-theme/discussions/198)
 or `:h github-theme-changelog` to receive updates on breaking changes and deprecations.
 

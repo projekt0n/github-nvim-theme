@@ -3,6 +3,25 @@
 
 # Changelog
 
+                                                        *github-theme.changelog-03012023*
+
+Date: January 03, 2023
+
+PR: https://github.com/projekt0n/github-nvim-theme/pull/222
+
+I (ful1e5) wanted to let you know that we now have support for new treesitter
+highlighting groups, thanks to a contribution from |@luisiacc|. If you are
+using an older version of treesitter, please switch to the `v0.6` release tag,
+which is the last version for you to take advantage of the old treesitter
+highlights. We will continue to develop and support these new highlighting
+groups going forward.
+
+In addition, I am planning a major refactor of the codebase to make it
+compatible with |Neovim-0.9| and will be starting a discussion on GitHub soon.
+To ensure that the community is aware of any major changes before they are
+implemented, I will provide advance warning before any potentially breaking
+changes are pushed to upstream.
+
                                                         *github-theme.changelog-03082022*
 
 Date: August 03, 2022

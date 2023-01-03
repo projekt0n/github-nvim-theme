@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+### Changes
+
+- merged: #222
+- Fixed #214
+
 ## [v0.0.6] - 03 Aug 2022
 
 ### Changes
@@ -220,7 +225,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release 🎊
 
-[unreleased]: https://github.com/projekt0n/github-nvim-theme/compare/v0.0.5...main
+[unreleased]: https://github.com/projekt0n/github-nvim-theme/compare/v0.0.6...main
+[v0.0.6]: https://github.com/projekt0n/github-nvim-theme/compare/v0.0.6...v0.0.5
 [v0.0.5]: https://github.com/projekt0n/github-nvim-theme/compare/v0.0.5...v0.0.4
 [v0.0.4]: https://github.com/projekt0n/github-nvim-theme/compare/v0.0.4...v0.0.3
 [v0.0.3]: https://github.com/projekt0n/github-nvim-theme/compare/v0.0.3...v0.0.2
