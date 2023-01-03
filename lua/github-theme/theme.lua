@@ -134,7 +134,7 @@ theme.setup = function(cfg)
     mkdCodeStart = { fg = c.syntax.variable, style = Styles.Bold },
     mkdCodeEnd = { fg = c.syntax.variable, style = Styles.Bold },
     markdownHeadingDelimiter = { fg = c.syntax.variable, style = Styles.Bold },
-    markdownTSTextReference = { link = 'Title' },
+    ['@text.reference.markdown'] = { link = 'Title' },
     markdownH1 = { fg = c.syntax.variable, style = Styles.Bold },
     markdownH2 = { fg = c.syntax.variable, style = Styles.Bold },
     markdownH3 = { fg = c.syntax.variable, style = Styles.Bold },
@@ -201,50 +201,50 @@ theme.setup = function(cfg)
     -- TSBoolean           = { };    -- For booleans.
     -- TSCharacter         = { };    -- For characters.
     -- TSComment           = { };    -- For comment blocks.
-    TSNote = { fg = c.bg, bg = c.info },
-    TSWarning = { fg = c.bg, bg = c.warning },
-    TSDanger = { fg = c.bg, bg = c.error },
-    TSConstructor = { fg = c.syntax.variable }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
+    ['@note'] = { fg = c.bg, bg = c.info },
+    ['@warning'] = { fg = c.bg, bg = c.warning },
+    ['@danger'] = { fg = c.bg, bg = c.error },
+    ['@constructor'] = { fg = c.syntax.variable }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
     -- TSConditional       = { };    -- For keywords related to conditionnals.
-    TSConstant = { fg = c.syntax.constant }, -- For constants
-    commentTSConstant = { fg = c.syntax.keyword },
+    ['@constant'] = { fg = c.syntax.constant }, -- For constants
+    ['@constant.comment'] = { fg = c.syntax.keyword },
     -- TSConstBuiltin      = { };    -- For constant that are built in the language: `nil` in Lua.
     -- TSConstMacro        = { };    -- For constants that are defined by macros: `NULL` in C.
     -- TSError             = { };    -- For syntax/parser errors.
     -- TSException         = { };    -- For exception related keywords.
-    TSField = { fg = c.fg }, -- For fields.
+    ['@field'] = { fg = c.fg }, -- For fields.
     -- TSFloat             = { };    -- For floats.
-    -- TSFunction          = { };    -- For function (calls and definitions).
+    ['@function'] = { fg = c.syntax.func }, -- For function (calls and definitions).
     -- TSFuncBuiltin       = { };    -- For builtin functions: `table.insert` in Lua.
     -- TSFuncMacro         = { };    -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
-    TSInclude = { fg = c.syntax.keyword }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
-    TSKeyword = { fg = c.syntax.keyword, style = cfg.keyword_style }, -- For keywords that don't fall in previous categories.
-    TSKeywordFunction = { fg = c.syntax.keyword, style = cfg.function_style }, -- For keywords used to define a fuction.
-    TSLabel = { fg = c.blue }, -- For labels: `label:` in C and `:label:` in Lua.
+    ['@include'] = { fg = c.syntax.keyword }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
+    ['@keyword'] = { fg = c.syntax.keyword, style = cfg.keyword_style }, -- For keywords that don't fall in previous categories.
+    ['@keyword.function'] = { fg = c.syntax.keyword, style = cfg.function_style }, -- For keywords used to define a fuction.
+    ['@label'] = { fg = c.blue }, -- For labels: `label:` in C and `:label:` in Lua.
     -- TSMethod            = { };    -- For method calls and definitions.
-    TSNamespace = { fg = c.fg }, -- For identifiers referring to modules and namespaces.
+    ['@namespace'] = { fg = c.fg }, -- For identifiers referring to modules and namespaces.
     -- TSNone              = { };    -- TODO: docs
     -- TSNumber            = { };    -- For all numbers
-    TSOperator = { fg = c.syntax.keyword }, -- For any operator: `+`, but also `->` and `*` in C.
-    TSParameter = { fg = c.syntax.func_param }, -- For parameters of a function.
+    ['@operator'] = { fg = c.syntax.keyword }, -- For any operator: `+`, but also `->` and `*` in C.
+    ['@parameter'] = { fg = c.syntax.func_param }, -- For parameters of a function.
     -- TSParameterReference= { };    -- For references to parameters of a function.
-    TSProperty = { fg = c.syntax.func }, -- Same as `TSField`.
-    TSPunctDelimiter = { fg = c.fg }, -- For delimiters ie: `.`
-    TSPunctBracket = { fg = c.fg }, -- For brackets and parens.
-    TSPunctSpecial = { fg = c.fg }, -- For special punctutation that does not fall in the catagories before.
+    ['@property'] = { fg = c.syntax.func }, -- Same as `TSField`.
+    ['@punctDelimiter'] = { fg = c.fg }, -- For delimiters ie: `.`
+    ['@punctBracket'] = { fg = c.fg }, -- For brackets and parens.
+    ['@punctSpecial'] = { fg = c.fg }, -- For special punctutation that does not fall in the catagories before.
     -- TSRepeat            = { };    -- For keywords related to loops.
-    -- TSString            = { };    -- For strings.
-    TSStringRegex = { fg = c.syntax.variable }, -- For regexes.
-    TSStringEscape = { fg = c.red }, -- For escape characters within a string.
+    ['@string'] = { fg = c.syntax.string }, -- For strings.
+    ['@string.regex'] = { fg = c.syntax.variable }, -- For regexes.
+    ['@string.escape'] = { fg = c.red }, -- For escape characters within a string.
     -- TSSymbol            = { };    -- For identifiers referring to symbols or atoms.
-    TSType = { fg = c.syntax.keyword }, -- For types.
+    ['@type'] = { fg = c.syntax.keyword }, -- For types.
     -- TSTypeBuiltin       = { };    -- For builtin types.
-    TSVariable = { fg = c.syntax.variable, style = cfg.variable_style }, -- Any variable name that does not have another highlight.
-    TSVariableBuiltin = { fg = c.syntax.variable }, -- Variable names that are defined by the languages, like `this` or `self`.
-    TSTag = { fg = c.syntax.tag }, -- Tags like html tag names.
-    TSTagDelimiter = { fg = c.fg }, -- Tag delimiter like `<` `>` `/`
-    -- TSText              = { };    -- For strings considered text in a markup language.
-    TSTextReference = { fg = c.red }, -- FIXME
+    ['@variable'] = { fg = c.syntax.variable, style = cfg.variable_style }, -- Any variable name that does not have another highlight.
+    ['@variable.builtin'] = { fg = c.syntax.variable }, -- Variable names that are defined by the languages, like `this` or `self`.
+    ['@tag'] = { fg = c.syntax.tag }, -- Tags like html tag names.
+    ['@tag.delimiter'] = { fg = c.fg }, -- Tag delimiter like `<` `>` `/`
+    ['@text'] = { fg = c.fg }, -- For strings considered text in a markup language.
+    ['@text.reference'] = { fg = c.red }, -- FIXME
     -- TSEmphasis          = { };    -- For text to be represented with emphasis.
     -- TSUnderline         = { };    -- For text to be represented with an underline.
     -- TSStrike            = { };    -- For strikethrough text.
@@ -253,34 +253,34 @@ theme.setup = function(cfg)
     -- TSURI               = { };    -- Any URI like a link or email.
 
     -- Lua
-    luaTSConstructor = { fg = c.fg },
+    ['@constructor.lua'] = { fg = c.fg },
 
     -- C
-    cTSLabel = { fg = c.fg },
+    ['@label.c'] = { fg = c.fg },
 
     -- CSS
-    cssTSProperty = { fg = c.syntax.func },
-    cssTSType = { fg = c.syntax.tag },
+    ['@property.css'] = { fg = c.syntax.func },
+    ['@type.css'] = { fg = c.syntax.tag },
 
     -- html
-    htmlTSConstant = { fg = c.syntax.tag },
+    ['@constant.html'] = { fg = c.syntax.tag },
     htmlTag = { fg = c.fg },
     htmlEndTag = { fg = c.fg },
     htmlTagName = { fg = c.syntax.tag },
     htmlArg = { fg = c.syntax.html_arg },
 
     -- javascript
-    javascriptTSType = { fg = c.fg },
-    javascriptTSParameter = { fg = c.syntax.param },
-    javascriptTSVariable = { fg = c.syntax.variable },
-    javascriptTSPunctDelimiter = { fg = c.fg },
-    javascriptTSStringRegex = { fg = c.syntax.string },
-    javascriptTSConstructor = { fg = c.syntax.func },
-    javascriptTSProperty = { fg = c.syntax.func },
-    regexTSStringEscape = { fg = c.syntax.keyword },
+    ['@type.javascript'] = { fg = c.fg },
+    ['@parameter.javascript'] = { fg = c.syntax.param },
+    ['@variable.javascript'] = { fg = c.syntax.variable },
+    ['@punct.delimiter.javascript'] = { fg = c.fg },
+    ['@string.regex.javascript'] = { fg = c.syntax.string },
+    ['@constructor.javascript'] = { fg = c.syntax.func },
+    ['@property.javascript'] = { fg = c.syntax.func },
+    ['@string.escape.regex'] = { fg = c.syntax.keyword },
 
     -- json
-    jsonTSLabel = { fg = c.syntax.json_label },
+    ['@label.json'] = { fg = c.syntax.json_label },
 
     -- less
     lessVariable = { fg = c.fg },
@@ -297,26 +297,26 @@ theme.setup = function(cfg)
     cBlock = { fg = c.syntax.func },
 
     -- python
-    pythonTSType = { fg = c.syntax.func },
-    pythonTSParameter = { fg = c.syntax.param },
+    ['@type.python'] = { fg = c.syntax.func },
+    ['@parameter.python'] = { fg = c.syntax.param },
 
     -- ruby
-    rubyTSType = { fg = c.syntax.func },
+    ['@type.ruby'] = { fg = c.syntax.func },
 
     -- scss
-    scssTSVariable = { fg = c.syntax.param },
-    scssTSType = { fg = c.syntax.tag },
-    scssTSProperty = { fg = c.syntax.func },
-    scssTSParameter = { fg = c.syntax.param },
+    ['@variable.scss'] = { fg = c.syntax.param },
+    ['@type.scss'] = { fg = c.syntax.tag },
+    ['@property.scss'] = { fg = c.syntax.func },
+    ['@parameter.scss'] = { fg = c.syntax.param },
 
     -- sql
     sqlFold = { fg = c.syntax.variable },
     sqlKeyword = { fg = c.syntax.keyword },
 
     -- typescript
-    typescriptTSType = { fg = c.syntax.func },
-    typescriptTSConstructor = { fg = c.syntax.func },
-    typescriptTSTypeBuiltin = { fg = c.syntax.variable },
+    ['@type.typescript'] = { fg = c.syntax.func },
+    ['@constructor.typescript'] = { fg = c.syntax.func },
+    ['@typebuiltin.typescript'] = { fg = c.syntax.variable },
 
     -- xml
     xmlProcessing = { fg = c.syntax.tag },
@@ -325,12 +325,12 @@ theme.setup = function(cfg)
     xmlAttrib = { fg = c.syntax.tag },
 
     -- yaml
-    yamlTSField = { fg = c.syntax.tag },
+    ['@field.yaml'] = { fg = c.syntax.tag },
 
     -- java
-    javaTSVariable = { fg = c.fg },
-    javaTSType = { fg = c.syntax.func },
-    javaTSParameter = { fg = c.syntax.param },
+    ['@variable.java'] = { fg = c.fg },
+    ['@type.java'] = { fg = c.syntax.func },
+    ['@parameter.java'] = { fg = c.syntax.param },
 
     -- Markdown
     markdownHeadingRule = { fg = c.syntax.variable },
@@ -345,7 +345,7 @@ theme.setup = function(cfg)
     markdownUrlTitle = { fg = c.syntax.string, style = Styles.Underline },
 
     -- go
-    goTSVariable = { fg = c.fg },
+    ['@variable.go'] = { fg = c.fg },
 
     -- LspTrouble
     LspTroubleText = { fg = c.fg },
