@@ -12,7 +12,6 @@ init.setup = function(user_config)
   end
 
   -- Load colorscheme
-  vim.cmd([[hi clear]]) -- necessary to clear highlight from previous theme, otherwise it will be layered on top of the new one
   util.load(theme.setup(config.schema))
 end
 
