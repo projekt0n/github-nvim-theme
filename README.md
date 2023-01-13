@@ -2,6 +2,12 @@
 
 ## Notices
 
+> **Warning**
+> All features and bug fixes are on hold while we focus on a refactor of the theme.
+> If you would like to be involved in the
+> [discussion](https://github.com/projekt0n/github-nvim-theme/discussions/226)
+> or have input to share, please join us as soon as possible. Thank you for your understanding.
+
 Subscribe to this [discussion](https://github.com/projekt0n/github-nvim-theme/discussions/198)
 or `:h github-theme-changelog` to receive updates on breaking changes and deprecations.
 
