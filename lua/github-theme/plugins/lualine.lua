@@ -11,7 +11,7 @@ lualine.build_lualine_theme = function(c)
   local tint_lualine_group = function(color)
     local group = {
       a = { bg = color, fg = c.bg },
-      b = { bg = util.darken(color, 0.05), fg = util.lighten(color, 0.05) },
+      b = { bg = c.bg_sidebar, fg = util.lighten(color, 0.05) },
     }
     if vim.o.background == 'dark' then
       group.c = {
