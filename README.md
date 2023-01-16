@@ -2,7 +2,7 @@
 
 ## Notices
 
-> **Warning**
+> **Note**
 > All features and bug fixes are on hold while we focus on a refactor of the theme.
 > If you would like to be involved in the
 > [discussion](https://github.com/projekt0n/github-nvim-theme/discussions/226)
@@ -21,32 +21,31 @@ or `:h github-theme-changelog` to receive updates on breaking changes and deprec
 
 ## Installation
 
+> **Warning**
+> Use the latest release [tag](https://github.com/projekt0n/github-nvim-theme/releases/tag/v0.0.7) or
+> [0.0.x](https://github.com/projekt0n/github-nvim-theme/tree/0.0.x) branch for updates, not the main branch.
+
 Install the theme with your preferred package manager:
 
 Install with [vim-plug](https://github.com/junegunn/vim-plug):
 
 ```vim
-Plug 'projekt0n/github-nvim-theme'
+Plug 'projekt0n/github-nvim-theme', { 'tag': '0.0.7' }
+" or                                { 'branch': '0.0.x' }
 ```
 
 Or with [dein](https://github.com/Shougo/dein.vim):
 
 ```vim
-call dein#add('projekt0n/github-nvim-theme')
+call dein#add('projekt0n/github-nvim-theme', { 'rev': '0.0.7' })
+" or                                         { 'rev': '0.0.x' }
 ```
 
 Or with [minpac](https://github.com/k-takata/minpac):
 
 ```vim
-call minpac#add('projekt0n/github-nvim-theme')
-```
-
-Or with [Vundle](https://github.com/vundlevim/vundle.vim):
-
-Place this in your `.vimrc` or `init.vim`,
-
-```vim
-Plugin 'projekt0n/github-nvim-theme'
+call minpac#add('projekt0n/github-nvim-theme', { 'rev': '0.0.7' })
+" or                                           { 'rev': '0.0.x' }
 ```
 
 Or with [Packer.nvim](https://github.com/wbthomason/packer.nvim):
@@ -55,11 +54,13 @@ Add this in your `init.lua` or `plugins.lua`
 
 ```lua
 -- Install without configuration
-use ({ 'projekt0n/github-nvim-theme' })
+use ({ 'projekt0n/github-nvim-theme', tag = '0.0.7' })
+-- or                                 branch = '0.0.x'
 
 -- Or with configuration
 use({
-  'projekt0n/github-nvim-theme',
+  'projekt0n/github-nvim-theme', tag = '0.0.7',
+-- or                            branch = '0.0.x'
   config = function()
     require('github-theme').setup({
       -- ...
