@@ -30,21 +30,21 @@ Install the theme with your preferred package manager:
 Install with [vim-plug](https://github.com/junegunn/vim-plug):
 
 ```vim
-Plug 'projekt0n/github-nvim-theme', { 'tag': '0.0.7' }
+Plug 'projekt0n/github-nvim-theme', { 'tag': 'v0.0.7' }
 " or                                { 'branch': '0.0.x' }
 ```
 
 Or with [dein](https://github.com/Shougo/dein.vim):
 
 ```vim
-call dein#add('projekt0n/github-nvim-theme', { 'rev': '0.0.7' })
+call dein#add('projekt0n/github-nvim-theme', { 'rev': 'v0.0.7' })
 " or                                         { 'rev': '0.0.x' }
 ```
 
 Or with [minpac](https://github.com/k-takata/minpac):
 
 ```vim
-call minpac#add('projekt0n/github-nvim-theme', { 'rev': '0.0.7' })
+call minpac#add('projekt0n/github-nvim-theme', { 'rev': 'v0.0.7' })
 " or                                           { 'rev': '0.0.x' }
 ```
 
@@ -54,12 +54,12 @@ Add this in your `init.lua` or `plugins.lua`
 
 ```lua
 -- Install without configuration
-use ({ 'projekt0n/github-nvim-theme', tag = '0.0.7' })
+use ({ 'projekt0n/github-nvim-theme', tag = 'v0.0.7' })
 -- or                                 branch = '0.0.x'
 
 -- Or with configuration
 use({
-  'projekt0n/github-nvim-theme', tag = '0.0.7',
+  'projekt0n/github-nvim-theme', tag = 'v0.0.7',
 -- or                            branch = '0.0.x'
   config = function()
     require('github-theme').setup({
