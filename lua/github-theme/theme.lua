@@ -662,6 +662,9 @@ theme.setup = function(cfg)
     IndentBlanklineSpaceCharBlankline = { fg = util.darken(c.syntax.comment, 0.2) },
     IndentBlanklineContextChar = { fg = c.fg },
     IndentBlanklineContextStart = { sp = c.fg, underline = true },
+
+    -- Fidget.nvim
+    FidgetTask = { fg = c.fg, bg = nil },
   }
 
   if cfg.hide_inactive_statusline then
