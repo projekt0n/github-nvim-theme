@@ -2,6 +2,11 @@
 
 ## Notices
 
+<!-- If you're interested, you can learn more about "sponsor-spotlight" on
+ https://dev.to/ful1e5/lets-give-recognition-to-those-supporting-our-work-on-github-sponsors-b00 -->
+
+![shoutout-sponsors](https://sponsor-spotlight.vercel.app/sponsor?login=ful1e5)
+
 > **Note**
 > All features and bug fixes are on hold while we focus on a refactor of the theme.
 > If you would like to be involved in the
