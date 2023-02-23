@@ -403,8 +403,8 @@ theme.setup = function(cfg)
     TelescopePreviewHyphen = { fg = c.bright_blue, bg = 'NONE' },
 
     -- NvimTree
-    NvimTreeNormal = { fg = c.fg_light, bg = c.bg_sidebar },
-    NvimTreeNormalNC = { fg = c.fg_light, bg = c.bg_sidebar },
+    NvimTreeNormal = { fg = c.fg_light, bg =  c.none},
+    NvimTreeNormalNC = { fg = c.fg_light, bg =  c.none },
     NvimTreeEndOfBuffer = { fg = c.sidebar_eob },
     NvimTreeRootFolder = { fg = c.fg_light, style = Styles.Bold },
     NvimTreeGitDirty = { fg = c.git.change },
@@ -418,7 +418,7 @@ theme.setup = function(cfg)
     NvimTreeFolderName = { fg = c.fg_light },
     NvimTreeOpenedFolderName = { fg = c.fg_light, style = Styles.Bold },
     NvimTreeOpenedFile = { fg = c.bright_blue },
-    NvimTreeWinSeparator = { fg = c.bg },
+    NvimTreeWinSeparator = { fg = c.border },
     NvimTreeExecFile = { fg = c.fg_light},
     NvimTreeSpecialFile = { fg = c.fg_light },
     NvimTreeCursorLine = { bg = util.lighten(c.bg_sidebar, 0.9)},
