@@ -11,7 +11,7 @@ PR: https://github.com/projekt0n/github-nvim-theme/pull/222
 
 I (ful1e5) wanted to let you know that we now have support for new treesitter
 highlighting groups, thanks to a contribution from |@luisiacc|. If you are
-using an older version of treesitter, please switch to the `v0.6` release tag,
+using an older version of treesitter, please switch to the `v0.7` release tag,
 which is the last version for you to take advantage of the old treesitter
 highlights. We will continue to develop and support these new highlighting
 groups going forward.

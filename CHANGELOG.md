@@ -7,12 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+## [v0.0.7] - 16 January 2023
+
 ### Changes
 
 - merged: #222
 - Fixed #214 #220 #223 #224
 
-## [v0.0.6] - 03 Aug 2022
+## [v0.0.6] - 03 August 2022
 
 ### Changes
 
@@ -72,7 +74,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - fix: skip native_autocmds on some neovim0.7 builds
 - fixed #179
 
-## [v0.0.4] - 11 Jan 2022
+## [v0.0.4] - 11 January 2022
 
 ### Added
 
@@ -116,7 +118,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed `iterm` theme generation
 - fix: lualine theme
 
-## [v0.0.3] - 09 Dec 2021
+## [v0.0.3] - 09 December 2021
 
 ### Added
 
@@ -179,7 +181,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fix `vim.o.background` setting in config module
 - Fix assign `user_config` value to `vim.g` global variables
 
-## [v0.0.2] - 15 Sep 2021
+## [v0.0.2] - 15 September 2021
 
 ### Added
 
@@ -219,13 +221,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - use `bg_visiual` color as floating window border
 - use `bg` and `bg2` colors for `EndOfBuffer` `NoneText` fixed #66
 
-## [v0.0.1] - 09 Jul 2021
+## [v0.0.1] - 09 July 2021
 
 ### Added
 
 - Initial release 🎊
 
-[unreleased]: https://github.com/projekt0n/github-nvim-theme/compare/v0.0.6...main
+[unreleased]: https://github.com/projekt0n/github-nvim-theme/compare/v0.0.7...main
+[v0.0.7]: https://github.com/projekt0n/github-nvim-theme/compare/v0.0.7...v0.0.6
 [v0.0.6]: https://github.com/projekt0n/github-nvim-theme/compare/v0.0.6...v0.0.5
 [v0.0.5]: https://github.com/projekt0n/github-nvim-theme/compare/v0.0.5...v0.0.4
 [v0.0.4]: https://github.com/projekt0n/github-nvim-theme/compare/v0.0.4...v0.0.3

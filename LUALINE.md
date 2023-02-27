@@ -4,22 +4,22 @@ To enable the `github` theme for `Lualine`, simply specify it in your lualine se
 
 ```lua
 use {
-  "hoob3rt/lualine.nvim",
-  after = "github-nvim-theme",
+  'nvim-lualine/lualine.nvim',
+  after = 'github-nvim-theme',
   config = function()
-    require("lualine").setup {
+    require('lualine').setup {
       options = {
-        theme = "auto" -- or you can assign github_* themes individually.
+        theme = 'auto' -- or you can assign github themes individually.
         -- ... your lualine config
       }
     }
   end
 }
 use {
-  "projekt0n/github-nvim-theme",
+  'projekt0n/github-nvim-theme',
   config = function()
-    require("github-theme").setup({
-      theme_style = "dark_default"
+    require('github-theme').setup({
+      theme_style = 'dark_default'
       -- your github config
     })
   end
@@ -32,7 +32,7 @@ use {
 lua << EOF
 require('lualine').setup {
   options = {
-    theme = "auto" -- or you can assign github_* themes individually.
+    theme = 'auto' -- or you can assign github themes individually.
     -- ... your lualine config
   }
 }
@@ -44,7 +44,7 @@ EOF
 ```lua
 require('lualine').setup {
   options = {
-    theme = "auto" -- or you can assign github_* themes individually.
+    theme = 'auto' -- or you can assign github_* themes individually.
     -- ... your lualine config
   }
 }
