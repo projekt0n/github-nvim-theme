@@ -34,7 +34,7 @@ theme.setup = function(cfg)
     -- TermCursor  = { }, -- cursor in a focused terminal
     -- TermCursorNC= { }, -- cursor in an unfocused terminal
     ErrorMsg = { fg = c.error }, -- error messages on the command line
-    VertSplit = { bg = c.bg, fg = c.border }, -- the column separating vertically split windows
+    VertSplit = { bg = c.bg, fg = c.fg_dark}, -- the column separating vertically split windows
     Folded = { fg = c.fg, bg = c.bg_visual_selection }, -- line used for closed folds
     FoldColumn = { link = 'Folded' }, -- 'foldcolumn'
     SignColumn = { fg = c.fg_gutter, bg = cfg.transparent and c.none or c.bg }, -- column where |signs| are displayed
@@ -77,7 +77,7 @@ theme.setup = function(cfg)
     WarningMsg = { fg = c.warning }, -- warning messages
     Whitespace = { fg = util.darken(c.syntax.comment, 0.4) }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
     WildMenu = { bg = c.bg_visual }, -- current match in 'wildmenu' completion
-    WinSeparator = { bg = c.bg, fg = c.border },
+    WinSeparator = { bg = c.bg, fg = c.fg_dark },
     -- These groups are not listed as default vim groups,
     -- but they are defacto standard group names for syntax highlighting.
     -- commented out groups should chain up to their "preferred" group by
@@ -418,7 +418,7 @@ theme.setup = function(cfg)
     NvimTreeFolderName = { fg = c.fg_light },
     NvimTreeOpenedFolderName = { fg = c.fg_light, style = Styles.Bold },
     NvimTreeOpenedFile = { fg = c.bright_blue },
-    NvimTreeWinSeparator = { fg = c.border },
+    NvimTreeWinSeparator = { fg = c.fg_dark },
     NvimTreeExecFile = { fg = c.fg_light},
     NvimTreeSpecialFile = { fg = c.fg_light },
     NvimTreeCursorLine = { bg = util.lighten(c.bg_sidebar, 0.9)},
