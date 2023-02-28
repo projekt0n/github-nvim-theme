@@ -396,6 +396,7 @@ theme.setup = function(cfg)
 
     TelescopeSelectionCaret = { fg = c.fg, bg = c.bg_visual_selection },
     TelescopeNormal = { fg = c.fg, bg = c.bg_float },
+    TelescopePrompt = { fg = c.fg, bg = c.bg_float },
     TelescopePromptTitle = { fg = c.fg, bg = 'NONE' },
     TelescopeResultsTitle = { fg = c.fg, bg = 'NONE' },
     TelescopePreviewTitle = { fg = c.fg, bg = 'NONE' },
