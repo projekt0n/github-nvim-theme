@@ -1,0 +1,40 @@
+*gt_deprecated.txt*		github-nvim-theme
+
+		     GITHUB NVIM THEME DEPRECATION REFRENCE
+
+github-nvim-theme   				     *github-theme.deprecated*
+
+The items listed below are deprecated: they will be removed in the future.
+They should not be used in new scripts, and old scripts should be updated.
+
+==============================================================================
+Deprecated features
+
+
+MODULES
+- *'config.vim_config'*	         	  Deprecated.
+- *'config.default'*			  Moved to |'github-theme.config'|
+  module and accessed with |'default'| variable.
+
+GLOBAL OPTIONS
+- *'vim.g.github_theme_style'*		  Use |setup| Lua function instead.
+- *'vim.g.github_colors'*		  Use |setup| Lua function instead.
+- *'vim.g.github_overrides'*		  Use |setup| Lua function instead.
+- *'vim.g.github_dark_float'*	    	  Use |setup| Lua function instead.
+- *'vim.g.github_dark_sidebar'*	    	  Use |setup| Lua function instead.
+- *'vim.g.github_sidebars'*	    	  Use |setup| Lua function instead.
+- *'vim.g.github_transparent'*	    	  Use |setup| Lua function instead.
+- *'vim.g.github_hide_end_of_buffer'* 	  Use |setup| Lua function instead.
+- *'vim.g.github_hide_inactive_statusline'* Use |setup| Lua function instead.
+- *'vim.g.github_msg_area_style'*	  Use |setup| Lua function instead.
+- *'vim.g.github_comment_style'*	  Use |setup| Lua function instead.
+- *'vim.g.github_function_style'*	  Use |setup| Lua function instead.
+- *'vim.g.github_keyword_style'*	  Use |setup| Lua function instead.
+- *'vim.g.github_variable_style'*	  Use |setup| Lua function instead.
+- *'vim.g.github_dev'*			  Use |setup| Lua function instead.
+
+FUNCTIONS
+- *'config.apply_configuration()'*	  Deprecated.
+
+
+ vim:noet:tw=78:ts=8:ft=help:norl:

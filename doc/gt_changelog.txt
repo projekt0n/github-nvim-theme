@@ -3,6 +3,20 @@
 
 # Changelog
 
+                                                        *github-theme.changelog-06042023*
+
+Date: April 06, 2023
+
+The secondary method of assigning configuration variables using
+|'vim.g.github_*'| is now considered deprecated. Instead, it is recommended to
+use the |'require("github-theme").setup({...})'| function to assign
+configurations.
+
+Any references to the deprecated modules and options can be found in the
+documentation located at `:h gt_deprecated.txt`.
+
+
+
                                                         *github-theme.changelog-03012023*
 
 Date: January 03, 2023
@@ -21,6 +35,8 @@ compatible with |Neovim-0.9| and will be starting a discussion on GitHub soon.
 To ensure that the community is aware of any major changes before they are
 implemented, I will provide advance warning before any potentially breaking
 changes are pushed to upstream.
+
+
 
                                                         *github-theme.changelog-03082022*
 

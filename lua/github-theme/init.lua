@@ -1,18 +1,20 @@
+local M = {}
+
 local config = require('github-theme.config')
 local theme = require('github-theme.theme')
 local util = require('github-theme.util')
+local dep = require('github-theme.util.deprecation')
 
----@class gt.Init
-local init = {}
-
----@param user_config gt.ConfigSchema?
-init.setup = function(user_config)
+M.setup = function(user_config)
+  local c = config.default
   if user_config then
-    config.apply_configuration(user_config)
+    c = vim.tbl_deep_extend('force', config.default, user_config or {})
   end
 
+  dep.check_deprecation(c)
+
   -- Load colorscheme
-  util.load(theme.setup(config.schema))
+  util.load(theme.setup(c))
 end
 
-return init
+return M

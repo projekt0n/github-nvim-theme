@@ -78,13 +78,7 @@ use({
 
 Enable the colorscheme:
 
-```vim
-" Vim Script
-colorscheme github_*
-```
-
 ```lua
--- Lua
 require('github-theme').setup()
 ```
 
@@ -107,26 +101,6 @@ require('github-theme').setup()
 | theme_style              | `dark`     | Set theme variant (options: `dark`/`dimmed`/`dark_default`/`dark_colorblind`/`light`/`light_default`/`light_colorblind`)                        |
 | transparent              | `false`    | Enable this to disable setting the background color                                                                                             |
 | variable_style           | `NONE`     | Highlight style for variables and identifiers (check `:help highlight-args` for options)                                                        |
-
-### Using `vim`
-
-```vim
-" Example config in VimScript
-" NOTE: Configuration needs to be set BEFORE loading the color scheme with `colorscheme` command
-let g:github_function_style = "italic"
-let g:github_sidebars = ["qf", "vista_kind", "terminal", "packer"]
-
-" Change the "hint" color to the "orange" color, and make the "error" color bright red
-let g:github_colors = {
-  \ 'hint': 'orange',
-  \ 'error': '#ff0000'
-\ }
-
-" Load the colorscheme
-colorscheme github_dark
-```
-
-### Using `lua`
 
 ```lua
 -- Example config in Lua
@@ -220,13 +194,7 @@ set -as terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{25
 
 #### Dark
 
-```vim
-" VimScript
-colorscheme github_dark
-```
-
 ```lua
--- Lua
 require("github-theme").setup({
   theme_style = "dark",
   -- other config
@@ -237,13 +205,7 @@ require("github-theme").setup({
 
 #### Dimmed
 
-```vim
-" VimScript
-colorscheme github_dimmed
-```
-
 ```lua
--- Lua
 require("github-theme").setup({
   theme_style = "dimmed",
   -- other config
@@ -254,13 +216,7 @@ require("github-theme").setup({
 
 #### Dark Default
 
-```vim
-" VimScript
-colorscheme github_dark_default
-```
-
 ```lua
--- Lua
 require("github-theme").setup({
   theme_style = "dark_default",
   -- other config
@@ -271,13 +227,7 @@ require("github-theme").setup({
 
 #### Dark Colorblind (Beta)
 
-```vim
-" VimScript
-colorscheme github_dark_colorblind
-```
-
 ```lua
--- Lua
 require("github-theme").setup({
   theme_style = "dark_colorblind",
   -- other config
@@ -288,13 +238,7 @@ require("github-theme").setup({
 
 #### Light
 
-```vim
-" VimScript
-colorscheme github_light
-```
-
 ```lua
--- Lua
 require("github-theme").setup({
   theme_style = "light",
   -- other config
@@ -305,13 +249,7 @@ require("github-theme").setup({
 
 #### Light Default
 
-```vim
-" VimScript
-colorscheme github_light_default
-```
-
 ```lua
--- Lua
 require("github-theme").setup({
   theme_style = "light_default",
   -- other config
@@ -322,13 +260,7 @@ require("github-theme").setup({
 
 #### Light Colorblind (Beta)
 
-```vim
-" VimScript
-colorscheme github_light_colorblind
-```
-
 ```lua
--- Lua
 require("github-theme").setup({
   theme_style = "light_colorblind",
   -- other config
@@ -345,16 +277,7 @@ require("github-theme").setup({
 
 #### Normal
 
-```vim
-" VimScript
-let g:github_comment_style = "NONE"
-let g:github_keyword_style = "NONE"
-let g:github_function_style = "NONE"
-let g:github_variable_style = "NONE"
-```
-
 ```lua
--- Lua
 require("github-theme").setup({
   comment_style = "NONE",
   keyword_style = "NONE",
@@ -368,16 +291,7 @@ require("github-theme").setup({
 
 #### Italic
 
-```vim
-" VimScript
-let g:github_comment_style = "italic"
-let g:github_keyword_style = "italic"
-let g:github_function_style = "italic"
-let g:github_variable_style = "italic"
-```
-
 ```lua
--- Lua
 require("github-theme").setup({
   comment_style = "italic",
   keyword_style = "italic",
@@ -391,13 +305,7 @@ require("github-theme").setup({
 
 ### Minimal config
 
-```vim
-" VimScript
-let g:github_dark_sidebar = 0
-```
-
 ```lua
--- Lua
 require("github-theme").setup({
   dark_sidebar = false,
   -- other config

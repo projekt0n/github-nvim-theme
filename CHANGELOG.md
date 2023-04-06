@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+### What's New?
+
+- Added a Deprecation library to print Deprecation Messages.
+
+### Changes
+
+- The `config.default` module has been changed to a variable and moved inside the `config` module.
+
+### Deprecation
+
+- The `config.vim_config` and `config.default` modules are now deprecated.
+- The `config.apply_configuration()` function is also deprecated.
+
 ## [v0.0.7] - 16 January 2023
 
 ### Changes
