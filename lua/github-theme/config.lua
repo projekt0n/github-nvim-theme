@@ -1,24 +1,37 @@
-local M = {}
-local types = require('github-theme.types')
+local collect = require('github-theme.lib.collect')
 
-M.default = {
-  colors = {},
-  comment_style = types.gt.HighlightStyle.Italic,
-  dark_float = false,
-  dark_sidebar = true,
-  dev = false,
-  function_style = types.gt.HighlightStyle.None,
+local M = { has_options = true }
+
+local defaults = {
+  theme_style = 'dark',
   hide_end_of_buffer = true,
   hide_inactive_statusline = true,
-  keyword_style = types.gt.HighlightStyle.Italic,
-  msg_area_style = types.gt.HighlightStyle.None,
+  comment_style = 'italic',
+  function_style = 'NONE',
+  keyword_style = 'Italic',
+  msg_area_style = 'NONE',
+  variable_style = 'NONE',
+  transparent = false,
+  dark_float = false,
+  dark_sidebar = true,
+  sidebars = {},
+  colors = {},
   overrides = function()
     return {}
   end,
-  sidebars = {},
-  theme_style = types.gt.ThemeStyle.Dark,
-  transparent = false,
-  variable_style = types.gt.HighlightStyle.None,
+  dev = false,
 }
+
+M.options = collect.deep_copy(defaults)
+
+function M.set_options(opts)
+  opts = opts or {}
+  M.options = collect.deep_extend(M.options, opts)
+  M.has_options = true
+end
+
+function M.reset()
+  M.options = collect.deep_copy(defaults)
+end
 
 return M

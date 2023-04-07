@@ -5,16 +5,19 @@ local theme = require('github-theme.theme')
 local util = require('github-theme.util')
 local dep = require('github-theme.util.deprecation')
 
-M.setup = function(user_config)
-  local c = config.default
-  if user_config then
-    c = vim.tbl_deep_extend('force', config.default, user_config or {})
+local did_setup = false
+
+M.setup = function(opts)
+  did_setup = true
+
+  if opts then
+    config.set_options(opts)
   end
 
-  dep.check_deprecation(c)
+  dep.check_deprecation(config.options)
 
   -- Load colorscheme
-  util.load(theme.setup(c))
+  util.load(theme.setup(config.options))
 end
 
 return M
