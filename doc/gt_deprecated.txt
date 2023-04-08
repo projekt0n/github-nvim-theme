@@ -12,6 +12,7 @@ Deprecated features
 
 
 MODULES
+- *'colors'*				  Moved to |'github-theme.palette'|
 - *'config.vim_config'*	         	  Deprecated.
 - *'config.default'*			  Moved to |'github-theme.config'|
   module and accessed with |'default'| variable.

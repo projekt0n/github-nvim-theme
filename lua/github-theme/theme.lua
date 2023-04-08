@@ -1,4 +1,4 @@
-local colors = require('github-theme.colors')
+local palette = require('github-theme.palette')
 local types = require('github-theme.types')
 local util = require('github-theme.util')
 
@@ -11,7 +11,7 @@ theme.setup = function(cfg)
   ---@class gt.Highlights
   local hi = {}
   hi.config = cfg
-  hi.colors = colors.setup(cfg)
+  hi.colors = palette.setup(cfg)
   local c = hi.colors
 
   local Styles = types.gt.HighlightStyle
@@ -155,7 +155,10 @@ theme.setup = function(cfg)
     LspDiagnosticsDefaultInformation = { fg = c.info }, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
     LspDiagnosticsDefaultHint = { fg = c.hint }, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
     LspDiagnosticsVirtualTextError = { fg = c.error, bg = util.darken(c.error, 0.1) }, -- Used for "Error" diagnostic virtual text
-    LspDiagnosticsVirtualTextWarning = { fg = c.warning, bg = util.darken(c.warning, 0.1) }, -- Used for "Warning" diagnostic virtual text
+    LspDiagnosticsVirtualTextWarning = {
+      fg = c.warning,
+      bg = util.darken(c.warning, 0.1),
+    }, -- Used for "Warning" diagnostic virtual text
     LspDiagnosticsVirtualTextInformation = { fg = c.info, bg = util.darken(c.info, 0.1) }, -- Used for "Information" diagnostic virtual text
     LspDiagnosticsVirtualTextHint = { fg = c.hint, bg = util.darken(c.hint, 0.1) }, -- Used for "Hint" diagnostic virtual text
     LspDiagnosticsUnderlineError = { style = Styles.Undercurl, sp = c.error }, -- Used to underline "Error" diagnostics
@@ -370,7 +373,11 @@ theme.setup = function(cfg)
     NeogitBranch = { fg = c.syntax.keyword },
     NeogitRemote = { fg = c.syntax.keyword },
     NeogitHunkHeader = { fg = c.fg, bg = c.bg_highlight },
-    NeogitHunkHeaderHighlight = { fg = c.blue, bg = c.bg_highlight, style = Styles.Italic },
+    NeogitHunkHeaderHighlight = {
+      fg = c.blue,
+      bg = c.bg_highlight,
+      style = Styles.Italic,
+    },
     NeogitDiffContextHighlight = { fg = c.fg, bg = c.bg },
     NeogitDiffAddHighlight = { link = 'DiffAdd' },
     NeogitDiffDeleteHighlight = { link = 'DiffDelete' },
@@ -445,7 +452,10 @@ theme.setup = function(cfg)
     -- Hop
     -- Deep red color for light themes
     -- Fixed https://github.com/projekt0n/github-nvim-theme/issues/189
-    HopNextKey = { fg = vim.o.background == 'light' and c.bright_red or c.magenta, style = Styles.Bold },
+    HopNextKey = {
+      fg = vim.o.background == 'light' and c.bright_red or c.magenta,
+      style = Styles.Bold,
+    },
     HopNextKey1 = { fg = c.blue, style = Styles.Bold },
     HopNextKey2 = { fg = util.darken(c.bright_blue, 0.8) },
     HopUnmatched = { fg = c.fg_dark },
@@ -580,7 +590,10 @@ theme.setup = function(cfg)
     DiffviewFilePanelFileName = { fg = c.fg_light },
 
     -- nvim-treesitter-context
-    TreesitterContext = { bg = vim.o.background == 'light' and util.lighten(c.blue, 0.9) or util.darken(c.blue, 0.2) },
+    TreesitterContext = {
+      bg = vim.o.background == 'light' and util.lighten(c.blue, 0.9)
+        or util.darken(c.blue, 0.2),
+    },
 
     -- mini.nvim
     MiniCompletionActiveParameter = { style = Styles.Underline },
@@ -593,7 +606,10 @@ theme.setup = function(cfg)
 
     MiniJump = { link = 'SpellRare' },
 
-    MiniJump2dSpot = { fg = vim.o.background == 'light' and c.bright_red or c.magenta, style = Styles.Bold },
+    MiniJump2dSpot = {
+      fg = vim.o.background == 'light' and c.bright_red or c.magenta,
+      style = Styles.Bold,
+    },
 
     MiniStarterCurrent = { style = Styles.NoCombine },
     MiniStarterFooter = { fg = c.bright_white, style = Styles.Italic },
@@ -618,10 +634,18 @@ theme.setup = function(cfg)
 
     MiniSurround = { link = 'IncSearch' },
 
-    MiniTablineCurrent = { fg = c.pmenu.bg, bg = util.darken(c.bright_blue, 0.75), style = Styles.Bold },
+    MiniTablineCurrent = {
+      fg = c.pmenu.bg,
+      bg = util.darken(c.bright_blue, 0.75),
+      style = Styles.Bold,
+    },
     MiniTablineFill = { link = 'TabLineFill' },
     MiniTablineHidden = { fg = c.fg, bg = c.bg },
-    MiniTablineModifiedCurrent = { fg = util.darken(c.bright_blue, 0.75), bg = c.pmenu.bg, style = Styles.Bold },
+    MiniTablineModifiedCurrent = {
+      fg = util.darken(c.bright_blue, 0.75),
+      bg = c.pmenu.bg,
+      style = Styles.Bold,
+    },
     MiniTablineModifiedHidden = { fg = c.bg, bg = c.fg },
     MiniTablineModifiedVisible = { fg = util.darken(c.bright_blue, 0.5), bg = c.pmenu.bg },
     MiniTablineTabpagesection = { fg = c.none, bg = c.bg_search, style = Styles.Bold },
