@@ -20,6 +20,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - The `config.vim_config` and `config.default` modules are now deprecated.
 - The `config.apply_configuration()` function is also deprecated.
 
+### Issues Fix
+
+- #238 fixed
+
 ## [v0.0.7] - 16 January 2023
 
 ### Changes

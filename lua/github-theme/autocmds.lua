@@ -1,62 +1,70 @@
----@class gt.Autocmds
-local autocmds = {}
+local config = require('github-theme.config')
+local cfg = config.options
 
----@type string
-autocmds.colors_name = ''
+---@class gt.Autocmds
+local M = {
+  colors_name = 'github_' .. cfg.theme_style,
+}
 
 ---Delete the autocmds when the theme changes to something else
-autocmds.on_colorscheme = function()
-  if vim.g.colors_name ~= autocmds.colors_name then
-    vim.cmd('silent! autocmd! ' .. autocmds.colors_name)
-    vim.cmd('silent! augroup!' .. autocmds.colors_name)
+M.on_colorscheme = function()
+  if vim.g.colors_name ~= M.colors_name then
+    vim.cmd('silent! autocmd! ' .. M.colors_name)
+    vim.cmd('silent! augroup!' .. M.colors_name)
   end
 end
 
----@param config gt.ConfigSchema
----@param colors_name string
-autocmds.viml_cmds = function(config, colors_name)
-  autocmds.colors_name = colors_name
-  vim.cmd(string.format('augroup %s ', autocmds.colors_name))
+M.viml_cmds = function()
+  vim.cmd(string.format('augroup %s ', M.colors_name))
   vim.cmd('autocmd!')
   vim.cmd('autocmd ColorScheme * lua require("github-theme.autocmds").on_colorscheme()')
-  if config.dev then
-    vim.cmd(string.format('autocmd BufWritePost */lua/github-theme/** nested colorscheme %s', autocmds.colors_name))
+  if cfg.dev then
+    vim.cmd(
+      string.format(
+        'autocmd BufWritePost */lua/github-theme/** nested colorscheme %s',
+        M.colors_name
+      )
+    )
   end
-  for _, sidebar in ipairs(config.sidebars) do
+  for _, sidebar in ipairs(cfg.sidebars) do
     if sidebar == 'terminal' then
-      vim.cmd('autocmd TermOpen * setlocal winhighlight=Normal:NormalSB,SignColumn:SignColumnSB')
+      vim.cmd(
+        'autocmd TermOpen * setlocal winhighlight=Normal:NormalSB,SignColumn:SignColumnSB'
+      )
     else
-      vim.cmd(string.format('autocmd FileType %s setlocal winhighlight=Normal:NormalSB,SignColumn:SignColumnSB', sidebar))
+      vim.cmd(
+        string.format(
+          'autocmd FileType %s setlocal winhighlight=Normal:NormalSB,SignColumn:SignColumnSB',
+          sidebar
+        )
+      )
     end
   end
   vim.cmd('augroup end')
 end
 
----@param config gt.ConfigSchema
----@param colors_name string
-autocmds.native_cmds = function(config, colors_name)
-  autocmds.colors_name = colors_name
-  local group = vim.api.nvim_create_augroup(autocmds.colors_name, { clear = false })
+M.native_cmds = function()
+  local group = vim.api.nvim_create_augroup(M.colors_name, { clear = false })
 
   -- Delete the github-theme autocmds when the theme changes to something else
   vim.api.nvim_create_autocmd('ColorScheme', {
     pattern = '*',
     group = group,
     callback = function()
-      if vim.g.colors_name ~= autocmds.colors_name then
+      if vim.g.colors_name ~= M.colors_name then
         pcall(vim.api.nvim_del_augroup_by_id, group)
       end
     end,
   })
 
-  if config.dev then
+  if cfg.dev then
     -- Enables hot-reloading in github-nvim-theme.
     vim.api.nvim_create_autocmd('BufWritePost', {
       pattern = '*/lua/github-theme/**',
       nested = true,
       group = group,
       callback = function()
-        vim.cmd(string.format('colorscheme %s', autocmds.colors_name))
+        vim.cmd(string.format('colorscheme %s', M.colors_name))
       end,
     })
   end
@@ -65,7 +73,7 @@ autocmds.native_cmds = function(config, colors_name)
     vim.wo.winhighlight = 'Normal:NormalSB,SignColumn:SignColumnSB'
   end
 
-  for _, sidebar in ipairs(config.sidebars) do
+  for _, sidebar in ipairs(cfg.sidebars) do
     if sidebar == 'terminal' then
       -- Set dark color for terminal background.,
       vim.api.nvim_create_autocmd('TermOpen', {
@@ -88,15 +96,14 @@ autocmds.native_cmds = function(config, colors_name)
   end
 end
 
----@param config gt.ConfigSchema
-autocmds.set = function(config, colors_name)
+M.set = function()
   if vim.fn.has('nvim-0.7') == 1 then
-    if not pcall(autocmds.native_cmds, config, colors_name) then
-      autocmds.viml_cmds(config, colors_name)
+    if not pcall(M.native_cmds, config, colors_name) then
+      M.viml_cmds(config, colors_name)
     end
   else
-    autocmds.viml_cmds(config, colors_name)
+    M.viml_cmds(config, colors_name)
   end
 end
 
-return autocmds
+return M

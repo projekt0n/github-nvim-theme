@@ -1,12 +1,13 @@
+local config = require('github-theme.config')
 local util = require('github-theme.util')
 
 ---@class gt.Colors
 local M = {}
 
 ---Setup Colors
----@param cfg gt.ConfigSchema
 ---@return gt.ColorPalette
-M.setup = function(cfg)
+M.setup = function()
+  local cfg = config.options
   local c = require('github-theme.palette.' .. cfg.theme_style)()
   c.none = 'NONE'
 

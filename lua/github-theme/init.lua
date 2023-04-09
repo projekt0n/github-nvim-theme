@@ -17,7 +17,7 @@ M.setup = function(opts)
   dep.check_deprecation(config.options)
 
   -- Load colorscheme
-  util.load(theme.setup(config.options))
+  util.load(theme.setup())
 end
 
 return M
