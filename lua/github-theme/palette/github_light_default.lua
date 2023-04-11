@@ -1,5 +1,5 @@
 local util = require('github-theme.util')
-local light_palette = require('github-theme.palette.light')
+local light_palette = require('github-theme.palette.github_light')
 
 return function()
   ---@type gt.ColorPalette
