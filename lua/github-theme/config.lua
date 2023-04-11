@@ -1,9 +1,8 @@
 local collect = require('github-theme.lib.collect')
 
-local M = { has_options = true }
+local M = { theme = 'github_dark', has_options = true }
 
 local defaults = {
-  theme_style = 'dark',
   hide_end_of_buffer = true,
   hide_inactive_statusline = true,
   comment_style = 'italic',
@@ -23,6 +22,10 @@ local defaults = {
 }
 
 M.options = collect.deep_copy(defaults)
+
+function M.set_theme(name)
+  M.theme = name
+end
 
 function M.set_options(opts)
   opts = opts or {}

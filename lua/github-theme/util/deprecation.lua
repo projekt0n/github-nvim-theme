@@ -47,6 +47,18 @@ M.check_deprecation = function(opts)
 
   check_vim_opts('dev', { help = 'github-theme.changelog-06042023' })
 
+  if opts.theme_style then
+    dep.write(
+      '  ',
+      { 'theme_style', 'WarningMsg' },
+      " has been removed. Use vim's builtin ",
+      { ':colorscheme', 'WarningMsg' },
+      " command to select your github's theme style.",
+      ' Refer to',
+      { ' :h github-theme.changelog-11042023', 'WarningMsg' },
+      ' for more info.'
+    )
+  end
   M.checked_deprecation = true
 end
 

@@ -1,4 +1,3 @@
-local config = require('github-theme.config')
 local types = require('github-theme.types')
 
 ---@class gt.Util
@@ -154,43 +153,6 @@ M.apply_overrides = function(group, overrides, force)
       group[k] = v
     end
   end
-end
-
----@param hi gt.Highlights
-M.load = function(hi)
-  local cfg = config.options
-  local theme_style = cfg.theme_style
-  local colors_name = 'github_' .. theme_style
-
-  --Setting
-  if vim.fn.exists('syntax_on') then
-    vim.cmd('syntax reset')
-  end
-
-  vim.o.termguicolors = true
-
-  if
-    theme_style == 'light'
-    or theme_style == 'light_default'
-    or theme_style == 'light_colorblind'
-  then
-    vim.o.background = 'light'
-  else
-    vim.o.background = 'dark'
-  end
-
-  vim.g.colors_name = colors_name
-
-  -- override colors
-  local overrides = cfg.overrides(hi.colors)
-  M.apply_overrides(hi.base, overrides, cfg.dev)
-  M.apply_overrides(hi.plugins, overrides, cfg.dev)
-
-  --Load ColorScheme
-  M.syntax(hi.base)
-  require('github-theme.autocmds').set()
-  M.terminal(hi.colors)
-  M.syntax(hi.plugins)
 end
 
 ---@param colors gt.ColorPalette

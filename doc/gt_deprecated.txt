@@ -10,12 +10,9 @@ They should not be used in new scripts, and old scripts should be updated.
 ==============================================================================
 Deprecated features
 
-
-MODULES
-- *'colors'*				  Moved to |'github-theme.palette'|
-- *'config.vim_config'*	         	  Deprecated.
-- *'config.default'*			  Moved to |'github-theme.config'|
-  module and accessed with |'default'| variable.
+SETUP OPTIONS
+- *'theme_style'*			  Removed. Use 'colorscheme'
+  command to set colorscheme. Refer `':h github-theme.changelog-11042023'`
 
 GLOBAL OPTIONS
 - *'vim.g.github_theme_style'*		  Use |setup| Lua function instead.
@@ -34,8 +31,24 @@ GLOBAL OPTIONS
 - *'vim.g.github_variable_style'*	  Use |setup| Lua function instead.
 - *'vim.g.github_dev'*			  Use |setup| Lua function instead.
 
+MODULES
+- *'palette.dark'*			  Moved to |'github-theme.palette.github_dark'|
+- *'palette.dark_colorblind'*		  Moved to |'github-theme.palette.github_dark_colorblind'|
+- *'palette.dark_default'*		  Moved to |'github-theme.palette.github_dark_default'|
+- *'palette.dimmed'*			  Moved to |'github-theme.palette.github_dimmed'|
+- *'palette.light'*			  Moved to |'github-theme.palette.github_light'|
+- *'palette.light_colorblind'*		  Moved to |'github-theme.palette.github_light_colorblind'|
+- *'palette.light_default'*		  Moved to |'github-theme.palette.github_light_default'|
+- *'colors'*				  Moved to |'github-theme.palette'|
+- *'config.vim_config'*	         	  Removed.
+- *'config.default'*			  Moved to |'github-theme.config'|
+  module and accessed with |'default'| variable.
+
 FUNCTIONS
-- *'config.apply_configuration()'*	  Deprecated.
+- *'config.apply_configuration()'*	  Removed.
+- *'util.load()'*			  Use |require('github-theme').load()|
+  function instead.
+
 
 
  vim:noet:tw=78:ts=8:ft=help:norl:

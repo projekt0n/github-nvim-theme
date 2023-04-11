@@ -3,6 +3,37 @@
 
 # Changelog
 
+                                                        *github-theme.changelog-11042023*
+Date: April 11, 2023
+
+In the |setup| function, the |theme_style| option has been removed, and the
+process of setting the colorscheme has been changed, It is important to note
+that the configuration may undergo further changes in the future, and will be
+described in the latest changelogs and documentation.
+
+Additionally, the currently used colorscheme palettes within the *palette*
+module have been given the prefix |'github_'|.
+
+Old approach for setting the theme:
+>
+  require('github-theme').setup({
+    theme_style = 'dark',
+    --- ...
+  })
+<
+New approach for setting the theme:
+>
+  require('github-theme').setup({
+    --- ...
+  })
+
+  vim.cmd('colorscheme github_dark')
+  -- or
+  -- vim.cmd.colorscheme('github_dark')
+<
+
+
+
                                                         *github-theme.changelog-06042023*
 
 Date: April 06, 2023

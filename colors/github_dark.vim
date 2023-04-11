@@ -1,3 +1,5 @@
 lua << EOF
-require("github-theme").setup({theme_style = "dark"})
+
+-- require("github-theme.config").set_theme('github_dark')
+require("github-theme").load()
 EOF

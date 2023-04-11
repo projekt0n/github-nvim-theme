@@ -70,16 +70,24 @@ use({
     require('github-theme').setup({
       -- ...
     })
+
+    vim.cmd('colorscheme github_dark')
   end
 })
 ```
 
 ## Usage
 
-Enable the colorscheme:
+Setting the colorscheme:
 
 ```lua
 require('github-theme').setup()
+```
+
+Enable the colorscheme:
+
+```lua
+vim.cmd('colorscheme github_dark')
 ```
 
 ## Configuration
@@ -98,14 +106,12 @@ require('github-theme').setup()
 | msg_area_style           | `NONE`     | Highlight style for messages and cmdline (check `:help highlight-args` for options)                                                             |
 | overrides                | `function` | Override specific highlight groups. The function accpet colors as argument. You can also add a non-exists highlight by enabling the `dev` mode. |
 | sidebars                 | `{}`       | Set a darker background on sidebar-like windows. For example: `{"qf", "vista_kind", "terminal", "packer"}`                                      |
-| theme_style              | `dark`     | Set theme variant (options: `dark`/`dimmed`/`dark_default`/`dark_colorblind`/`light`/`light_default`/`light_colorblind`)                        |
 | transparent              | `false`    | Enable this to disable setting the background color                                                                                             |
 | variable_style           | `NONE`     | Highlight style for variables and identifiers (check `:help highlight-args` for options)                                                        |
 
 ```lua
 -- Example config in Lua
 require("github-theme").setup({
-  theme_style = "dark",
   function_style = "italic",
   sidebars = {"qf", "vista_kind", "terminal", "packer"},
 
@@ -122,6 +128,8 @@ require("github-theme").setup({
     }
   end
 })
+
+vim.cmd('colorscheme github_dark')
 ```
 
 ## Features
@@ -196,9 +204,10 @@ set -as terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{25
 
 ```lua
 require("github-theme").setup({
-  theme_style = "dark",
-  -- other config
+  -- ...
 })
+
+vim.cmd('colorscheme github_dark')
 ```
 
 ![github_dark](https://imgur.com/XWxKWc8.png)
@@ -207,9 +216,10 @@ require("github-theme").setup({
 
 ```lua
 require("github-theme").setup({
-  theme_style = "dimmed",
-  -- other config
+  -- ...
 })
+
+vim.cmd('colorscheme github_dimmed')
 ```
 
 ![github_dimmed](https://imgur.com/lMk4ifs.png)
@@ -218,9 +228,10 @@ require("github-theme").setup({
 
 ```lua
 require("github-theme").setup({
-  theme_style = "dark_default",
-  -- other config
+  -- ...
 })
+
+vim.cmd('colorscheme github_dark_default')
 ```
 
 ![github_dark_default](https://imgur.com/ZfZcBGN.png)
@@ -229,9 +240,10 @@ require("github-theme").setup({
 
 ```lua
 require("github-theme").setup({
-  theme_style = "dark_colorblind",
-  -- other config
+  -- ...
 })
+
+vim.cmd('colorscheme github_dark_colorblind')
 ```
 
 ![github_dark_colorblind](https://imgur.com/OIXgRL4.png)
@@ -240,9 +252,10 @@ require("github-theme").setup({
 
 ```lua
 require("github-theme").setup({
-  theme_style = "light",
-  -- other config
+  -- ...
 })
+
+vim.cmd('colorscheme github_light')
 ```
 
 ![github_light](https://imgur.com/OPwBDI4.png)
@@ -251,9 +264,10 @@ require("github-theme").setup({
 
 ```lua
 require("github-theme").setup({
-  theme_style = "light_default",
-  -- other config
+  -- ...
 })
+
+vim.cmd('colorscheme github_light_default')
 ```
 
 ![github_light_default](https://imgur.com/r9uPo5B.png)
@@ -262,9 +276,10 @@ require("github-theme").setup({
 
 ```lua
 require("github-theme").setup({
-  theme_style = "light_colorblind",
-  -- other config
+  -- ...
 })
+
+vim.cmd('colorscheme github_light_colorblind')
 ```
 
 ![github_light_colorblind](https://imgur.com/fL4ZOUg.png)

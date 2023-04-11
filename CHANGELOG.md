@@ -7,18 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+### Deprecation & Breaking Changes
+
+- The Method of setting and loading colorscheme is changed. Refer to `:h github-theme.changelog-10042023`
+- The `config.vim_config` and `config.default` modules are now deprecated.
+- The `config.apply_configuration()` function is also deprecated.
+- The `theme_style` option is deprecated and use `:colorscheme` command instead.
+
 ### What's New?
 
 - Added a Deprecation library to print Deprecation Messages.
-
-### Changes
-
 - The `config.default` module has been changed to a variable and moved inside the `config` module.
-
-### Deprecation
-
-- The `config.vim_config` and `config.default` modules are now deprecated.
-- The `config.apply_configuration()` function is also deprecated.
 
 ### Issues Fix
 
