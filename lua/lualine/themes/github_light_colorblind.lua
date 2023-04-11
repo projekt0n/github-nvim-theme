@@ -1,1 +1,1 @@
-return require('nightfox.util.lualine')('github_light_colorblind')
+return require('github-theme.util.lualine')('github_light_colorblind')
