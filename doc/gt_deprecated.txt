@@ -32,6 +32,8 @@ GLOBAL OPTIONS
 - *'vim.g.github_dev'*			  Use |setup| Lua function instead.
 
 MODULES
+- *'plugins'*				  Removed
+- *'plugins.lualine'*			  Moved to |'github-theme.util.lualine'|
 - *'palette.dark'*			  Moved to |'github-theme.palette.github_dark'|
 - *'palette.dark_colorblind'*		  Moved to |'github-theme.palette.github_dark_colorblind'|
 - *'palette.dark_default'*		  Moved to |'github-theme.palette.github_dark_default'|

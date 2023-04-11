@@ -1,10 +1,9 @@
 local util = require('github-theme.util')
 
-local lualine = {}
-
 --- build lualine theme for github theme
----@param c gt.ColorPalette
-lualine.build_lualine_theme = function(c)
+return function(style)
+  local c = require('github-theme.palette.' .. style)()
+
   --- create lualine group colors for github-theme
   ---@param color string
   ---@return table
@@ -29,6 +28,10 @@ lualine.build_lualine_theme = function(c)
   end
 
   local inactive_hi = { bg = c.bg2, fg = util.darken(c.fg, 0.3) }
+
+  -- Fix for https://github.com/projekt0n/github-nvim-theme/issues/175
+  vim.cmd('hi! link StatusLine Normal')
+
   return {
     normal = tint_lualine_group(c.blue),
     insert = tint_lualine_group(c.green),
@@ -43,8 +46,3 @@ lualine.build_lualine_theme = function(c)
     },
   }
 end
-
--- Fix for https://github.com/projekt0n/github-nvim-theme/issues/175
-vim.cmd('hi! link StatusLine Normal')
-
-return lualine

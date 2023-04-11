@@ -12,7 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - The Method of setting and loading colorscheme is changed. Refer to `:h github-theme.changelog-10042023`
 - The `config.vim_config` and `config.default` modules are now deprecated.
 - The `config.apply_configuration()` function is also deprecated.
-- The `theme_style` option is deprecated and use `:colorscheme` command instead.
+- The `theme_style` option is removed. Use `:colorscheme` command instead.
+- The module `plugins.lualine` moved to `util.lualine` and `plugins` module removed.
 
 ### What's New?
 
