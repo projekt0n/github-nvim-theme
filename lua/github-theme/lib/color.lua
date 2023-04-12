@@ -125,7 +125,12 @@ function Color.from_hex(c)
     end
   end
 
-  return Color.init(bit.rshift(n, 24) / 0xff, bit.band(bit.rshift(n, 16), 0xff) / 0xff, bit.band(bit.rshift(n, 8), 0xff) / 0xff, bit.band(n, 0xff) / 0xff)
+  return Color.init(
+    bit.rshift(n, 24) / 0xff,
+    bit.band(bit.rshift(n, 16), 0xff) / 0xff,
+    bit.band(bit.rshift(n, 8), 0xff) / 0xff,
+    bit.band(n, 0xff) / 0xff
+  )
 end
 
 ---Create a Color from HSV value
@@ -217,7 +222,10 @@ end
 ---@return integer
 function Color:to_hex(with_alpha)
   local ls, bor, fl = bit.lshift, bit.bor, math.floor
-  local n = bor(bor(ls(fl((self.red * 0xff) + 0.5), 16), ls(fl((self.green * 0xff) + 0.5), 8)), fl((self.blue * 0xff) + 0.5))
+  local n = bor(
+    bor(ls(fl((self.red * 0xff) + 0.5), 16), ls(fl((self.green * 0xff) + 0.5), 8)),
+    fl((self.blue * 0xff) + 0.5)
+  )
   return with_alpha and bit.lshift(n, 8) + (self.alpha * 0xff) or n
 end
 
@@ -251,7 +259,12 @@ end
 ---@param f number Float [0,1]. 0 being this and 1 being other
 ---@return Color
 function Color:blend(other, f)
-  return Color.init((other.red - self.red) * f + self.red, (other.green - self.green) * f + self.green, (other.blue - self.blue) * f + self.blue, self.alpha)
+  return Color.init(
+    (other.red - self.red) * f + self.red,
+    (other.green - self.green) * f + self.green,
+    (other.blue - self.blue) * f + self.blue,
+    self.alpha
+  )
 end
 
 ---Returns a new shaded color.
@@ -261,7 +274,12 @@ function Color:shade(f)
   local t = f < 0 and 0 or 1.0
   local p = f < 0 and f * -1.0 or f
 
-  return Color.init((t - self.red) * p + self.red, (t - self.green) * p + self.green, (t - self.blue) * p + self.blue, self.alpha)
+  return Color.init(
+    (t - self.red) * p + self.red,
+    (t - self.green) * p + self.green,
+    (t - self.blue) * p + self.blue,
+    self.alpha
+  )
 end
 
 ---Adds value of `v` to the `value` of the current color. This returns either
