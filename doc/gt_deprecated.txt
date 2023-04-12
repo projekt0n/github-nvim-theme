@@ -13,6 +13,12 @@ Deprecated features
 SETUP OPTIONS
 - *'theme_style'*			  Removed. Use 'colorscheme'
   command to set colorscheme. Refer `':h github-theme.changelog-11042023'`
+- *'comment_style'*			  Deprecated. Use |'options.styles.comments'| Instead.
+- *'function_style'*			  Deprecated. Use |'options.styles.functions'| Instead.
+- *'keyword_style'*			  Deprecated. Use |'options.styles.keywords'| Instead.
+- *'variable_style'*			  Deprecated. Use |'options.styles.variables'| Instead.
+- *'msg_area_style'*			  Removed. Refer to `'github-theme.changelog-12042023'`
+
 
 GLOBAL OPTIONS
 - *'vim.g.github_theme_style'*		  Use |setup| Lua function instead.

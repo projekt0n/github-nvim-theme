@@ -63,8 +63,14 @@ end
 M.setup = function(opts)
   did_setup = true
 
+  -- TODO: Remove this condition when migration
+  -- from old config to 'opts.options' has been DONE.
   if opts then
     config.set_options(opts)
+  end
+
+  if opts.options then
+    config.set_options(opts.options)
   end
 
   dep.check_deprecation(opts)

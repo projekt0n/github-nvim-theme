@@ -95,24 +95,27 @@ vim.cmd('colorscheme github_dark')
 | Option                   | Default    | Description                                                                                                                                     |
 | ------------------------ | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
 | colors                   | `{}`       | You can override specific color groups to use other groups or a hex color                                                                       |
-| comment_style            | `italic`   | Highlight style for comments (check `:help highlight-args` for options)                                                                         |
+| options.styles.comments  | `italic`   | Highlight style for comments (check `:help highlight-args` for options)                                                                         |
+| options.styles.functions | `NONE`     | Highlight style for functions (check `:help highlight-args` for options)                                                                        |
+| options.styles.keywords  | `italic`   | Highlight style for keywords (check `:help highlight-args` for options)                                                                         |
+| options.styles.variables | `NONE`     | Highlight style for variables and identifiers (check `:help highlight-args` for options)                                                        |
 | dark_float               | `false`    | Float windows like the lsp diagnostics windows get a darker background.                                                                         |
 | dark_sidebar             | `true`     | Sidebar like windows like `NvimTree` get a darker background                                                                                    |
-| dev                      | `false`    | Developer Mode.                                                                                                                                 |
-| function_style           | `NONE`     | Highlight style for functions (check `:help highlight-args` for options)                                                                        |
 | hide_end_of_buffer       | `true`     | Enabling this option, will hide filler lines (~) after the end of the buffer                                                                    |
 | hide_inactive_statusline | `true`     | Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine**. |
-| keyword_style            | `italic`   | Highlight style for keywords (check `:help highlight-args` for options)                                                                         |
-| msg_area_style           | `NONE`     | Highlight style for messages and cmdline (check `:help highlight-args` for options)                                                             |
 | overrides                | `function` | Override specific highlight groups. The function accpet colors as argument. You can also add a non-exists highlight by enabling the `dev` mode. |
 | sidebars                 | `{}`       | Set a darker background on sidebar-like windows. For example: `{"qf", "vista_kind", "terminal", "packer"}`                                      |
 | transparent              | `false`    | Enable this to disable setting the background color                                                                                             |
-| variable_style           | `NONE`     | Highlight style for variables and identifiers (check `:help highlight-args` for options)                                                        |
+| dev                      | `false`    | Developer Mode.                                                                                                                                 |
 
 ```lua
 -- Example config in Lua
 require("github-theme").setup({
-  function_style = "italic",
+  options = {
+    styles = {
+      functions = "italic",
+    }
+  },
   sidebars = {"qf", "vista_kind", "terminal", "packer"},
 
   -- Change the "hint" color to the "orange" color, and make the "error" color bright red
@@ -294,11 +297,15 @@ vim.cmd('colorscheme github_light_colorblind')
 
 ```lua
 require("github-theme").setup({
-  comment_style = "NONE",
-  keyword_style = "NONE",
-  function_style = "NONE",
-  variable_style = "NONE"
-  -- other config
+  options = {
+    styles = {
+      comments = "NONE",
+      functions = "NONE",
+      keywords = "NONE",
+      variables = "NONE"
+    }
+  },
+  -- ...
 })
 ```
 
@@ -308,11 +315,15 @@ require("github-theme").setup({
 
 ```lua
 require("github-theme").setup({
-  comment_style = "italic",
-  keyword_style = "italic",
-  function_style = "italic",
-  variable_style = "italic"
-  -- other config
+  options = {
+    styles = {
+      comments = "Italic",
+      functions = "Italic",
+      keywords = "Italic",
+      variables = "Italic"
+    }
+  },
+  -- ...
 })
 ```
 

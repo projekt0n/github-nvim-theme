@@ -3,13 +3,15 @@ local collect = require('github-theme.lib.collect')
 local M = { theme = 'github_dark', has_options = true }
 
 local defaults = {
+  styles = {
+    comments = 'Italic',
+    functions = 'NONE',
+    keywords = 'Italic',
+    variables = 'NONE',
+  },
+
   hide_end_of_buffer = true,
   hide_inactive_statusline = true,
-  comment_style = 'italic',
-  function_style = 'NONE',
-  keyword_style = 'Italic',
-  msg_area_style = 'NONE',
-  variable_style = 'NONE',
   transparent = false,
   dark_float = false,
   dark_sidebar = true,

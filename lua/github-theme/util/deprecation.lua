@@ -59,6 +59,50 @@ M.check_deprecation = function(opts)
       ' for more info.'
     )
   end
+
+  local function check_opt(name, o)
+    if opts[name] then
+      local replace = o and o.replace or string.format('options.%s', name)
+      local help = o and o.help or 'github-theme.changelogs'
+      dep.write(
+        '  ',
+        { name, 'WarningMsg' },
+        ' has been replaced by ',
+        { replace, 'WarningMsg' },
+        '. See ',
+        { ':h ' .. help, 'WarningMsg' },
+        ' for more info.'
+      )
+    end
+  end
+
+  check_opt(
+    'comment_style',
+    { replace = 'options.styles.comments', help = 'github-theme.changelog-12042023' }
+  )
+  check_opt(
+    'function_style',
+    { replace = 'options.styles.functions', help = 'github-theme.changelog-12042023' }
+  )
+  check_opt(
+    'keyword_style',
+    { replace = 'options.styles.keywords', help = 'github-theme.changelog-12042023' }
+  )
+  check_opt(
+    'variable_style',
+    { replace = 'options.styles.variables', help = 'github-theme.changelog-12042023' }
+  )
+
+  if opts.msg_area_style then
+    dep.write(
+      '  ',
+      { 'msg_area_style', 'WarningMsg' },
+      ' has been removed.  Refer to',
+      { ' :h github-theme.changelog-12042023', 'WarningMsg' },
+      ' for more info.'
+    )
+  end
+
   M.checked_deprecation = true
 end
 

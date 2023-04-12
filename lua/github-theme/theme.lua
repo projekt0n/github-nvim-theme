@@ -46,7 +46,7 @@ M.setup = function()
     CursorLineNr = { fg = c.cursor_line_nr }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
     MatchParen = { fg = c.fg, bg = c.syntax.match_paren_bg }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     ModeMsg = { fg = c.fg, style = Styles.Bold }, -- 'showmode' message (e.g., "-- INSERT -- ")
-    MsgArea = { fg = c.fg, style = config.options.msg_area_style }, -- Area for messages and cmdline
+    MsgArea = { fg = c.fg }, -- Area for messages and cmdline
     -- MsgSeparator= { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     MoreMsg = { fg = c.blue }, -- |more-prompt|
     NonText = { fg = c.eob }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
@@ -85,7 +85,7 @@ M.setup = function()
     -- default,
     -- Uncomment and edit if you want more specific syntax highlighting.
 
-    Comment = { fg = c.syntax.comment, style = config.options.comment_style }, -- any comment
+    Comment = { fg = c.syntax.comment, style = config.options.styles.comments }, -- any comment
     Constant = { fg = c.syntax.constant }, -- (preferred) any constant
     String = { fg = c.syntax.string }, --   a string constant: "this is a string"
     Character = { fg = c.syntax.variable }, --  a character constant: 'c', '\n'
@@ -93,14 +93,14 @@ M.setup = function()
     -- Boolean       = { }, --  a boolean constant: TRUE, false
     -- Float         = { }, --    a floating point constant: 2.3e10
 
-    Identifier = { fg = c.syntax.variable, style = config.options.variable_style }, -- (preferred) any variable name
-    Function = { fg = c.syntax.func, style = config.options.function_style }, -- function name (also: methods for classes)
+    Identifier = { fg = c.syntax.variable, style = config.options.styles.variables }, -- (preferred) any variable name
+    Function = { fg = c.syntax.func, style = config.options.styles.functions }, -- function name (also: methods for classes)
     Statement = { fg = c.syntax.keyword }, -- (preferred) any statement
     -- Conditional   = { }, --  if, then, else, endif, switch, etc.
     -- Repeat        = { }, --   for, do, while, etc.
     -- Label         = { }, --    case, default, etc.
     Operator = { fg = c.syntax.keyword }, -- "sizeof", "+", "*", etc.
-    Keyword = { fg = c.syntax.keyword, style = config.options.keyword_style }, --  any other keyword
+    Keyword = { fg = c.syntax.keyword, style = config.options.styles.keywords }, --  any other keyword
     -- Exception     = { }, --  try, catch, throw
 
     PreProc = { fg = c.syntax.keyword }, -- (preferred) generic Preprocessor
@@ -223,10 +223,10 @@ M.setup = function()
     -- TSFuncBuiltin       = { };    -- For builtin functions: `table.insert` in Lua.
     -- TSFuncMacro         = { };    -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
     ['@include'] = { fg = c.syntax.keyword }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
-    ['@keyword'] = { fg = c.syntax.keyword, style = config.options.keyword_style }, -- For keywords that don't fall in previous categories.
+    ['@keyword'] = { fg = c.syntax.keyword, style = config.options.styles.keywords }, -- For keywords that don't fall in previous categories.
     ['@keyword.function'] = {
       fg = c.syntax.keyword,
-      style = config.options.function_style,
+      style = config.options.styles.functions,
     }, -- For keywords used to define a fuction.
     ['@label'] = { fg = c.blue }, -- For labels: `label:` in C and `:label:` in Lua.
     -- TSMethod            = { };    -- For method calls and definitions.
@@ -247,7 +247,7 @@ M.setup = function()
     -- TSSymbol            = { };    -- For identifiers referring to symbols or atoms.
     ['@type'] = { fg = c.syntax.keyword }, -- For types.
     -- TSTypeBuiltin       = { };    -- For builtin types.
-    ['@variable'] = { fg = c.syntax.variable, style = config.options.variable_style }, -- Any variable name that does not have another highlight.
+    ['@variable'] = { fg = c.syntax.variable, style = config.options.styles.variables }, -- Any variable name that does not have another highlight.
     ['@variable.builtin'] = { fg = c.syntax.variable }, -- Variable names that are defined by the languages, like `this` or `self`.
     ['@tag'] = { fg = c.syntax.tag }, -- Tags like html tag names.
     ['@tag.delimiter'] = { fg = c.fg }, -- Tag delimiter like `<` `>` `/`

@@ -3,6 +3,19 @@
 
 # Changelog
 
+                                                        *github-theme.changelog-12042023*
+Date: April 12, 2023
+
+The configuration for defining styles has been migrated to *options.styles*. As
+part of this migration, *msg_area_style* has been removed.
+
+Here is the updated config keys:
+- |comment_style| -> |options.styles.comments|
+- |function_style| -> |options.styles.functions|
+- |keyword_style| -> |options.styles.keywords|
+- |variable_style| -> |options.styles.variables|
+- |msg_area_style| -> Removed.
+
                                                         *github-theme.changelog-11042023*
 Date: April 11, 2023
 
