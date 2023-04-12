@@ -20,7 +20,7 @@ M.load = function(opts)
   end
 
   if not did_setup then
-    M.setup()
+    M.setup { options = {} }
   end
 
   lock = true
