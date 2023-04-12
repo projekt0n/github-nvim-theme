@@ -36,7 +36,7 @@ M.setup = function()
     -- TermCursor  = { }, -- cursor in a focused terminal
     -- TermCursorNC= { }, -- cursor in an unfocused terminal
     ErrorMsg = { fg = c.error }, -- error messages on the command line
-    VertSplit = { fg = c.bg_visual, bg = config.options.transparent and c.none or c.bg }, -- the column separating vertically split windows
+    VertSplit = { bg = c.bg, fg = c.fg_dark }, -- the column separating vertically split windows
     Folded = { fg = c.fg, bg = c.bg_visual_selection }, -- line used for closed folds
     FoldColumn = { link = 'Folded' }, -- 'foldcolumn'
     SignColumn = { fg = c.fg_gutter, bg = config.options.transparent and c.none or c.bg }, -- column where |signs| are displayed
@@ -60,7 +60,7 @@ M.setup = function()
     PmenuSbar = { bg = c.pmenu.bg }, -- Popup menu: scrollbar.
     PmenuThumb = { bg = c.pmenu.sbar }, -- Popup menu: Thumb of the scrollbar.
     Question = { fg = c.blue }, -- |hit-enter| prompt and yes/no questions
-    QuickFixLine = { bg = util.darken(c.blue, 0.2), style = Styles.Bold }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
+    QuickFixLine = { bg = util.darken(c.blue, 0.05), style = Styles.Bold }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
     Search = { fg = c.none, bg = c.bg_search }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
     IncSearch = { fg = '#000000', bg = c.orange }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     SpecialKey = { fg = c.fg_gutter }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
@@ -79,6 +79,7 @@ M.setup = function()
     WarningMsg = { fg = c.warning }, -- warning messages
     Whitespace = { fg = util.darken(c.syntax.comment, 0.4) }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
     WildMenu = { bg = c.bg_visual }, -- current match in 'wildmenu' completion
+    WinSeparator = { bg = c.bg, fg = c.fg_dark },
     -- These groups are not listed as default vim groups,
     -- but they are defacto standard group names for syntax highlighting.
     -- commented out groups should chain up to their "preferred" group by
@@ -405,22 +406,36 @@ M.setup = function()
     TelescopeMultiSelection = { fg = c.syntax.comment },
     TelescopeSelection = { bg = c.bg_visual_selection },
 
+    TelescopeSelectionCaret = { fg = c.fg, bg = c.bg_visual_selection },
+    TelescopeNormal = { fg = c.fg, bg = c.bg_float },
+    TelescopePrompt = { fg = c.fg, bg = c.bg_float },
+    TelescopePromptTitle = { fg = c.fg, bg = 'NONE' },
+    TelescopeResultsTitle = { fg = c.fg, bg = 'NONE' },
+    TelescopePreviewTitle = { fg = c.fg, bg = 'NONE' },
+    TelescopePromptCounter = { fg = c.bright_blue, bg = 'NONE' },
+    TelescopePreviewHyphen = { fg = c.bright_blue, bg = 'NONE' },
+
     -- NvimTree
-    NvimTreeNormal = { fg = c.fg_light, bg = c.bg_sidebar },
+    NvimTreeNormal = { fg = c.fg_light, bg = c.none },
+    NvimTreeNormalNC = { fg = c.fg_light, bg = c.none },
     NvimTreeEndOfBuffer = { fg = c.sidebar_eob },
     NvimTreeRootFolder = { fg = c.fg_light, style = Styles.Bold },
     NvimTreeGitDirty = { fg = c.git.change },
-    NvimTreeGitNew = { fg = c.git.add },
+    NvimTreeGitNew = { fg = util.lighten(c.git.add, 0.8) },
     NvimTreeGitRenamed = { fg = c.git.renamed },
     NvimTreeGitDeleted = { fg = c.git.delete },
     NvimTreeGitIgnored = { fg = c.syntax.comment },
-    NvimTreeSpecialFile = { fg = c.yellow, style = Styles.Underline },
     NvimTreeIndentMarker = { fg = c.syntax.comment },
     NvimTreeImageFile = { fg = c.bright_yellow },
     NvimTreeSymlink = { fg = c.magenta },
     NvimTreeFolderName = { fg = c.fg_light },
     NvimTreeOpenedFolderName = { fg = c.fg_light, style = Styles.Bold },
     NvimTreeOpenedFile = { fg = c.bright_blue },
+    NvimTreeWinSeparator = { fg = c.fg_dark },
+    NvimTreeExecFile = { fg = c.fg_light },
+    NvimTreeSpecialFile = { fg = c.fg_light },
+    NvimTreeCursorLine = { bg = util.lighten(c.bg_sidebar, 0.9) },
+    NvimTreeFileStaged = { fg = c.git.add },
 
     -- Git Default
     gitcommitSummary = { fg = c.syntax.tag },
@@ -451,8 +466,16 @@ M.setup = function()
     healthWarning = { fg = c.warning },
 
     -- BufferLine
-    BufferLineIndicatorSelected = { fg = c.syntax.param },
     BufferLineBackground = { fg = c.syntax.comment },
+    BufferLineSeparator = { fg = c.bg },
+    BufferlineFill = { bg = c.bg_sidebar },
+    BufferlineTabSelected = { bg = c.bg, style = Styles.Bold },
+    BufferLineIndicatorSelected = { bg = c.bg, fg = c.bg },
+    BufferLineIndicatorVisible = { bg = c.bg },
+    BufferLineBufferVisible = { fg = c.syntax.comment, bg = c.bg, style = Styles.Bold },
+    BufferLineDuplicate = { fg = c.syntax.comment, bg = c.bg },
+    BufferLineDuplicateVisible = { fg = c.syntax.comment, bg = c.bg },
+    BufferLineDuplicateSelected = { fg = c.fg, bg = c.bg, style = Styles.Bold },
 
     -- Hop
     -- Deep red color for light themes
@@ -668,6 +691,9 @@ M.setup = function()
     IndentBlanklineSpaceCharBlankline = { fg = util.darken(c.syntax.comment, 0.2) },
     IndentBlanklineContextChar = { fg = c.fg },
     IndentBlanklineContextStart = { sp = c.fg, underline = true },
+
+    -- Fidget.nvim
+    FidgetTask = { fg = c.fg, bg = nil },
   }
 
   if config.options.hide_inactive_statusline then
