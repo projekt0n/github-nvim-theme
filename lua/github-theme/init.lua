@@ -14,7 +14,7 @@ end
 -- Avoid g:colors_name reloading
 local lock = false
 
-M.load = function(opts)
+M.load = function()
   if lock then
     return
   end
