@@ -29,6 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Issues Fix
 
 - #238 fixed
+- #241 fixed
 
 ## [v0.0.7] - 16 January 2023
 

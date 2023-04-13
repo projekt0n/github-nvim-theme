@@ -62,6 +62,7 @@ end
 
 M.setup = function(opts)
   did_setup = true
+  opts = opts or {}
 
   -- TODO: Remove this condition when migration
   -- from old config to 'opts.options' has been DONE.
