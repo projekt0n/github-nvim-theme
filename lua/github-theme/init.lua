@@ -64,10 +64,16 @@ M.setup = function(opts)
   did_setup = true
   opts = opts or {}
 
-  -- TODO: Remove this condition when migration
+  -- TODO: Remove these individual conditions when migration
   -- from old config to 'opts.options' has been DONE.
-  if opts then
-    config.set_options(opts)
+  if opts.colors then
+    config.set_options({ opts.colors })
+  end
+  if opts.overrides then
+    config.set_options({ opts.overrides })
+  end
+  if opts.dev then
+    config.set_options({ opts.dev })
   end
 
   if opts.options then

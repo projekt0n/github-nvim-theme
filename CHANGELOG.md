@@ -20,6 +20,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `function_style` -> `options.styles.functions`
   - `keyword_style` -> `options.styles.keywords`
   - `variable_style` -> `options.styles.variables`
+  - `transparent` -> `options.transparent`
+  - `hide_end_of_buffer` -> `options.hide_end_of_buffer`
+  - `hide_inactive_statusline` -> `options.hide_nc_statusline`
+  - `dark_float` -> `options.darken.floats`
+  - `dark_sidebar`-> `options.darken.sidebars.enable`
+  - `sidebars`-> `options.darken.sidebars.list`
 
 ### What's New?
 

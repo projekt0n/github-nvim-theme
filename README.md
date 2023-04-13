@@ -92,48 +92,60 @@ vim.cmd('colorscheme github_dark')
 
 ## Configuration
 
-| Option                   | Default    | Description                                                                                                                                     |
-| ------------------------ | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| colors                   | `{}`       | You can override specific color groups to use other groups or a hex color                                                                       |
-| options.styles.comments  | `italic`   | Highlight style for comments (check `:help highlight-args` for options)                                                                         |
-| options.styles.functions | `NONE`     | Highlight style for functions (check `:help highlight-args` for options)                                                                        |
-| options.styles.keywords  | `italic`   | Highlight style for keywords (check `:help highlight-args` for options)                                                                         |
-| options.styles.variables | `NONE`     | Highlight style for variables and identifiers (check `:help highlight-args` for options)                                                        |
-| dark_float               | `false`    | Float windows like the lsp diagnostics windows get a darker background.                                                                         |
-| dark_sidebar             | `true`     | Sidebar like windows like `NvimTree` get a darker background                                                                                    |
-| hide_end_of_buffer       | `true`     | Enabling this option, will hide filler lines (~) after the end of the buffer                                                                    |
-| hide_inactive_statusline | `true`     | Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine**. |
-| overrides                | `function` | Override specific highlight groups. The function accpet colors as argument. You can also add a non-exists highlight by enabling the `dev` mode. |
-| sidebars                 | `{}`       | Set a darker background on sidebar-like windows. For example: `{"qf", "vista_kind", "terminal", "packer"}`                                      |
-| transparent              | `false`    | Enable this to disable setting the background color                                                                                             |
-| dev                      | `false`    | Developer Mode.                                                                                                                                 |
-
 ```lua
 -- Example config in Lua
-require("github-theme").setup({
+require('github-theme').setup({
   options = {
+    transparent = false,
+    hide_end_of_buffer = true,
+    hide_nc_statusline = true,
     styles = {
-      functions = "italic",
-    }
+      comments = 'Italic',
+      functions = 'NONE',
+      keywords = 'Bold',
+      variables = 'Underline',
+    },
+    darken = {
+      floats = true,
+      sidebars = {
+        enable = true,
+        list = { 'qf', 'vista_kind', 'terminal', 'packer' },
+      },
+    },
   },
-  sidebars = {"qf", "vista_kind", "terminal", "packer"},
 
   -- Change the "hint" color to the "orange" color, and make the "error" color bright red
-  colors = {hint = "orange", error = "#ff0000"},
+  colors = { hint = 'orange', error = '#ff0000' },
 
   -- Overwrite the highlight groups
   overrides = function(c)
     return {
-      htmlTag = {fg = c.red, bg = "#282c34", sp = c.hint, style = "underline"},
-      DiagnosticHint = {link = "LspDiagnosticsDefaultHint"},
+      htmlTag = { fg = c.red, bg = '#282c34', sp = c.hint, style = 'underline' },
+      DiagnosticHint = { link = 'LspDiagnosticsDefaultHint' },
       -- this will remove the highlight groups
       TSField = {},
     }
-  end
+  end,
 })
 
 vim.cmd('colorscheme github_dark')
 ```
+
+| Option                         | Default    | Description                                                                                                                                     |
+| ------------------------------ | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| options.transparent            | `false`    | Enable this to disable setting the background color                                                                                             |
+| options.hide_end_of_buffer     | `true`     | Enabling this option, will hide filler lines (~) after the end of the buffer                                                                    |
+| options.hide_nc_statusline     | `true`     | Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine**. |
+| options.styles.comments        | `italic`   | Highlight style for comments (check `:help highlight-args` for options)                                                                         |
+| options.styles.functions       | `NONE`     | Highlight style for functions (check `:help highlight-args` for options)                                                                        |
+| options.styles.keywords        | `italic`   | Highlight style for keywords (check `:help highlight-args` for options)                                                                         |
+| options.styles.variables       | `NONE`     | Highlight style for variables and identifiers (check `:help highlight-args` for options)                                                        |
+| options.darken.floats          | `false`    | Float windows like the lsp diagnostics windows get a darker background.                                                                         |
+| options.darken.sidebars.enable | `true`     | Sidebar like windows like `NvimTree` get a darker background                                                                                    |
+| options.darken.sidebars.list   | `{}`       | Set a darker background on sidebar-like windows. For example: `{"qf", "vista_kind", "terminal", "packer"}`                                      |
+| colors                         | `{}`       | You can override specific color groups to use other groups or a hex color                                                                       |
+| overrides                      | `function` | Override specific highlight groups. The function accpet colors as argument. You can also add a non-exists highlight by enabling the `dev` mode. |
+| dev                            | `false`    | Developer Mode.                                                                                                                                 |
 
 ## Features
 
@@ -181,7 +193,7 @@ git repository
 
 To have undercurls show up and in color, add the following to your **Tmux** config file:
 
-```sh
+```bash
 # Undercurl
 set -g default-terminal "${TERM}"
 set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'  # undercurl support
@@ -332,10 +344,20 @@ require("github-theme").setup({
 ### Minimal config
 
 ```lua
-require("github-theme").setup({
-  dark_sidebar = false,
-  -- other config
+require('github-theme').setup({
+  options = {
+    darken = {
+      sidebars = {
+        enable = true,
+      },
+      -- ...
+    },
+    -- ...
+  },
+  -- ...
 })
+
+vim.cmd('colorscheme github_dark')
 ```
 
 ![github_minimal](https://imgur.com/rAsEukW.png)

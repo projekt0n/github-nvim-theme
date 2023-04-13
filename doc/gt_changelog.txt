@@ -3,6 +3,21 @@
 
 # Changelog
 
+                                                        *github-theme.changelog-13042023*
+Date: April 13, 2023
+
+The configuration for defining transparency, darkening windows, floating, and hiding elements has been moved to the *options* table.
+
+The updated configuration keys are as follows:
+- |transparent| -> |options.transparent|
+- |hide_end_of_buffer| -> |options.hide_end_of_buffer|
+- |hide_inactive_statusline| -> |options.hide_nc_statusline|
+- |dark_float| -> |options.darken.floats|
+- |dark_sidebar|-> |options.darken.sidebars.enable|
+- |sidebars|-> |options.darken.sidebars.list|
+
+
+
                                                         *github-theme.changelog-12042023*
 Date: April 12, 2023
 
@@ -15,6 +30,8 @@ Here is the updated config keys:
 - |keyword_style| -> |options.styles.keywords|
 - |variable_style| -> |options.styles.variables|
 - |msg_area_style| -> Removed.
+
+
 
                                                         *github-theme.changelog-11042023*
 Date: April 11, 2023

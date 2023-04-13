@@ -23,7 +23,7 @@ M.viml_cmds = function()
       )
     )
   end
-  for _, sidebar in ipairs(config.options.sidebars) do
+  for _, sidebar in ipairs(config.options.darken.sidebars.list) do
     if sidebar == 'terminal' then
       vim.cmd(
         'autocmd TermOpen * setlocal winhighlight=Normal:NormalSB,SignColumn:SignColumnSB'
@@ -70,7 +70,7 @@ M.native_cmds = function()
     vim.wo.winhighlight = 'Normal:NormalSB,SignColumn:SignColumnSB'
   end
 
-  for _, sidebar in ipairs(config.options.sidebars) do
+  for _, sidebar in ipairs(config.options.darken.sidebars.list) do
     if sidebar == 'terminal' then
       -- Set dark color for terminal background.,
       vim.api.nvim_create_autocmd('TermOpen', {

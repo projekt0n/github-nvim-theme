@@ -18,6 +18,12 @@ SETUP OPTIONS
 - *'keyword_style'*			  Deprecated. Use |'options.styles.keywords'| Instead.
 - *'variable_style'*			  Deprecated. Use |'options.styles.variables'| Instead.
 - *'msg_area_style'*			  Removed. Refer to `'github-theme.changelog-12042023'`
+- *'transparent'*			  Deprecated. Use  |'options.transparent'| Instead.
+- *'hide_end_of_buffer'*		  Deprecated. Use |'options.hide_end_of_buffer'| Instead.
+- *'hide_inactive_statusline'*		  Deprecated. Use |'options.hide_nc_statusline'| Instead.
+- *'dark_float'*			  Deprecated. Use |'options.darken.floats'| Instead.
+- *'dark_sidebar'*			  Deprecated. Use |'options.darken.sidebars.enable'| Instead.
+- *'sidebars'*				  Deprecated. Use |'options.darken.sidebars.list'| Instead.
 
 
 GLOBAL OPTIONS

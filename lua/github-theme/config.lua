@@ -3,19 +3,23 @@ local collect = require('github-theme.lib.collect')
 local M = { theme = 'github_dark', has_options = true }
 
 local defaults = {
+  transparent = false,
+  hide_end_of_buffer = true,
+  hide_nc_statusline = true,
   styles = {
     comments = 'Italic',
     functions = 'NONE',
     keywords = 'Italic',
     variables = 'NONE',
   },
+  darken = {
+    floats = false,
+    sidebars = {
+      enable = true,
+      list = {},
+    },
+  },
 
-  hide_end_of_buffer = true,
-  hide_inactive_statusline = true,
-  transparent = false,
-  dark_float = false,
-  dark_sidebar = true,
-  sidebars = {},
   colors = {},
   overrides = function()
     return {}

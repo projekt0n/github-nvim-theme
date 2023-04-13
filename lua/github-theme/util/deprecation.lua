@@ -61,7 +61,7 @@ M.check_deprecation = function(opts)
   end
 
   local function check_opt(name, o)
-    if opts[name] then
+    if opts[name] ~= nil then
       local replace = o and o.replace or string.format('options.%s', name)
       local help = o and o.help or 'github-theme.changelogs'
       dep.write(
@@ -102,6 +102,34 @@ M.check_deprecation = function(opts)
       ' for more info.'
     )
   end
+
+  check_opt(
+    'transparent',
+    { replace = 'options.transparent', help = 'github-theme.changelog-13042023' }
+  )
+  check_opt(
+    'hide_end_of_buffer',
+    { replace = 'options.hide_end_of_buffer', help = 'github-theme.changelog-13042023' }
+  )
+  check_opt(
+    'hide_inactive_statusline',
+    { replace = 'options.hide_nc_statusline', help = 'github-theme.changelog-13042023' }
+  )
+  check_opt(
+    'dark_float',
+    { replace = 'options.darken.floats', help = 'github-theme.changelog-13042023' }
+  )
+  check_opt(
+    'dark_sidebar',
+    {
+      replace = 'options.darken.sidebars.enable',
+      help = 'github-theme.changelog-13042023',
+    }
+  )
+  check_opt(
+    'sidebars',
+    { replace = 'options.darken.sidebars.list', help = 'github-theme.changelog-13042023' }
+  )
 
   M.checked_deprecation = true
 end
