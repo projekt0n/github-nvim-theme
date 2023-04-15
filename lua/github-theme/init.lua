@@ -64,6 +64,8 @@ M.setup = function(opts)
   did_setup = true
   opts = opts or {}
 
+  local override = require('github-theme.override')
+
   -- TODO: Remove these individual conditions when migration
   -- from old config to 'opts.options' has been DONE.
   if opts.colors then
@@ -76,8 +78,12 @@ M.setup = function(opts)
     config.set_options({ opts.dev })
   end
 
+  -- New configs
   if opts.options then
     config.set_options(opts.options)
+  end
+  if opts.palettes then
+    override.palettes = opts.palettes
   end
 
   dep.check_deprecation(opts)

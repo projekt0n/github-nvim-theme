@@ -207,4 +207,4 @@ local function generate_spec(pal)
   return spec
 end
 
-return { meta, palette, generate_spec }
+return { meta = meta, palette = palette, generate_spec = generate_spec }
