@@ -1,6 +1,3 @@
-local types = require('github-theme.types')
-
----@class gt.Util
 local M = {}
 
 ---@type table<number, string>
@@ -81,7 +78,7 @@ M.debug = function(colors)
 end
 
 ---@param hi_name string
----@param hi gt.Highlight|gt.LinkHighlight
+---@param hi
 M.highlight = function(hi_name, hi)
   if hi.fg then
     M.used_color[hi.fg] = true
@@ -170,9 +167,9 @@ function M.color_overrides(colors, oride_colors)
       if type(colors[key]) == 'table' then
         M.color_overrides(colors[key], value)
       else
-        if value:lower() == types.gt.HighlightStyle.None:lower() then
+        if value:lower() == 'none' then
           -- set to none
-          colors[key] = types.gt.HighlightStyle.None
+          colors[key] = 'NONE'
         elseif string.sub(value, 1, 1) == '#' then
           -- hex override
           colors[key] = value

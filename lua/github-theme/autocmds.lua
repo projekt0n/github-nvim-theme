@@ -15,14 +15,6 @@ M.viml_cmds = function()
   vim.cmd(string.format('augroup %s ', config.theme))
   vim.cmd('autocmd!')
   vim.cmd('autocmd ColorScheme * lua require("github-theme.autocmds").on_colorscheme()')
-  if config.options.dev then
-    vim.cmd(
-      string.format(
-        'autocmd BufWritePost */lua/github-theme/** nested colorscheme %s',
-        config.theme
-      )
-    )
-  end
   for _, sidebar in ipairs(config.options.darken.sidebars.list) do
     if sidebar == 'terminal' then
       vim.cmd(
@@ -53,18 +45,6 @@ M.native_cmds = function()
       end
     end,
   })
-
-  if config.options.dev then
-    -- Enables hot-reloading in github-nvim-theme.
-    vim.api.nvim_create_autocmd('BufWritePost', {
-      pattern = '*/lua/github-theme/**',
-      nested = true,
-      group = group,
-      callback = function()
-        vim.cmd(string.format('colorscheme %s', config.theme))
-      end,
-    })
-  end
 
   local func_winhightlight = function()
     vim.wo.winhighlight = 'Normal:NormalSB,SignColumn:SignColumnSB'
