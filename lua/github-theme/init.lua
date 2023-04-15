@@ -49,6 +49,7 @@ M.load = function(opts)
 
   -- override colors
   local overrides = config.options.overrides(hi.colors)
+
   util.apply_overrides(hi.base, overrides, config.options.dev)
   util.apply_overrides(hi.plugins, overrides, config.options.dev)
 
@@ -69,10 +70,10 @@ M.setup = function(opts)
   -- TODO: Remove these individual conditions when migration
   -- from old config to 'opts.options' has been DONE.
   if opts.colors then
-    config.set_options({ opts.colors })
+    config.set_options({ colors = opts.colors })
   end
   if opts.overrides then
-    config.set_options({ opts.overrides })
+    config.set_options({ overrides = opts.overrides })
   end
   if opts.dev then
     config.set_options({ opts.dev })
