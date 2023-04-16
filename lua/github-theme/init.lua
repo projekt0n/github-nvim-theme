@@ -88,6 +88,9 @@ M.setup = function(opts)
     if opts.palettes then
       override.palettes = opts.palettes
     end
+    if opts.specs then
+      override.specs = opts.specs
+    end
   end
 
   dep.check_deprecation(opts)
