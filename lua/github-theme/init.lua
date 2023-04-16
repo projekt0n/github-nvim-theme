@@ -76,15 +76,18 @@ M.setup = function(opts)
     config.set_options({ overrides = opts.overrides })
   end
   if opts.dev then
-    config.set_options({ opts.dev })
+    config.set_options({ dev = opts.dev })
   end
 
   -- New configs
   if opts.options then
     config.set_options(opts.options)
   end
-  if opts.palettes then
-    override.palettes = opts.palettes
+
+  if opts.experiments.new_palettes == true then
+    if opts.palettes then
+      override.palettes = opts.palettes
+    end
   end
 
   dep.check_deprecation(opts)

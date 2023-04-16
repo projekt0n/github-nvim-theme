@@ -31,7 +31,6 @@ M.setup = function()
   return c
 end
 
--- TODO: Remove assignment after migration has been DONE
 M.themes = {
   ['github_dark'] = 'g_dark',
   ['github_dark_colorblind'] = 'g_dark_colorblind',
@@ -42,6 +41,18 @@ M.themes = {
   ['github_light_high_contrast'] = 'g_light_high_contrast',
   ['github_light_tritanopia'] = 'g_light_tritanopia',
 }
+
+-- TODO: Use comment code after palette modules renaming
+-- M.themes = {
+--   'github_dark',
+--   'github_dark_colorblind',
+--   'github_dark_high_contrast',
+--   'github_dark_tritanopia',
+--   'github_light',
+--   'github_light_colorblind',
+--   'github_light_high_contrast',
+--   'github_light_tritanopia',
+-- }
 
 local function override(color, ovr)
   for key, value in pairs(ovr) do
@@ -66,18 +77,40 @@ function M.load(name)
     palette = apply_ovr(name, palette)
     palette.meta = raw.meta
     palette.generate_spec = raw.generate_spec
+
+    -- local valid = collect.contains(M.themes, name)
+    -- local raw = valid and require('github-theme.palette.' .. name)
+    --   or require('github-theme.palette.' .. config.theme)
+    -- local palette = raw.palette
+    -- palette = apply_ovr('all', palette)
+    -- palette = apply_ovr(name, palette)
+    -- palette.meta = raw.meta
+    -- palette.generate_spec = raw.generate_spec
+
     return palette
   else
     local result = {}
-    for _, mod in ipairs(M.themes) do
-      local raw = require('github-theme.palette.' .. M.themes[mod])
+    for n, mod in pairs(M.themes) do
+      local raw = require('github-theme.palette.' .. mod)
       local palette = raw.palette
       palette = apply_ovr('all', palette)
-      palette = apply_ovr(mod, palette)
+      palette = apply_ovr(n, palette)
       palette.meta = raw.meta
       palette.generate_spec = raw.generate_spec
-      result[mod] = palette
+      result[n] = palette
     end
+
+    -- for _, mod in ipairs(M.themes) do
+    --   local raw = require('github-theme.palette.' .. mod)
+    --   local palette = raw.palette
+    --   palette = apply_ovr('all', palette)
+    --   palette = apply_ovr(mod, palette)
+    --   palette.meta = raw.meta
+    --   palette.generate_spec = raw.generate_spec
+    --   result[mod] = palette
+    -- end
+    --
+
     return result
   end
 end
