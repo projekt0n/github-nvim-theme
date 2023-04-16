@@ -180,7 +180,7 @@ local function generate_spec(pal)
     bg0  = pal.canvas.inset,                        -- Dark bg (status line, popup and float)
     bg1  = pal.canvas.default,                      -- Default bg
     bg2  = alpha(C(pal.neutral.emphasis), 0.1),     -- Lighter bg (colorcolumn Folds)
-    bg3  = pal.sacle.gray[7],                       -- Lighter bg (cursor line)
+    bg3  = pal.scale.gray[7],                       -- Lighter bg (cursor line)
     bg4  = pal.border.default,                      -- Conceal, border fg
 
     fg0  = pal.fg.subtle,                           -- Lighter fg
@@ -194,7 +194,7 @@ local function generate_spec(pal)
   }
 
   spec.syntax = {
-    bracket     = alpha(pal.scale.green[4], 0.25),      -- Brackets and Punctuation
+    bracket     = alpha(C(pal.scale.green[4]), 0.25),   -- Brackets and Punctuation
     builtin0    = pal.scale.orange[3],                  -- Builtin variable                  ( light-> orange[7] )
     builtin1    = pal.scale.red[4],                     -- Builtin type                      ( light-> red[6] )
     builtin2    = pal.scale.blue[3],                    -- Builtin const                     ( light-> blue[7] )
@@ -209,7 +209,7 @@ local function generate_spec(pal)
     -- number      = pal.orange.base,                      -- Numbers
     operator     = pal.scale.red[4],                    -- Operators                         ( light -> red[6] )
     preproc     = pal.fg.default,                       -- PreProc
-    regex       = pal.sacle.blue[3],                    -- Regex                             ( light -> blue[9] )
+    regex       = pal.scale.blue[3],                    -- Regex                             ( light -> blue[9] )
     statement   = pal.scale.red[4],                     -- Statements                        ( light -> red[6] )
     string      = pal.scale.blue[2],                    -- Strings                           ( light -> blue[9] )
     type        = pal.scale.red[4],                     -- Types                             ( light -> red[6] )

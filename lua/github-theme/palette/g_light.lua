@@ -171,7 +171,7 @@ local function generate_spec(pal)
     bg0  = pal.canvas.inset,                        -- Dark bg (status line, popup and float)
     bg1  = pal.canvas.default,                      -- Default bg
     bg2  = alpha(C(pal.neutral.emphasis), 0.1),     -- Lighter bg (colorcolumn Folds)
-    bg3  = pal.sacle.gray[7],                       -- Lighter bg (cursor line)
+    bg3  = pal.scale.gray[7],                       -- Lighter bg (cursor line)
     bg4  = pal.border.default,                      -- Conceal, border fg
 
     fg0  = pal.fg.subtle,                           -- Lighter fg
@@ -200,7 +200,7 @@ local function generate_spec(pal)
     -- number      = pal.orange.base,                      -- Numbers
     operator     = pal.scale.red[6],                    -- Operators                           ( dark -> red[4] )
     preproc     = pal.fg.default,                       -- PreProc
-    regex       = pal.sacle.blue[9],                    -- Regex                               ( dark -> blue[3] )
+    regex       = pal.scale.blue[9],                    -- Regex                               ( dark -> blue[3] )
     statement   = pal.scale.red[6],                     -- Statements                          ( dark -> red[4] )
     string      = pal.scale.blue[9],                    -- Strings                             ( dark -> blue[2] )
     type        = pal.scale.red[6],                     -- Types                               ( dark -> red[4] )
