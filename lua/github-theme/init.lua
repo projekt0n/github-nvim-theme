@@ -84,7 +84,7 @@ M.setup = function(opts)
     config.set_options(opts.options)
   end
 
-  if opts.experiments.new_palettes == true then
+  if opts.experiments and opts.experiments.new_palettes == true then
     if opts.palettes then
       override.palettes = opts.palettes
     end
