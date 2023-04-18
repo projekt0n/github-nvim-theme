@@ -91,6 +91,9 @@ M.setup = function(opts)
     if opts.specs then
       override.specs = opts.specs
     end
+    if opts.groups then
+      override.groups = opts.groups
+    end
   end
 
   dep.check_deprecation(opts)

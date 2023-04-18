@@ -11,6 +11,13 @@ local defaults = {
     functions = 'NONE',
     keywords = 'Italic',
     variables = 'NONE',
+
+    -- conditionals = 'NONE',
+    -- constants = 'NONE',
+    -- numbers = 'NONE',
+    -- operators = 'NONE',
+    -- strings = 'NONE',
+    -- types = 'NONE',
   },
   darken = {
     floats = false,
