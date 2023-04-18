@@ -51,7 +51,7 @@ local scale = {
 
 local function alpha(color, a)
   local bg = scale.white
-  return C(bg):blend(color, a)
+  return C(bg):blend(color, a):to_css()
 end
 
 -- Temp override until Primitives are updated
@@ -194,14 +194,42 @@ local function generate_spec(pal)
     func        = pal.scale.purple[6],                  -- Functions and Titles                ( dark-> purple[3] )
     ident       = pal.scale.blue[7],                    -- Identifiers                         ( dark -> blue[3] )
     keyword     = pal.scale.red[6],                     -- Keywords                            ( dark -> red[4] )
-    -- number      = pal.orange.base,                      -- Numbers
-    operator     = pal.scale.red[6],                    -- Operators                           ( dark -> red[4] )
-    preproc     = pal.fg.default,                       -- PreProc
+    operator    = pal.scale.red[6],                     -- Operators                           ( dark -> red[4] )
+    preproc     = pal.scale.red[6],                     -- PreProc
     regex       = pal.scale.blue[9],                    -- Regex                               ( dark -> blue[3] )
     statement   = pal.scale.red[6],                     -- Statements                          ( dark -> red[4] )
     string      = pal.scale.blue[9],                    -- Strings                             ( dark -> blue[2] )
     type        = pal.scale.red[6],                     -- Types                               ( dark -> red[4] )
     variable    = pal.scale.orange[7],                  -- Variables                           ( dark -> orange[3] )
+  }
+
+  spec.diag = {
+    error = pal.danger.fg,
+    warn  = pal.attention.fg,
+    info  = pal.accent.fg,
+    hint  = pal.fg.muted,
+  }
+
+  spec.diag_bg = {
+    error = C(spec.bg1):blend(C(spec.diag.error), 0.15):to_css(),
+    warn  = C(spec.bg1):blend(C(spec.diag.warn), 0.15):to_css(),
+    info  = C(spec.bg1):blend(C(spec.diag.info), 0.15):to_css(),
+    hint  = C(spec.bg1):blend(C(spec.diag.hint), 0.15):to_css(),
+  }
+
+  spec.diff = {
+    add    = alpha(C(pal.scale.green[2]), 0.3),
+    delete = alpha(C(pal.scale.red[2]), 0.3),
+    change = alpha(C(pal.scale.yellow[2]), 0.3),
+    text   = spec.fg0
+  }
+
+  spec.git = {
+    add      = pal.success.fg,
+    removed  = pal.danger.fg,
+    changed  = pal.attention.fg,
+    conflict = pal.severe.fg,
+    ignored  = pal.fg.subtle,
   }
 
   -- stylua: ignore end
