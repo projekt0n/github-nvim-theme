@@ -43,6 +43,7 @@ end
 --#endregion
 
 --#region Helpers --------------------------------------------------------------
+local bitop = bit or bit32
 
 local function calc_hue(r, g, b)
   local max = math.max(r, g, b)
@@ -121,15 +122,15 @@ function Color.from_hex(c)
     local s = c:lower():match('#?([a-f0-9]+)')
     n = tonumber(s, 16)
     if #s <= 6 then
-      n = bit.lshift(n, 8) + 0xff
+      n = bitop.lshift(n, 8) + 0xff
     end
   end
 
   return Color.init(
-    bit.rshift(n, 24) / 0xff,
-    bit.band(bit.rshift(n, 16), 0xff) / 0xff,
-    bit.band(bit.rshift(n, 8), 0xff) / 0xff,
-    bit.band(n, 0xff) / 0xff
+    bitop.rshift(n, 24) / 0xff,
+    bitop.band(bitop.rshift(n, 16), 0xff) / 0xff,
+    bitop.band(bitop.rshift(n, 8), 0xff) / 0xff,
+    bitop.band(n, 0xff) / 0xff
   )
 end
 
@@ -221,12 +222,12 @@ end
 ---@param with_alpha boolean Include the alpha component.
 ---@return integer
 function Color:to_hex(with_alpha)
-  local ls, bor, fl = bit.lshift, bit.bor, math.floor
+  local ls, bor, fl = bitop.lshift, bitop.bor, math.floor
   local n = bor(
     bor(ls(fl((self.red * 0xff) + 0.5), 16), ls(fl((self.green * 0xff) + 0.5), 8)),
     fl((self.blue * 0xff) + 0.5)
   )
-  return with_alpha and bit.lshift(n, 8) + (self.alpha * 0xff) or n
+  return with_alpha and bitop.lshift(n, 8) + (self.alpha * 0xff) or n
 end
 
 ---Convert the color to a css hex color (`#RRGGBB[AA]`).
