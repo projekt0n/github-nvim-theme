@@ -76,6 +76,29 @@ use({
 })
 ```
 
+Or with [lazy.nvim](https://github.com/folke/lazy.nvim):
+
+Add this in your `init.lua` or `plugins.lua`
+
+```lua
+-- Install without configuration
+use ({ 'projekt0n/github-nvim-theme', version = 'v0.0.7' })
+-- or                                 branch = '0.0.x'
+
+-- Or with configuration
+use({
+  'projekt0n/github-nvim-theme', version = 'v0.0.7',
+-- or                            branch = '0.0.x'
+  config = function()
+    require('github-theme').setup({
+      -- ...
+    })
+
+    vim.cmd('colorscheme github_dark')
+  end
+})
+```
+
 ## Usage
 
 Setting the colorscheme:
