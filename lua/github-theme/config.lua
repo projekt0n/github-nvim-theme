@@ -7,9 +7,9 @@ local defaults = {
   hide_end_of_buffer = true,
   hide_nc_statusline = true,
   styles = {
-    comments = 'Italic',
+    comments = 'italic',
     functions = 'NONE',
-    keywords = 'Italic',
+    keywords = 'italic',
     variables = 'NONE',
 
     -- conditionals = 'NONE',

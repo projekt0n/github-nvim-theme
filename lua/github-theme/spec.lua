@@ -32,6 +32,7 @@ local template = require('github-theme.util.template')
 ---@field func string
 ---@field ident string
 ---@field keyword string
+---@field number string
 ---@field operator string
 ---@field preproc string
 ---@field regex string
@@ -66,24 +67,14 @@ function M.load(name)
   else
     local result = {}
     local themes = require('github-theme.palette').themes
-    for n, mod in pairs(themes) do
+    for _, mod in ipairs(themes) do
       local palette = require('github-theme.palette').load(mod)
       local spec = palette.generate_spec(palette)
       spec = apply_ovr('all', spec, palette)
-      spec = apply_ovr(n, spec, palette)
+      spec = apply_ovr(mod, spec, palette)
       spec.palette = palette
-      result[n] = spec
+      result[mod] = spec
     end
-
-    -- TODO: Use comment code after renaming palette modules.
-    -- for _, mod in ipairs(themes) do
-    --   local palette = require('github-theme.palette').load(mod)
-    --   local spec = palette.generate_spec(palette)
-    --   spec = apply_ovr('all', spec, palette)
-    --   spec = apply_ovr(mod, spec, palette)
-    --   spec.palette = palette
-    --   result[mod] = spec
-    -- end
     return result
   end
 end

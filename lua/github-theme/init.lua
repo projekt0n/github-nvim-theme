@@ -1,8 +1,7 @@
 local M = {}
 
 local config = require('github-theme.config')
-local theme = require('github-theme.theme')
-local util = require('github-theme.util')
+local highlight = require('github-theme.lib.highlight').highlight
 local dep = require('github-theme.util.deprecation')
 
 local did_setup = false
@@ -25,39 +24,20 @@ M.load = function(opts)
 
   lock = true
 
-  -- Load colorscheme
-  local hi = theme.setup()
+  local spec = require('github-theme.spec').load(config.theme)
+  local groups = require('github-theme.group').from(spec)
+  local background = spec.palette.meta.light and 'light' or 'dark'
 
-  --Setting
-  if vim.fn.exists('syntax_on') then
-    vim.cmd('syntax reset')
+  if vim.g.colors_name then
+    vim.cmd('hi clear')
   end
-
   vim.o.termguicolors = true
-
-  if
-    config.theme == 'github_light'
-    or config.theme == 'github_light_default'
-    or config.theme == 'github_light_colorblind'
-  then
-    vim.o.background = 'light'
-  else
-    vim.o.background = 'dark'
-  end
-
   vim.g.colors_name = config.theme
+  vim.o.background = background
 
-  -- override colors
-  local overrides = config.options.overrides(hi.colors)
-
-  util.apply_overrides(hi.base, overrides, config.options.dev)
-  util.apply_overrides(hi.plugins, overrides, config.options.dev)
-
-  --Load ColorScheme
-  util.syntax(hi.base)
+  highlight(groups)
   require('github-theme.autocmds').set()
-  util.terminal(hi.colors)
-  util.syntax(hi.plugins)
+
   lock = false
 end
 
@@ -69,12 +49,6 @@ M.setup = function(opts)
 
   -- TODO: Remove these individual conditions when migration
   -- from old config to 'opts.options' has been DONE.
-  if opts.colors then
-    config.set_options({ colors = opts.colors })
-  end
-  if opts.overrides then
-    config.set_options({ overrides = opts.overrides })
-  end
   if opts.dev then
     config.set_options({ dev = opts.dev })
   end
@@ -84,16 +58,16 @@ M.setup = function(opts)
     config.set_options(opts.options)
   end
 
-  if opts.experiments and opts.experiments.new_palettes == true then
-    if opts.palettes then
-      override.palettes = opts.palettes
-    end
-    if opts.specs then
-      override.specs = opts.specs
-    end
-    if opts.groups then
-      override.groups = opts.groups
-    end
+  if opts.palettes then
+    override.palettes = opts.palettes
+  end
+
+  if opts.specs then
+    override.specs = opts.specs
+  end
+
+  if opts.groups then
+    override.groups = opts.groups
   end
 
   dep.check_deprecation(opts)

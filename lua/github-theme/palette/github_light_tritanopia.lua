@@ -168,7 +168,7 @@ local function generate_spec(pal)
     bg0  = pal.canvas.inset,                        -- Dark bg (status line, popup and float)
     bg1  = pal.canvas.default,                      -- Default bg
     bg2  = alpha(C(pal.neutral.emphasis), 0.1),     -- Lighter bg (colorcolumn Folds)
-    bg3  = pal.scale.gray[7],                       -- Lighter bg (cursor line)
+    bg3  = pal.scale.gray[3],                       -- Lighter bg (cursor line)
     bg4  = pal.border.default,                      -- Conceal, border fg
 
     fg0  = pal.fg.subtle,                           -- Lighter fg
@@ -183,24 +183,25 @@ local function generate_spec(pal)
 
   spec.syntax = {
     bracket     = alpha(C(pal.scale.green[4]), 0.25),   -- Brackets and Punctuation
-    builtin0    = pal.scale.orange[7],                  -- Builtin variable                    ( dark-> orange[3] )
-    builtin1    = pal.scale.red[6],                     -- Builtin type                        ( dark-> red[4] )
-    builtin2    = pal.scale.blue[7],                    -- Builtin const                       ( dark-> blue[3] )
-    comment     = pal.scale.gray[6],                    -- Comment                             ( dark-> gray[4] )
-    conditional = pal.scale.red[6],                     -- Conditional and loop                ( dark-> red[4] )
-    const       = pal.scale.blue[7],                    -- Constants, imports and booleans     ( dark-> blue[3] )
-    dep         = pal.scale.red[8],                     -- Deprecated                          ( dark-> red[3] )
+    builtin0    = pal.scale.orange[7],                  -- Builtin variable
+    builtin1    = pal.scale.red[6],                     -- Builtin type
+    builtin2    = pal.scale.blue[7],                    -- Builtin const
+    comment     = pal.scale.gray[6],                    -- Comment
+    conditional = pal.scale.red[6],                     -- Conditional and loop
+    const       = pal.scale.blue[7],                    -- Constants, imports and booleans
+    dep         = pal.scale.red[8],                     -- Deprecated
     field       = spec.fg1,                             -- Field
-    func        = pal.scale.purple[6],                  -- Functions and Titles                ( dark-> purple[3] )
-    ident       = pal.scale.blue[7],                    -- Identifiers                         ( dark -> blue[3] )
-    keyword     = pal.scale.red[6],                     -- Keywords                            ( dark -> red[4] )
-    operator    = pal.scale.red[6],                     -- Operators                           ( dark -> red[4] )
+    func        = pal.scale.purple[6],                  -- Functions and Titles
+    ident       = pal.scale.blue[7],                    -- Identifiers
+    keyword     = pal.scale.red[6],                     -- Keywords
+    number      = pal.scale.blue[7],                    -- Numbers
+    operator    = pal.scale.red[6],                     -- Operators
     preproc     = pal.scale.red[6],                     -- PreProc
-    regex       = pal.scale.blue[9],                    -- Regex                               ( dark -> blue[3] )
-    statement   = pal.scale.red[6],                     -- Statements                          ( dark -> red[4] )
-    string      = pal.scale.blue[9],                    -- Strings                             ( dark -> blue[2] )
-    type        = pal.scale.red[6],                     -- Types                               ( dark -> red[4] )
-    variable    = pal.scale.orange[7],                  -- Variables                           ( dark -> orange[3] )
+    regex       = pal.scale.blue[9],                    -- Regex
+    statement   = pal.scale.red[6],                     -- Statements
+    string      = pal.scale.blue[9],                    -- Strings
+    type        = pal.scale.red[6],                     -- Types
+    variable    = pal.scale.orange[7],                  -- Variables
   }
 
   spec.diag = {

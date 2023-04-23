@@ -31,7 +31,7 @@ local function parse_style(style)
 
   local result = {}
   for token in string.gmatch(style, '([^,]+)') do
-    result[token] = true
+    result[token:lower()] = true
   end
 
   return result

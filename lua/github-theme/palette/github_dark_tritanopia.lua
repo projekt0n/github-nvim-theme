@@ -1,51 +1,51 @@
 local C = require('github-theme.lib.color')
 
 local meta = {
-  name = 'github_dark_dimmed',
+  name = 'github_dark_tritanopia',
   light = false,
 }
 
----Github Dark Dimmed scale variables
----source: https://github.com/primer/primitives/blob/main/data/colors/themes/dark_dimmed.ts
+---Github Dark Tritanopia scale variables
+---source: https://github.com/primer/primitives/blob/main/data/colors/themes/dark_tritanopia.ts
 -- stylua: ignore
 local scale = {
-  black = '#1c2128',
-  white = '#cdd9e5',
+  black = '#010409',
+  white = '#ffffff',
   gray = {
-    '#cdd9e5', '#adbac7', '#909dab', '#768390', '#636e7b',
-    '#545d68', '#444c56', '#373e47', '#2d333b', '#22272e',
+    '#f0f6fc', '#c9d1d9', '#b1bac4', '#8b949e', '#6e7681',
+    '#484f58', '#30363d', '#21262d', '#161b22', '#0d1117',
   },
   blue = {
-    '#c6e6ff', '#96d0ff', '#6cb6ff', '#539bf5', '#4184e4',
-    '#316dca', '#255ab2', '#1b4b91', '#143d79', '#0f2d5c',
+    '#cae8ff', '#a5d6ff', '#79c0ff', '#58a6ff', '#388bfd',
+    '#1f6feb', '#1158c7', '#0d419d', '#0c2d6b', '#051d4d',
   },
   green = {
-    '#b4f1b4', '#8ddb8c', '#6bc46d', '#57ab5a', '#46954a',
-    '#347d39', '#2b6a30', '#245829', '#1b4721', '#113417',
+    '#cae8ff', '#a5d6ff', '#79c0ff', '#58a6ff', '#388bfd',
+    '#1f6feb', '#1158c7', '#0d419d', '#0c2d6b', '#051d4d',
   },
   yellow = {
-    '#fbe090', '#eac55f', '#daaa3f', '#c69026', '#ae7c14',
-    '#966600', '#805400', '#6c4400', '#593600', '#452700',
+    '#f8e3a1', '#f2cc60', '#e3b341', '#d29922', '#bb8009',
+    '#9e6a03', '#845306', '#693e00', '#4b2900', '#341a00',
   },
   orange = {
-    '#ffddb0', '#ffbc6f', '#f69d50', '#e0823d', '#cc6b2c',
-    '#ae5622', '#94471b', '#7f3913', '#682d0f', '#4d210c',
+    '#ffdcd7', '#ffc1ba', '#ffa198', '#ff7b72', '#f85149',
+    '#da3633', '#b62324', '#8e1519', '#67060c', '#490202',
   },
   red = {
-    '#ffd8d3', '#ffb8b0', '#ff938a', '#f47067', '#e5534b',
-    '#c93c37', '#ad2e2c', '#922323', '#78191b', '#5d0f12',
+    '#ffdcd7', '#ffc1ba', '#ffa198', '#ff7b72', '#f85149',
+    '#da3633', '#b62324', '#8e1519', '#67060c', '#490202',
   },
   purple = {
-    '#eedcff', '#dcbdfb', '#dcbdfb', '#b083f0', '#986ee2',
-    '#8256d0', '#6b44bc', '#5936a2', '#472c82', '#352160',
+    '#eddeff', '#e2c5ff', '#d2a8ff', '#bc8cff', '#a371f7',
+    '#8957e5', '#6e40c9', '#553098', '#3c1e70', '#271052',
   },
   pink = {
-    '#ffd7eb', '#ffb3d8', '#fc8dc7', '#e275ad', '#c96198',
-    '#ae4c82', '#983b6e', '#7e325a', '#69264a', '#551639',
+    '#ffdaec', '#ffbedd', '#ff9bce', '#f778ba', '#db61a2',
+    '#bf4b8a', '#9e3670', '#7d2457', '#5e103e', '#42062a',
   },
   coral = {
-    '#ffdacf', '#ffb9a5', '#f79981', '#ec775c', '#de5b41',
-    '#c2442d', '#a93524', '#8d291b', '#771d13', '#5d1008',
+    '#ffddd2', '#ffc2b2', '#ffa28b', '#f78166', '#ea6045',
+    '#cf462d', '#ac3220', '#872012', '#640d04', '#460701',
   },
 }
 
@@ -182,24 +182,25 @@ local function generate_spec(pal)
 
   spec.syntax = {
     bracket     = alpha(C(pal.scale.green[4]), 0.25),   -- Brackets and Punctuation
-    builtin0    = pal.scale.orange[3],                  -- Builtin variable                  ( light-> orange[7] )
-    builtin1    = pal.scale.red[4],                     -- Builtin type                      ( light-> red[6] )
-    builtin2    = pal.scale.blue[3],                    -- Builtin const                     ( light-> blue[7] )
-    comment     = pal.scale.gray[4],                    -- Comment                           ( light-> gray[6] )
-    conditional = pal.scale.red[4],                     -- Conditional and loop              ( light-> red[6] )
-    const       = pal.scale.blue[3],                    -- Constants, imports and booleans   ( light-> blue[7] )
-    dep         = pal.scale.red[3],                     -- Deprecated                        ( light-> red[8] )
+    builtin0    = pal.scale.orange[3],                  -- Builtin variable
+    builtin1    = pal.scale.red[4],                     -- Builtin type
+    builtin2    = pal.scale.blue[3],                    -- Builtin const
+    comment     = pal.scale.gray[4],                    -- Comment
+    conditional = pal.scale.red[4],                     -- Conditional and loop
+    const       = pal.scale.blue[3],                    -- Constants, imports and booleans
+    dep         = pal.scale.red[3],                     -- Deprecated
     field       = spec.fg1,                             -- Field
-    func        = pal.scale.purple[3],                  -- Functions and Titles              ( light-> purple[6] )
-    ident       = pal.scale.blue[3],                    -- Identifiers                       ( light -> blue[7] )
-    keyword     = pal.scale.red[4],                     -- Keywords                          ( light -> red[6] )
-    operator    = pal.scale.red[4],                     -- Operators                         ( light -> red[6] )
+    func        = pal.scale.purple[3],                  -- Functions and Titles
+    ident       = pal.scale.blue[3],                    -- Identifiers
+    keyword     = pal.scale.red[4],                     -- Keywords
+    number      = pal.scale.blue[3],                    -- Numbers
+    operator    = pal.scale.red[4],                     -- Operators
     preproc     = pal.scale.red[4],                     -- PreProc
-    regex       = pal.scale.blue[3],                    -- Regex                             ( light -> blue[9] )
-    statement   = pal.scale.red[4],                     -- Statements                        ( light -> red[6] )
-    string      = pal.scale.blue[2],                    -- Strings                           ( light -> blue[9] )
-    type        = pal.scale.red[4],                     -- Types                             ( light -> red[6] )
-    variable    = pal.scale.orange[3],                  -- Variables                         ( light -> orange[7] )
+    regex       = pal.scale.blue[3],                    -- Regex
+    statement   = pal.scale.red[4],                     -- Statements
+    string      = pal.scale.blue[2],                    -- Strings
+    type        = pal.scale.red[4],                     -- Types
+    variable    = pal.scale.orange[3],                  -- Variables
   }
 
   spec.diag = {

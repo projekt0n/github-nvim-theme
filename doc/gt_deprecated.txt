@@ -10,6 +10,13 @@ They should not be used in new scripts, and old scripts should be updated.
 ==============================================================================
 Deprecated features
 
+COLORSCHEMES
+
+- *'github_dimmed'*			  Deprecated. Use |'github_dark_dimmed'| Instead.
+- *'github_dark_default'*		  Deprecated. Use |'github_dark_high_contrast'| Instead.
+- *'github_light_default'*		  Deprecated. Use |'github_light_high_contrast'| Instead.
+
+
 SETUP OPTIONS
 - *'theme_style'*			  Removed. Use 'colorscheme'
   command to set colorscheme. Refer `':h github-theme.changelog-11042023'`
@@ -24,6 +31,8 @@ SETUP OPTIONS
 - *'dark_float'*			  Deprecated. Use |'options.darken.floats'| Instead.
 - *'dark_sidebar'*			  Deprecated. Use |'options.darken.sidebars.enable'| Instead.
 - *'sidebars'*				  Deprecated. Use |'options.darken.sidebars.list'| Instead.
+- *'colors'*				  Deprecated. Use |'specs'| and |'palettes'| Instead.
+- *'overrides'*				  Deprecated. Use |'groups'| Instead.
 
 
 GLOBAL OPTIONS
@@ -60,9 +69,15 @@ MODULES
   module and accessed with |'default'| variable.
 
 FUNCTIONS
-- *'config.apply_configuration()'*	  Removed.
-- *'util.load()'*			  Use |require('github-theme').load()|
-  function instead.
+
+*'github-theme.util'*
+  - *'load()'*                   Use |require('github-theme').load()| function instead.
+
+*'github-theme.config'*
+  - *'apply_configuration()'*    Removed.
+
+*'github-theme.palette'*
+  - *'setup()'*                  Use |load()| function instead.
 
 
 

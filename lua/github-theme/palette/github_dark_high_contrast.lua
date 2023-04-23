@@ -182,24 +182,25 @@ local function generate_spec(pal)
 
   spec.syntax = {
     bracket     = alpha(C(pal.scale.green[4]), 0.25),   -- Brackets and Punctuation
-    builtin0    = pal.scale.orange[3],                  -- Builtin variable                  ( light-> orange[7] )
-    builtin1    = pal.scale.red[4],                     -- Builtin type                      ( light-> red[6] )
-    builtin2    = pal.scale.blue[3],                    -- Builtin const                     ( light-> blue[7] )
-    comment     = pal.scale.gray[4],                    -- Comment                           ( light-> gray[6] )
-    conditional = pal.scale.red[4],                     -- Conditional and loop              ( light-> red[6] )
-    const       = pal.scale.blue[3],                    -- Constants, imports and booleans   ( light-> blue[7] )
-    dep         = pal.scale.red[3],                     -- Deprecated                        ( light-> red[8] )
+    builtin0    = pal.scale.orange[3],                  -- Builtin variable
+    builtin1    = pal.scale.red[4],                     -- Builtin type
+    builtin2    = pal.scale.blue[3],                    -- Builtin const
+    comment     = pal.scale.gray[4],                    -- Comment
+    conditional = pal.scale.red[4],                     -- Conditional and loop
+    const       = pal.scale.blue[3],                    -- Constants, imports and booleans
+    dep         = pal.scale.red[3],                     -- Deprecated
     field       = spec.fg1,                             -- Field
-    func        = pal.scale.purple[3],                  -- Functions and Titles              ( light-> purple[6] )
-    ident       = pal.scale.blue[3],                    -- Identifiers                       ( light -> blue[7] )
-    keyword     = pal.scale.red[4],                     -- Keywords                          ( light -> red[6] )
-    operator    = pal.scale.red[4],                     -- Operators                         ( light -> red[6] )
+    func        = pal.scale.purple[3],                  -- Functions and Titles
+    ident       = pal.scale.blue[3],                    -- Identifiers
+    keyword     = pal.scale.red[4],                     -- Keywords
+    number      = pal.scale.blue[3],                    -- Numbers
+    operator    = pal.scale.red[4],                     -- Operators
     preproc     = pal.scale.red[4],                     -- PreProc
-    regex       = pal.scale.blue[3],                    -- Regex                             ( light -> blue[9] )
-    statement   = pal.scale.red[4],                     -- Statements                        ( light -> red[6] )
-    string      = pal.scale.blue[2],                    -- Strings                           ( light -> blue[9] )
-    type        = pal.scale.red[4],                     -- Types                             ( light -> red[6] )
-    variable    = pal.scale.orange[3],                  -- Variables                         ( light -> orange[7] )
+    regex       = pal.scale.blue[3],                    -- Regex
+    statement   = pal.scale.red[4],                     -- Statements
+    string      = pal.scale.blue[2],                    -- Strings
+    type        = pal.scale.red[4],                     -- Types
+    variable    = pal.scale.orange[3],                  -- Variables
   }
 
   spec.diag = {

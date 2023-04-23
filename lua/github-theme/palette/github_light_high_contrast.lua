@@ -1,51 +1,51 @@
 local C = require('github-theme.lib.color')
 
 local meta = {
-  name = 'github_light_colorblind',
+  name = 'github_light_high_contrast',
   light = true,
 }
 
----Github Light scale variables
----source: https://github.com/primer/primitives/blob/main/data/colors/themes/light_colorblind.ts
+---Github Light High Contrast scale variables
+---source: https://github.com/primer/primitives/blob/main/data/colors/themes/light_high_contrast.ts
 -- stylua: ignore
 local scale = {
-  black = '#1b1f24',
+  black = '#010409',
   white = '#ffffff',
   gray = {
-    '#f6f8fa', '#eaeef2', '#d0d7de', '#afb8c1', '#8c959f',
-    '#6e7781', '#57606a', '#424a53', '#32383f', '#24292f',
+    '#ffffff', '#e7ecf0', '#ced5dc', '#acb6c0', '#88929d',
+    '#66707b', '#4b535d', '#343b43', '#20252c', '#0e1116',
   },
   blue = {
-    '#ddf4ff', '#b6e3ff', '#80ccff', '#54aeff', '#218bff',
-    '#0969da', '#0550ae', '#033d8b', '#0a3069', '#002155',
+    '#dff7ff', '#9cd7ff', '#67b3fd', '#368cf9', '#1168e3',
+    '#0349b4', '#023b95', '#022f7a', '#032563', '#021a4a',
   },
   green = {
-    '#ddf4ff', '#b6e3ff', '#80ccff', '#54aeff', '#218bff',
-    '#0969da', '#0550ae', '#033d8b', '#0a3069', '#002155',
+    '#d2fedb', '#82e596', '#43c663', '#26a148', '#117f32',
+    '#055d20', '#024c1a', '#013d14', '#003110', '#00230b',
   },
   yellow = {
-    '#fff8c5', '#fae17d', '#eac54f', '#d4a72c', '#bf8700',
-    '#9a6700', '#7d4e00', '#633c01', '#4d2d00', '#3b2300',
+    '#fcf7be', '#f0ce53', '#d5a824', '#b58407', '#956400',
+    '#744500', '#603700', '#4e2c00', '#3f2200', '#2e1800',
   },
   orange = {
-    '#fff5e8', '#ffddb0', '#ffbc6d', '#f79939', '#dd7815',
-    '#b35900', '#8a4600', '#6f3800', '#572c00', '#412000',
+    '#fff2d5', '#ffc67b', '#f99636', '#dc6d1a', '#b45105',
+    '#873800', '#702c00', '#5b2300', '#491b00', '#361200',
   },
   red = {
-    '#fff5e8', '#ffddb0', '#ffbc6d', '#f79939', '#dd7815',
-    '#b35900', '#8a4600', '#6f3800', '#572c00', '#412000',
+    '#fff0ee', '#ffc1bc', '#ff8e8a', '#ee5a5d', '#d5232c',
+    '#a0111f', '#86061d', '#6e011a', '#5a0016', '#430011',
   },
   purple = {
-    '#fbefff', '#ecd8ff', '#d8b9ff', '#c297ff', '#a475f9',
-    '#8250df', '#6639ba', '#512a97', '#3e1f79', '#2e1461',
+    '#faf0fe', '#e0c5ff', '#c49bff', '#a371f7', '#844ae7',
+    '#622cbc', '#512598', '#411d7b', '#341763', '#260f49',
   },
   pink = {
-    '#ffeff7', '#ffd3eb', '#ffadda', '#ff80c8', '#e85aad',
-    '#bf3989', '#99286e', '#772057', '#611347', '#4d0336',
+    '#feeff7', '#ffbde0', '#fc87ca', '#ed4baf', '#c9248e',
+    '#971368', '#7d0c57', '#660847', '#53043a', '#3e022b',
   },
   coral = {
-    '#fff0eb', '#ffd6cc', '#ffb4a1', '#fd8c73', '#ec6547',
-    '#c4432b', '#9e2f1c', '#801f0f', '#691105', '#510901',
+    '#fff0ed', '#ffc2b6', '#ff8f7e', '#ef5b48', '#cd3425',
+    '#9f1710', '#870706', '#6f0107', '#5b0002', '#430200',
   },
 }
 
@@ -73,7 +73,7 @@ local palette = {
 
   fg = {
     default = scale.black,
-    muted = '#e6edf3',
+    muted = scale.gray[10],
     subtle = scale.gray[6],
     on_emphasis = scale.white,
   },
@@ -81,41 +81,41 @@ local palette = {
   canvas = {
     default = scale.white,
     overlay = scale.white,
-    inset = scale.gray[1],
-    subtle = scale.gray[1],
+    inset = scale.white,
+    subtle = scale.gray[2],
   },
 
   border = {
-    default = scale.gray[3],
-    muted = C.from_hex(scale.gray[3]):lighten(0.03), -- TODO: lighten method not working
-    subtle = alpha(C.from_hex(scale.black), 0.15),
+    default = scale.gray[9],
+    muted = scale.gray[5],
+    subtle = alpha(C.from_hex(scale.black), 0.8),
   },
 
   neutral = {
     emphasis_plus = scale.gray[10],
     emphasis = scale.gray[6],
     muted = alpha(C.from_hex(scale.gray[4]), 0.2),
-    subtle = alpha(C.from_hex(scale.gray[2]), 0.5),
+    subtle = scale.gray[2],
   },
 
   accent = {
     fg = scale.blue[6],
     emphasis = scale.blue[6],
-    muted = alpha(C.from_hex(scale.blue[4]), 0.4),
+    muted = scale.blue[4],
     subtle = scale.blue[1],
   },
 
   success = {
     fg = scale.green[6],
-    emphasis = '#1f883d',
-    muted = alpha(C.from_hex(scale.green[4]), 0.4),
+    emphasis = scale.green[6],
+    muted = scale.green[4],
     subtle = scale.green[1],
   },
 
   attention = {
     fg = scale.yellow[6],
     emphasis = scale.yellow[6],
-    muted = alpha(C.from_hex(scale.yellow[4]), 0.4),
+    muted = scale.yellow[4],
     subtle = scale.yellow[1],
   },
 
@@ -123,41 +123,41 @@ local palette = {
     fg = scale.orange[6],
     emphasis = scale.orange[6],
     muted = alpha(C.from_hex(scale.orange[4]), 0.4),
-    subtle = scale.orange[1],
+    subtle = scale.orange[4],
   },
 
   danger = {
+    fg = '#d1242f',
+    emphasis = scale.red[6],
+    muted = scale.red[4],
+    subtle = scale.red[1],
+  },
+
+  open = {
+    fg = scale.green[6],
+    emphasis = '#1f883d',
+    muted = alpha(C.from_hex(scale.green[4]), 0.4),
+    subtle = scale.green[1],
+  },
+
+  closed = {
     fg = '#d1242f',
     emphasis = scale.red[6],
     muted = alpha(C.from_hex(scale.red[4]), 0.4),
     subtle = scale.red[1],
   },
 
-  open = {
-    fg = scale.orange[6],
-    emphasis = scale.orange[5],
-    muted = alpha(C.from_hex(scale.orange[4]), 0.4),
-    subtle = scale.orange[1],
-  },
-
-  closed = {
-    fg = scale.gray[6],
-    emphasis = scale.gray[6],
-    muted = alpha(C.from_hex(scale.gray[4]), 0.4),
-    subtle = scale.gray[1],
-  },
-
   done = {
     fg = scale.purple[6],
     emphasis = scale.purple[6],
-    muted = alpha(C.from_hex(scale.purple[4]), 0.4),
+    muted = scale.purple[4],
     subtle = scale.purple[1],
   },
 
   sponsors = {
     fg = scale.pink[6],
     emphasis = scale.pink[6],
-    muted = alpha(C.from_hex(scale.pink[4]), 0.4),
+    muted = scale.pink[4],
     subtle = scale.pink[1],
   },
 }
@@ -168,7 +168,7 @@ local function generate_spec(pal)
     bg0  = pal.canvas.inset,                        -- Dark bg (status line, popup and float)
     bg1  = pal.canvas.default,                      -- Default bg
     bg2  = alpha(C(pal.neutral.emphasis), 0.1),     -- Lighter bg (colorcolumn Folds)
-    bg3  = pal.scale.gray[7],                       -- Lighter bg (cursor line)
+    bg3  = pal.scale.gray[3],                       -- Lighter bg (cursor line)
     bg4  = pal.border.default,                      -- Conceal, border fg
 
     fg0  = pal.fg.subtle,                           -- Lighter fg
@@ -183,24 +183,25 @@ local function generate_spec(pal)
 
   spec.syntax = {
     bracket     = alpha(C(pal.scale.green[4]), 0.25),   -- Brackets and Punctuation
-    builtin0    = pal.scale.orange[7],                  -- Builtin variable                    ( dark-> orange[3] )
-    builtin1    = pal.scale.red[6],                     -- Builtin type                        ( dark-> red[4] )
-    builtin2    = pal.scale.blue[7],                    -- Builtin const                       ( dark-> blue[3] )
-    comment     = pal.scale.gray[6],                    -- Comment                             ( dark-> gray[4] )
-    conditional = pal.scale.red[6],                     -- Conditional and loop                ( dark-> red[4] )
-    const       = pal.scale.blue[7],                    -- Constants, imports and booleans     ( dark-> blue[3] )
-    dep         = pal.scale.red[8],                     -- Deprecated                          ( dark-> red[3] )
+    builtin0    = pal.scale.orange[7],                  -- Builtin variable
+    builtin1    = pal.scale.red[6],                     -- Builtin type
+    builtin2    = pal.scale.blue[7],                    -- Builtin const
+    comment     = pal.scale.gray[6],                    -- Comment
+    conditional = pal.scale.red[6],                     -- Conditional and loop
+    const       = pal.scale.blue[7],                    -- Constants, imports and booleans
+    dep         = pal.scale.red[8],                     -- Deprecated
     field       = spec.fg1,                             -- Field
-    func        = pal.scale.purple[6],                  -- Functions and Titles                ( dark-> purple[3] )
-    ident       = pal.scale.blue[7],                    -- Identifiers                         ( dark -> blue[3] )
-    keyword     = pal.scale.red[6],                     -- Keywords                            ( dark -> red[4] )
-    operator    = pal.scale.red[6],                     -- Operators                           ( dark -> red[4] )
+    func        = pal.scale.purple[6],                  -- Functions and Titles
+    ident       = pal.scale.blue[7],                    -- Identifiers
+    keyword     = pal.scale.red[6],                     -- Keywords
+    number      = pal.scale.blue[7],                    -- Numbers
+    operator    = pal.scale.red[6],                     -- Operators
     preproc     = pal.scale.red[6],                     -- PreProc
-    regex       = pal.scale.blue[9],                    -- Regex                               ( dark -> blue[3] )
-    statement   = pal.scale.red[6],                     -- Statements                          ( dark -> red[4] )
-    string      = pal.scale.blue[9],                    -- Strings                             ( dark -> blue[2] )
-    type        = pal.scale.red[6],                     -- Types                               ( dark -> red[4] )
-    variable    = pal.scale.orange[7],                  -- Variables                           ( dark -> orange[3] )
+    regex       = pal.scale.blue[9],                    -- Regex
+    statement   = pal.scale.red[6],                     -- Statements
+    string      = pal.scale.blue[9],                    -- Strings
+    type        = pal.scale.red[6],                     -- Types
+    variable    = pal.scale.orange[7],                  -- Variables
   }
 
   spec.diag = {

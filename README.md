@@ -123,32 +123,46 @@ require('github-theme').setup({
     hide_end_of_buffer = true,
     hide_nc_statusline = true,
     styles = {
-      comments = 'Italic',
+      comments = 'italic,bold',
       functions = 'NONE',
-      keywords = 'Bold',
-      variables = 'Underline',
+      keywords = 'bold',
+      variables = 'underline',
     },
     darken = {
       floats = true,
       sidebars = {
         enable = true,
-        list = { 'qf', 'vista_kind', 'terminal', 'packer' },
+        list = {},
       },
     },
   },
 
-  -- Change the "hint" color to the "orange" color, and make the "error" color bright red
-  colors = { hint = 'orange', error = '#ff0000' },
+  specs = {
+    -- Change the color of only the 'github_dark' theme's 'hint' color to magenta and make the 'error' color a dim red.
+    github_dark = {
+      diag = {
+        error = '#660000',
+        hint = 'magenta.base',
+      },
+    },
+    -- Change the "hint" color to the "orange" color, and make the "error" color bright red.
+    all = {
+      diag = {
+        error = '#ff0000',
+        hint = 'orange',
+      },
+    },
+  },
 
-  -- Overwrite the highlight groups
-  overrides = function(c)
-    return {
-      htmlTag = { fg = c.red, bg = '#282c34', sp = c.hint, style = 'underline' },
+  -- Overwrite the highlight groups for all colorschemes
+  groups = {
+    all = {
+      htmlTag = { fg = 'palette.red', bg = '#282c34', sp = 'diag.hint', style = 'underline,bold' },
       DiagnosticHint = { link = 'LspDiagnosticsDefaultHint' },
       -- this will remove the highlight groups
       TSField = {},
-    }
-  end,
+    },
+  },
 })
 
 vim.cmd('colorscheme github_dark')
@@ -166,8 +180,9 @@ vim.cmd('colorscheme github_dark')
 | options.darken.floats          | `false`    | Float windows like the lsp diagnostics windows get a darker background.                                                                         |
 | options.darken.sidebars.enable | `true`     | Sidebar like windows like `NvimTree` get a darker background                                                                                    |
 | options.darken.sidebars.list   | `{}`       | Set a darker background on sidebar-like windows. For example: `{"qf", "vista_kind", "terminal", "packer"}`                                      |
-| colors                         | `{}`       | You can override specific color groups to use other groups or a hex color                                                                       |
-| overrides                      | `function` | Override specific highlight groups. The function accpet colors as argument. You can also add a non-exists highlight by enabling the `dev` mode. |
+| palettes                       | `{}`       | You can override specific color groups to use other groups or a hex color                                                                       |
+| specs                          | `{}`       | You can override specific spec color groups to use other groups or a hex color                                                                  |
+| groups                         | `{}`       | Override specific highlight groups. The function accpet colors as argument. You can also add a non-exists highlight by enabling the `dev` mode. |
 | dev                            | `false`    | Developer Mode.                                                                                                                                 |
 
 ## Features
@@ -352,10 +367,10 @@ require("github-theme").setup({
 require("github-theme").setup({
   options = {
     styles = {
-      comments = "Italic",
-      functions = "Italic",
-      keywords = "Italic",
-      variables = "Italic"
+      comments = "italic",
+      functions = "italic",
+      keywords = "italic",
+      variables = "italic"
     }
   },
   -- ...

@@ -119,18 +119,40 @@ M.check_deprecation = function(opts)
     'dark_float',
     { replace = 'options.darken.floats', help = 'github-theme.changelog-13042023' }
   )
-  check_opt(
-    'dark_sidebar',
-    {
-      replace = 'options.darken.sidebars.enable',
-      help = 'github-theme.changelog-13042023',
-    }
-  )
+  check_opt('dark_sidebar', {
+    replace = 'options.darken.sidebars.enable',
+    help = 'github-theme.changelog-13042023',
+  })
   check_opt(
     'sidebars',
     { replace = 'options.darken.sidebars.list', help = 'github-theme.changelog-13042023' }
   )
 
+  if opts.colors then
+    dep.write(
+      '  ',
+      { 'colors', 'WarningMsg' },
+      ' has been replaced by ',
+      { 'specs', 'WarningMsg' },
+      ' and ',
+      { 'palettes', 'WarningMsg' },
+      '. See ',
+      { ':h github-theme.changelog-23042023', 'WarningMsg' },
+      ' for more info.'
+    )
+  end
+
+  if opts.overrides then
+    dep.write(
+      '  ',
+      { 'overrides', 'WarningMsg' },
+      ' has been replaced by ',
+      { 'groups', 'WarningMsg' },
+      '. See ',
+      { ':h github-theme.changelog-23042023', 'WarningMsg' },
+      ' for more info.'
+    )
+  end
   M.checked_deprecation = true
 end
 
