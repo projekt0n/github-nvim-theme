@@ -14,7 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - The `config.apply_configuration()` function is also deprecated.
 - The `theme_style` option is removed. Use `:colorscheme` command instead.
 - The module `plugins.lualine` moved to `util.lualine` and `plugins` module removed.
-- Config Updates
+- Configuration Deprecation and Migration
   - `msg_area_style` -> Removed.
   - `comment_style` -> `options.styles.comments`
   - `function_style` -> `options.styles.functions`
@@ -26,6 +26,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `dark_float` -> `options.darken.floats`
   - `dark_sidebar`-> `options.darken.sidebars.enable`
   - `sidebars`-> `options.darken.sidebars.list`
+  - `colors`-> `palettes` or `specs`
+  - `overrides` -> `groups`
 
 ### What's New?
 

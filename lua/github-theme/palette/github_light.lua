@@ -174,7 +174,7 @@ local function generate_spec(pal)
     bg0  = pal.canvas.inset,                        -- Dark bg (status line, popup and float)
     bg1  = pal.canvas.default,                      -- Default bg
     bg2  = alpha(C(pal.neutral.emphasis), 0.1),     -- Lighter bg (colorcolumn Folds)
-    bg3  = pal.scale.gray[3],                       -- Lighter bg (cursor line)
+    bg3  = pal.scale.gray[2],                       -- Lighter bg (cursor line)
     bg4  = pal.border.default,                      -- Conceal, border fg
 
     fg0  = pal.fg.subtle,                           -- Lighter fg
@@ -183,8 +183,8 @@ local function generate_spec(pal)
     fg3  = pal.scale.gray[7],                       -- Darker fg (line numbers, fold columns)
 
     sel0 = alpha(C(pal.accent.fg), 0.2),            -- Visual selection bg
-    sel1 = pal.accent.subtle,                       -- Popup sel bg
-    sel2 = pal.attention.emphasis                   -- Search bg
+    sel1 = pal.accent.muted,                        -- Popup sel bg
+    sel2 = alpha(C(pal.attention.emphasis), 0.7)    -- Search bg
   }
 
   spec.syntax = {

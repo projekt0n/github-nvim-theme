@@ -1,6 +1,5 @@
 local collect = require('github-theme.lib.collect')
 local config = require('github-theme.config')
-local util = require('github-theme.util')
 
 local M = {}
 

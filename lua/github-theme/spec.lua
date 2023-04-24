@@ -15,8 +15,12 @@ local template = require('github-theme.util.template')
 ---@field fg3 string
 ---@field sel0 string
 ---@field sel1 string
----@field sel3 string
+---@field sel2 string
 ---@field syntax SpecSyntax
+---@field diag SpecDiagnostic
+---@field diag_bg SpecDiagnosticBg
+---@field diff SpecDiff
+---@field git SpecGit
 
 ---@class SpecSyntax
 ---@field bracket string
@@ -40,6 +44,29 @@ local template = require('github-theme.util.template')
 ---@field string string
 ---@field type string
 ---@field variable string
+
+---@class SpecDiagnostic
+---@field error string
+---@field warn string
+---@field info string
+---@field hint string
+
+---@class SpecDiagnosticBg
+---@field error string
+---@field warn string
+---@field info string
+---@field hint string
+
+---@class SpecDiff
+---@field add string
+---@field delete string
+---@field change string
+---@field text string
+
+---@class SpecGit
+---@field add string
+---@field removed string
+---@field changed string
 
 --#endregion
 

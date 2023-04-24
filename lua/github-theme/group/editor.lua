@@ -4,6 +4,8 @@ function M.get(spec, config)
   local trans = config.transparent
   local hide_eof = config.hide_end_of_buffer
 
+  local c = spec.palette
+
   -- TODO:
   -- (1) Config: Add options.dim_inactive
   -- (2) Config: Add options.inverse
@@ -36,9 +38,9 @@ function M.get(spec, config)
     SignColumnSB    = { link = 'SignColumn' }, -- column where |signs| are displayed
     Substitute      = { fg = spec.bg1, bg = spec.diag.error }, -- |:substitute| replacement text highlighting
     LineNr          = { fg = spec.fg3 }, -- Line number for ':number' and ':#' commands, and when 'number' or 'relativenumber' option is set.
-    CursorLineNr    = { fg = spec.diag.warn, style = 'bold' }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+    CursorLineNr    = { fg = spec.fg0, style = 'bold' }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
 
-    MatchParen      = { fg = spec.diag.warn, style = 'bold' }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+    MatchParen      = { fg = spec.fg1, bg = c.accent.muted }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     -- MatchParen      = { fg = spec.diag.warn, style = inv.match_paren and 'reverse,bold' or 'bold' }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
 
     ModeMsg         = { fg = spec.diag.warn, style = 'bold' }, -- 'showmode' message (e.g., '-- INSERT -- ')
@@ -61,10 +63,10 @@ function M.get(spec, config)
     Question        = { link = 'MoreMsg' }, -- |hit-enter| prompt and yes/no questions
     QuickFixLine    = { link = 'CursorLine' }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
 
-    Search          = { fg = spec.fg1, bg = spec.sel1 }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
-    IncSearch       = { fg = spec.bg1, bg = spec.diag.hint }, -- 'incsearch' highlighting; also used for the text replaced with ':s///c'
-    -- Search          = inv.search and { style = 'reverse' } or { fg = spec.fg1, bg = spec.sel1 }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
-    -- IncSearch       = inv.search and { style = 'reverse' } or { fg = spec.bg1, bg = spec.diag.hint }, -- 'incsearch' highlighting; also used for the text replaced with ':s///c'
+    Search          = { bg = spec.sel2 }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
+    IncSearch       = { fg = c.black.bright, bg = c.orange }, -- 'incsearch' highlighting; also used for the text replaced with ':s///c'
+    -- Search          = inv.search and { style = 'reverse' } or { bg = spec.sel2 }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
+    -- IncSearch       = inv.search and { style = 'reverse' } or { fg = c.black.bright, bg = c.orange }, -- 'incsearch' highlighting; also used for the text replaced with ':s///c'
 
     CurSearch       = { link = 'IncSearch'}, -- Search result under cursor (available since neovim >0.7.0 (https://github.com/neovim/neovim/commit/b16afe4d556af7c3e86b311cfffd1c68a5eed71f)).
     SpecialKey      = { link = 'NonText' }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
