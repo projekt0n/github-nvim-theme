@@ -49,9 +49,12 @@ local scale = {
   },
 }
 
+C.WHITE = C(scale.white)
+C.BLACK = C(scale.black)
+C.BG = C(scale.white)
+
 local function alpha(color, a)
-  local bg = scale.white
-  return C(bg):blend(color, a):to_css()
+  return color:alpha_blend(a):to_css()
 end
 
 -- Temp override until Primitives are updated
@@ -88,13 +91,13 @@ local palette = {
   border = {
     default = scale.gray[9],
     muted = scale.gray[5],
-    subtle = alpha(C.from_hex(scale.black), 0.8),
+    subtle = alpha(C(scale.black), 0.8),
   },
 
   neutral = {
     emphasis_plus = scale.gray[10],
     emphasis = scale.gray[6],
-    muted = alpha(C.from_hex(scale.gray[4]), 0.2),
+    muted = alpha(C(scale.gray[4]), 0.2),
     subtle = scale.gray[2],
   },
 
@@ -122,7 +125,7 @@ local palette = {
   severe = {
     fg = scale.orange[6],
     emphasis = scale.orange[6],
-    muted = alpha(C.from_hex(scale.orange[4]), 0.4),
+    muted = alpha(C(scale.orange[4]), 0.4),
     subtle = scale.orange[4],
   },
 
@@ -136,14 +139,14 @@ local palette = {
   open = {
     fg = scale.green[6],
     emphasis = '#1f883d',
-    muted = alpha(C.from_hex(scale.green[4]), 0.4),
+    muted = alpha(C(scale.green[4]), 0.4),
     subtle = scale.green[1],
   },
 
   closed = {
     fg = '#d1242f',
     emphasis = scale.red[6],
-    muted = alpha(C.from_hex(scale.red[4]), 0.4),
+    muted = alpha(C(scale.red[4]), 0.4),
     subtle = scale.red[1],
   },
 

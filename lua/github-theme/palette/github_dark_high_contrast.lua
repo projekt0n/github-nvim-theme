@@ -49,9 +49,12 @@ local scale = {
   }
 }
 
+C.WHITE = C(scale.white)
+C.BLACK = C(scale.black)
+C.BG = C(scale.gray[10])
+
 local function alpha(color, a)
-  local bg = scale.gray[10]
-  return C(bg):blend(color, a):to_css()
+  return color:alpha_blend(a):to_css()
 end
 
 local palette = {
@@ -93,71 +96,71 @@ local palette = {
   neutral = {
     emphasis = scale.gray[5],
     emphasis_plus = scale.gray[5],
-    muted = alpha(C.from_rgba(110, 118, 129, 1), 0.4),
-    subtle = alpha(C.from_rgba(110, 118, 129, 1), 0.1),
+    muted = alpha(C(110, 118, 129, 1), 0.4),
+    subtle = alpha(C(110, 118, 129, 1), 0.1),
   },
 
   accent = {
     fg = scale.blue[5],
     emphasis = scale.blue[6],
-    muted = alpha(C.from_rgba(56, 139, 253, 1), 0.4),
-    subtle = alpha(C.from_rgba(56, 139, 253, 1), 0.15),
+    muted = alpha(C(56, 139, 253, 1), 0.4),
+    subtle = alpha(C(56, 139, 253, 1), 0.15),
   },
 
   success = {
     fg = scale.green[5],
     emphasis = scale.green[6],
-    muted = alpha(C.from_rgba(46, 160, 67, 1), 0.4),
-    subtle = alpha(C.from_rgba(46, 160, 67, 1), 0.15),
+    muted = alpha(C(46, 160, 67, 1), 0.4),
+    subtle = alpha(C(46, 160, 67, 1), 0.15),
   },
 
   attention = {
     fg = scale.yellow[5],
     emphasis = scale.yellow[6],
-    muted = alpha(C.from_rgba(187, 128, 9, 1), 0.4),
-    subtle = alpha(C.from_rgba(187, 128, 9, 1), 0.15),
+    muted = alpha(C(187, 128, 9, 1), 0.4),
+    subtle = alpha(C(187, 128, 9, 1), 0.15),
   },
 
   severe = {
     fg = scale.orange[5],
     emphasis = scale.orange[6],
-    muted = alpha(C.from_rgba(219, 109, 40, 1), 0.4),
-    subtle = alpha(C.from_rgba(219, 109, 40, 1), 0.15),
+    muted = alpha(C(219, 109, 40, 1), 0.4),
+    subtle = alpha(C(219, 109, 40, 1), 0.15),
   },
 
   danger = {
     fg = scale.red[5],
     emphasis = scale.red[6],
-    muted = alpha(C.from_rgba(248, 81, 73, 1), 0.4),
-    subtle = alpha(C.from_rgba(248, 81, 73, 1), 0.15),
+    muted = alpha(C(248, 81, 73, 1), 0.4),
+    subtle = alpha(C(248, 81, 73, 1), 0.15),
   },
 
   open = {
     fg = scale.green[4],
     emphasis = scale.green[6],
-    muted = alpha(C.from_rgba(46, 160, 67, 1), 0.4),
-    subtle = alpha(C.from_rgba(46, 160, 67, 1), 0.15),
+    muted = alpha(C(46, 160, 67, 1), 0.4),
+    subtle = alpha(C(46, 160, 67, 1), 0.15),
   },
 
   done = {
     fg = scale.purple[5],
     emphasis = scale.purple[6],
-    muted = alpha(C.from_rgba(163, 113, 247, 1), 0.4),
-    subtle = alpha(C.from_rgba(163, 113, 247, 1), 0.15),
+    muted = alpha(C(163, 113, 247, 1), 0.4),
+    subtle = alpha(C(163, 113, 247, 1), 0.15),
   },
 
   closed = {
     fg = scale.red[5],
     emphasis = scale.red[6],
-    muted = alpha(C.from_rgba(248, 81, 73, 1), 0.4),
-    subtle = alpha(C.from_rgba(248, 81, 73, 1), 0.15),
+    muted = alpha(C(248, 81, 73, 1), 0.4),
+    subtle = alpha(C(248, 81, 73, 1), 0.15),
   },
 
   sponsors = {
     fg = scale.pink[5],
     emphasis = scale.pink[6],
-    muted = alpha(C.from_rgba(219, 97, 162, 1), 0.4),
-    subtle = alpha(C.from_rgba(219, 97, 162, 1), 0.15),
+    muted = alpha(C(219, 97, 162, 1), 0.4),
+    subtle = alpha(C(219, 97, 162, 1), 0.15),
   },
 }
 

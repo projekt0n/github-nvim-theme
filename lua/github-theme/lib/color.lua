@@ -268,6 +268,18 @@ function Color:blend(other, f)
   )
 end
 
+---Returns a new color that a linear blend between Background color
+---@param f number Float [0,1]. 0 being this and 1 being other
+---@return Color
+function Color:alpha_blend(f)
+  return Color.init(
+    (self.red - Color.BG.red) * f + Color.BG.red,
+    (self.green - Color.BG.green) * f + Color.BG.green,
+    (self.blue - Color.BG.blue) * f + Color.BG.blue,
+    self.alpha
+  )
+end
+
 ---Returns a new shaded color.
 ---@param f number Amount. Float [-1,1]. -1 is black, 1 is white
 ---@return Color
