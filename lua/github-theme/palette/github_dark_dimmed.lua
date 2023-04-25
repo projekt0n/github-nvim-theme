@@ -1,4 +1,4 @@
-C.from_rgbaocal C = require('github-theme.lib.color')
+local C = require('github-theme.lib.color')
 
 local meta = {
   name = 'github_dark_dimmed',
