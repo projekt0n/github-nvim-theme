@@ -188,7 +188,7 @@ local function generate_spec(pal)
   }
 
   spec.syntax = {
-    bracket     = alpha(C(pal.scale.green[4]), 0.25),   -- Brackets and Punctuation
+    bracket     = pal.scale.blue[8],                    -- Brackets and Punctuation
     builtin0    = pal.scale.orange[7],                  -- Builtin variable
     builtin1    = pal.scale.red[6],                     -- Builtin type
     builtin2    = pal.scale.blue[7],                    -- Builtin const
@@ -198,7 +198,7 @@ local function generate_spec(pal)
     dep         = pal.scale.red[8],                     -- Deprecated
     field       = spec.fg1,                             -- Field
     func        = pal.scale.purple[6],                  -- Functions and Titles
-    ident       = pal.scale.blue[7],                    -- Identifiers
+    ident       = pal.scale.blue[9],                    -- Identifiers
     keyword     = pal.scale.red[6],                     -- Keywords
     number      = pal.scale.blue[7],                    -- Numbers
     operator    = pal.scale.red[6],                     -- Operators
@@ -207,7 +207,7 @@ local function generate_spec(pal)
     statement   = pal.scale.red[6],                     -- Statements
     string      = pal.scale.blue[9],                    -- Strings
     type        = pal.scale.red[6],                     -- Types
-    variable    = pal.scale.orange[7],                  -- Variables
+    variable    = pal.scale.blue[7],                    -- Variables
   }
 
   spec.diag = {

@@ -197,7 +197,7 @@ local function generate_spec(pal)
   }
 
   spec.syntax = {
-    bracket     = alpha(C(pal.scale.green[4]), 0.25),   -- Brackets and Punctuation
+    bracket     = alpha(C(pal.scale.blue[4]), 0.75),   -- Brackets and Punctuation
     builtin0    = pal.scale.orange[3],                  -- Builtin variable
     builtin1    = pal.scale.red[4],                     -- Builtin type
     builtin2    = pal.scale.blue[3],                    -- Builtin const
@@ -216,7 +216,7 @@ local function generate_spec(pal)
     statement   = pal.scale.red[4],                     -- Statements
     string      = pal.scale.blue[2],                    -- Strings
     type        = pal.scale.red[4],                     -- Types
-    variable    = pal.scale.orange[3],                  -- Variables
+    variable    = pal.scale.blue[3],                    -- Variables
   }
 
   spec.diag = {
