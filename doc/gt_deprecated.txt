@@ -7,19 +7,19 @@ github-nvim-theme   				     *github-theme.deprecated*
 The items listed below are deprecated: they will be removed in the future.
 They should not be used in new scripts, and old scripts should be updated.
 
-==============================================================================
+==================================================================================================
 Deprecated features
 
-COLORSCHEMES
 
+COLORSCHEMES
 - *'github_dimmed'*			  Deprecated. Use |'github_dark_dimmed'| Instead.
 - *'github_dark_default'*		  Deprecated. Use |'github_dark_high_contrast'| Instead.
 - *'github_light_default'*		  Deprecated. Use |'github_light_high_contrast'| Instead.
 
 
 SETUP OPTIONS
-- *'theme_style'*			  Removed. Use 'colorscheme'
-  command to set colorscheme. Refer `':h github-theme.changelog-11042023'`
+- *'theme_style'*			  Removed. Use 'colorscheme' command to set colorscheme.
+   Refer `':h github-theme.changelog-11042023'`
 - *'comment_style'*			  Deprecated. Use |'options.styles.comments'| Instead.
 - *'function_style'*			  Deprecated. Use |'options.styles.functions'| Instead.
 - *'keyword_style'*			  Deprecated. Use |'options.styles.keywords'| Instead.
@@ -52,12 +52,12 @@ GLOBAL OPTIONS
 - *'vim.g.github_variable_style'*	  Use |setup| Lua function instead.
 - *'vim.g.github_dev'*			  Use |setup| Lua function instead.
 
+
 MODULES
 - *'types'*				  Removed.
 - *'plugins'*				  Removed.
 - *'plugins.lualine'*			  Moved to |'github-theme.util.lualine'|
 - *'palette.dark'*			  Moved to |'github-theme.palette.github_dark'|
-- *'palette.dark_colorblind'*		  Moved to |'github-theme.palette.github_dark_colorblind'|
 - *'palette.dark_default'*		  Moved to |'github-theme.palette.github_dark_default'|
 - *'palette.dimmed'*			  Moved to |'github-theme.palette.github_dimmed'|
 - *'palette.light'*			  Moved to |'github-theme.palette.github_light'|
@@ -65,19 +65,24 @@ MODULES
 - *'palette.light_default'*		  Moved to |'github-theme.palette.github_light_default'|
 - *'colors'*				  Moved to |'github-theme.palette'|
 - *'config.vim_config'*	         	  Removed.
-- *'config.default'*			  Moved to |'github-theme.config'|
-  module and accessed with |'default'| variable.
+- *'config.default'*			  Moved to |'github-theme.config'| module and accessed with |'default'| table.
+
 
 FUNCTIONS
-
-*'github-theme.util'*
-  - *'load()'*                   Use |require('github-theme').load()| function instead.
-
-*'github-theme.config'*
-  - *'apply_configuration()'*    Removed.
-
-*'github-theme.palette'*
-  - *'setup()'*                  Use |load()| function instead.
+- *'github-theme.util'*
+   - *'load()'*                              Moved to |require('github-theme').load()|.
+   - *'blend()'*                             Use |require('github-theme.lib.color')| library instead.
+   - *'darken()'*                            Use |require('github-theme.lib.color')| library instead.
+   - *'lighten()'*                           Use |require('github-theme.lib.color')| library instead.
+   - *'highlight()'*                         Use |require('github-theme.lib.highlight')| library instead.
+   - *'syntax()'*                            Use |require('github-theme.lib.highlight')| library instead.
+   - *'teminal()'*                           Moved to |require('github-theme.group.terminal')|.
+   - *'apply_overrides()'*                   Use |require('github-theme.override').groups| instead.
+   - *'color_overrides()'*                   Use |require('github-theme.override').specs| or |require('github-theme.override').palettes| instead.
+- *'github-theme.config'*
+   - *'apply_configuration()'*               Removed.
+- *'github-theme.palette'*
+   - *'setup()'*                             Use |load()| function instead.
 
 
 
