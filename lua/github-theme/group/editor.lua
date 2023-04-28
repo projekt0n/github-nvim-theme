@@ -4,7 +4,7 @@ function M.get(spec, config)
   local trans = config.transparent
   local hide_eof = config.hide_end_of_buffer
 
-  local c = spec.palette
+  local P = spec.palette
 
   -- TODO:
   -- (1) Config: Add options.dim_inactive
@@ -40,7 +40,7 @@ function M.get(spec, config)
     LineNr          = { fg = spec.fg3 }, -- Line number for ':number' and ':#' commands, and when 'number' or 'relativenumber' option is set.
     CursorLineNr    = { fg = spec.fg0, style = 'bold' }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
 
-    MatchParen      = { fg = spec.fg1, bg = c.accent.muted }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+    MatchParen      = { fg = spec.fg1, bg = P.accent.muted }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     -- MatchParen      = { fg = spec.diag.warn, style = inv.match_paren and 'reverse,bold' or 'bold' }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
 
     ModeMsg         = { fg = spec.diag.warn, style = 'bold' }, -- 'showmode' message (e.g., '-- INSERT -- ')
@@ -55,8 +55,8 @@ function M.get(spec, config)
     -- NormalNC        = { fg = spec.fg1, bg = (inactive and spec.bg0) or (trans and 'NONE') or spec.bg1 }, -- normal text in non-current windows
 
     NormalFloat     = { fg = spec.fg1, bg = spec.bg0 }, -- Normal text in floating windows.
-    FloatBorder     = { fg = spec.fg3 }, -- TODO
-    Pmenu           = { fg = spec.fg1, bg = spec.sel0 }, -- Popup menu: normal item.
+    FloatBorder     = { fg = P.border.default }, -- TODO
+    Pmenu           = { fg = spec.fg1, bg = spec.bg0 }, -- Popup menu: normal item.
     PmenuSel        = { bg = spec.sel1 }, -- Popup menu: selected item.
     PmenuSbar       = { link = 'Pmenu' }, -- Popup menu: scrollbar.
     PmenuThumb      = { bg = spec.sel1 }, -- Popup menu: Thumb of the scrollbar.
@@ -64,7 +64,7 @@ function M.get(spec, config)
     QuickFixLine    = { link = 'CursorLine' }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
 
     Search          = { bg = spec.sel2 }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
-    IncSearch       = { fg = c.black.bright, bg = c.orange }, -- 'incsearch' highlighting; also used for the text replaced with ':s///c'
+    IncSearch       = { fg = P.black.bright, bg = P.orange }, -- 'incsearch' highlighting; also used for the text replaced with ':s///c'
     -- Search          = inv.search and { style = 'reverse' } or { bg = spec.sel2 }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
     -- IncSearch       = inv.search and { style = 'reverse' } or { fg = c.black.bright, bg = c.orange }, -- 'incsearch' highlighting; also used for the text replaced with ':s///c'
 

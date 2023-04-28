@@ -45,7 +45,7 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
 
     -- Functions
     ["@function"]               = { link = "Function" }, -- For function (calls and definitions).
-    ["@function.builtin"]       = { fg = syn.builtin0, style = stl.functions }, -- For builtin functions: table.insert in Lua.
+    ["@function.builtin"]       = { fg = syn.builtin2, style = stl.functions }, -- For builtin functions: table.insert in Lua.
     ["@function.call"]          = { link = "@function" }, -- function calls
     ["@function.macro"]         = { fg = syn.builtin0, style = stl.functions }, -- For macro defined functions (calls and definitions): each macro_rules in RusC.
     ["@method"]                 = { link = "@function"}, -- For method calls and definitions.
@@ -126,7 +126,8 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     ["@label.json"]             = { fg = spec.func }, -- For labels: label: in C and :label: in Lua.
 
     -- lua
-    ["@constructor.lua"]        = { fg = spec.fg2 }, -- For constructor calls and definitions: = { } in Lua, and Java constructors.
+    -- ["@constructor.lua"]        = { fg = spec.fg2 }, -- For constructor calls and definitions: = { } in Lua, and Java constructors.
+    ["@lsp.type.variable.lua"]  = { fg = spec.variable }, -- For constructor calls and definitions: = { } in Lua, and Java constructors.
 
     -- rust
     ["@field.rust"]             = { fg = spec.fg2 },
