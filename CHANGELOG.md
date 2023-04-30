@@ -31,9 +31,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `sidebars`-> `options.darken.sidebars.list`
 - `colors`-> `palettes` or `specs`
 - `overrides` -> `groups`
-- `module_default` -> New for toggling plugins highlights
-- `modules` -> Individual Plugins related configuration.
 
+### New Configuration
+
+- `options.module_default` -> Option for toggling plugins highlights
+- `options.modules` -> Option for individual plugins related configuration
 
 ### What's New?
 

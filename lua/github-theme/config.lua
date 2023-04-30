@@ -58,6 +58,7 @@ M.module_names = {
   'native_lsp',
   'treesitter',
 }
+
 function M.set_theme(name)
   M.theme = name
 end

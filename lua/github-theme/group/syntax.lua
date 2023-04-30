@@ -65,8 +65,24 @@ function M.get(spec, config)
     qfLineNr       = { link = 'lineNr' },
     qfFileName     = { link = 'Directory' },
 
+    htmlTag         = { fg = syn.tag },
     -- htmlH1       = {},
     -- htmlH2       = {},
+
+    xmlAttrib  = { link ='htmlTag' },
+    xmlTagName = { link ='htmlTag' },
+
+    cssBraces         = { fg = syn.brackets },
+    cssMedia          = { link = 'Keyword' },
+    cssProp           = { link = 'Constant' },
+    cssPseudoClassId  = { link = 'Function' },
+
+    lessAmpersand      = { link = 'Function' },
+    lessClass          = { link = 'Function' },
+    lessClassCall      = { link = 'Function' },
+    lessCssAttribute   = { link = 'Constant' },
+    lessFunction       = { link = 'Constant' },
+    lessVariable       = { fg = spec.fg1 },
 
     -- mkdHeading            = {},
     -- mkdCode               = {},

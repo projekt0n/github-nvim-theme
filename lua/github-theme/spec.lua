@@ -38,10 +38,12 @@ local template = require('github-theme.util.template')
 ---@field keyword string
 ---@field number string
 ---@field operator string
+---@field param string
 ---@field preproc string
 ---@field regex string
 ---@field statement string
 ---@field string string
+---@field tag string
 ---@field type string
 ---@field variable string
 

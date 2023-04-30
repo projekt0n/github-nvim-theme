@@ -51,7 +51,7 @@ local scale = {
 
 C.WHITE = C(scale.white)
 C.BLACK = C(scale.black)
-C.BG = C(scale.gray[10])
+C.BG = C(scale.gray[7])
 
 local function alpha(color, a)
   return color:alpha_blend(a):to_css()
@@ -73,10 +73,7 @@ local palette = {
   yellow = { base = scale.yellow[4], bright = scale.yellow[3] },
   cyan = { base = '#76e3ea', bright = '#b3f0ff' },
 
-  -- NOTE: Temp override until Primitives are updated
   fg = {
-    -- default = scale.gray[2],
-    -- muted = scale.gray[4],
     default = '#e6edf3',
     muted = '#7d8590',
     subtle = scale.gray[5],
@@ -84,14 +81,14 @@ local palette = {
   },
 
   canvas = {
-    default = scale.gray[10],
+    default = scale.gray[7],
     overlay = scale.gray[9],
-    inset = scale.black,
+    inset = scale.gray[8],
     subtle = scale.gray[9],
   },
 
   border = {
-    default = scale.gray[7],
+    default = scale.gray[9],
     muted = scale.gray[8],
     subtle = alpha(C.from_rgba(240, 246, 252, 1), 0.1),
   },
@@ -103,9 +100,7 @@ local palette = {
     subtle = alpha(C.from_rgba(110, 118, 129, 1), 0.1),
   },
 
-  -- NOTE: Temp override until Primitives are updated
   accent = {
-    -- fg = scale.blue[4],
     fg = '#2f81f7',
     emphasis = scale.blue[6],
     muted = alpha(C.from_rgba(56, 139, 253, 1), 0.4),
@@ -126,21 +121,17 @@ local palette = {
     subtle = alpha(C.from_rgba(187, 128, 9, 1), 0.15),
   },
 
-  -- NOTE: Temp override until Primitives are updated
   severe = {
     fg = scale.orange[5],
     emphasis = scale.orange[6],
     muted = alpha(C.from_rgba(219, 109, 40, 1), 0.4),
-    -- subtle = alpha(C.from_rgba(219, 109, 40, 1), 0.15),
     subtle = alpha(C.from_rgba(219, 109, 40, 1), 0.1),
   },
 
-  -- NOTE: Temp override until Primitives are updated
   danger = {
     fg = scale.red[5],
     emphasis = scale.red[6],
     muted = alpha(C.from_rgba(248, 81, 73, 1), 0.4),
-    -- subtle = alpha(C.from_rgba(248, 81, 73, 1), 0.15),
     subtle = alpha(C.from_rgba(248, 81, 73, 1), 0.1),
   },
 
@@ -151,12 +142,10 @@ local palette = {
     subtle = alpha(C.from_rgba(46, 160, 67, 1), 0.15),
   },
 
-  -- NOTE: Temp override until Primitives are updated
   done = {
     fg = scale.purple[5],
     emphasis = scale.purple[6],
     muted = alpha(C.from_rgba(163, 113, 247, 1), 0.4),
-    -- subtle = alpha(C.from_rgba(163, 113, 247, 1), 0.15),
     subtle = alpha(C.from_rgba(163, 113, 247, 1), 0.1),
   },
 
@@ -167,12 +156,10 @@ local palette = {
     subtle = alpha(C.from_rgba(248, 81, 73, 1), 0.15),
   },
 
-  -- NOTE: Temp override until Primitives are updated
   sponsors = {
     fg = scale.pink[5],
     emphasis = scale.pink[6],
     muted = alpha(C.from_rgba(219, 97, 162, 1), 0.4),
-    -- subtle = alpha(C.from_rgba(219, 97, 162, 1), 0.15),
     subtle = alpha(C.from_rgba(219, 97, 162, 1), 0.1),
   },
 }
@@ -180,43 +167,45 @@ local palette = {
 local function generate_spec(pal)
   -- stylua: ignore start
   local spec = {
-    bg0  = pal.canvas.inset,                        -- Dark bg (status line, popup and float)
-    bg1  = pal.canvas.default,                      -- Default bg
-    bg2  = alpha(C(pal.neutral.emphasis), 0.1),     -- Lighter bg (colorcolumn Folds)
-    bg3  = pal.scale.gray[7],                       -- Lighter bg (cursor line)
-    bg4  = pal.border.default,                      -- Conceal, border fg
+    bg0  = alpha(C(pal.canvas.inset), 0.75),         -- Dark bg (status line, popup and float)
+    bg1  = pal.canvas.default,                       -- Default bg
+    bg2  = alpha(C(pal.neutral.emphasis), 0.1),      -- Lighter bg (colorcolumn Folds)
+    bg3  = pal.scale.gray[6],                        -- Lighter bg (cursor line)
+    bg4  = pal.scale.gray[4],                        -- Conceal
 
-    fg0  = pal.fg.subtle,                           -- Lighter fg
-    fg1  = pal.fg.default,                          -- Default fg
-    fg2  = pal.fg.muted,                            -- Darker fg (status line)
-    fg3  = pal.scale.gray[7],                       -- Darker fg (line numbers, fold columns)
+    fg0  = pal.fg.subtle,                            -- Lighter fg
+    fg1  = pal.fg.default,                           -- Default fg
+    fg2  = pal.fg.muted,                             -- Darker fg (status line)
+    fg3  = pal.scale.gray[5],                        -- Darker fg (line numbers, fold columns)
 
-    sel0 = alpha(C(pal.accent.fg), 0.2),            -- Visual selection bg
-    sel1 = pal.accent.muted,                        -- Popup sel bg
-    sel2 = alpha(C(pal.attention.emphasis), 0.45)   -- Search bg
+    sel0 = alpha(C(pal.accent.fg), 0.30),            -- Visual selection bg
+    sel1 = alpha(C(pal.fg.subtle), 0.05),            -- Popup sel bg
+    sel2 = alpha(C(pal.scale.yellow[1]), 0.20),      -- Search bg
   }
 
   spec.syntax = {
-    bracket     = alpha(C(pal.scale.blue[4]), 0.75),   -- Brackets and Punctuation
-    builtin0    = pal.scale.orange[3],                  -- Builtin variable
-    builtin1    = pal.scale.red[4],                     -- Builtin type
-    builtin2    = pal.scale.blue[3],                    -- Builtin const
-    comment     = pal.scale.gray[4],                    -- Comment
-    conditional = pal.scale.red[4],                     -- Conditional and loop
-    const       = pal.scale.blue[3],                    -- Constants, imports and booleans
-    dep         = pal.scale.red[3],                     -- Deprecated
-    field       = spec.fg1,                             -- Field
-    func        = pal.scale.purple[3],                  -- Functions and Titles
-    ident       = pal.scale.blue[3],                    -- Identifiers
-    keyword     = pal.scale.red[4],                     -- Keywords
-    number      = pal.scale.blue[3],                    -- Numbers
-    operator    = pal.scale.red[4],                     -- Operators
-    preproc     = pal.scale.red[4],                     -- PreProc
-    regex       = pal.scale.blue[3],                    -- Regex
-    statement   = pal.scale.red[4],                     -- Statements
-    string      = pal.scale.blue[2],                    -- Strings
-    type        = pal.scale.red[4],                     -- Types
-    variable    = pal.scale.blue[3],                    -- Variables
+    bracket     = pal.scale.orange[3],               -- Brackets and Punctuation
+    builtin0    = pal.scale.red[4],                  -- Builtin variable (Return Keywords, Regex, etc.)
+    builtin1    = pal.scale.red[4],                  -- Builtin type
+    builtin2    = pal.scale.blue[3],                 -- Builtin const
+    comment     = pal.scale.gray[5],                 -- Comment
+    conditional = pal.scale.red[4],                  -- Conditional and loop
+    const       = pal.scale.blue[3],                 -- Constants, imports and booleans
+    dep         = pal.scale.red[3],                  -- Deprecated
+    field       = pal.scale.purple[3],               -- Field
+    func        = pal.scale.purple[2],               -- Functions and Titles
+    ident       = pal.scale.blue[3],                 -- Identifiers
+    keyword     = pal.scale.red[4],                  -- Keywords
+    number      = pal.scale.blue[3],                 -- Numbers
+    operator    = pal.scale.red[4],                  -- Operators
+    param       = pal.scale.green[2],                -- Parameters
+    preproc     = pal.scale.red[4],                  -- PreProc
+    regex       = pal.scale.blue[3],                 -- Regex
+    statement   = pal.scale.red[4],                  -- Statements
+    string      = pal.scale.blue[2],                 -- Strings
+    type        = pal.scale.red[4],                  -- Types
+    tag         = pal.scale.green[2],                -- Tags
+    variable    = spec.fg1,                          -- Variables
   }
 
   spec.diag = {

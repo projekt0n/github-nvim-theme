@@ -172,26 +172,26 @@ local function generate_spec(pal)
     bg1  = pal.canvas.default,                      -- Default bg
     bg2  = alpha(C(pal.neutral.emphasis), 0.1),     -- Lighter bg (colorcolumn Folds)
     bg3  = pal.scale.gray[2],                       -- Lighter bg (cursor line)
-    bg4  = pal.border.default,                      -- Conceal, border fg
+    bg4  = pal.scale.gray[6],                       -- Conceal
 
     fg0  = pal.fg.subtle,                           -- Lighter fg
     fg1  = pal.fg.default,                          -- Default fg
-    fg2  = pal.fg.muted,                            -- Darker fg (status line)
+    fg2  = pal.scale.gray[9],                           -- Darker fg (status line)
     fg3  = pal.scale.gray[7],                       -- Darker fg (line numbers, fold columns)
 
     sel0 = alpha(C(pal.accent.fg), 0.2),            -- Visual selection bg
-    sel1 = pal.accent.muted,                        -- Popup sel bg
-    sel2 = alpha(C(pal.attention.emphasis), 0.7)    -- Search bg
+    sel1 = alpha(C(pal.accent.fg), 0.3),            -- Popup sel bg
+    sel2 = alpha(C(pal.attention.emphasis), 0.3)    -- Search bg
   }
 
   spec.syntax = {
-    bracket     = pal.scale.blue[8],                    -- Brackets and Punctuation
-    builtin0    = pal.scale.orange[7],                  -- Builtin variable
+    bracket     = pal.scale.orange[5],                  -- Brackets and Punctuation
+    builtin0    = pal.scale.red[6],                     -- Builtin variable
     builtin1    = pal.scale.red[6],                     -- Builtin type
     builtin2    = pal.scale.blue[7],                    -- Builtin const
     comment     = pal.scale.gray[6],                    -- Comment
     conditional = pal.scale.red[6],                     -- Conditional and loop
-    const       = pal.scale.blue[7],                    -- Constants, imports and booleans
+    const       = pal.scale.blue[6],                    -- Constants, imports and booleans
     dep         = pal.scale.red[8],                     -- Deprecated
     field       = spec.fg1,                             -- Field
     func        = pal.scale.purple[6],                  -- Functions and Titles
@@ -199,12 +199,14 @@ local function generate_spec(pal)
     keyword     = pal.scale.red[6],                     -- Keywords
     number      = pal.scale.blue[7],                    -- Numbers
     operator    = pal.scale.red[6],                     -- Operators
+    param       = pal.scale.orange[5],                  -- PreProc
     preproc     = pal.scale.red[6],                     -- PreProc
     regex       = pal.scale.blue[9],                    -- Regex
     statement   = pal.scale.red[6],                     -- Statements
-    string      = pal.scale.blue[9],                    -- Strings
+    string      = pal.scale.blue[8],                    -- Strings
     type        = pal.scale.red[6],                     -- Types
-    variable    = pal.scale.blue[7],                    -- Variables
+    tag         = pal.scale.green[6],                   -- Tags
+    variable    = spec.fg1,                             -- Variables
   }
 
   spec.diag = {

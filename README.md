@@ -168,22 +168,22 @@ require('github-theme').setup({
 vim.cmd('colorscheme github_dark')
 ```
 
-| Option                         | Default    | Description                                                                                                                                     |
-| ------------------------------ | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| options.transparent            | `false`    | Enable this to disable setting the background color                                                                                             |
-| options.hide_end_of_buffer     | `true`     | Enabling this option, will hide filler lines (~) after the end of the buffer                                                                    |
-| options.hide_nc_statusline     | `true`     | Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine**. |
-| options.styles.comments        | `italic`   | Highlight style for comments (check `:help highlight-args` for options)                                                                         |
-| options.styles.functions       | `NONE`     | Highlight style for functions (check `:help highlight-args` for options)                                                                        |
-| options.styles.keywords        | `italic`   | Highlight style for keywords (check `:help highlight-args` for options)                                                                         |
-| options.styles.variables       | `NONE`     | Highlight style for variables and identifiers (check `:help highlight-args` for options)                                                        |
-| options.darken.floats          | `false`    | Float windows like the lsp diagnostics windows get a darker background.                                                                         |
-| options.darken.sidebars.enable | `true`     | Sidebar like windows like `NvimTree` get a darker background                                                                                    |
-| options.darken.sidebars.list   | `{}`       | Set a darker background on sidebar-like windows. For example: `{"qf", "vista_kind", "terminal", "packer"}`                                      |
-| palettes                       | `{}`       | You can override specific color groups to use other groups or a hex color                                                                       |
-| specs                          | `{}`       | You can override specific spec color groups to use other groups or a hex color                                                                  |
-| groups                         | `{}`       | Override specific highlight groups. The function accpet colors as argument. You can also add a non-exists highlight by enabling the `dev` mode. |
-| dev                            | `false`    | Developer Mode.                                                                                                                                 |
+| Option                         | Default  | Description                                                                                                                                     |
+| ------------------------------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| options.transparent            | `false`  | Enable this to disable setting the background color                                                                                             |
+| options.hide_end_of_buffer     | `true`   | Enabling this option, will hide filler lines (~) after the end of the buffer                                                                    |
+| options.hide_nc_statusline     | `true`   | Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine**. |
+| options.styles.comments        | `italic` | Highlight style for comments (check `:help highlight-args` for options)                                                                         |
+| options.styles.functions       | `NONE`   | Highlight style for functions (check `:help highlight-args` for options)                                                                        |
+| options.styles.keywords        | `italic` | Highlight style for keywords (check `:help highlight-args` for options)                                                                         |
+| options.styles.variables       | `NONE`   | Highlight style for variables and identifiers (check `:help highlight-args` for options)                                                        |
+| options.darken.floats          | `false`  | Float windows like the lsp diagnostics windows get a darker background.                                                                         |
+| options.darken.sidebars.enable | `true`   | Sidebar like windows like `NvimTree` get a darker background                                                                                    |
+| options.darken.sidebars.list   | `{}`     | Set a darker background on sidebar-like windows. For example: `{"qf", "vista_kind", "terminal", "packer"}`                                      |
+| palettes                       | `{}`     | You can override specific color groups to use other groups or a hex color                                                                       |
+| specs                          | `{}`     | You can override specific spec color groups to use other groups or a hex color                                                                  |
+| groups                         | `{}`     | Override specific highlight groups. The function accpet colors as argument. You can also add a non-exists highlight by enabling the `dev` mode. |
+| dev                            | `false`  | Developer Mode.                                                                                                                                 |
 
 ## Features
 

@@ -10,6 +10,7 @@ function M.get(spec, config, opts)
     ['@lsp.type.interface'] = { link = '@interface' },
     ['@lsp.type.namespace'] = { link = '@namespace' },
     ['@lsp.type.parameter'] = { link = '@parameter' },
+    ['@lsp.type.class'] = { link = '@function' },
     ['@lsp.type.property'] = {}, -- use treesitter styles for regular properties
     ['@lsp.type.variable'] = {}, -- use treesitter styles for regular variables
     ['@lsp.typemod.method.defaultLibrary'] = { link = '@function.builtin' },
@@ -18,9 +19,6 @@ function M.get(spec, config, opts)
     ['@lsp.typemod.variable.defaultLibrary'] = { link = '@variable.builtin' },
     ['@lsp.typemod.string.injected'] = { link = '@string' },
     ['@lsp.typemod.variable.injected'] = { link = '@variable' },
-
-    -- Language Specific
-    -- ['@lsp.type.property.lua'] = { link = '@variable' },
   }
 end
 

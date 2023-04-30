@@ -167,43 +167,45 @@ local palette = {
 local function generate_spec(pal)
   -- stylua: ignore start
   local spec = {
-    bg0  = pal.canvas.inset,                        -- Dark bg (status line, popup and float)
-    bg1  = pal.canvas.default,                      -- Default bg
-    bg2  = alpha(C(pal.neutral.emphasis), 0.1),     -- Lighter bg (colorcolumn Folds)
-    bg3  = pal.scale.gray[7],                       -- Lighter bg (cursor line)
-    bg4  = pal.border.default,                      -- Conceal, border fg
+    bg0  = alpha(C(pal.canvas.inset), 0.75),         -- Dark bg (status line, popup and float)
+    bg1  = pal.canvas.default,                       -- Default bg
+    bg2  = alpha(C(pal.neutral.emphasis), 0.1),      -- Lighter bg (colorcolumn Folds)
+    bg3  = alpha(C(pal.fg.default), 0.1),            -- Lighter bg (cursor line)
+    bg4  = pal.scale.gray[4],                        -- Conceal
 
-    fg0  = pal.fg.subtle,                           -- Lighter fg
-    fg1  = pal.fg.default,                          -- Default fg
-    fg2  = pal.fg.muted,                            -- Darker fg (status line)
-    fg3  = pal.scale.gray[7],                       -- Darker fg (line numbers, fold columns)
+    fg0  = pal.fg.subtle,                            -- Lighter fg
+    fg1  = pal.fg.default,                           -- Default fg
+    fg2  = pal.fg.muted,                             -- Darker fg (status line)
+    fg3  = pal.scale.gray[5],                        -- Darker fg (line numbers, fold columns)
 
-    sel0 = alpha(C(pal.accent.fg), 0.2),            -- Visual selection bg
-    sel1 = pal.accent.muted,                        -- Popup sel bg
-    sel2 = alpha(C(pal.attention.emphasis), 0.7)    -- Search bg
+    sel0 = alpha(C(pal.accent.fg), 0.40),            -- Visual selection bg
+    sel1 = alpha(C(pal.fg.subtle), 0.05),            -- Popup sel bg
+    sel2 = alpha(C(pal.scale.yellow[1]), 0.20),      -- Search bg
   }
 
   spec.syntax = {
-    bracket     = alpha(C(pal.scale.blue[4]), 0.75),   -- Brackets and Punctuation
-    builtin0    = pal.scale.orange[3],                  -- Builtin variable
-    builtin1    = pal.scale.red[4],                     -- Builtin type
-    builtin2    = pal.scale.blue[3],                    -- Builtin const
-    comment     = pal.scale.gray[4],                    -- Comment
-    conditional = pal.scale.red[4],                     -- Conditional and loop
-    const       = pal.scale.blue[3],                    -- Constants, imports and booleans
-    dep         = pal.scale.red[3],                     -- Deprecated
-    field       = spec.fg1,                             -- Field
-    func        = pal.scale.purple[3],                  -- Functions and Titles
-    ident       = pal.scale.blue[3],                    -- Identifiers
-    keyword     = pal.scale.red[4],                     -- Keywords
-    number      = pal.scale.blue[3],                    -- Numbers
-    operator    = pal.scale.red[4],                     -- Operators
-    preproc     = pal.scale.red[4],                     -- PreProc
-    regex       = pal.scale.blue[3],                    -- Regex
-    statement   = pal.scale.red[4],                     -- Statements
-    string      = pal.scale.blue[2],                    -- Strings
-    type        = pal.scale.red[4],                     -- Types
-    variable    = pal.scale.blue[3],                    -- Variables
+    bracket     = pal.scale.green[4],                -- Brackets and Punctuation
+    builtin0    = pal.scale.red[4],                  -- Builtin variable (Return Keywords, Regex, etc.)
+    builtin1    = pal.scale.red[4],                  -- Builtin type
+    builtin2    = pal.scale.blue[3],                 -- Builtin const
+    comment     = pal.scale.gray[5],                 -- Comment
+    conditional = pal.scale.red[4],                  -- Conditional and loop
+    const       = pal.scale.blue[3],                 -- Constants, imports and booleans
+    dep         = pal.scale.red[3],                  -- Deprecated
+    field       = pal.scale.purple[3],               -- Field
+    func        = pal.scale.purple[2],               -- Functions and Titles
+    ident       = pal.scale.blue[3],                 -- Identifiers
+    keyword     = pal.scale.red[4],                  -- Keywords
+    number      = pal.scale.blue[3],                 -- Numbers
+    operator    = pal.scale.red[4],                  -- Operators
+    param       = pal.scale.orange[3],               -- Parameters
+    preproc     = pal.scale.red[4],                  -- PreProc
+    regex       = pal.scale.blue[3],                 -- Regex
+    statement   = pal.scale.red[4],                  -- Statements
+    string      = pal.scale.blue[2],                 -- Strings
+    type        = pal.scale.red[4],                  -- Types
+    tag         = pal.scale.green[2],                -- Tags
+    variable    = spec.fg1,                          -- Variables
   }
 
   spec.diag = {

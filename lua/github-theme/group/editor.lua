@@ -31,14 +31,14 @@ function M.get(spec, config)
     -- TermCursor      = {}, -- cursor in a focused terminal
     -- TermCursorNC    = {}, -- cursor in an unfocused terminal
     ErrorMsg        = { fg = spec.diag.error }, -- error messages on the command line
-    VertSplit       = { fg = spec.bg0 }, -- the column separating vertically split windows
+    VertSplit       = { fg = P.border.default }, -- the column separating vertically split windows
     Folded          = { fg = spec.fg3, bg = spec.bg2 }, -- line used for closed folds
     FoldColumn      = { fg = spec.fg3 }, -- 'foldcolumn'
     SignColumn      = { fg = spec.fg3 }, -- column where |signs| are displayed
     SignColumnSB    = { link = 'SignColumn' }, -- column where |signs| are displayed
     Substitute      = { fg = spec.bg1, bg = spec.diag.error }, -- |:substitute| replacement text highlighting
-    LineNr          = { fg = spec.fg3 }, -- Line number for ':number' and ':#' commands, and when 'number' or 'relativenumber' option is set.
-    CursorLineNr    = { fg = spec.fg0, style = 'bold' }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+    LineNr          = { fg = spec.fg0 }, -- Line number for ':number' and ':#' commands, and when 'number' or 'relativenumber' option is set.
+    CursorLineNr    = { fg = spec.fg1 }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
 
     MatchParen      = { fg = spec.fg1, bg = P.accent.muted }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     -- MatchParen      = { fg = spec.diag.warn, style = inv.match_paren and 'reverse,bold' or 'bold' }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
@@ -80,7 +80,7 @@ function M.get(spec, config)
     TabLine         = { fg = spec.fg2, bg = spec.bg2 }, -- tab pages line, not active tab page label
     TabLineFill     = { bg = spec.bg0 }, -- tab pages line, where there are no labels
     TabLineSel      = { fg = spec.bg1, bg = spec.fg3 }, -- tab pages line, active tab page label
-    Title           = { fg = spec.syntax.func, style = 'bold' }, -- titles for output from ':set all', ':autocmd' etc.
+    Title           = { fg = spec.syntax.builtin2, style = 'bold' }, -- titles for output from ':set all', ':autocmd' etc.
 
     Visual          = { bg = spec.sel0 }, -- Visual mode selection
     VisualNOS       = { link = 'visual' }, -- Visual mode selection when vim is 'Not Owning the Selection'.
