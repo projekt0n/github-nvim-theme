@@ -1,44 +1,37 @@
-local util = require('github-theme.util')
+local C = require('github-theme.lib.color')
 
---- build lualine theme for github theme
 return function(style)
-  local c = require('github-theme.palette.' .. style)()
+  local config = require('github-theme.config').options
+  local s = require('github-theme.spec').load(style)
+  local p = s.palette
+  local tbg = config.transparent and 'NONE' or s.bg0
 
-  --- create lualine group colors for github-theme
-  ---@param color string
-  ---@return table
-  local tint_lualine_group = function(color)
-    local group = {
-      a = { bg = color, fg = c.bg },
-      b = { bg = util.darken(color, 0.2), fg = util.lighten(color, 0.2) },
-    }
-    if vim.o.background == 'dark' then
-      group.c = {
-        bg = util.darken(color, 0.01, c.bg2),
-        fg = util.lighten(color, 0.4, c.fg),
-      }
-    else
-      -- inverting colors for light colorschemes
-      group.c = {
-        bg = util.lighten(color, 0.01, c.bg2),
-        fg = util.darken(color, 0.4, c.fg),
-      }
-    end
-    return group
+  local function blend(color, a)
+    return C(s.bg1):blend(C(color), a):to_css()
   end
 
-  local inactive_hi = { bg = c.bg2, fg = util.darken(c.fg, 0.3) }
+  --- Create lualine group colors for github-theme
+  ---@param color string
+  local tint = function(color)
+    return {
+      a = { bg = color, fg = s.bg1 },
+      b = { bg = blend(color, 0.2), fg = blend(color, 0.8) },
+      c = { bg = blend(color, 0.01), fg = blend(color, 0.60) },
+    }
+  end
+
+  local inactive_hi = { bg = tbg, fg = blend(s.fg1, 0.3) }
 
   -- Fix for https://github.com/projekt0n/github-nvim-theme/issues/175
   vim.cmd('hi! link StatusLine Normal')
 
   return {
-    normal = tint_lualine_group(c.blue),
-    insert = tint_lualine_group(c.green),
-    command = tint_lualine_group(c.bright_magenta),
-    visual = tint_lualine_group(c.yellow),
-    replace = tint_lualine_group(c.red),
-    terminal = tint_lualine_group(c.orange),
+    normal = tint(p.blue.base),
+    insert = tint(p.green.base),
+    command = tint(p.magenta.bright),
+    visual = tint(p.yellow.base),
+    replace = tint(p.red.base),
+    terminal = tint(p.orange),
     inactive = {
       a = inactive_hi,
       b = inactive_hi,
