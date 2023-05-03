@@ -2,7 +2,17 @@ local M = {}
 
 function M.get(spec, config)
   local trans = config.transparent
+  local dark_sb = config.darken.sidebars.enable
   local hide_eof = config.hide_end_of_buffer
+
+  local sb_bg
+  if trans then
+    sb_bg = 'NONE'
+  elseif dark_sb then
+    sb_bg = spec.bg0
+  else
+    sb_bg = spec.bg1
+  end
 
   local P = spec.palette
 
@@ -50,6 +60,7 @@ function M.get(spec, config)
     MoreMsg         = { fg = spec.diag.info, style = 'bold' }, -- |more-prompt|
     NonText         = { fg = spec.bg4 }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., '>' displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
     Normal          = { fg = spec.fg1, bg = trans and 'NONE' or spec.bg1 }, -- normal text
+    NormalSB        = { fg = spec.fg1, bg = sb_bg }, -- normal text
 
     NormalNC        = { fg = spec.fg1, bg = trans and 'NONE' or spec.bg1 }, -- normal text in non-current windows
     -- NormalNC        = { fg = spec.fg1, bg = (inactive and spec.bg0) or (trans and 'NONE') or spec.bg1 }, -- normal text in non-current windows

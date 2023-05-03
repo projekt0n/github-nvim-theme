@@ -122,18 +122,26 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
 
     -- Language specific -------------------------------------------------------
 
-    -- c
+    -- C
     ['@type.c']                          = { fg = spec.variable },
     ['@label.c']                         = { fg = spec.variable },
 
-    -- lua
-    ['@lsp.type.variable.lua']           = { fg = spec.variable },
+    -- CSS
+    ['@property.css']                    = { link = '@constant' },
+    ['@type.css']                        = { link = 'htmlTag' },
+
+    -- C_sharp
+    ['@type.c_sharp']                    = { link = '@function' },
 
     -- Go
     ['@function.call.go']                = { link = '@constant' },
     ['@function.go']                     = { link = '@field' },
     ['@method.call.go']                  = { link = '@constant' },
     ['@namespace.go']                    = { link = '@field' },
+
+    -- Html
+    ['@text.title.html']                 = { fg = spec.fg1 },
+    ['@constant.html']                   = { link = '@tag' },
 
     -- Java
     ['@type.java']                       = { link = '@function' },
@@ -144,46 +152,20 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     ['@variable.builtin.javascript']     = { link = '@constant' },
     ['@variable.javascript']             = { link = '@constant' },
 
-    --Ruby
-    ['@function.call.ruby']              = { link = '@constant' },
-    ['@label.ruby']                      = { link = '@variable' },
-    ['@symbol.ruby']                     = { link = '@constant' },
-    ['@type.ruby']                       = { link = '@function' },
-
-    --scss
-    ['@property.scss']                   = { link = '@constant' },
-    ['@variable.scss']                   = { link = '@parameter' },
-
-    --sql
-    ['@field.sql']                      = { link = '@constant' },
-    ['@type.sql']                       = { link = '@variable' },
-    ['@variable.sql']                   = { link = '@constant' },
-
     -- Json
     ['@label.json']                      = { link = '@constant' },
 
-    -- Html
-    ['@text.title.html']                 = { fg = spec.fg1 },
-    ['@constant.html']                   = { link = '@tag' },
+    -- Lua
+    ['@lsp.type.variable.lua']           = { fg = spec.variable },
 
-    -- c_sharp
-    ['@type.c_sharp']                    = { link = '@function' },
-
-    -- css
-    ['@property.css']                    = { link = '@constant' },
-    ['@type.css']                        = { link = 'htmlTag' },
-
-    -- make
+    -- Make
     ['@operator.make']                   = { link = '@constant' },
     ['@symbol.make']                     = { link = '@function' },
 
-    -- php
+    -- PHP
     ['@type.php']                        = { link = '@function' },
 
-    -- rust
-    ['@field.rust']                      = { fg = spec.fg2 },
-
-    -- python
+    -- Python
     ['@field.python']                    = { fg = syn.fg1 },
     ['@function.call.python']            = { fg = syn.fg1 },
     ['@keyword.python']                  = { link = '@constant' },
@@ -192,15 +174,33 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     ['@type.python']                     = { link = '@function' },
     ['@variable.builtin.python']         = { link = '@constant' },
 
-    -- typescript
+    -- Ruby
+    ['@function.call.ruby']              = { link = '@constant' },
+    ['@label.ruby']                      = { link = '@variable' },
+    ['@symbol.ruby']                     = { link = '@constant' },
+    ['@type.ruby']                       = { link = '@function' },
+
+    -- Rust
+    ['@field.rust']                      = { fg = spec.fg2 },
+
+    -- SCSS
+    ['@property.scss']                   = { link = '@constant' },
+    ['@variable.scss']                   = { link = '@parameter' },
+
+    -- SQL
+    ['@field.sql']                      = { link = '@constant' },
+    ['@type.sql']                       = { link = '@variable' },
+    ['@variable.sql']                   = { link = '@constant' },
+
+    -- TypeScript
     ['@constructor.typescript']          = { link = '@function' },
     ['@property.typescript']             = { link = '@variable' },
     ['@type.typescript']                 = { link = '@function' },
     ['@variable.builtin.typescript']     = { link = '@constant' },
     ['@variable.typescript']             = { link = '@constant' },
 
-    -- yaml
-    ['@field.yaml']                      = { link = '@tag' }, -- For fields.
+    -- Yaml
+    ['@field.yaml']                      = { link = '@tag' },
   }
 end
 

@@ -76,7 +76,7 @@ local palette = {
 
   fg = {
     default = scale.black,
-    muted = '#e6edf3',
+    muted = scale.gray[3],
     subtle = scale.gray[6],
     on_emphasis = scale.white,
   },

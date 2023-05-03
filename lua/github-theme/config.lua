@@ -29,6 +29,9 @@ local defaults = {
     },
   },
   modules = {
+    coc = {
+      background = true,
+    },
     diagnostic = {
       -- This is linked to so much that is needs to be enabled. This is here primarily
       -- for the extra options that can be added with modules
@@ -53,10 +56,24 @@ local defaults = {
 M.options = collect.deep_copy(defaults)
 
 M.module_names = {
+  'cmp',
+  'coc',
+  'dashboard',
   'diagnostic',
+  'gitgutter',
+  'gitsigns',
+  'indent_blankline',
   'lsp_semantic_tokens',
+  'lsp_trouble',
+  'mini',
   'native_lsp',
+  'neogit',
+  'notify',
+  'nvimtree',
+  'telescope',
   'treesitter',
+  'treesitter_context',
+  'whichkey',
 }
 
 function M.set_theme(name)
