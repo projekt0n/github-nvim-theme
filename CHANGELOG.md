@@ -45,7 +45,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Issues Fix
 
+- #160 closed due to inactivity.
+- #191 closed due to inactivity.
+- #213 fixed
+- #228 fixed
+- #231 fixed
+- #232 closed due to inactivity.
 - #238 fixed
+- #239 fixed
 - #241 fixed
 - #243 fixed
 - #244 fixed

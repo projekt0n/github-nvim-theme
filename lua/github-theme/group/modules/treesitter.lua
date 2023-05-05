@@ -93,8 +93,8 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
 
     -- Text
     ['@text']                   = { fg = spec.fg1 }, -- For strings considerated text in a markup language.
-    ['@text.strong']            = { fg = P.red.base, style = 'bold' }, -- bold
-    ['@text.emphasis']          = { fg = P.red.base, style = 'italic' }, -- italic
+    ['@text.strong']            = { fg = spec.fg1, style = 'bold' }, -- bold
+    ['@text.emphasis']          = { fg = spec.fg1, style = 'italic' }, -- italic
     ['@text.underline']         = { link = 'Underline' }, -- underlined text
     ['@text.strike']            = { fg = spec.fg1, style = 'strikethrough' }, -- strikethrough text
     ['@text.title']             = { link = 'Title'}, -- titles like: # Example
@@ -103,7 +103,7 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     ['@text.math']              = { fg = syn.func }, -- math environments (e.g. `$ ... $` in LaTeX)
     ['@text.environment']       = { fg = syn.preproc }, -- text environments of markup languages
     ['@text.environment.name']  = { fg = syn.func }, -- text indicating the type of an environment
-    ['@text.reference']         = { fg = syn.keyword, style = 'bold' }, -- references
+    ['@text.reference']         = { fg = spec.fg1, style = 'underline' }, -- references
 
     ['@text.todo']              = { fg = spec.bg1, bg = spec.diag.hint }, -- todo notes
     ['@text.note']              = { fg = spec.bg1, bg = spec.diag.info },
@@ -123,84 +123,89 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     -- Language specific -------------------------------------------------------
 
     -- C
-    ['@type.c']                          = { fg = spec.variable },
-    ['@label.c']                         = { fg = spec.variable },
+    ['@type.c']                                 = { fg = spec.variable },
+    ['@label.c']                                = { fg = spec.variable },
 
     -- CSS
-    ['@property.css']                    = { link = '@constant' },
-    ['@type.css']                        = { link = 'htmlTag' },
+    ['@property.css']                           = { link = '@constant' },
+    ['@type.css']                               = { link = 'htmlTag' },
 
     -- C_sharp
-    ['@type.c_sharp']                    = { link = '@function' },
+    ['@type.c_sharp']                           = { link = '@function' },
 
     -- Go
-    ['@function.call.go']                = { link = '@constant' },
-    ['@function.go']                     = { link = '@field' },
-    ['@method.call.go']                  = { link = '@constant' },
-    ['@namespace.go']                    = { link = '@field' },
+    ['@function.call.go']                       = { link = '@constant' },
+    ['@function.go']                            = { link = '@field' },
+    ['@method.call.go']                         = { link = '@constant' },
+    ['@namespace.go']                           = { link = '@field' },
 
     -- Html
-    ['@text.title.html']                 = { fg = spec.fg1 },
-    ['@constant.html']                   = { link = '@tag' },
+    ['@text.title.html']                        = { fg = spec.fg1 },
+    ['@constant.html']                          = { link = '@tag' },
 
     -- Java
-    ['@type.java']                       = { link = '@function' },
+    ['@type.java']                              = { link = '@function' },
 
     -- JavaScript
-    ['@property.javascript']             = { link = '@variable' },
-    ['@type.javascript']                 = { link = '@variable' },
-    ['@variable.builtin.javascript']     = { link = '@constant' },
-    ['@variable.javascript']             = { link = '@constant' },
+    ['@property.javascript']                    = { link = '@variable' },
+    ['@type.javascript']                        = { link = '@variable' },
+    ['@variable.builtin.javascript']            = { link = '@constant' },
+    ['@variable.javascript']                    = { link = '@constant' },
 
     -- Json
-    ['@label.json']                      = { link = '@constant' },
+    ['@label.json']                             = { link = '@constant' },
 
     -- Lua
-    ['@lsp.type.variable.lua']           = { fg = spec.variable },
+    ['@lsp.type.variable.lua']                  = { fg = spec.variable },
 
     -- Make
-    ['@operator.make']                   = { link = '@constant' },
-    ['@symbol.make']                     = { link = '@function' },
+    ['@operator.make']                          = { link = '@constant' },
+    ['@symbol.make']                            = { link = '@function' },
+
+    -- Markdown
+    ['@punctuation.delimiter.markdown']         = { fg = spec.fg1 },
+    ['@punctuation.delimiter.markdown_inline']  = { fg = spec.fg1 },
+    ['@text.quote.markdown']                    = { fg = syn.tag },
 
     -- PHP
-    ['@type.php']                        = { link = '@function' },
+    ['@type.php']                               = { link = '@function' },
 
     -- Python
-    ['@field.python']                    = { fg = syn.fg1 },
-    ['@function.call.python']            = { fg = syn.fg1 },
-    ['@keyword.python']                  = { link = '@constant' },
-    ['@method.call.python']              = { fg = syn.fg1 },
-    ['@type.builtin.python']             = { link = '@constant' },
-    ['@type.python']                     = { link = '@function' },
-    ['@variable.builtin.python']         = { link = '@constant' },
+    ['@field.python']                           = { fg = syn.fg1 },
+    ['@function.call.python']                   = { fg = syn.fg1 },
+    ['@keyword.python']                         = { link = '@constant' },
+    ['@method.call.python']                     = { fg = syn.fg1 },
+    ['@type.builtin.python']                    = { link = '@constant' },
+    ['@type.python']                            = { link = '@function' },
+    ['@variable.builtin.python']                = { link = '@constant' },
 
     -- Ruby
-    ['@function.call.ruby']              = { link = '@constant' },
-    ['@label.ruby']                      = { link = '@variable' },
-    ['@symbol.ruby']                     = { link = '@constant' },
-    ['@type.ruby']                       = { link = '@function' },
+    ['@function.call.ruby']                     = { link = '@constant' },
+    ['@label.ruby']                             = { link = '@variable' },
+    ['@symbol.ruby']                            = { link = '@constant' },
+    ['@type.ruby']                              = { link = '@function' },
 
     -- Rust
-    ['@field.rust']                      = { fg = spec.fg2 },
+    ['@field.rust']                             = { fg = spec.fg2 },
 
     -- SCSS
-    ['@property.scss']                   = { link = '@constant' },
-    ['@variable.scss']                   = { link = '@parameter' },
+    ['@property.scss']                          = { link = '@constant' },
+    ['@variable.scss']                          = { link = '@parameter' },
 
     -- SQL
-    ['@field.sql']                      = { link = '@constant' },
-    ['@type.sql']                       = { link = '@variable' },
-    ['@variable.sql']                   = { link = '@constant' },
+    ['@field.sql']                              = { link = '@constant' },
+    ['@type.sql']                               = { link = '@variable' },
+    ['@variable.sql']                           = { link = '@constant' },
 
     -- TypeScript
-    ['@constructor.typescript']          = { link = '@function' },
-    ['@property.typescript']             = { link = '@variable' },
-    ['@type.typescript']                 = { link = '@function' },
-    ['@variable.builtin.typescript']     = { link = '@constant' },
-    ['@variable.typescript']             = { link = '@constant' },
+    ['@constructor.typescript']                 = { link = '@function' },
+    ['@property.typescript']                    = { link = '@variable' },
+    ['@type.typescript']                        = { link = '@function' },
+    ['@variable.builtin.typescript']            = { link = '@constant' },
+    ['@variable.typescript']                    = { link = '@constant' },
 
     -- Yaml
-    ['@field.yaml']                      = { link = '@tag' },
+    ['@field.yaml']                             = { link = '@tag' },
   }
 end
 
