@@ -54,6 +54,7 @@ GLOBAL OPTIONS
 
 
 MODULES
+- *'theme'*				  Moved to |'github-theme.group'|
 - *'types'*				  Removed.
 - *'plugins'*				  Removed.
 - *'plugins.lualine'*			  Moved to |'github-theme.util.lualine'|

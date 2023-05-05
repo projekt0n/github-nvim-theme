@@ -1,6 +1,6 @@
 local config = require('github-theme.config')
+local util = require('github-theme.util')
 
----@class gt.Autocmds
 local M = {}
 
 ---Delete the autocmds when the theme changes to something else
@@ -74,7 +74,7 @@ M.native_cmds = function()
 end
 
 M.set = function()
-  if vim.fn.has('nvim-0.7') == 1 then
+  if util.use_nvim_api then
     if not pcall(M.native_cmds) then
       M.viml_cmds()
     end

@@ -4,6 +4,7 @@ local util = require('github-theme.util')
 local M = { theme = 'github_dark', has_options = true }
 
 local defaults = {
+  dev = false,
   transparent = false,
   hide_end_of_buffer = true,
   hide_nc_statusline = true,
@@ -45,12 +46,6 @@ local defaults = {
     treesitter = util.is_nvim,
     lsp_semantic_tokens = util.is_nvim,
   },
-
-  colors = {},
-  overrides = function()
-    return {}
-  end,
-  dev = false,
 }
 
 M.options = collect.deep_copy(defaults)

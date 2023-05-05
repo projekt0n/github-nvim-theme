@@ -47,6 +47,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - #160 closed due to inactivity.
 - #191 closed due to inactivity.
+- #201 fixed
+- #193 closed with conversation.
 - #213 fixed
 - #228 fixed
 - #231 fixed
