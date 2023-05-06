@@ -57,6 +57,7 @@ M.module_names = {
   'coc',
   'dashboard',
   'diagnostic',
+  'fidget',
   'gitgutter',
   'gitsigns',
   'indent_blankline',
