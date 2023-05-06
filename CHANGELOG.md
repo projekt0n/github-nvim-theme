@@ -56,6 +56,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - #193 closed with conversation.
 - #201 fixed
 - #209 fixed
+- #235 fixed with conversation.
 - #213 fixed
 - #228 fixed
 - #231 fixed

@@ -199,6 +199,8 @@ vim.cmd('colorscheme github_dark')
   [coc.nvim](https://github.com/neoclide/coc.nvim),
   [dashboard-nvim](https://github.com/glepnir/dashboard-nvim),
   [diffview.nvim](https://github.com/sindrets/diffview.nvim),
+  [fidget.nvim](https://github.com/j-hui/fidget.nvim),
+  [fsread.nvim](https://github.com/nullchilly/fsread.nvim),
   [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim),
   [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim),
   [lsp-trouble.nvim](https://github.com/folke/lsp-trouble.nvim),
@@ -211,8 +213,8 @@ vim.cmd('colorscheme github_dark')
   [nvim-compe](https://github.com/hrsh7th/nvim-compe),
   [nvim-notify](https://github.com/rcarriga/nvim-notify),
   [nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua),
-  [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter),
   [nvim-treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context),
+  [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter),
   [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons),
   [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim),
   [vim-gitgutter](https://github.com/airblade/vim-gitgutter), and
