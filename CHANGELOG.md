@@ -31,14 +31,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `sidebars`-> `options.darken.sidebars.list`
 - `colors`-> `palettes` or `specs`
 - `overrides` -> `groups`
+- `dev` -> `vim.g.github_theme_debug`
 
 ### New Configuration
 
+- `options.compile_file_suffix` -> Option for setting compiled file suffix.
+- `options.compile_path` -> Option for setting compile files path.
+- `options.terminal_colors` -> Option for toggling builtin terminal highlights.
 - `options.module_default` -> Option for toggling plugins highlights
 - `options.modules` -> Option for individual plugins related configuration
 
 ### What's New?
 
+- Compiling colorscheme for blazingly fast load.
 - `lib.deprecation` - A Deprecation library to print Deprecation Messages.
 - `lib.log` - A logging library to print log Messages.
 - The `config.default` module has been changed to a variable and moved inside the `config` module.
@@ -47,8 +52,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - #160 closed due to inactivity.
 - #191 closed due to inactivity.
-- #201 fixed
 - #193 closed with conversation.
+- #201 fixed
+- #209 fixed
 - #213 fixed
 - #228 fixed
 - #231 fixed

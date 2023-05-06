@@ -33,6 +33,7 @@ SETUP OPTIONS
 - *'sidebars'*				  Deprecated. Use |'options.darken.sidebars.list'| Instead.
 - *'colors'*				  Deprecated. Use |'specs'| and |'palettes'| Instead.
 - *'overrides'*				  Deprecated. Use |'groups'| Instead.
+- *'dev'*				  Deprecated. Use |'vim.g.github_theme_dev'| Instead.
 
 
 GLOBAL OPTIONS
@@ -50,7 +51,7 @@ GLOBAL OPTIONS
 - *'vim.g.github_function_style'*	  Use |setup| Lua function instead.
 - *'vim.g.github_keyword_style'*	  Use |setup| Lua function instead.
 - *'vim.g.github_variable_style'*	  Use |setup| Lua function instead.
-- *'vim.g.github_dev'*			  Use |setup| Lua function instead.
+- *'vim.g.github_dev'*			  Use |vim.g.github_theme_debug| instead.
 
 
 MODULES

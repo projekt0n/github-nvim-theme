@@ -1,19 +1,44 @@
-local M = {}
-
 local config = require('github-theme.config')
-local highlight = require('github-theme.lib.highlight').highlight
-local dep = require('github-theme.util.deprecation')
 
-local did_setup = false
+local function read_file(filepath)
+  local file = io.open(filepath, 'r')
+  if file then
+    local content = file:read()
+    file:close()
+    return content
+  end
+end
+
+local function write_file(filepath, content)
+  local file = io.open(filepath, 'wb')
+  if file then
+    file:write(content)
+    file:close()
+  end
+end
+
+local M = {}
 
 function M.reset()
   require('github-theme.config').reset()
+  require('github-theme.override').reset()
+end
+
+function M.compile()
+  require('github-theme.lib.log').clear()
+
+  local compiler = require('github-theme.lib.compiler')
+  local themes = require('github-theme.palette').themes
+  for _, style in ipairs(themes) do
+    compiler.compile({ style = style })
+  end
 end
 
 -- Avoid g:colors_name reloading
 local lock = false
+local did_setup = false
 
-M.load = function(opts)
+function M.load(opts)
   if lock then
     return
   end
@@ -22,21 +47,19 @@ M.load = function(opts)
     M.setup()
   end
 
+  opts = opts or {}
+
+  local _, compiled_file = config.get_compiled_info(opts)
   lock = true
 
-  local spec = require('github-theme.spec').load(config.theme)
-  local groups = require('github-theme.group').from(spec)
-  local background = spec.palette.meta.light and 'light' or 'dark'
-
-  if vim.g.colors_name then
-    vim.cmd('hi clear')
+  local f = loadfile(compiled_file)
+  if not f then
+    M.compile()
+    f = loadfile(compiled_file)
   end
-  vim.o.termguicolors = true
-  vim.g.colors_name = config.theme
-  vim.o.background = background
 
-  highlight(groups)
-  require('github-theme.autocmds').set()
+  ---@diagnostic disable-next-line: need-check-nil
+  f()
 
   lock = false
 end
@@ -46,12 +69,6 @@ M.setup = function(opts)
   opts = opts or {}
 
   local override = require('github-theme.override')
-
-  -- TODO: Remove these individual conditions when migration
-  -- from old config to 'opts.options' has been DONE.
-  if opts.dev then
-    config.set_options({ dev = opts.dev })
-  end
 
   -- New configs
   if opts.options then
@@ -70,7 +87,22 @@ M.setup = function(opts)
     override.groups = opts.groups
   end
 
-  dep.check_deprecation(opts)
+  local util = require('github-theme.util')
+  util.ensure_dir(config.options.compile_path)
+
+  local cached_path = util.join_paths(config.options.compile_path, 'cache')
+  local cached = read_file(cached_path)
+
+  local git_path = util.join_paths(debug.getinfo(1).source:sub(2, -23), '.git')
+  local git = vim.fn.getftime(git_path)
+  local hash = require('github-theme.lib.hash')(opts) .. (git == -1 and git_path or git)
+
+  if cached ~= hash then
+    M.compile()
+    write_file(cached_path, hash)
+  end
+
+  require('github-theme.util.deprecation').check_deprecation(opts)
 end
 
 return M

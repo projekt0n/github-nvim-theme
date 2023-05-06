@@ -67,7 +67,7 @@ M.check_deprecation = function(opts)
       dep.write(
         '  ',
         { name, 'WarningMsg' },
-        ' has been replaced by ',
+        ' config has been replaced by ',
         { replace, 'WarningMsg' },
         '. See ',
         { ':h ' .. help, 'WarningMsg' },
@@ -123,10 +123,14 @@ M.check_deprecation = function(opts)
     replace = 'options.darken.sidebars.enable',
     help = 'github-theme.changelog-13042023',
   })
-  check_opt(
-    'sidebars',
-    { replace = 'options.darken.sidebars.list', help = 'github-theme.changelog-13042023' }
-  )
+  check_opt('sidebars', {
+    replace = 'options.darken.sidebars.list',
+    help = 'github-theme.changelog-13042023',
+  })
+  check_opt('dev', {
+    replace = 'vim.g.github_theme_debug',
+    help = 'github-theme.changelog-06052023',
+  })
 
   if opts.colors then
     dep.write(

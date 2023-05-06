@@ -27,7 +27,7 @@ function M.notify(msg, level)
         local buf = vim.api.nvim_win_get_buf(win)
         vim.bo[buf].filetype = 'markdown'
       end,
-      title = 'nightfox.nvim',
+      title = 'github-theme',
     })
 
     notified[msg] = true

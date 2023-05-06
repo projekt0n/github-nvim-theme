@@ -3,6 +3,22 @@
 
 # Changelog
 
+
+                                                        *github-theme.changelog-06052023*
+Date: May 06, 2023
+
+I(ful1e5) removed the `dev` configuration from `setup({...})` and added the
+`vim.g.github_theme_debug` Vim global option for theme debugging. This option
+creates a Lua file in the Neovim cache directory and write debugging logs to
+it.
+
+Previously, the `dev` option was used for debugging and assigning new
+highlights to the theme, or for overriding defined highlights. Now, with the
+removal of the `dev` option, you can override any highlight without enabling
+any option.
+
+
+
                                                         *github-theme.changelog-23042023*
 Date: April 23, 2023
 
