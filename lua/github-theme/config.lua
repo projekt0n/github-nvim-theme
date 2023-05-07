@@ -67,6 +67,7 @@ M.module_names = {
   'mini',
   'native_lsp',
   'neogit',
+  'neotree',
   'notify',
   'nvimtree',
   'telescope',

@@ -49,6 +49,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - The `config.default` module has been changed to a variable and moved inside the `config` module.
 - Support [Fidget](https://github.com/j-hui/fidget.nvim) plugin highlights #202
 - Support [fzf-lua](https://github.com/ibhagwan/fzf-lua) plugin highlights #221
+- Support [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim) plugin highlights #221
 
 ### Issues Fix
 
