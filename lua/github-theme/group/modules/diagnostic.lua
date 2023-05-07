@@ -11,20 +11,20 @@ function M.get(spec, config, opts)
     DiagnosticInfo             = { fg = d.info },
     DiagnosticHint             = { fg = d.hint },
 
-    DiagnosticSignError        = { link = "DiagnosticError" },
-    DiagnosticSignWarn         = { link = "DiagnosticWarn" },
-    DiagnosticSignInfo         = { link = "DiagnosticInfo" },
-    DiagnosticSignHint         = { link = "DiagnosticHint" },
+    DiagnosticSignError        = { link = 'DiagnosticError' },
+    DiagnosticSignWarn         = { link = 'DiagnosticWarn' },
+    DiagnosticSignInfo         = { link = 'DiagnosticInfo' },
+    DiagnosticSignHint         = { link = 'DiagnosticHint' },
 
-    DiagnosticVirtualTextError = { fg = d.error, bg = opts.background and dbg.error or "NONE" },
-    DiagnosticVirtualTextWarn  = { fg = d.warn, bg = opts.background and dbg.warn or "NONE" },
-    DiagnosticVirtualTextInfo  = { fg = d.info, bg = opts.background and dbg.info or "NONE" },
-    DiagnosticVirtualTextHint  = { fg = d.hint, bg = opts.background and dbg.hint or "NONE" },
+    DiagnosticVirtualTextError = { fg = d.error, bg = opts.background and dbg.error or 'NONE' },
+    DiagnosticVirtualTextWarn  = { fg = d.warn, bg = opts.background and dbg.warn or 'NONE' },
+    DiagnosticVirtualTextInfo  = { fg = d.info, bg = opts.background and dbg.info or 'NONE' },
+    DiagnosticVirtualTextHint  = { fg = d.hint, bg = opts.background and dbg.hint or 'NONE' },
 
-    DiagnosticUnderlineError   = { style = "undercurl", sp = d.error },
-    DiagnosticUnderlineWarn    = { style = "undercurl", sp = d.warn },
-    DiagnosticUnderlineInfo    = { style = "undercurl", sp = d.info },
-    DiagnosticUnderlineHint    = { style = "undercurl", sp = d.hint },
+    DiagnosticUnderlineError   = { style = 'undercurl', sp = d.error },
+    DiagnosticUnderlineWarn    = { style = 'undercurl', sp = d.warn },
+    DiagnosticUnderlineInfo    = { style = 'undercurl', sp = d.info },
+    DiagnosticUnderlineHint    = { style = 'undercurl', sp = d.hint },
   }
 end
 
