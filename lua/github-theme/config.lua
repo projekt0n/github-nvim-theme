@@ -58,6 +58,7 @@ M.module_names = {
   'dashboard',
   'diagnostic',
   'fidget',
+  'fzf',
   'gitgutter',
   'gitsigns',
   'indent_blankline',

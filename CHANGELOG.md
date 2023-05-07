@@ -48,19 +48,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `lib.log` - A logging library to print log Messages.
 - The `config.default` module has been changed to a variable and moved inside the `config` module.
 - Support [Fidget](https://github.com/j-hui/fidget.nvim) plugin highlights #202
+- Support [fzf-lua](https://github.com/ibhagwan/fzf-lua) plugin highlights #221
 
 ### Issues Fix
 
+- #157 fixed
 - #160 closed due to inactivity.
 - #191 closed due to inactivity.
 - #193 closed with conversation.
 - #201 fixed
 - #209 fixed
-- #235 fixed with conversation.
 - #213 fixed
+- #225 closed with conversation.
 - #228 fixed
+- #229 closed with conversation.
 - #231 fixed
 - #232 closed due to inactivity.
+- #235 fixed with conversation.
 - #238 fixed
 - #239 fixed
 - #241 fixed

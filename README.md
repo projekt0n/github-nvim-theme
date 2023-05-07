@@ -201,6 +201,7 @@ vim.cmd('colorscheme github_dark')
   [diffview.nvim](https://github.com/sindrets/diffview.nvim),
   [fidget.nvim](https://github.com/j-hui/fidget.nvim),
   [fsread.nvim](https://github.com/nullchilly/fsread.nvim),
+  [fzf-lua](https://github.com/ibhagwan/fzf-lua),
   [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim),
   [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim),
   [lsp-trouble.nvim](https://github.com/folke/lsp-trouble.nvim),
