@@ -43,7 +43,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### What's New?
 
-- Compiling colorscheme for blazingly fast load.
+- Compiling colorscheme for blazingly fast load using `:GithubThemeCompile`
 - `lib.deprecation` - A Deprecation library to print Deprecation Messages.
 - `lib.log` - A logging library to print log Messages.
 - The `config.default` module has been changed to a variable and moved inside the `config` module.
