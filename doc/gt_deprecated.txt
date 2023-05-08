@@ -55,19 +55,19 @@ GLOBAL OPTIONS
 
 
 MODULES
-- *'theme'*				  Moved to |'github-theme.group'|
-- *'types'*				  Removed.
-- *'plugins'*				  Removed.
-- *'plugins.lualine'*			  Moved to |'github-theme.util.lualine'|
-- *'palette.dark'*			  Moved to |'github-theme.palette.github_dark'|
-- *'palette.dark_default'*		  Moved to |'github-theme.palette.github_dark_default'|
-- *'palette.dimmed'*			  Moved to |'github-theme.palette.github_dimmed'|
-- *'palette.light'*			  Moved to |'github-theme.palette.github_light'|
-- *'palette.light_colorblind'*		  Moved to |'github-theme.palette.github_light_colorblind'|
-- *'palette.light_default'*		  Moved to |'github-theme.palette.github_light_default'|
-- *'colors'*				  Moved to |'github-theme.palette'|
-- *'config.vim_config'*	         	  Removed.
-- *'config.default'*			  Moved to |'github-theme.config'| module and accessed with |'default'| table.
+- *'github-theme.theme'*        	   Moved to |'github-theme.group'|
+- *'github-theme.types'*		   Removed.
+- *'github-theme.plugins'*		   Removed.
+- *'github-theme.plugins.lualine'*	   Moved to |'github-theme.util.lualine'|
+- *'github-theme.palette.dark'*		   Moved to |'github-theme.palette.github_dark'|
+- *'github-theme.palette.dark_default'*	   Moved to |'github-theme.palette.github_dark_default'|
+- *'github-theme.palette.dimmed'*	   Moved to |'github-theme.palette.github_dimmed'|
+- *'github-theme.palette.light'*	   Moved to |'github-theme.palette.github_light'|
+- *'github-theme.palette.light_colorblind'  Moved to |'github-theme.palette.github_light_colorblind'|
+- *'github-theme.palette.light_default'*     Moved to |'github-theme.palette.github_light_default'|
+- *'github-theme.colors'*	           Moved to |'github-theme.palette'|
+- *'github-theme.config.vim_config' 	   Removed.
+- *'github-theme.config.default'*	   Moved to |'github-theme.config'| module and accessed with |'default'| table.
 
 
 FUNCTIONS
