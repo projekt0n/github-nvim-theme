@@ -51,6 +51,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Support [fzf-lua](https://github.com/ibhagwan/fzf-lua) plugin highlights #221
 - Support [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim) plugin highlights #221
 - Support [dap-ui](https://github.com/rcarriga/nvim-dap-ui) plugin highlights #207
+- Support [diffchar.vim](https://github.com/rickhowe/diffchar.vim) plugin highlights #216
 
 ### Issues Fix
 

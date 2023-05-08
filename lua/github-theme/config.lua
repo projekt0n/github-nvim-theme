@@ -56,6 +56,7 @@ M.module_names = {
   'cmp',
   'coc',
   'dapui',
+  'diffchar',
   'dashboard',
   'diagnostic',
   'fidget',
