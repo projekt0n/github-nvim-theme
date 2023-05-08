@@ -50,6 +50,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Support [Fidget](https://github.com/j-hui/fidget.nvim) plugin highlights #202
 - Support [fzf-lua](https://github.com/ibhagwan/fzf-lua) plugin highlights #221
 - Support [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim) plugin highlights #221
+- Support [dap-ui](https://github.com/rcarriga/nvim-dap-ui) plugin highlights #207
 
 ### Issues Fix
 

@@ -197,6 +197,7 @@ vim.cmd('colorscheme github_dark')
   [ale](https://github.com/dense-analysis/ale),
   [circles.nvim](https://github.com/projekt0n/circles.nvim),
   [coc.nvim](https://github.com/neoclide/coc.nvim),
+  [dap-ui](https://github.com/rcarriga/nvim-dap-ui),
   [dashboard-nvim](https://github.com/glepnir/dashboard-nvim),
   [diffview.nvim](https://github.com/sindrets/diffview.nvim),
   [fidget.nvim](https://github.com/j-hui/fidget.nvim),

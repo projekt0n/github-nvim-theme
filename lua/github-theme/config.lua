@@ -55,6 +55,7 @@ M.options = collect.deep_copy(defaults)
 M.module_names = {
   'cmp',
   'coc',
+  'dapui',
   'dashboard',
   'diagnostic',
   'fidget',
