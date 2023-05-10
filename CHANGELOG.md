@@ -40,6 +40,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `options.terminal_colors` -> Option for toggling builtin terminal highlights.
 - `options.module_default` -> Option for toggling plugins highlights
 - `options.modules` -> Option for individual plugins related configuration
+- `options.styles.conditionals` -> Style for conditionals
+- `options.styles.constants` -> Style for constants
+- `options.styles.numbers` -> Style for numbers
+- `options.styles.operators` -> Style for operators
+- `options.styles.strings` -> Style for strings
+- `options.styles.types` -> Style for types
 
 ### What's New?
 

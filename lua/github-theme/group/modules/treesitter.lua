@@ -27,8 +27,7 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     -- Punctuation
     ['@punctuation.delimiter']  = { fg = syn.bracket }, -- For delimiters ie: .
     ['@punctuation.bracket']    = { fg = syn.bracket }, -- For brackets and parenthesis.
-    ['@punctuation.special']    = { fg = syn.builtin2 }, -- For special punctutation that does not fall in the catagories before.
-    -- ['@punctuation.special']    = { fg = syn.builtin1, style = stl.operators }, -- For special punctutation that does not fall in the catagories before.
+    ['@punctuation.special']    = { fg = syn.builtin2, style = stl.operators }, -- For special punctutation that does not fall in the catagories before.
 
     -- Literals
     ['@string']                 = { link = 'String' }, -- For strings.
@@ -58,8 +57,7 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     -- Keywords
     ['@keyword']                = { link = 'Keyword' }, -- For keywords that don't fall in previous categories.
     ['@keyword.function']       = { fg = syn.keyword, style = stl.functions }, -- Keywords used to define a function: `function` in Lua, `def` and `lambda` in Python.
-    ['@keyword.operator']       = { fg = syn.operator }, -- For new keyword operator
-    -- ['@keyword.operator']       = { fg = syn.operator, style = stl.operators }, -- For new keyword operator
+    ['@keyword.operator']       = { fg = syn.operator, style = stl.operators }, -- For new keyword operator
     ['@keyword.return']         = { fg = syn.builtin0, style = stl.keywords },
 
     ['@conditional']            = { link = 'Conditional' }, -- For keywords related to conditionnals.
@@ -70,8 +68,7 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
 
     -- Types
     ['@type']                   = { link = 'Type' }, -- For types.
-    ['@type.builtin']           = { fg = syn.builtin1 }, -- For builtin types.
-    -- ['@type.builtin']           = { fg = syn.builtin1, style = stl.types }, -- For builtin types.
+    ['@type.builtin']           = { fg = syn.builtin1, style = stl.types }, -- For builtin types.
     ['@type.definition']        = { link = '@type' }, -- type definitions (e.g. `typedef` in C)
     ['@type.qualifier']         = { link = '@type' }, -- type qualifiers (e.g. `const`)
 

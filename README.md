@@ -116,27 +116,63 @@ vim.cmd('colorscheme github_dark')
 ## Configuration
 
 ```lua
--- Example config in Lua
+-- Default config
 require('github-theme').setup({
   options = {
-    transparent = false,
+    compile_file_suffix = '_compiled',
+    compile_path = '<neovim-cache-dir>/github-theme',
     hide_end_of_buffer = true,
     hide_nc_statusline = true,
+    terminal_colors = true,
+    transparent = false,
+    module_default = true,
     styles = {
-      comments = 'italic,bold',
+      comments = 'italic',
       functions = 'NONE',
-      keywords = 'bold',
-      variables = 'underline',
+      keywords = 'italic',
+      variables = 'NONE',
+      conditionals = 'NONE',
+      constants = 'NONE',
+      numbers = 'NONE',
+      operators = 'NONE',
+      strings = 'NONE',
+      types = 'NONE',
     },
     darken = {
-      floats = true,
+      floats = false,
       sidebars = {
         enable = true,
         list = {},
       },
     },
+    modules = {
+      coc = {
+        background = true,
+      },
+      diagnostic = {
+        -- This is linked to so much that is needs to be enabled. This is here primarily
+        -- for the extra options that can be added with modules
+        enable = true,
+        background = false,
+      },
+      native_lsp = {
+        enable = true,
+        background = true,
+      },
+      treesitter = true,
+      lsp_semantic_tokens = true,
+    },
   },
+  palettes = {},
+  specs = {},
+  groups = {},
+})
+```
 
+### Overriding `specs` and `groups` Example:
+
+```lua
+require('github-theme').setup({
   specs = {
     -- Change the color of only the 'github_dark' theme's 'hint' color to magenta and make the 'error' color a dim red.
     github_dark = {
@@ -164,26 +200,7 @@ require('github-theme').setup({
     },
   },
 })
-
-vim.cmd('colorscheme github_dark')
 ```
-
-| Option                         | Default  | Description                                                                                                                                     |
-| ------------------------------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| options.transparent            | `false`  | Enable this to disable setting the background color                                                                                             |
-| options.hide_end_of_buffer     | `true`   | Enabling this option, will hide filler lines (~) after the end of the buffer                                                                    |
-| options.hide_nc_statusline     | `true`   | Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine**. |
-| options.styles.comments        | `italic` | Highlight style for comments (check `:help highlight-args` for options)                                                                         |
-| options.styles.functions       | `NONE`   | Highlight style for functions (check `:help highlight-args` for options)                                                                        |
-| options.styles.keywords        | `italic` | Highlight style for keywords (check `:help highlight-args` for options)                                                                         |
-| options.styles.variables       | `NONE`   | Highlight style for variables and identifiers (check `:help highlight-args` for options)                                                        |
-| options.darken.floats          | `false`  | Float windows like the lsp diagnostics windows get a darker background.                                                                         |
-| options.darken.sidebars.enable | `true`   | Sidebar like windows like `NvimTree` get a darker background                                                                                    |
-| options.darken.sidebars.list   | `{}`     | Set a darker background on sidebar-like windows. For example: `{"qf", "vista_kind", "terminal", "packer"}`                                      |
-| palettes                       | `{}`     | You can override specific color groups to use other groups or a hex color                                                                       |
-| specs                          | `{}`     | You can override specific spec color groups to use other groups or a hex color                                                                  |
-| groups                         | `{}`     | Override specific highlight groups. The function accpet colors as argument. You can also add a non-exists highlight by enabling the `dev` mode. |
-| dev                            | `false`  | Developer Mode.                                                                                                                                 |
 
 ## Features
 

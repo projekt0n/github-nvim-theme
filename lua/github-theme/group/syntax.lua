@@ -9,13 +9,10 @@ function M.get(spec, config)
   -- stylua: ignore
   return {
     Comment        = { fg = syn.comment, style = stl.comments }, -- any comment
-    Constant       = { fg = syn.const }, -- (preferred) any constant
-    -- Constant       = { fg = syn.const, style = stl.constants }, -- (preferred) any constant
-    String         = { fg = syn.string }, -- a string constant: 'this is a string'
-    -- String         = { fg = syn.string, style = stl.strings }, -- a string constant: 'this is a string'
+    Constant       = { fg = syn.const, style = stl.constants }, -- (preferred) any constant
+    String         = { fg = syn.string, style = stl.strings }, -- a string constant: 'this is a string'
     Character      = { link = 'String' }, -- a character constant: 'c', '\n'
-    Number         = { fg = syn.number }, -- a number constant: 234, 0xff
-    -- Number         = { fg = syn.number. style = stl.numbers }, -- a number constant: 234, 0xff
+    Number         = { fg = syn.number, style = stl.numbers }, -- a number constant: 234, 0xff
     Float          = { link = 'Number' }, -- a floating point constant: 2.3e10
     Boolean        = { link = 'Number' }, -- a boolean constant: TRUE, false
 
@@ -23,13 +20,11 @@ function M.get(spec, config)
     Function       = { fg = syn.func, style = stl.functions }, -- function name (also: methods for classes)
 
     Statement      = { fg = syn.keyword, style = stl.keywords }, -- (preferred) any statement
-    Conditional    = { fg = syn.conditional }, -- if, then, else, endif, switch, etc.
-    -- Conditional    = { fg = syn.conditional, style = stl.conditionals }, -- if, then, else, endif, switch, etc.
+    Conditional    = { fg = syn.conditional, style = stl.conditionals }, -- if, then, else, endif, switch, etc.
     Repeat         = { link = 'Conditional' }, -- for, do, while, etc.
     Label          = { link = 'Conditional' }, -- case, default, etc.
 
-    Operator       = { fg = syn.operator }, -- 'sizeof', '+', '*', etc.
-    -- Operator       = { fg = syn.operator, style = stl.operators }, -- 'sizeof', '+', '*', etc.
+    Operator       = { fg = syn.operator, style = stl.operators }, -- 'sizeof', '+', '*', etc.
     Keyword        = { fg = syn.keyword, style = stl.keywords }, -- any other keyword
     Exception      = { link = 'Keyword' }, -- try, catch, throw
 
@@ -39,8 +34,7 @@ function M.get(spec, config)
     Macro          = { link = 'PreProc' }, -- same as Define
     PreCondit      = { link = 'PreProc' }, -- preprocessor #if, #else, #endif, etc.
 
-    Type           = { fg = syn.type }, -- (preferred) int, long, char, etc.
-    -- Type           = { fg = syn.type, style = stl.types }, -- (preferred) int, long, char, etc.
+    Type           = { fg = syn.type, style = stl.types }, -- (preferred) int, long, char, etc.
     StorageClass   = { link = 'Type' }, -- static, register, volatile, etc.
     Structure      = { link = 'Type' }, -- struct, union, enum, etc.
     Typedef        = { link = 'Type' }, -- A typedef
@@ -72,7 +66,7 @@ function M.get(spec, config)
     xmlAttrib  = { link ='htmlTag' },
     xmlTagName = { link ='htmlTag' },
 
-    cssBraces         = { fg = syn.brackets },
+    cssBraces         = { fg = syn.bracket },
     cssMedia          = { link = 'Keyword' },
     cssProp           = { link = 'Constant' },
     cssPseudoClassId  = { link = 'Function' },
@@ -105,8 +99,8 @@ function M.get(spec, config)
     diffOldFile     = { fg = spec.diag.warn }, -- Old file that is being diff against
     diffNewFile     = { fg = spec.diag.hint }, -- New file that is being compared to the old file
     diffFile        = { fg = spec.diag.info }, -- The filename of the diff ('diff --git a/readme.md b/readme.md')
-    diffLine        = { fg = spec.syntax.builtin2 }, -- Line information ('@@ -169,6 +169,9 @@')
-    diffIndexLine   = { fg = spec.syntax.preproc }, -- Index line of diff ('index bf3763d..94f0f62 100644')
+    diffLine        = { fg = syn.builtin2 }, -- Line information ('@@ -169,6 +169,9 @@')
+    diffIndexLine   = { fg = syn.preproc }, -- Index line of diff ('index bf3763d..94f0f62 100644')
   }
 end
 
