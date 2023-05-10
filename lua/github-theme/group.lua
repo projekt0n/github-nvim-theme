@@ -5,6 +5,14 @@ local M = {}
 
 local function override(groups, spec, ovr)
   ovr = template.parse(ovr, spec)
+  -- If `set = {}` in override,
+  -- the corresponding group is deleted.
+  -- https://github.com/projekt0n/github-nvim-theme/issues/249
+  for k, v in pairs(ovr) do
+    if v.link == '' then
+      groups[k] = nil
+    end
+  end
   return collect.deep_extend(groups, ovr)
 end
 
