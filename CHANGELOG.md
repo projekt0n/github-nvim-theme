@@ -31,7 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `sidebars`-> `options.darken.sidebars.list`
 - `colors`-> `palettes` or `specs`
 - `overrides` -> `groups`
-- `dev` -> `vim.g.github_theme_debug`
+- `dev` -> use vim command `:GithubThemeInteractive`
 
 ### New Configuration
 
@@ -50,6 +50,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### What's New?
 
 - Compiling colorscheme for blazingly fast load using `:GithubThemeCompile`
+- Interactive development mode using `:GithubThemeInteractive`
 - `lib.deprecation` - A Deprecation library to print Deprecation Messages.
 - `lib.log` - A logging library to print log Messages.
 - The `config.default` module has been changed to a variable and moved inside the `config` module.
@@ -73,7 +74,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - #229 closed with conversation.
 - #231 fixed
 - #232 closed due to inactivity.
-- #235 fixed with conversation.
+- #233 closed with conversation.
+- #235 closed with conversation.
 - #238 fixed
 - #239 fixed
 - #241 fixed

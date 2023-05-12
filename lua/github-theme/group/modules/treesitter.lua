@@ -92,7 +92,7 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     ['@text']                   = { fg = spec.fg1 }, -- For strings considerated text in a markup language.
     ['@text.strong']            = { fg = spec.fg1, style = 'bold' }, -- bold
     ['@text.emphasis']          = { fg = spec.fg1, style = 'italic' }, -- italic
-    ['@text.underline']         = { link = 'Underline' }, -- underlined text
+    ['@text.underline']         = { link = 'Underlined' }, -- underlined text
     ['@text.strike']            = { fg = spec.fg1, style = 'strikethrough' }, -- strikethrough text
     ['@text.title']             = { link = 'Title'}, -- titles like: # Example
     ['@text.literal']           = { fg = syn.ident, style = 'italic' }, -- used for inline code in markdown and for doc in python (''')
