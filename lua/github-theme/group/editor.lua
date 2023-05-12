@@ -1,9 +1,10 @@
 local M = {}
 
 function M.get(spec, config)
-  local trans = config.transparent
   local dark_sb = config.darken.sidebars.enable
   local hide_eof = config.hide_end_of_buffer
+  local inactive = config.dim_inactive
+  local trans = config.transparent
 
   local sb_bg
   if trans then
@@ -20,7 +21,6 @@ function M.get(spec, config)
   -- (1) Config: Add options.dim_inactive
   -- (2) Config: Add options.inverse
 
-  -- local inactive = config.dim_inactive
   -- local inv = config.inverse
 
  -- stylua: ignore start
@@ -62,8 +62,7 @@ function M.get(spec, config)
     Normal          = { fg = spec.fg1, bg = trans and 'NONE' or spec.bg1 }, -- normal text
     NormalSB        = { fg = spec.fg1, bg = sb_bg }, -- normal text
 
-    NormalNC        = { fg = spec.fg1, bg = trans and 'NONE' or spec.bg1 }, -- normal text in non-current windows
-    -- NormalNC        = { fg = spec.fg1, bg = (inactive and spec.bg0) or (trans and 'NONE') or spec.bg1 }, -- normal text in non-current windows
+    NormalNC        = { fg = spec.fg1, bg = (inactive and spec.bg0) or (trans and 'NONE') or spec.bg1 }, -- normal text in non-current windows
 
     NormalFloat     = { fg = spec.fg1, bg = spec.bg0 }, -- Normal text in floating windows.
     FloatBorder     = { fg = P.border.default }, -- TODO
@@ -102,8 +101,7 @@ function M.get(spec, config)
     Whitespace      = { fg = spec.bg3 }, -- 'nbsp', 'space', 'tab' and 'trail' in 'listchars'
     WildMenu        = { link = 'Pmenu' }, -- current match in 'wildmenu' completion
     WinBar          = { fg = spec.fg3, bg = trans and 'NONE' or spec.bg1, style = 'bold' }, -- Window bar of current window.
-    WinBarNC        = { fg = spec.fg3, bg = trans and 'NONE' or spec.bg1, style = 'bold' }, --Window bar of not-current windows.
-    -- WinBarNC        = { fg = spec.fg3, bg = trans and 'NONE' or inactive and spec.bg0 or spec.bg1, style = 'bold' }, --Window bar of not-current windows.
+    WinBarNC        = { fg = spec.fg3, bg = trans and 'NONE' or inactive and spec.bg0 or spec.bg1, style = 'bold' }, --Window bar of not-current windows.
 
     -- qfLineNr        = {},
     -- qfFileName      = {},
@@ -115,8 +113,8 @@ function M.get(spec, config)
   -- stylua: ignore end
 
   if config.hide_nc_statusline then
-    local inactive = { fg = spec.bg1, bg = spec.bg1, sp = spec.bg0, style = 'Underline' }
-    groups.StatusLineNC = inactive
+    groups.StatusLineNC =
+      { fg = spec.bg1, bg = spec.bg1, sp = spec.bg0, style = 'Underline' }
   end
   return groups
 end

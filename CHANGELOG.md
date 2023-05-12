@@ -37,6 +37,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `options.compile_file_suffix` -> Option for setting compiled file suffix.
 - `options.compile_path` -> Option for setting compile files path.
+- `options.dim_inactive` -> Option for setting darker tint to non active buffers.
 - `options.terminal_colors` -> Option for toggling builtin terminal highlights.
 - `options.module_default` -> Option for toggling plugins highlights
 - `options.modules` -> Option for individual plugins related configuration

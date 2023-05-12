@@ -123,8 +123,9 @@ require('github-theme').setup({
     compile_path = '<neovim-cache-dir>/github-theme',
     hide_end_of_buffer = true,
     hide_nc_statusline = true,
-    terminal_colors = true,
     transparent = false,
+    terminal_colors = true,
+    dim_inactive = false,
     module_default = true,
     styles = {
       comments = 'italic',
