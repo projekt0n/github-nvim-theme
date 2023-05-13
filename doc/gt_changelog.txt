@@ -1,10 +1,12 @@
-=====================================================================================
-                                                            *github-theme.changelog*
+*gt_changelog.txt*     Changelogs and breaking changes for GitHub Neovim Theme
 
-# Changelog
+================================================================================
+
+CHANGELOGS                                                *github-theme.changelog*
 
 
-                                                        *github-theme.changelog-06052023*
+                                                 *github-theme.changelog-06052023*
+
 Date: May 06, 2023
 
 I(ful1e5) removed the `dev` configuration from `setup({...})` and added the
@@ -19,7 +21,8 @@ any option.
 
 
 
-                                                        *github-theme.changelog-23042023*
+                                                 *github-theme.changelog-23042023*
+
 Date: April 23, 2023
 
 The way to override color variables has been updated. You can now use the
@@ -85,7 +88,8 @@ Example:
 
 
 
-                                                        *github-theme.changelog-13042023*
+                                                *github-theme.changelog-13042023*
+
 Date: April 13, 2023
 
 The configuration for defining transparency, darkening windows, floating, and
@@ -101,11 +105,12 @@ The updated configuration keys are as follows:
 
 
 
-                                                        *github-theme.changelog-12042023*
+                                                *github-theme.changelog-12042023*
+
 Date: April 12, 2023
 
-The configuration for defining styles has been migrated to *options.styles*. As
-part of this migration, *msg_area_style* has been removed.
+The configuration for defining styles has been migrated to *options.styles*.
+As part of this migration, *msg_area_style* has been removed.
 
 Here is the updated config keys:
 - |comment_style| -> |options.styles.comments|
@@ -116,7 +121,8 @@ Here is the updated config keys:
 
 
 
-                                                        *github-theme.changelog-11042023*
+                                                *github-theme.changelog-11042023*
+
 Date: April 11, 2023
 
 In the |setup| function, the |theme_style| option has been removed, and the
@@ -147,7 +153,7 @@ New approach for setting the theme:
 
 
 
-                                                        *github-theme.changelog-06042023*
+                                                *github-theme.changelog-06042023*
 
 Date: April 06, 2023
 
@@ -161,7 +167,7 @@ documentation located at `:h gt_deprecated.txt`.
 
 
 
-                                                        *github-theme.changelog-03012023*
+                                                *github-theme.changelog-03012023*
 
 Date: January 03, 2023
 
@@ -182,7 +188,7 @@ changes are pushed to upstream.
 
 
 
-                                                        *github-theme.changelog-03082022*
+                                                *github-theme.changelog-03082022*
 
 Date: August 03, 2022
 
@@ -193,7 +199,7 @@ URL: https://github.com/projekt0n/github-theme-contrib
 
 
 
-                                                        *github-theme.changelog-13122021*
+                                                *github-theme.changelog-13122021*
 
 Date: December 13, 2021
 PR: https://github.com/projekt0n/github-nvim-theme/pull/148
@@ -203,9 +209,9 @@ tabline from the background.
 
 A list of changes that have been made:
 
-- Minimal look deprecated for |lualine|.
-    This deprecation is related to `hide_inactive_statusline` option. This
-    means the theme will not force the |underline| style to inactive lualine.
+- Minimal look deprecated for |lualine|. This deprecation is related to
+  `hide_inactive_statusline` option. This means the theme will not force the
+  |underline| style to inactive lualine.
 - Native lualine theme support terminal highlights |terminal-config|
 - Inactive tabline highlights got enhanced.
 

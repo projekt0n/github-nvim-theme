@@ -73,6 +73,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - #201 fixed
 - #209 fixed
 - #213 fixed
+- #218 closed due to inactivity.
 - #225 closed with conversation.
 - #228 fixed
 - #229 closed with conversation.
