@@ -12,9 +12,6 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     return {}
   end
 
-  -- TODO:
-  -- (1): Add missing styles using `stl`
-
   -- stylua: ignore
   return {
     -- Misc

@@ -24,6 +24,11 @@ local defaults = {
     strings = 'NONE',
     types = 'NONE',
   },
+  inverse = {
+    match_paren = false,
+    visual = false,
+    search = false,
+  },
   darken = {
     floats = false,
     sidebars = {

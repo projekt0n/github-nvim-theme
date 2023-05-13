@@ -47,6 +47,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `options.styles.operators` -> Style for operators
 - `options.styles.strings` -> Style for strings
 - `options.styles.types` -> Style for types
+- `options.inverse.match_paren` -> Reverse match parentheses
+- `options.inverse.visual` -> Reverse visual selection
+- `options.inverse.search` -> Reverse search string
 
 ### What's New?
 
