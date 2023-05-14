@@ -2,15 +2,13 @@
 
 ## Notices
 
-<!-- If you're interested, you can learn more about "sponsor-spotlight" on
+<!-- If you're interested, you can learn more about 'sponsor-spotlight' on
  https://dev.to/ful1e5/lets-give-recognition-to-those-supporting-our-work-on-github-sponsors-b00 -->
 
 ![shoutout-sponsors](https://sponsor-spotlight.vercel.app/sponsor?login=ful1e5)
 
 Subscribe to this [discussion](https://github.com/projekt0n/github-nvim-theme/discussions/198)
 or `:h github-theme-changelog` to receive updates on breaking changes and deprecations.
-
-Fix grammar and make it clear:
 
 - **2022-05-14**: This theme was major refactored with changes to Neovim support and
   codebase, heavily inspired by [nightfox.nvim](https://github.com/EdenEast/nightfox.nvim).
@@ -26,12 +24,15 @@ Fix grammar and make it clear:
 - Resembles GitHub's VSCode themes and follows [primer design guidelines](https://primer.style/primitives/storybook)
 - Has Github's colorblind themes
 - Support for multiple [plugins](#supported-plugins) and [status lines](#status-lines)
-  - And many others should "just work"!
+  - And many others should 'just work'!
 - Minimal inactive Vim's Default statusline
 - Vim terminal colors
 - Darker background for sidebar-like windows
 - Highly configurable with template overriding
 - Most elegant lualine theme
+- [Compile](#compile) user's configuration for fast startup times
+- Export [Color](#color-lib) library utility
+- [Interactive](#interactive) live config re-loading
 
 ## Requirements
 
@@ -117,21 +118,88 @@ colorscheme github_dark
 ```
 
 ```lua
-vim.cmd("colorscheme github_dark")
+vim.cmd('colorscheme github_dark')
 ```
+
+## Screenshots
+
+- Font:
+  [JetBrains Mono](https://www.jetbrains.com/lp/mono/)
+- Terminal:
+  [kitty](https://sw.kovidgoyal.net/kitty)
+- Icon:
+  [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
+- StatusLine: Default
+  ([.vimrc](https://github.com/ful1e5/dotfiles/blob/a2777f85b104622dd82f4adfc6ad032e3ff074bf/nvim/.config/nvim/lua/options.lua#L19-L30))
+- dotfiles:
+  [ful1e5/dotfiles/nvim](https://github.com/ful1e5/dotfiles/tree/main/nvim/.config/nvim)
+
+### Github Dark
+
+```lua
+vim.cmd('colorscheme github_dark')
+```
+
+![github_dark](https://imgur.com/XWxKWc8.png)
+
+### Github Dark Dimmed
+
+```lua
+vim.cmd('colorscheme github_dark_dimmed')
+```
+
+![github_dark_dimmed](https://imgur.com/lMk4ifs.png)
+
+### Github Dark Default
+
+```lua
+vim.cmd('colorscheme github_dark_default')
+```
+
+![github_dark_default](https://imgur.com/ZfZcBGN.png)
+
+### Github Dark Colorblind (Beta)
+
+```lua
+vim.cmd('colorscheme github_dark_colorblind')
+```
+
+![github_dark_colorblind](https://imgur.com/OIXgRL4.png)
+
+### Github Light
+
+```lua
+vim.cmd('colorscheme github_light')
+```
+
+![github_light](https://imgur.com/OPwBDI4.png)
+
+### Github Light Default
+
+```lua
+vim.cmd('colorscheme github_light_default')
+```
+
+![github_light_default](https://imgur.com/r9uPo5B.png)
+
+### Github Light Colorblind (Beta)
+
+```lua
+vim.cmd('colorscheme github_light_colorblind')
+```
+
+![github_light_colorblind](https://imgur.com/fL4ZOUg.png)
 
 ## Configuration
 
 There is no need to call `setup` if you don't want to change the default options and settings.
 
-Fix comments:
-
 ```lua
--- Default config
+-- Default options
 require('github-theme').setup({
   options = {
     -- Compiled file's destination location
-    compile_path = vim.fn.stdpath("cache") .. '/github-theme',
+    compile_path = vim.fn.stdpath('cache') .. '/github-theme',
     compile_file_suffix = '_compiled', -- Compiled file suffix
     hide_end_of_buffer = true, -- Hide the '~' character at the end of the buffer for a cleaner look
     hide_nc_statusline = true, -- Override the underline style for non-active statuslines
@@ -171,6 +239,9 @@ require('github-theme').setup({
   specs = {},
   groups = {},
 })
+
+-- setup must be called before loading
+vim.cmd('colorscheme github_dark')
 ```
 
 If you would like to change any of the default options above you only have to define the options that change. If an
@@ -181,151 +252,270 @@ certain syntax is the only desired change then your options table would look lik
 require('github-theme').setup({
   options = {
     styles = {
-      comments = "NONE",
-      keywords = "NONE",
-      types = "italic,bold",
+      comments = 'NONE',
+      keywords = 'bold',
+      types = 'italic,bold',
     }
   }
 })
 ```
 
-## Screenshots
+### Modules
 
-- Font:
-  [JetBrains Mono](https://www.jetbrains.com/lp/mono/)
-- Terminal:
-  [kitty](https://sw.kovidgoyal.net/kitty)
-- Icon:
-  [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
-- StatusLine: Default
-  ([.vimrc](https://github.com/ful1e5/dotfiles/blob/a2777f85b104622dd82f4adfc6ad032e3ff074bf/nvim/.config/nvim/lua/options.lua#L19-L30))
-- dotfiles:
-  [ful1e5/dotfiles/nvim](https://github.com/ful1e5/dotfiles/tree/main/nvim/.config/nvim)
+Github Theme's modules store configuration information for various plugins and other neovim modules. To enable a module
+either set the module to `true` or if the module has additional configuration information set `enable` to `true`.
 
-### Themes
+By default modules will be enabled. To change this behaviour change `options.module_default` to `false`.
 
-#### Github Dark
+### Customize palettes and groups
+
+You can change the color `palette` and the highlight `group` of github-theme. Here is a brief example:
 
 ```lua
+-- Palettes are the base color defines of a colorscheme.
+-- You can override these palettes for each colorscheme defined by github-theme.
+local palettes = {
+  -- Everything defined under `all` will be applied to each style.
+  all = {
+    -- Each palette defines these colors:
+    --   black, gray, blue, green, magenta, pink, red, white, yellow, cyan
+
+    --
+    -- These colors have 2 shades: base, and bright
+    --
+    -- Defining just a color defines it's base color
+    red = {
+      base = '#ff0000'
+    },
+  },
+  github_dark = {
+    -- Defining multiple shades is done by passing a table
+    red = {
+      base = '#8e1519'
+      bright = '#ee0000'
+    },
+  },
+  github_dark_dimmed = {
+    -- A palette also defines the following:
+    --   bg0, bg1, bg2, bg3, bg4, fg0, fg1, fg2, fg3, sel0, sel1, comment
+    --
+    -- These are the different foreground and background shades used by the theme.
+    -- The base bg and fg is 1, 0 is normally the dark alternative. The others are
+    -- incrementally lighter versions.
+    bg1 = '#444c56',
+
+    -- sel is different types of selection colors.
+    sel0 = '#adbac7', -- Popup bg, visual selection bg
+    sel1 = '#22272e', -- Popup sel bg, search bg
+
+    -- comment is the definition of the comment color.
+    comment = '#636e7b',
+  },
+}
+
+-- Spec's (specifications) are a mapping of palettes to logical groups that will be
+-- used by the groups. Some examples of the groups that specs map would be:
+--   - syntax groups (functions, types, keywords, ...)
+--   - diagnostic groups (error, warning, info, hints)
+--   - git groups (add, removed, changed)
+--
+-- You can override these just like palettes
+local specs = {
+  -- As with palettes, the values defined under `all` will be applied to every style.
+  all = {
+    syntax = {
+      -- Specs allow you to define a value using either a color or template. If the string does
+      -- start with `#` the string will be used as the path of the palette table. Defining just
+      -- a color uses the base version of that color.
+      keyword = 'magenta.base',
+
+      -- Adding either `.bright` will change the value
+      conditional = 'magenta.bright',
+      number = 'orange',
+    },
+    git = {
+      -- A color define can also be used
+      changed = '#ffa261',
+    },
+  },
+  github_dark = {
+    syntax = {
+      -- As with palettes, a specific style's value will be used over the `all`'s value.
+      operator = 'orange',
+    },
+  },
+}
+
+-- Groups are the highlight group definitions. The keys of this table are the name of the highlight
+-- groups that will be overridden. The value is a table with the following values:
+--   - fg, bg, style, sp, link,
+--
+-- Just like `spec` groups support templates. This time the template is based on a spec object.
+local groups = {
+  -- As with specs and palettes, the values defined under `all` will be applied to every style.
+  all = {
+    -- If `link` is defined it will be applied over any other values defined
+    Whitespace = { link = 'Comment' },
+
+    -- Specs are used for the template. Specs have their palette's as a field that can be accessed
+    IncSearch = { bg = 'palette.cyan.base' },
+  },
+  github_dark = {
+    -- As with specs and palettes, a specific style's value will be used over the `all`'s value.
+    PmenuSel = { bg = '#73daca', fg = 'bg0' },
+  },
+}
+
+require('github-theme').setup({ palettes = palettes, specs = specs, groups = groups })
+
+-- setup must be called before loading
 vim.cmd('colorscheme github_dark')
 ```
 
-![github_dark](https://imgur.com/XWxKWc8.png)
+To find the list of syntax highlight groups defined for vim use the help `:help group-name` and `:help nvim-treesitter-highlights` for treesitter. If you would also like to see how Github Theme defines these highlight groups you can see [syntax.lua] for vim's syntax and [treesitter.lua] for treesitter. These files list out all all highlight groups and have a comment describing them. Another file to note is [editor.lua] which is the highlight groups responsible for how vim looks (background, cursorline, tabline, etc...).
 
-#### Github Dark Dimmed
+[editor.lua]: https://github.com/projekt0n/github-nvim-theme/blob/main/lua/github-theme/group/editor.lua
+[syntax.lua]: https://github.com/projekt0n/github-nvim-theme/blob/main/lua/github-theme/group/syntax.lua
+[treesitter.lua]: https://github.com/projekt0n/github-nvim-theme/blob/main/lua/github-theme/group/modules/treesitter.lua
 
-```lua
-vim.cmd('colorscheme github_dark_dimmed')
-```
+### Custom template values
 
-![github_dark_dimmed](https://imgur.com/lMk4ifs.png)
+GitHub Theme's `palettes` and `specs` can be extended with your own values. This is useful for users that want to
+distinguish a spec value being used for multiple group definitions. This is best understood with an example.
 
-#### Github Dark Default
-
-```lua
-vim.cmd('colorscheme github_dark_default')
-```
-
-![github_dark_default](https://imgur.com/ZfZcBGN.png)
-
-#### Github Dark Colorblind (Beta)
-
-```lua
-vim.cmd('colorscheme github_dark_colorblind')
-```
-
-![github_dark_colorblind](https://imgur.com/OIXgRL4.png)
-
-#### Github Light
-
-```lua
-vim.cmd('colorscheme github_light')
-```
-
-![github_light](https://imgur.com/OPwBDI4.png)
-
-#### Github Light Default
-
-```lua
-vim.cmd('colorscheme github_light_default')
-```
-
-![github_light_default](https://imgur.com/r9uPo5B.png)
-
-#### Github Light Colorblind (Beta)
-
-```lua
-vim.cmd('colorscheme github_light_colorblind')
-```
-
-![github_light_colorblind](https://imgur.com/fL4ZOUg.png)
-
-### Syntax Styles
-
-#### Default
-
-![github_default_syntax](https://imgur.com/V0DsNa0.png)
-
-#### Normal
-
-```lua
-require("github-theme").setup({
-  options = {
-    styles = {
-      comments = "NONE",
-      functions = "NONE",
-      keywords = "NONE",
-      variables = "NONE"
-    }
-  },
-  -- ...
-})
-```
-
-![github_normal_syntax](https://imgur.com/aRDXkWp.png)
-
-#### Italic
-
-```lua
-require("github-theme").setup({
-  options = {
-    styles = {
-      comments = "italic",
-      functions = "italic",
-      keywords = "italic",
-      variables = "italic"
-    }
-  },
-  -- ...
-})
-```
-
-![github_italic_syntax](https://imgur.com/5wr3dyQ.png)
-
-### Minimal config
+`bg0` is used as the dark alternative background color. This is used in multiple areas (non-current file, status line,
+normal float, etc...). If you would like to have the inactive color different then the float / statusline color you can
+define your own value in the `specs` table.
 
 ```lua
 require('github-theme').setup({
-  options = {
-    darken = {
-      sidebars = {
-        enable = true,
-      },
-      -- ...
+  palettes = {
+    -- Custom duskfox with black background
+    github_dark = {
+      bg1 = '#000000', -- Black background
+      bg0 = '#1d1d2b', -- Alt backgrounds (floats, statusline, ...)
+      bg3 = '#121820', -- 55% darkened from stock
+      sel0 = '#131b24', -- 55% darkened from stock
     },
-    -- ...
   },
-  -- ...
+  specs = {
+    all = {
+      inactive = 'bg0', -- Default value for other styles
+    },
+    github_dark_dimmed = {
+      inactive = '#090909', -- Slightly lighter then black background
+    },
+  },
+  groups = {
+    all = {
+      NormalNC = { fg = 'fg1', bg = 'inactive' }, -- Non-current windows
+    },
+  },
 })
-
-vim.cmd('colorscheme github_dark')
 ```
 
-![github_minimal](https://imgur.com/rAsEukW.png)
+## Api
 
-### Telescope
+Github Theme exposes some Api's and utility classes that let you fetch data from Github Theme.
 
-![github_telescope](https://imgur.com/XX7tixL.png)
+### Palettes
+
+You can get the palettes used by each colorscheme:
+
+```lua
+-- Returns a table with each colorscheme and the palette associated with it
+local palettes = require('github-theme.palette').load()
+
+-- Returns the palette of the specified colorscheme
+local palette = require('github-theme.palette').load('github_dark_dimmed')
+
+print(vim.inspect(palette.red))
+-- {
+--   base = '#f47067',
+--   bright = '#ff938a'
+-- }
+```
+
+### Specs
+
+You can get the spec used by each colorscheme:
+
+```lua
+-- Returns a table with each colorscheme and the spec associated with it
+local specs = require('github-theme.spec').load()
+
+-- Returns the spec of the specified colorscheme
+local spec = require('github-theme.spec').load('github_light')
+
+print(vim.inspect(spec.git))
+-- {
+--   add = '#1a7f37',
+--   changed = '#9a6700',
+--   conflict = '#bc4c00',
+--   ignored = '#6e7781',
+--   removed = '#d1242f'
+-- }
+```
+
+### Color lib
+
+Github Theme uses a color library internally to manipulate colors. You can use this library as well.
+
+```lua
+local palette = require('github-theme.palette').load('github_dark')
+local Color = require('github-theme.lib.color')
+
+local bg = Color.from_hex(palette.canvas.default)
+local red = Color.from_hex('#ff0000')
+
+-- Blend the bg with red. The blend factor is from 0 to 1
+-- with 0 being full bg and 1 being full red
+local red_bg = bg:blend(red, 0.2)
+
+print(red_bg:to_css())
+-- '#592b31'
+
+-- Brighten bg by adding 10 to the value of the color as a hsv
+local alt_bg = bg:brighten(10)
+print(vim.inspect(alt_bg:to_hsv()))
+-- {
+--   hue = 212.30769230769,
+--   saturation = 21.311475409836,
+--   value = 33.921568627451
+-- }
+```
+
+There are a lot of useful functions to manipulate and work with colors in different color spaces.
+
+## Compile
+
+Github Theme is a highly customizable and configurable colorscheme. This does however come at the cost of complexity and execution time.
+
+Github Theme pre-computes the result of your configuration and saves the lua bytecode in a cache to be used on next load.
+This significantly speeds up Github theme's execution time. Changes to your configuration will be re-computed and cached automatically.
+
+By default Github theme writes the compiled results into the system's `cache` directory. On unix this is
+`$XDG_CACHE_HOME/nvim/github-theme` and on windows this is `%localappdata%\\Temp\\nvim\\github-theme`.
+
+Github Theme provides functions to work with the github-theme compiler.
+
+```vim
+:GithubThemeCompile " Manually call github-theme compiler to create/update compiled files
+```
+
+```lua
+require('github-theme').compile() -- lua api version
+```
+
+## Interactive
+
+Github Theme makes it easy to make changes to its config and see the results. For this Github Theme exposes the command:
+
+```
+GithubThemeInteractive
+```
+
+This command will attach an autocmd to the current buffer that executes on `BufferWritePost`. The autocmd will clear Github Theme's internal state and re-source it's config from the newly saved file. It will then reset the colorscheme.
 
 ## Supported Plugins
 
@@ -368,7 +558,7 @@ Lualine checks the value of `vim.g.colors_name` (set when using `:colorscheme` c
 Set your colorscheme before calling setup.
 
 ```lua
-vim.cmd("colorscheme github_dark")
+vim.cmd('colorscheme github_dark')
 require('lualine').setup({ ... })
 ```
 
@@ -380,7 +570,7 @@ To have undercurls show up and in color, add the following to your **Tmux** conf
 
 ```bash
 # Undercurl
-set -g default-terminal "${TERM}"
+set -g default-terminal '${TERM}'
 set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'  # undercurl support
 set -as terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d%;m'  # underscore colours - needs tmux-3.0
 ```
