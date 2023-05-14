@@ -1,6 +1,3 @@
--- Credit EdenEast
--- https://github.com/EdenEast/nightfox.nvim/blob/12e0ca70e978f58318e7f0279bb7b243ababbd49/lua/nightfox/lib/color.lua
-
 ---Round float to nearest int
 ---@param x number Float
 ---@return number
