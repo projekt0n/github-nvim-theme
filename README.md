@@ -1,5 +1,8 @@
 ![github-nvim-theme](https://imgur.com/S6SlCiV.png)
 
+[![Neovim](https://github.com/projekt0n/github-nvim-theme/actions/workflows/neovim.yml/badge.svg)](https://github.com/projekt0n/github-nvim-theme/actions/workflows/neovim.yml)
+[![Tests](https://github.com/projekt0n/github-nvim-theme/actions/workflows/test.yml/badge.svg)](https://github.com/projekt0n/github-nvim-theme/actions/workflows/test.yml)
+
 ## Notices
 
 <!-- If you're interested, you can learn more about 'sponsor-spotlight' on
