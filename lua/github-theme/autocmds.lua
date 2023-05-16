@@ -1,7 +1,9 @@
 local config = require('github-theme.config')
 local util = require('github-theme.util')
 
-local M = {}
+local M = {
+  checked_autocmds = false,
+}
 
 ---Delete the autocmds when the theme changes to something else
 M.on_colorscheme = function()
@@ -74,6 +76,9 @@ M.native_cmds = function()
 end
 
 M.set = function()
+  if M.checked_deprecation then
+    return
+  end
   if util.use_nvim_api then
     if not pcall(M.native_cmds) then
       M.viml_cmds()
@@ -81,6 +86,7 @@ M.set = function()
   else
     M.viml_cmds()
   end
+  M.checked_autocmds = true
 end
 
 return M

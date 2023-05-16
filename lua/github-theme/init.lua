@@ -1,4 +1,5 @@
 local config = require('github-theme.config')
+local autocmds = require('github-theme.autocmds')
 
 local function read_file(filepath)
   local file = io.open(filepath, 'r')
@@ -61,6 +62,7 @@ function M.load(opts)
   ---@diagnostic disable-next-line: need-check-nil
   f()
 
+  autocmds.set()
   lock = false
 end
 

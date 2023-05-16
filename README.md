@@ -567,7 +567,21 @@ require('lualine').setup({ ... })
 
 Screenshots at [LUALINE.md](./LUALINE.md).
 
-### Making `undercurls` work properly in **Tmux**
+## Syntax highlight groups
+
+This section will help you determine what highlight group is being applied to a piece of syntax. These sections will
+output the highlight group for the value under the cursor.
+
+#### Treesitter highlighting
+
+If treesitter is the highlighting method for the language in question you can use the command:
+`:TSHighlightCapturesUnderCursor`. This command comes from the treesitter [playground] plugin. Make
+sure you have this installed as well as [nvim-treesitter].
+
+[playground]: https://github.com/nvim-treesitter/playground#show-treesitter-and-syntax-highlight-groups-under-the-cursor
+[nvim-treesitter]: https://github.com/nvim-treesitter/nvim-treesitter
+
+## Making `undercurls` work properly in **Tmux**
 
 To have undercurls show up and in color, add the following to your **Tmux** config file:
 

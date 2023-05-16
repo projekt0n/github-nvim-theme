@@ -1,0 +1,13 @@
+name: Check PR
+on:
+  pull_request:
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: cachix/install-nix-action@v18
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+      - run: nix-shell -p stylua --run "stylua -f stylua.toml --check ."
