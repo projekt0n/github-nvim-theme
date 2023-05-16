@@ -41,4 +41,4 @@ jobs:
         run: |
           nvim --version
           [ ! -d test ] && exit 0
-          nvim --headless --noplugin -u test/minimal_init.vim -c "PlenaryBustedDirectory ./test/nightfox { minimal_init = './test/minimal_init.vim', sequential = true}"
+          nvim --headless --noplugin -u test/minimal_init.vim -c "PlenaryBustedDirectory ./test/github-theme { minimal_init = './test/minimal_init.vim', sequential = true}"
