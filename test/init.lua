@@ -17,7 +17,7 @@ local status, error = pcall(function()
   vim.opt.runtimepath:prepend(lazypath)
 
   require('lazy').setup({
-    { 'projekt0n/github-nvim-theme', dev = true },
+    { 'projekt0n/github-nvim-theme' },
   }, {
     root = root .. '/plugins',
     dev = {
