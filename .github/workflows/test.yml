@@ -2,9 +2,8 @@ name: Tests
 on:
   pull_request: ~
   push:
-    paths:
-      - "lua/*"
-      - "test/*"
+    paths-ignore:
+      - "*.md"
     branches:
       - main
 
