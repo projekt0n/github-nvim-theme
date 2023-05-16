@@ -18,8 +18,9 @@ jobs:
       - uses: actions/checkout@v3
 
       - uses: actions/setup-node@v3
-        # with:
-        #   cache: npm
+        with:
+          node-version: lts
+          check-latest: true
 
       - run: npm i @primer/primitives@latest
 
