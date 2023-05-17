@@ -1,40 +1,14 @@
 local config = require('github-theme.config')
-local util = require('github-theme.util')
 
 local M = {
   checked_autocmds = false,
 }
 
----Delete the autocmds when the theme changes to something else
-M.on_colorscheme = function()
-  if vim.g.colors_name ~= config.theme then
-    vim.cmd('silent! autocmd! ' .. config.theme)
-    vim.cmd('silent! augroup!' .. config.theme)
+M.set_autocmds = function()
+  if M.checked_deprecation then
+    return
   end
-end
 
-M.viml_cmds = function()
-  vim.cmd(string.format('augroup %s ', config.theme))
-  vim.cmd('autocmd!')
-  vim.cmd('autocmd ColorScheme * lua require("github-theme.autocmds").on_colorscheme()')
-  for _, sidebar in ipairs(config.options.darken.sidebars.list) do
-    if sidebar == 'terminal' then
-      vim.cmd(
-        'autocmd TermOpen * setlocal winhighlight=Normal:NormalSB,SignColumn:SignColumnSB'
-      )
-    else
-      vim.cmd(
-        string.format(
-          'autocmd FileType %s setlocal winhighlight=Normal:NormalSB,SignColumn:SignColumnSB',
-          sidebar
-        )
-      )
-    end
-  end
-  vim.cmd('augroup end')
-end
-
-M.native_cmds = function()
   local group = vim.api.nvim_create_augroup(config.theme, { clear = false })
 
   -- Delete the github-theme autocmds when the theme changes to something else
@@ -73,19 +47,7 @@ M.native_cmds = function()
       })
     end
   end
-end
 
-M.set = function()
-  if M.checked_deprecation then
-    return
-  end
-  if util.use_nvim_api then
-    if not pcall(M.native_cmds) then
-      M.viml_cmds()
-    end
-  else
-    M.viml_cmds()
-  end
   M.checked_autocmds = true
 end
 
