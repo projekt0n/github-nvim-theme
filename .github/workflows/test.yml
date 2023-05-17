@@ -23,7 +23,7 @@ jobs:
             "stable",
             "nightly",
           ]
-    name: Tests Neovim ${{ matrix.neovim_tag }}
+    name: Tests nvim-${{ matrix.neovim_tag }}
     steps:
       - uses: actions/checkout@v3
 

@@ -1,13 +1,28 @@
+pandocrepo = https://github.com/kdheepak/panvimdoc
+pandocdir = misc/panvimdoc
 TEST_DIR = test/github-theme
 PLENARY_DIR = test/plenary
 PLENARY_URL = https://github.com/nvim-lua/plenary.nvim/
 
 root_dir := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
-.PHONY : minimal
-minimal:
-	sed -i "s|projekt0n/github-nvim-theme|${root_dir}|g" minimal_init.lua
-	nvim --clean -u minimal_init.lua minimal_init.lua
+.PHONY : all
+all: docgen test check
+
+.PHONY : docgen
+docgen: $(pandocdir)
+	@pandoc \
+		--metadata=project:github-nvim-theme \
+		--metadata="description:Github's Neovim themes" \
+		--lua-filter=misc/panvimdoc/scripts/skip-blocks.lua \
+		--lua-filter=misc/panvimdoc/scripts/include-files.lua \
+		--to=misc/panvimdoc/scripts/panvimdoc.lua \
+		-o doc/github-nvim-theme.txt \
+		Usage.md
+
+$(pandocdir):
+	git clone --depth=1 --no-single-branch $(pandocrepo) $(pandocdir)
+	@rm -rf doc/panvimdoc/.git
 
 .PHONY : test
 test: $(PLENARY_DIR)

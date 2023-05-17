@@ -48,7 +48,7 @@ The updated configuration keys are:
 - |overrides| -> Use |groups| instead.
 
 Example:
->
+>lua
   require('github-theme').setup({
     --- ...
     palettes = {
@@ -134,14 +134,14 @@ Additionally, the currently used colorscheme palettes within the *palette*
 module have been given the prefix |'github_'|.
 
 Old approach for setting the theme:
->
+>lua
   require('github-theme').setup({
     theme_style = 'dark',
     --- ...
   })
 <
 New approach for setting the theme:
->
+>lua
   require('github-theme').setup({
     --- ...
   })
