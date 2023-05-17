@@ -13,7 +13,7 @@
 Subscribe to this [discussion](https://github.com/projekt0n/github-nvim-theme/discussions/198)
 or `:h github-theme-changelog` to receive updates on breaking changes and deprecations.
 
-- **2022-05-14**: This theme was major refactored with changes to Neovim support and
+- **2023-05-14**: This theme was major refactored with changes to Neovim support and
   codebase, heavily inspired by [nightfox.nvim](https://github.com/EdenEast/nightfox.nvim).
   Credit goes to [EdenEast](https://github.com/EdenEast). For older Neovim versions, use the
   [0.0.x](https://github.com/projekt0n/github-nvim-theme/tree/0.0.x) branch.
