@@ -11,12 +11,22 @@ all: docgen test check
 
 .PHONY : docgen
 docgen: $(pandocdir)
-	@pandoc \
+		@pandoc \
+		--citeproc \
+		--shift-heading-level-by=0 \
 		--metadata=project:github-nvim-theme \
+		--metadata=vimversion:8.0 \
+		--metadata=toc:true \
 		--metadata="description:Github's Neovim themes" \
+		--metadata=dedupsubheadings:true \
+		--metadata=ignorerawblocks:true \
+		--metadata=docmapping:true \
+		--metadata=docmappingproject:true \
+		--metadata=treesitter:true \
+		--metadata=incrementheadinglevelby:0 \
 		--lua-filter=misc/panvimdoc/scripts/skip-blocks.lua \
 		--lua-filter=misc/panvimdoc/scripts/include-files.lua \
-		--to=misc/panvimdoc/scripts/panvimdoc.lua \
+		-t misc/panvimdoc/scripts/panvimdoc.lua \
 		-o doc/github-nvim-theme.txt \
 		Usage.md
 

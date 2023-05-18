@@ -1,7 +1,7 @@
 ## Overview
 
-Highly customizable Github's theme for neovim with support for lsp, treesitter and a variety of plugins.
-It comes with multiple different themes and with colorblind themes:
+The Github Theme is a community-driven theme for Neovim, designed to support LSP (Language Server Protocol), Treesitter, and various plugins.
+It offers multiple themes, including colorblind-friendly options. Here are the available themes:
 
 - `github_dark`
 - `github_dark_colorblind`
@@ -16,33 +16,31 @@ It comes with multiple different themes and with colorblind themes:
 
 ## Usage
 
-At it's core github-theme is simply a colorscheme just like any other. If you just want to use the theme out of the box
-simply set the colorscheme with the `:colorscheme` command
+The Github Theme is a colorscheme for Vim, and it can be used like any other colorscheme. To use the theme as is, simply set it using the
+`:colorscheme` command:
 
 ```vim
 :colorscheme github_dark
 ```
 
-Github theme is built to be customizable. There are four main components that can be customized. These are [option],
-[palette], [spec], and [group].
+The Github Theme is highly customizable, and it provides four main components that can be customized: [option], [palette], [spec], and [group].
 
 [option]: #option
 [palette]: #palette
 [spec]: #spec
 [group]: #group
-[building]: #building
 
 ## Configuration
 
-Github Theme allows you to set individual components separately as apposed to using the default `setup` function.
+The Github Theme allows you to set individual components separately instead of using the default `setup` function.
 
 ### Setup
 
-The `setup()` function set github theme's config [options][option].
+The `setup()` function is used to configure the Github Theme by setting its options.
 
 ```lua
 require('github-theme').setup({
-  options ={
+  options = {
     dim_inactive = true,
   }
 })
@@ -50,7 +48,8 @@ require('github-theme').setup({
 
 ### Overrides
 
-The individual components: [palettes][palette], [specs][spec] and [groups][group] can be set separately.
+The individual components, such as [palettes][palette], [specs][spec], and [groups][group], can be overridden separately to customize the theme
+according to your preferences.
 
 ```lua
 local override = require('github-theme').override
@@ -65,26 +64,25 @@ override.palettes({
 override.specs({
   github_dark = {
     syntax = {
-      keyword = 'magenta'
+      keyword = 'magenta.base'
     }
   }
 })
 override.groups({
   all = {
-    IncSearch = { bg = 'palette.cyan' },
+    IncSearch = { bg = 'palette.cyan.base' },
   },
 })
 ```
 
-Overrides for [palettes][palette] and [specs][spec] are defined per style. The purpose of overriding these components is
-to change colors. Colors are only relevant to a specific style. [Groups][group] on the other hand are not defined per
-style. These mainly use the color defined in the [palette] and [spec] objects in order to set values using
-[templates](#templates).
+Overrides for [palettes][palette] and [specs][spec] are defined per style. The purpose of overriding these components is to change the colors used in
+specific styles. [Groups][group], on the other hand, are not defined per style and primarily use the colors defined in the [palette] and [spec] objects to set
+values using [templates](#templates).
 
 ### Setup
 
-The setup function is a convince wrapper for the above components. It takes each component as separate keys and calls
-the correct init/override function.
+The `setup` function in the Github Theme serves as a convenient wrapper for configuring the theme using the individual components. It accepts separate keys
+for each component and calls the appropriate initialization or override function.
 
 ```lua
 local options = {
@@ -101,13 +99,13 @@ local palettes = {
 local specs = {
   github_dark = {
     syntax = {
-      keyword = 'magenta'
+      keyword = 'magenta.base'
     }
   }
 }
 local groups = {
   all = {
-    IncSearch = { bg = 'palette.cyan' },
+    IncSearch = { bg = 'palette.cyan.base' },
   },
 }
 require('github-theme').setup({
@@ -120,16 +118,12 @@ require('github-theme').setup({
 
 ## Templates
 
-Templates allow for referencing of other lower level objects in github theme's config. For example instead of setting an
-absolute color value, you can refer to a lower object's value instead. The base of github theme is a [palette]. A palette
-does not use a template as it is the base that others built off of. [Palettes][palette] are used as the template source
-for [spec] objects. [Specs][spec] objects are used as template source for [group] objects.
+Templates in the Github Theme allow you to reference other lower-level objects in the theme's configuration. Instead of setting an absolute color value, you can refer
+to the value of a lower-level object. The foundation of the Github Theme is the [palette]. A palette serves as the base for other components.
+[Palettes][palette] are used as the template source for [spec] objects, and [spec] objects are used as the template source for [group] objects.
 
-If a value does not start with `#` symbol it will be treated as the template path. Everything in lua is a table. This
-means that `palettes` and `specs` are just lua tables. A template `path` is the keys to index into the table separated by
-`.` characters.
-
-Note: If the resulting value of a template is a [shade] then the `base` value will be used.
+If a value does not start with the `#` symbol, it is treated as a template path. In Lua, everything is a table, so `palettes` and `specs` are Lua tables.
+A template path is composed of keys used to index into the table, separated by `.` characters.
 
 **Example:**
 
@@ -138,16 +132,16 @@ Note: If the resulting value of a template is a [shade] then the `base` value wi
 local specs = {
   github_dark = {
     syntax = {
-      -- Value does not start with `#` so is treated as a template.
-      -- Since `magenta` is a `shade` object the `base` value will be used.
-      keyword = 'magenta',
+      -- The value does not start with `#`, so it is treated as a template.
+      keyword = 'magenta.base',
 
-      -- Adding either `.bright` or `.dim` will change the value
+      -- Adding either `.bright` or `.base` will change the value
       conditional = 'magenta.bright',
-      number = 'orange.dim',
+
+      number = 'orange',
     },
     git = {
-      -- A color define can also be used
+      -- A color defined using `#` can also be used
       changed = '#f4a261',
     }
   }
@@ -156,14 +150,14 @@ local specs = {
 -- Groups use specs as the template source
 local groups = {
   all = {
-    -- The template path is parsed to [`syntax`, `string`]. This is like calling into a lua table like:
+    -- The template path is parsed as [`syntax`, `string`]. This is similar to calling into a Lua table, like:
     -- `spec.syntax.string`.
     String = { fg = 'syntax.string' },
 
-    -- If `link` is defined it will be applied over any other values defined
+    -- If `link` is defined, it will be applied over any other values defined
     Whitespace = { link = 'Comment' }
 
-    -- Specs are used for the template. Specs have their palette's as a field that can be accessed
+    -- Specs are used as the template. Specs have their palettes as a field that can be accessed.
     IncSearch = { bg = 'palette.cyan' },
   },
 }
@@ -175,45 +169,43 @@ require('github-theme').setup({ specs = specs, groups = groups })
 
 #### options.compile_path {path}
 
-The output directory {path} where the compiled results will be written to. Default:
-`vim.fn.stdpath("cache")/github-theme`.
+Specifies the output directory {path} where the compiled results will be written to. The default value is `vim.fn.stdpath("cache")/github-theme`.
 
 #### options.compile_file_suffix {suffix}
 
-The string appended to the compiled file. Each `style` outputs to its own file. These files will append the {suffix} to
-the end of the file. Default: `_compiled`
+Specifies the string appended to the compiled file. Each `style` outputs to its own file, and these files will have the {suffix} appended at the end.
+The default value is `_compiled`.
 
 #### options.hide_end_of_buffer {bool}
 
-A boolean value that, when set, changes the foreground of the `EndOfBuffer` highlight group. This allows you to
-use the color of the colorscheme background to mimic the effect of hiding it. Default: `true`.
+When set to `true`, it changes the foreground color of the `EndOfBuffer` highlight group. This allows you to mimic the effect of hiding the end of
+the buffer by using the color of the colorscheme background. The default value is `true`.
 
 #### options.hide_nc_statusline {bool}
 
-A boolean value that, when set, hides the `StatusLineNC` highlight group and makes it minimal. Default: `true`.
+When set to `true`, it hides the `StatusLineNC` highlight group and makes it minimal. The default value is `true`.
 
 #### options.transparent {bool}
 
-A boolean value that if set will disable setting the background of `Normal`, `NormalNC` and other highlight groups. This
-lets you use the colors of the colorscheme but use the background of your terminal. Default: `false`.
+If set to `true`, it disables setting the background of `Normal`, `NormalNC`, and other highlight groups. This allows you to use the colors of the
+colorscheme while using the background of your terminal. The default value is `false`.
 
 #### options.terminal_colors {bool}
 
-A boolean value that if set will define the terminal colors for the builtin `terminal` (vim.g.terminal*color*\*).
-Default: `true`.
+If set to `true`, it defines the terminal colors for the built-in `terminal` (vim.g.terminal*color*). The default value is `true`.
 
 #### options.dim_inactive {bool}
 
-A boolean value that if set will set the background of Non current windows to be darker. See `:h hl-NormalNC`.
+If set to `true`, it sets the background of non-current windows to be darker. Refer to `:h hl-NormalNC` for more information.
 
 #### options.module_default {bool}
 
-The default value of a module that has not been overridden in the modules table.
+Specifies the default value of a module that has not been overridden in the modules table.
 
 #### options.styles {table}
 
-`styles` is a table that contains a list of syntax components and their corresponding style. These styles can be any
-combination of |highlight-args|. The list of syntax components are:
+The `styles` table contains a list of syntax components and their corresponding styles. These styles can be any combination of |highlight-args|.
+The available syntax components are:
 
 - comments
 - conditionals
@@ -239,26 +231,28 @@ local options = {
 
 #### options.inverse {table}
 
-`inverse` is a table that contains a list of highlight types. If a highlight type is enabled it will inverse the
-foreground and background colors instead of applying the normal highlight group. Thees highlight types are:
-`match_paren`, `visual`, `search`. For an example if search is enabled instead of highlighting a search term with the
-default search color it will inverse the foreground and background colors.
+The `inverse` table contains a list of highlight types. If a highlight type is enabled, it inverses the foreground and background colors instead of applying
+the normal highlight group. The available highlight types are: `match_paren`, `visual`, and `search`. For example, if `search` is enabled, it inverses the
+foreground and background colors for highlighted search terms.
 
 #### options.darken {table}
 
-The `darken` table contains a list of settings for buffer styles. Enabling `floats` allows floating windows to have
-a darkened background. Default: `true`.
+The `darken` table contains settings for buffer background color. Enabling `floats` allows floating windows to have a darkened background.
+The default value is `true`.
 
-Another setting is for sidebars, which is configured in the `sidebars` table.
+Another setting is for sidebars, which is configured in the `sidebars` sub-table.
 
 #### options.darken.sidebars {table}
 
-The `sidebars` table contains a list of settings for sidebar-like windows. It has two configurations: `enabled` is
-used to assign a darker background to the listed windows, and `list` specifies the windows to be included in the list.
+The `sidebars` sub table of `darken` contains settings for sidebar-like windows. It has two configurations: `enabled` is used to assign a darker background
+to the listed windows, and `list` specifies the windows to be included in the list.
+
+Example:
 
 ```lua
 local options = {
   darken = {
+    floats = false,
     sidebars = {
       enabled = true,
       list = {'qf', 'netrw'} -- default is {}
@@ -269,9 +263,9 @@ local options = {
 
 #### options.modules {table}
 
-`modules` store configuration information for various plugins and other neovim modules. A module can either be a boolean
-or a table that contains additional configuration for that module. If the value is a table it also has a field called
-`enable` that will tell github theme to load it. See [modules] for more information.
+`modules` store configuration information for various plugins and other neovim modules. A module can either be a boolean or a table that contains additional
+configuration for that module. If the value is a table it also has a field called `enable` that will tell github theme to load it. See [modules] for more
+information.
 
 By default modules will be enabled. To change this behaviour change `options.module_default` to `false`.
 
@@ -279,9 +273,9 @@ By default modules will be enabled. To change this behaviour change `options.mod
 
 ## Palette
 
-A `palette` is the base color definitions of a style. Each style defines its own palette to be used by the other
-components. A palette defines base colors, as well as foreground and background shades. Along with the foreground and
-background colors a palette also defines other colors such as selection and comment colors.
+A `palette` is the base color definitions of a style. Each style defines its own palette to be used by the other components. A palette defines base colors,
+as well as foreground and background shades. Along with the foreground and background colors a palette also defines other colors such as selection and
+comment colors.
 
 The base colors are shade table that define a `base`, `bright` color. These base colors are:
 `black`, `red`, `green`, `yellow`, `blue`, `magenta`, `cyan`, `white`, `pink`.
@@ -368,8 +362,8 @@ These values are: `add`, `removed`, `changed`, `conflict`, and `ignored`.
 
 ## Group
 
-A `group` is the definition of a `highlight-group`. The key of the group table is the `highlight-group` that will be
-defined, and the table value is the arguments to the |:highlight| command.
+A `group` is the definition of a `highlight-group`. The key of the group table is the `highlight-group` that will be defined, and the table value is the
+arguments to the |:highlight| command.
 
 | Key   | Help                | Description                                                |
 | ----- | ------------------- | ---------------------------------------------------------- |
@@ -383,11 +377,10 @@ If the value of `link` is present and is not empty, github theme will link the g
 
 ## Modules
 
-Modules are a way to adding extra information for various plugins or features. This also allows them to be enabled or
-disabled. There are two types of modules, `base` modules and `extended` modules. A `base` modules do not have any other
-information and are just a `boolean` denoting if it is enabled. An `extended` module is a module that has extra
-customization information. It is a table that contains the additional configuration as well as a field called `enable`
-to determine if the module is applied.
+Modules are a way to adding extra information for various plugins or features. This also allows them to be enabled or disabled. There are two types of modules,
+`base` modules and `extended` modules. A `base` modules do not have any other information and are just a `boolean` denoting if it is enabled. An `extended`
+module is a module that has extra customization information. It is a table that contains the additional configuration as well as a field called `enable` to
+determine if the module is applied.
 
 Current list of modules are:
 
@@ -416,9 +409,8 @@ Current list of modules are:
 
 ### Neovim specific modules
 
-The following modules are enabled by default only when on neovim, `diagnostic`, `native_lsp`, `treesitter`. These
-modules are part of the core neovim experience and are liked to by other modules. This also means that they will still
-be enabled when setting `module_default` to `false`.
+The following modules are enabled by default only when on neovim, `diagnostic`, `native_lsp`, `treesitter`. These modules are part of the core neovim experience and
+are liked to by other modules. This also means that they will still be enabled when setting `module_default` to `false`.
 
 ### Extended modules
 
@@ -451,8 +443,7 @@ This module sets highlight groups from neovim's builtin `lsp`.
 
 ## Color
 
-Github Theme exposes a color utility library to help with manipulating colors. This library can be required using the
-following module:
+Github Theme exposes a color utility library to help with manipulating colors. This library can be required using the following module:
 
 ```lua
 local Color = require('github-theme.lib.color')
@@ -477,77 +468,69 @@ The {hue} is a float ranging `[0,360]`. {sat} and {value} are floats ranging fro
 
 #### color.from_hsl({hue}, {sat}, {lightness}, {alpha})
 
-Create a `Color` object from a `HSL` value.
-The {hue} is a float ranging `[0,360]`. {sat} and {lightness} are floats ranging from `[0,100]`.
+Create a `Color` object from a `HSL` value. The {hue} is a float ranging `[0,360]`. {sat} and {lightness} are floats ranging from `[0,100]`.
 {alpha} is optional and defaults to `1`. The {alpha} value's is from `[0,1]`.
 
 #### color:to_hex({with_alpha})
 
-Convert a `Color` object to a integer number. If {with_alpha} is true the hex value will be returned with the alpha
-value added. This is defaulted to `false`.
+Convert a `Color` object to a integer number. If {with_alpha} is true the hex value will be returned with the alpha value added.
+This is defaulted to `false`.
 
 #### color:to_css({with_alpha})
 
-Convert a `Color` object to a `css_style` string (`"#RRGGBB[AA]"`). If {with_alpha} is true the hex value will be
-returned with the alpha value added. This is defaulted to `false`.
+Convert a `Color` object to a `css_style` string (`"#RRGGBB[AA]"`). If {with_alpha} is true the hex value will be returned with the alpha value added.
+This is defaulted to `false`.
 
 #### color:to_rgba()
 
-Convert a `Color` object to a `RGBA` table. The resulting table will have `red`, `green`, `blue` and `alpha` components
-as keys of the table.
+Convert a `Color` object to a `RGBA` table. The resulting table will have `red`, `green`, `blue` and `alpha` components as keys of the table.
 
 #### color:to_hsv()
 
-Convert a `Color` object to a `HSV` table. The resulting table will have `hue`, `saturation` and `value` components as
-keys of the table.
+Convert a `Color` object to a `HSV` table. The resulting table will have `hue`, `saturation` and `value` components as keys of the table.
 
 #### color:to_hsl()
 
-Convert a `Color` object to a `HSL` table. The resulting table will have `hue`, `saturation` and `lightness` components as
-keys of the table.
+Convert a `Color` object to a `HSL` table. The resulting table will have `hue`, `saturation` and `lightness` components as keys of the table.
 
 #### color:blend({other}, {factor})
 
-Returns a new `Color` that is a linear blend between two colors. {other} is the other color to blend. {factor} is the
-percentage of the {other} color that will be blended. This percentage is represented `[0,1]` where `0` is no color
-blending and `1` is entirely the {other} color.
+Returns a new `Color` that is a linear blend between two colors. {other} is the other color to blend. {factor} is the percentage of the {other} color
+that will be blended. This percentage is represented `[0,1]` where `0` is no color blending and `1` is entirely the {other} color.
 
 #### color:shade({factor})
 
-Returns a new `Color` that has been `shaded` by the {factor}. The factor is a precentage from `[-1,1]` where `-1` is black
-and `1` is white.
+Returns a new `Color` that has been `shaded` by the {factor}. The factor is a percentage from `[-1,1]` where `-1` is black and `1` is white.
 
 #### color:brighten({value})
 
-Returns a new `Color` with {value} added to the `value` (`hsv`) of the current color. This returns a lighter version of
-of the current color if {value} is positive and a darker color is {value} is negative. {value} is Float [-100, 100].
+Returns a new `Color` with {value} added to the `value` (`hsv`) of the current color. This returns a lighter version of of the current color
+if {value} is positive and a darker color is {value} is negative. {value} is Float [-100, 100].
 
 #### color:lighten({value})
 
-Returns a new `Color` with {value} added to the `lightness` (`hsl`) of the current color. This returns a lighter version of
-of the current color if {value} is positive and a darker color is {value} is negative. {value} is Float [-100, 100].
+Returns a new `Color` with {value} added to the `lightness` (`hsl`) of the current color. This returns a lighter version of of the current color
+if {value} is positive and a darker color is {value} is negative. {value} is Float [-100, 100].
 
 #### color:saturate({value})
 
-Returns a new `Color` with {value} added to the `saturation` (`hsv`) of the current color. This returns either a more
-or less saturated version depending of +/- v. {value} is Float [-100, 100].
+Returns a new `Color` with {value} added to the `saturation` (`hsv`) of the current color. This returns either a more or less saturated version
+depending of +/- v. {value} is Float [-100, 100].
 
 #### color:rotate({value})
 
-Returns a new `Color` with {value} added to the `hue` (`hsv`) of the current color. The resulting value of `hue` will be
-wrapped from `[0,360]`, meaning that if the value exceeds `360` it will be wrapped back to `0`.
+Returns a new `Color` with {value} added to the `hue` (`hsv`) of the current color. The resulting value of `hue` will be wrapped from `[0,360]`,
+meaning that if the value exceeds `360` it will be wrapped back to `0`.
 
 ## Compile
 
-Github Theme is a highly customizable and configurable colorscheme. This does however come at the cost of complexity and
-execution time.
+Github Theme is a highly customizable and configurable colorscheme. This does however come at the cost of complexity and execution time.
 
-Github Theme pre-computes the result of your configuration and saves the lua bytecode in a cache to be used on next load.
-This significantly speeds up github theme's execution time. Changes to your configuration will be re-computed and cached
-automatically.
+Github Theme pre-computes the result of your configuration and saves the lua bytecode in a cache to be used on next load. This significantly speeds
+up github theme's execution time. Changes to your configuration will be re-computed and cached automatically.
 
-By default github-theme writes the compiled results into the system's `cache` directory. On unix this is
-`$XDG_CACHE_HOME/nvim/github-theme` and on windows this is `%localappdata%\\Temp\\nvim\\github-theme`.
+By default Github Theme writes the compiled results into the system's `cache` directory. On unix this is `$XDG_CACHE_HOME/nvim/github-theme` and on
+windows this is `%localappdata%\\Temp\\nvim\\github-theme`.
 
 ### Compile commands
 
@@ -563,15 +546,14 @@ Compile github theme settings for each `style` and write compiled file to [compi
 
 ## Interactive
 
-Github Theme makes it easy to make changes to its config and see the results. For this github-theme exposes the command:
+Github Theme makes it easy to make changes to its config and see the results. For this Github Theme exposes the command:
 
 ```
 GithubThemeInteractive
 ```
 
-This command will attach an autocmd to the current buffer that executes on `BufferWritePost`. The
-autocmd will clear Github theme's internal state and re-source it's config from the newly saved file. It will then reset the
-colorscheme.
+This command will attach an autocmd to the current buffer that executes on `BufferWritePost`. The autocmd will clear Github theme's internal state
+and re-source it's config from the newly saved file. It will then reset the colorscheme.
 
 There are a few things to note:
 

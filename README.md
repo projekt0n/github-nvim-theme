@@ -1,4 +1,4 @@
-![github-nvim-theme](https://imgur.com/S6SlCiV.png)
+![github-nvim-theme](https://github.com/projekt0n/github-nvim-theme/assets/24286590/81fb417d-8913-46f9-a864-f4ed7b6b9aea)
 
 [![Neovim](https://github.com/projekt0n/github-nvim-theme/actions/workflows/neovim.yml/badge.svg)](https://github.com/projekt0n/github-nvim-theme/actions/workflows/neovim.yml)
 [![Tests](https://github.com/projekt0n/github-nvim-theme/actions/workflows/test.yml/badge.svg)](https://github.com/projekt0n/github-nvim-theme/actions/workflows/test.yml)
@@ -127,13 +127,13 @@ vim.cmd('colorscheme github_dark')
 ## Screenshots
 
 - Font:
-  [JetBrains Mono](https://www.jetbrains.com/lp/mono/)
+  [Iosevka Nerd Font Mono](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Iosevka)
 - Terminal:
   [kitty](https://sw.kovidgoyal.net/kitty)
 - Icon:
   [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
 - StatusLine: Default
-  ([.vimrc](https://github.com/ful1e5/dotfiles/blob/a2777f85b104622dd82f4adfc6ad032e3ff074bf/nvim/.config/nvim/lua/options.lua#L19-L30))
+  ([.vimrc](https://github.com/ful1e5/dotfiles/blob/main/nvim/.config/nvim/lua/ful1e5/statusline.lua))
 - dotfiles:
   [ful1e5/dotfiles/nvim](https://github.com/ful1e5/dotfiles/tree/main/nvim/.config/nvim)
 
@@ -143,7 +143,7 @@ vim.cmd('colorscheme github_dark')
 vim.cmd('colorscheme github_dark')
 ```
 
-![github_dark](https://imgur.com/XWxKWc8.png)
+![github_dark](https://github.com/projekt0n/github-nvim-theme/assets/24286590/3b6eda22-3406-413e-bf79-b1f5d865bf71)
 
 ### Github Dark Dimmed
 
@@ -151,15 +151,15 @@ vim.cmd('colorscheme github_dark')
 vim.cmd('colorscheme github_dark_dimmed')
 ```
 
-![github_dark_dimmed](https://imgur.com/lMk4ifs.png)
+![github_dark_dimmed](https://github.com/projekt0n/github-nvim-theme/assets/24286590/3589c7d8-b35d-46d0-83e8-b3129fdcf7c4)
 
-### Github Dark Default
+### Github Dark High Contrast
 
 ```lua
-vim.cmd('colorscheme github_dark_default')
+vim.cmd('colorscheme github_dark_high_contrast')
 ```
 
-![github_dark_default](https://imgur.com/ZfZcBGN.png)
+![github_dark_high_contrast](https://github.com/projekt0n/github-nvim-theme/assets/24286590/35aae15f-1acd-49dc-9a42-083ba1ec62e9)
 
 ### Github Dark Colorblind (Beta)
 
@@ -167,7 +167,15 @@ vim.cmd('colorscheme github_dark_default')
 vim.cmd('colorscheme github_dark_colorblind')
 ```
 
-![github_dark_colorblind](https://imgur.com/OIXgRL4.png)
+![github_dark_colorblind](https://github.com/projekt0n/github-nvim-theme/assets/24286590/6e1bb148-d69c-4372-94ae-46c7a46761fe)
+
+### Github Dark Tritanopia (Beta)
+
+```lua
+vim.cmd('colorscheme github_dark_tritanopia')
+```
+
+![github_dark_tritanopia](https://github.com/projekt0n/github-nvim-theme/assets/24286590/5d20a5b3-a5a7-4045-834f-e6f4e9ecec27)
 
 ### Github Light
 
@@ -175,15 +183,15 @@ vim.cmd('colorscheme github_dark_colorblind')
 vim.cmd('colorscheme github_light')
 ```
 
-![github_light](https://imgur.com/OPwBDI4.png)
+![github_light](https://github.com/projekt0n/github-nvim-theme/assets/24286590/9029c5a6-fa40-40ca-9138-1cef7f3a1fcd)
 
-### Github Light Default
+### Github Light High Contrast
 
 ```lua
 vim.cmd('colorscheme github_light_default')
 ```
 
-![github_light_default](https://imgur.com/r9uPo5B.png)
+![github_light_high_contrast](https://github.com/projekt0n/github-nvim-theme/assets/24286590/8b5a3156-d314-4f63-9bec-0824f96cafe3)
 
 ### Github Light Colorblind (Beta)
 
@@ -191,7 +199,15 @@ vim.cmd('colorscheme github_light_default')
 vim.cmd('colorscheme github_light_colorblind')
 ```
 
-![github_light_colorblind](https://imgur.com/fL4ZOUg.png)
+![github_light_colorblind](https://github.com/projekt0n/github-nvim-theme/assets/24286590/49da64a9-a9ea-4e3a-834c-09466edf4165)
+
+### Github Light Tritanopia (Beta)
+
+```lua
+vim.cmd('colorscheme github_light_tritanopia')
+```
+
+![github_light_tritanopia](https://github.com/projekt0n/github-nvim-theme/assets/24286590/79a22dae-77a7-4c02-88de-0caf579ab95e)
 
 ## Configuration
 
@@ -263,12 +279,17 @@ require('github-theme').setup({
 })
 ```
 
+To see a detailed explanation of Github Theme's config settings consult either the builtin help `:help github-nvim-theme` or
+[Usage](./Usage.md).
+
 ### Modules
 
 Github Theme's modules store configuration information for various plugins and other neovim modules. To enable a module
 either set the module to `true` or if the module has additional configuration information set `enable` to `true`.
 
 By default modules will be enabled. To change this behaviour change `options.module_default` to `false`.
+
+To see a list of modules check, see [Usage](./Usage.md#module) or `:help` for more information.
 
 ### Customize palettes and groups
 
@@ -377,6 +398,8 @@ vim.cmd('colorscheme github_dark')
 
 To find the list of syntax highlight groups defined for vim use the help `:help group-name` and `:help nvim-treesitter-highlights` for treesitter. If you would also like to see how Github Theme defines these highlight groups you can see [syntax.lua] for vim's syntax and [treesitter.lua] for treesitter. These files list out all all highlight groups and have a comment describing them. Another file to note is [editor.lua] which is the highlight groups responsible for how vim looks (background, cursorline, tabline, etc...).
 
+To get more information check out [Usage](./Usage.md#configuration) or the help file `:help github-nvim-theme` for more detailed information.
+
 [editor.lua]: https://github.com/projekt0n/github-nvim-theme/blob/main/lua/github-theme/group/editor.lua
 [syntax.lua]: https://github.com/projekt0n/github-nvim-theme/blob/main/lua/github-theme/group/syntax.lua
 [treesitter.lua]: https://github.com/projekt0n/github-nvim-theme/blob/main/lua/github-theme/group/modules/treesitter.lua
@@ -439,6 +462,8 @@ print(vim.inspect(palette.red))
 -- }
 ```
 
+See [Usage](./Usage.md#palette) for more information on palettes.
+
 ### Specs
 
 You can get the spec used by each colorscheme:
@@ -459,6 +484,8 @@ print(vim.inspect(spec.git))
 --   removed = '#d1242f'
 -- }
 ```
+
+See [Usage](./Usage.md#spec) for more information on specs.
 
 ### Color lib
 
@@ -489,6 +516,8 @@ print(vim.inspect(alt_bg:to_hsv()))
 ```
 
 There are a lot of useful functions to manipulate and work with colors in different color spaces.
+
+See [Usage](./Usage.md#color) for more information on `Color`.
 
 ## Compile
 
@@ -564,8 +593,6 @@ Set your colorscheme before calling setup.
 vim.cmd('colorscheme github_dark')
 require('lualine').setup({ ... })
 ```
-
-Screenshots at [LUALINE.md](./LUALINE.md).
 
 ## Syntax highlight groups
 
