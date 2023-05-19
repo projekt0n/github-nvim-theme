@@ -1,4 +1,4 @@
-![github-nvim-theme](https://github.com/projekt0n/github-nvim-theme/assets/24286590/81fb417d-8913-46f9-a864-f4ed7b6b9aea)
+![github-nvim-theme](https://github.com/projekt0n/github-nvim-theme/assets/24286590/50a918ce-fff0-4d98-8327-e5052fc8d84f)
 
 [![Neovim](https://github.com/projekt0n/github-nvim-theme/actions/workflows/neovim.yml/badge.svg)](https://github.com/projekt0n/github-nvim-theme/actions/workflows/neovim.yml)
 [![Tests](https://github.com/projekt0n/github-nvim-theme/actions/workflows/test.yml/badge.svg)](https://github.com/projekt0n/github-nvim-theme/actions/workflows/test.yml)
