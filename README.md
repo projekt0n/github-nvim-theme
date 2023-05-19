@@ -43,7 +43,7 @@ or `:h github-theme-changelog` to receive updates on breaking changes and deprec
 - True color support
 - Undercurl terminal support (optional)
 
-> Note for MacOS: The default `terminal` does not support `true color`. Use either `Iterm2` or [another] terminal that
+> **Note** for MacOS: The default `terminal` does not support `true color`. Use either `Iterm2` or [another] terminal that
 > supports true color.
 
 ## Installation
