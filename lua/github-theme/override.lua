@@ -14,6 +14,11 @@ local function reset()
   store.has_override = false
 end
 
+local function hash()
+  local hash = require('github-theme.lib.hash')(store)
+  return hash and hash or 0
+end
+
 local function check_link(tbl)
   for _, style in pairs(tbl) do
     for _, opts in pairs(style) do
@@ -22,7 +27,7 @@ local function check_link(tbl)
   end
 end
 
-return setmetatable({ reset = reset }, {
+return setmetatable({ reset = reset, hash = hash }, {
   __index = function(_, value)
     if store[value] then
       return store[value]
