@@ -4,6 +4,7 @@ env:
   _DEST: '${{ github.workspace }}/lua/github-theme/palette/primitives'
   _JSON_DIR: '${{ github.workspace }}/node_modules/@primer/primitives/dist/json/colors'
   _LICENSE_GLOB: '${{ github.workspace }}/node_modules/@primer/primitives/[Ll][Ii][Cc][Ee][Nn][Ss][Ee]*'
+  _PRIMITIVES_PKGJSON: '${{ github.workspace }}/node_modules/@primer/primitives/package.json'
 
 on:
   workflow_dispatch:
@@ -31,9 +32,15 @@ jobs:
           mkdir -p "$_DEST"
           cd "$_JSON_DIR"
 
+          if jq -e .version "$_PRIMITIVES_PKGJSON"; then
+            version="M._VERSION = vim.json.decode([=[$(jq -e .version "$_PRIMITIVES_PKGJSON")]=], { luanil = { object = false, array = false } })"
+          fi
+
           for file in *.json; do
             cat >"${_DEST_DIR}/${file%.json}.lua" <<EOF
+          -- NOTE: THIS IS AN AUTO-GENERATED FILE. DO NOT EDIT BY-HAND.
           local M = vim.json.decode([=[$(<"$file")]=], { luanil = { object = false, array = false } })
+          ${version-}
           M._LICENSE = [=[$license]=]
           return M
           EOF
