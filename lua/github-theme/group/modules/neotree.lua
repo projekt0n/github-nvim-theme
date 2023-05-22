@@ -18,6 +18,7 @@ function M.get(spec, config, opts)
   return {
     NeoTreeNormal             = { link = 'NormalSB' },
     NeoTreeNormalNC           = { link = 'NeoTreeNormal' },
+    NeoTreeTitleBar           = { fg = spec.bg1, bg = blend(c.blue.base, 0.9) },
     NeoTreeEndOfBuffer        = { fg = (hide_eof and dark_sb) and spec.bg0 or spec.fg0 },
     NeoTreeIndentMarker       = { fg = spec.bg4 },
 

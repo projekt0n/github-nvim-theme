@@ -351,7 +351,7 @@ local specs = {
       -- Specs allow you to define a value using either a color or template. If the string does
       -- start with `#` the string will be used as the path of the palette table. Defining just
       -- a color uses the base version of that color.
-      keyword = 'magenta.base',
+      keyword = 'magenta',
 
       -- Adding either `.bright` will change the value
       conditional = 'magenta.bright',
@@ -382,7 +382,7 @@ local groups = {
     Whitespace = { link = 'Comment' },
 
     -- Specs are used for the template. Specs have their palette's as a field that can be accessed
-    IncSearch = { bg = 'palette.cyan.base' },
+    IncSearch = { bg = 'palette.cyan' },
   },
   github_dark = {
     -- As with specs and palettes, a specific style's value will be used over the `all`'s value.

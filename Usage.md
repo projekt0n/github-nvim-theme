@@ -64,13 +64,13 @@ override.palettes({
 override.specs({
   github_dark = {
     syntax = {
-      keyword = 'magenta.base'
+      keyword = 'magenta'
     }
   }
 })
 override.groups({
   all = {
-    IncSearch = { bg = 'palette.cyan.base' },
+    IncSearch = { bg = 'palette.cyan' },
   },
 })
 ```
@@ -99,13 +99,13 @@ local palettes = {
 local specs = {
   github_dark = {
     syntax = {
-      keyword = 'magenta.base'
+      keyword = 'magenta'
     }
   }
 }
 local groups = {
   all = {
-    IncSearch = { bg = 'palette.cyan.base' },
+    IncSearch = { bg = 'palette.cyan' },
   },
 }
 require('github-theme').setup({
@@ -133,7 +133,7 @@ local specs = {
   github_dark = {
     syntax = {
       -- The value does not start with `#`, so it is treated as a template.
-      keyword = 'magenta.base',
+      keyword = 'magenta',
 
       -- Adding either `.bright` or `.base` will change the value
       conditional = 'magenta.bright',
