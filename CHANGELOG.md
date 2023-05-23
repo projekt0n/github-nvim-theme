@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### What's New?
 
+- Included Airline themes Fixed #20
+- CI: Get and update primer primitives automatically #253
+
 ### Changes
 
 ### Issues Fix
