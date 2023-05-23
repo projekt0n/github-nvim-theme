@@ -1,0 +1,7 @@
+{
+  "name": "github-nvim-theme",
+  "private": true,
+  "dependencies": {
+    "@primer/primitives": "^7.11.10"
+  }
+}
