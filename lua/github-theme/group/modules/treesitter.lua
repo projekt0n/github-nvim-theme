@@ -15,11 +15,11 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
   -- stylua: ignore
   return {
     -- Misc
-    ['@comment']                = { link = 'Comment' },
-    ['@error']                  = { link = 'Error' },
-    ['@preproc']                = { link = 'PreProc' }, -- various preprocessor directives & shebangs
-    ['@define']                 = { link = 'Define' }, -- preprocessor definition directives
-    ['@operator']               = { link = 'Operator' }, -- For any operator: +, but also -> and * in C.
+    -- ['@comment']               = { link = 'Comment' },
+    ['@error']                    = { link = 'Error' },
+    -- ['@preproc']               = { link = 'PreProc' },                             -- Various preprocessor directives & shebangs
+    -- ['@define']                = { link = 'Define' },                              -- Preprocessor definition directives
+    -- ['@operator']              = { link = 'Operator' },                            -- For any operator: +, but also -> and * in C
 
     -- Punctuation
     ['@punctuation.delimiter']  = { fg = syn.bracket }, -- For delimiters ie: .
@@ -27,47 +27,47 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     ['@punctuation.special']    = { fg = syn.builtin2, style = stl.operators }, -- For special punctutation that does not fall in the catagories before.
 
     -- Literals
-    ['@string']                 = { link = 'String' }, -- For strings.
+    -- ['@string']                 = { link = 'String' }, -- For strings.
     ['@string.regex']           = { fg = syn.regex, style = stl.strings }, -- Regular expression literals.
     ['@string.escape']          = { fg = syn.regex, style = 'bold' }, -- Escape characters within a string: `\n`, `\t`, etc.
     ['@string.special']         = { link = 'Special' }, -- other special strings (e.g. dates)
 
-    ['@character']              = { link = 'Character' }, -- character literals
-    ['@character.special']      = { link = 'SpecialChar' }, -- special characters (e.g. wildcards)
+    -- ['@character']              = { link = 'Character' }, -- character literals
+    -- ['@character.special']      = { link = 'SpecialChar' }, -- special characters (e.g. wildcards)
 
-    ['@boolean']                = { link = 'Boolean' }, -- For booleans.
-    ['@number']                 = { link = 'Number' }, -- For all numbers
-    ['@float']                  = { link = 'Number' }, -- For floats.
+    -- ['@boolean']                = { link = 'Boolean' }, -- For booleans.
+    -- ['@number']                 = { link = 'Number' }, -- For all numbers
+    -- ['@float']                  = { link = 'Float' }, -- For floats.
 
     -- Functions
-    ['@function']               = { link = 'Function' }, -- For function (calls and definitions).
+    -- ['@function']               = { link = 'Function' }, -- For function (calls and definitions).
     ['@function.builtin']       = { fg = syn.builtin2, style = stl.functions }, -- For builtin functions: table.insert in Lua.
-    ['@function.call']          = { link = '@function' }, -- function calls
+    -- ['@function.call']          = { link = '@function' }, -- function calls
     ['@function.macro']         = { fg = syn.builtin0, style = stl.functions }, -- For macro defined functions (calls and definitions): each macro_rules in RusC.
-    ['@method']                 = { link = '@function'}, -- For method calls and definitions.
+    -- ['@method']                 = { link = '@function'}, -- For method definitions/declarations.
 
-    ['@method.call']            = { link = '@method' }, -- method calls
+    -- ['@method.call']            = { link = '@method' }, -- method calls
 
     ['@constructor']            = { fg = syn.ident }, -- For constructor calls and definitions: = { } in Lua, and Java constructors.
     ['@parameter']              = { fg = syn.param, stl.variables }, -- For parameters of a function.
 
     -- Keywords
-    ['@keyword']                = { link = 'Keyword' }, -- For keywords that don't fall in previous categories.
+    -- ['@keyword']                = { link = 'Keyword' }, -- For keywords that don't fall in previous categories.
     ['@keyword.function']       = { fg = syn.keyword, style = stl.functions }, -- Keywords used to define a function: `function` in Lua, `def` and `lambda` in Python.
     ['@keyword.operator']       = { fg = syn.operator, style = stl.operators }, -- For new keyword operator
     ['@keyword.return']         = { fg = syn.builtin0, style = stl.keywords },
 
-    ['@conditional']            = { link = 'Conditional' }, -- For keywords related to conditionnals.
-    ['@repeat']                 = { link = 'Repeat' }, -- For keywords related to loops.
-    ['@label']                  = { link = 'Label' }, -- For labels: label: in C and :label: in Lua.
-    ['@include']                = { link = 'Include' }, -- For includes: #include in C, use or extern crate in Rust, or require in Lua.
+    -- ['@conditional']            = { link = 'Conditional' }, -- For keywords related to conditionals.
+    -- ['@repeat']                 = { link = 'Repeat' }, -- For keywords related to loops.
+    -- ['@label']                  = { link = 'Label' }, -- For labels: label: in C and :label: in Lua.
+    -- ['@include']                = { link = 'Include' }, -- For includes: #include in C, use or extern crate in Rust, or require in Lua.
     ['@exception']              = { fg = syn.builtin0, style = stl.keywords }, -- Exception related keywords: `try`, `except`, `finally` in Python.
 
     -- Types
-    ['@type']                   = { link = 'Type' }, -- For types.
+    -- ['@type']                   = { link = 'Type' }, -- For types.
     ['@type.builtin']           = { fg = syn.builtin1, style = stl.types }, -- For builtin types.
-    ['@type.definition']        = { link = '@type' }, -- type definitions (e.g. `typedef` in C)
-    ['@type.qualifier']         = { link = '@type' }, -- type qualifiers (e.g. `const`)
+    -- ['@type.definition']        = { link = '@type' }, -- type definitions (e.g. `typedef` in C)
+    -- ['@type.qualifier']         = { link = '@type' }, -- type qualifiers (e.g. `const`)
 
     ['@storageclass']           = { link = 'StorageClass' }, -- visibility/life-time/etc. modifiers (e.g. `static`)
     ['@attribute']              = { link = 'Constant' }, -- attribute annotations (e.g. Python decorators)
@@ -78,7 +78,7 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     ['@variable']               = { fg = syn.variable, style = stl.variables }, -- Any variable name that does not have another highlighC.
     ['@variable.builtin']       = { fg = syn.builtin0, style = stl.variables }, -- Variable names that are defined by the languages, like this or self.
 
-    ['@constant']               = { link = 'Constant' }, -- For constants
+    -- ['@constant']               = { link = 'Constant' }, -- For constants
     ['@constant.builtin']       = { fg = syn.builtin2, style = stl.keywords }, -- For constant that are built in the language: nil in Lua.
     ['@constant.macro']         = { link = 'Macro' }, -- For constants that are defined by macros: NULL in C.
 
@@ -89,9 +89,9 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     ['@text']                   = { fg = spec.fg1 }, -- For strings considerated text in a markup language.
     ['@text.strong']            = { fg = spec.fg1, style = 'bold' }, -- bold
     ['@text.emphasis']          = { fg = spec.fg1, style = 'italic' }, -- italic
-    ['@text.underline']         = { link = 'Underlined' }, -- underlined text
+    -- ['@text.underline']         = { link = 'Underlined' }, -- underlined text
     ['@text.strike']            = { fg = spec.fg1, style = 'strikethrough' }, -- strikethrough text
-    ['@text.title']             = { link = 'Title'}, -- titles like: # Example
+    -- ['@text.title']             = { link = 'Title'}, -- titles like: # Example
     ['@text.literal']           = { fg = syn.ident, style = 'italic' }, -- used for inline code in markdown and for doc in python (''')
     ['@text.uri']               = { fg = syn.const, style = 'italic,underline' }, -- urls, links and emails
     ['@text.math']              = { fg = syn.func }, -- math environments (e.g. `$ ... $` in LaTeX)

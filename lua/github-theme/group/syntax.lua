@@ -35,16 +35,16 @@ function M.get(spec, config)
     PreCondit      = { link = 'PreProc' }, -- preprocessor #if, #else, #endif, etc.
 
     Type           = { fg = syn.type, style = stl.types }, -- (preferred) int, long, char, etc.
-    StorageClass   = { link = 'Type' }, -- static, register, volatile, etc.
-    Structure      = { link = 'Type' }, -- struct, union, enum, etc.
-    Typedef        = { link = 'Type' }, -- A typedef
+    -- StorageClass   = { link = 'Type' }, -- static, register, volatile, etc.
+    -- Structure      = { link = 'Type' }, -- struct, union, enum, etc.
+    -- Typedef        = { link = 'Type' }, -- A typedef
 
-    Special        = { fg = syn.ident }, -- (preferred) any special symbol
-    SpecialChar    = { link = 'Special' }, -- special character in a constant
-    Tag            = { link = 'Special' }, -- you can use CTRL-] on this
-    Delimiter      = { link = 'Special' }, -- character that needs attention
-    SpecialComment = { link = 'Special' }, -- special things inside a comment
-    Debug          = { link = 'Special' }, -- debugging statements
+    -- Special        = { fg = syn.ident }, -- (preferred) any special symbol
+    -- SpecialChar    = { link = 'Special' }, -- special character in a constant
+    -- Tag            = { link = 'Special' }, -- you can use CTRL-] on this
+    -- Delimiter      = { link = 'Special' }, -- character that needs attention
+    -- SpecialComment = { link = 'Special' }, -- special things inside a comment
+    -- Debug          = { link = 'Special' }, -- debugging statements
 
     Underlined     = { style = 'underline' }, -- (preferred) text that stands out, HTML links
     Bold           = { style = 'bold' },
