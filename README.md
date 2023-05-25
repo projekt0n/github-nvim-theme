@@ -579,6 +579,7 @@ This command will attach an autocmd to the current buffer that executes on `Buff
 - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
 - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+- [vim-airline](https://github.com/vim-airline/vim-airline)
 - [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
 - [which-key.nvim](https://github.com/folke/which-key.nvim)
 
@@ -593,6 +594,10 @@ Set your colorscheme before calling setup.
 vim.cmd('colorscheme github_dark')
 require('lualine').setup({ ... })
 ```
+
+### Airline
+
+Set your airline colorscheme with `:AirlineThemes` vim command.
 
 ## Syntax highlight groups
 
