@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed Interactive mode in compiled colorscheme
 - #254 fixed
 - #257 fixed
+- #261 fixed
 
 ## [v1.0.0] - 19 May 2023
 
