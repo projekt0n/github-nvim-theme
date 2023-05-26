@@ -26,26 +26,26 @@ any option.
 Date: April 23, 2023
 
 The way to override color variables has been updated. You can now use the
-|specs| table to change colors for a specific colorscheme or for all of them
-with the |all| table. To override highlight groups, use the |groups| table in
+`specs` table to change colors for a specific colorscheme or for all of them
+with the `all` table. To override highlight groups, use the `groups` table in
 the configuration.
 
 Some changes have been made to the names of the colorschemes. You can check
 the names of the colorschemes in the "colors" directory in the project root,
-or by using the *:colorscheme* vim command.
+or by using the `:colorscheme` vim command.
 
 The deprecated colorschemes will no longer support any overriding highlight
 groups or color variables. The updated colorscheme list:
 
-- |github_dark_default|      -> |github_dark_high_contrast|
-- |github_dimmed|            -> |github_dark_dimmed|
-- |github_light_default|     -> |github_light_high_contrast|
-- |github_dark_tritanopia|   -> New!
-- |github_light_tritanopia|  -> New!
+- github_dark_default      -> github_dark_high_contrast
+- github_dimmed            -> github_dark_dimmed
+- github_light_default     -> github_light_high_contrast
+- github_dark_tritanopia   -> New!
+- github_light_tritanopia  -> New!
 
 The updated configuration keys are:
-- |colors|    -> Use |specs| and |palettes| instead.
-- |overrides| -> Use |groups| instead.
+- colors                   -> Use `specs` and `palettes` instead.
+- overrides                -> Use `groups` instead.
 
 Example:
 >lua
@@ -93,15 +93,15 @@ Example:
 Date: April 13, 2023
 
 The configuration for defining transparency, darkening windows, floating, and
-hiding elements has been moved to the *options* table.
+hiding elements has been moved to the `options` table.
 
 The updated configuration keys are as follows:
-- |transparent|              -> |options.transparent|
-- |hide_end_of_buffer|       -> |options.hide_end_of_buffer|
-- |hide_inactive_statusline| -> |options.hide_nc_statusline|
-- |dark_float|               -> |options.darken.floats|
-- |dark_sidebar|             -> |options.darken.sidebars.enable|
-- |sidebars|                 -> |options.darken.sidebars.list|
+- transparent              -> options.transparent
+- hide_end_of_buffer       -> options.hide_end_of_buffer
+- hide_inactive_statusline -> options.hide_nc_statusline
+- dark_float               -> options.darken.floats
+- dark_sidebar             -> options.darken.sidebars.enable
+- sidebars                 -> options.darken.sidebars.list
 
 
 
@@ -109,15 +109,15 @@ The updated configuration keys are as follows:
 
 Date: April 12, 2023
 
-The configuration for defining styles has been migrated to *options.styles*.
-As part of this migration, *msg_area_style* has been removed.
+The configuration for defining styles has been migrated to `options.styles`.
+As part of this migration, `msg_area_style` has been removed.
 
 Here is the updated config keys:
-- |comment_style| -> |options.styles.comments|
-- |function_style| -> |options.styles.functions|
-- |keyword_style| -> |options.styles.keywords|
-- |variable_style| -> |options.styles.variables|
-- |msg_area_style| -> Removed.
+- comment_style            -> options.styles.comments
+- function_style           -> options.styles.functions
+- keyword_style            -> options.styles.keywords
+- variable_style           -> options.styles.variables
+- msg_area_style           -> Removed.
 
 
 
@@ -130,8 +130,9 @@ process of setting the colorscheme has been changed, It is important to note
 that the configuration may undergo further changes in the future, and will be
 described in the latest changelogs and documentation.
 
-Additionally, the currently used colorscheme palettes within the *palette*
-module have been given the prefix |'github_'|.
+Additionally, the currently used colorscheme palettes within the
+`github-theme.palette.*` module have been given the prefix
+`github-theme.palette.github_*`.
 
 Old approach for setting the theme:
 >lua
@@ -158,12 +159,12 @@ New approach for setting the theme:
 Date: April 06, 2023
 
 The secondary method of assigning configuration variables using
-|'vim.g.github_*'| is now considered deprecated. Instead, it is recommended to
-use the |'require("github-theme").setup({...})'| function to assign
+`'vim.g.github_*'` is now considered deprecated. Instead, it is recommended to
+use the `'require("github-theme").setup({...})'` function to assign
 configurations.
 
 Any references to the deprecated modules and options can be found in the
-documentation located at `:h gt_deprecated.txt`.
+documentation located at `:h github-theme.deprecated`.
 
 
 
@@ -174,14 +175,14 @@ Date: January 03, 2023
 PR: https://github.com/projekt0n/github-nvim-theme/pull/222
 
 I (ful1e5) wanted to let you know that we now have support for new treesitter
-highlighting groups, thanks to a contribution from |@luisiacc|. If you are
+highlighting groups, thanks to a contribution from `@luisiacc`. If you are
 using an older version of treesitter, please switch to the `v0.7` release tag,
 which is the last version for you to take advantage of the old treesitter
 highlights. We will continue to develop and support these new highlighting
 groups going forward.
 
 In addition, I am planning a major refactor of the codebase to make it
-compatible with |Neovim-0.9| and will be starting a discussion on GitHub soon.
+compatible with `Neovim-0.9` and will be starting a discussion on GitHub soon.
 To ensure that the community is aware of any major changes before they are
 implemented, I will provide advance warning before any potentially breaking
 changes are pushed to upstream.
@@ -202,6 +203,7 @@ URL: https://github.com/projekt0n/github-theme-contrib
                                                 *github-theme.changelog-13122021*
 
 Date: December 13, 2021
+
 PR: https://github.com/projekt0n/github-nvim-theme/pull/148
 
 This small change is made for differentiate the inactive Statusline and
@@ -209,10 +211,10 @@ tabline from the background.
 
 A list of changes that have been made:
 
-- Minimal look deprecated for |lualine|. This deprecation is related to
+- Minimal look deprecated for `lualine` plugin. This deprecation is related to
   `hide_inactive_statusline` option. This means the theme will not force the
-  |underline| style to inactive lualine.
-- Native lualine theme support terminal highlights |terminal-config|
+  `underline` style to inactive lualine.
+- Native lualine theme support terminal highlights `terminal-config`
 - Inactive tabline highlights got enhanced.
 
 
