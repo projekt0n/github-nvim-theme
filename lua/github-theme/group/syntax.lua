@@ -4,6 +4,30 @@ function M.get(spec, config)
   local syn = spec.syntax
   local stl = config.styles
 
+  ---Clears nvim's default highlighting for a highlight-group and allows
+  ---falling-back to another hl-group when multiple highlights/groups are
+  ---assigned/stacked at a particular screen position. This is just an empty
+  ---table.
+  ---
+  ---NOTE: assigning this to a group is different from explicitly setting a
+  ---group's foreground color to the global/default foreground color. When
+  ---multiple highlights are stacked/assigned to the same screen position, this
+  ---will allow the other highlights/groups to take effect, whereas explicitly
+  ---setting a hl-group's `fg` will not.
+  ---
+  ---|                           Setting                            | Fallback |
+  ---| ------------------------------------------------------------ | -------- |
+  ---| `GROUP = FALLBACK_OR_NONE` (i.e. set to this variable) (Lua) |   true   |
+  ---| Link to `@none`, `Fg`, or `NONE`                             |   true   |
+  ---| `GROUP = { fg = DEFAULT_FG }` (Lua)                          |   false  |
+  ---| `hi! clear GROUP` (Vim command)                              |   false  |
+  ---| `hi! GROUP NONE` (Vim command)                               |   false  |
+  local FALLBACK_OR_NONE = setmetatable({}, {
+    __newindex = function()
+      error('attempt to set index of readonly table', 2)
+    end,
+  })
+
   -- TODO:
   -- (1) add Commented style settings in config module
   -- stylua: ignore
@@ -39,6 +63,7 @@ function M.get(spec, config)
     -- Structure      = { link = 'Type' }, -- struct, union, enum, etc.
     -- Typedef        = { link = 'Type' }, -- A typedef
 
+    Special        = { fg = spec.fg1 }, -- (preferred) any special symbol
     -- Special        = { fg = syn.ident }, -- (preferred) any special symbol
     -- SpecialChar    = { link = 'Special' }, -- special character in a constant
     -- Tag            = { link = 'Special' }, -- you can use CTRL-] on this

@@ -1,12 +1,45 @@
 local M = {}
 
 function M.get(spec, config, opts)
+  -- TODO: Consider refactoring this out once the primitives are finished
+  --       being integrated.
+  local primitives = require(
+    'github-theme.palette.primitives.'
+      .. require('github-theme.config').theme:gsub('^github%W*', '', 1)
+  )
+
+  local pl = primitives.prettylights
   local syn = spec.syntax
   local stl = config.styles
   local P = spec.palette
 
+  ---Clears nvim's default highlighting for a highlight-group and allows
+  ---falling-back to another hl-group when multiple highlights/groups are
+  ---assigned/stacked at a particular screen position. This is just an empty
+  ---table.
+  ---
+  ---NOTE: assigning this to a group is different from explicitly setting a
+  ---group's foreground color to the global/default foreground color. When
+  ---multiple highlights are stacked/assigned to the same screen position, this
+  ---will allow the other highlights/groups to take effect, whereas explicitly
+  ---setting a hl-group's `fg` will not.
+  ---
+  ---|                           Setting                            | Fallback |
+  ---| ------------------------------------------------------------ | -------- |
+  ---| `GROUP = FALLBACK_OR_NONE` (i.e. set to this variable) (Lua) |   true   |
+  ---| Link to `@none`, `Fg`, or `NONE`                             |   true   |
+  ---| `GROUP = { fg = DEFAULT_FG }` (Lua)                          |   false  |
+  ---| `hi! clear GROUP` (Vim command)                              |   false  |
+  ---| `hi! GROUP NONE` (Vim command)                               |   false  |
+  local FALLBACK_OR_NONE = setmetatable({}, {
+    __newindex = function()
+      error('attempt to set index of readonly table', 2)
+    end,
+  })
+
   if vim.treesitter.highlighter.hl_map then
-    require('github-theme.lib.log').warn([[nvim-treesitter integration requires neovim 0.8
+    require('github-theme.lib.log').warn([[
+nvim-treesitter integration requires neovim 0.8
 If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch.
 ]])
     return {}
@@ -22,97 +55,96 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     -- ['@operator']              = { link = 'Operator' },                            -- For any operator: +, but also -> and * in C
 
     -- Punctuation
-    ['@punctuation.delimiter']  = { fg = syn.bracket }, -- For delimiters ie: .
-    ['@punctuation.bracket']    = { fg = syn.bracket }, -- For brackets and parenthesis.
-    ['@punctuation.special']    = { fg = syn.builtin2, style = stl.operators }, -- For special punctutation that does not fall in the catagories before.
+    -- ['@punctuation.delimiter'] = { fg = syn.bracket },                             -- For delimiters (e.g. `.`)
+    ['@punctuation.bracket']      = { fg = syn.bracket },                             -- For brackets and parenthesis
+    ['@punctuation.special']      = { fg = syn.builtin2, style = stl.operators },     -- For special punctutation that does not fall in the catagories before
 
     -- Literals
-    -- ['@string']                 = { link = 'String' }, -- For strings.
-    ['@string.regex']           = { fg = syn.regex, style = stl.strings }, -- Regular expression literals.
-    ['@string.escape']          = { fg = syn.regex, style = 'bold' }, -- Escape characters within a string: `\n`, `\t`, etc.
-    ['@string.special']         = { link = 'Special' }, -- other special strings (e.g. dates)
+    -- ['@string']                = { link = 'String' },                              -- For strings
+    ['@string.regex']             = { fg = syn.regex, style = stl.strings },          -- Regular expression literals
+    ['@string.escape']            = { fg = syn.regex, style = 'bold' },               -- Escape characters within a string: `\n`, `\t`, etc.
+    ['@string.special']           = { link = 'Special' },                             -- Other special strings (e.g. dates)
 
-    -- ['@character']              = { link = 'Character' }, -- character literals
-    -- ['@character.special']      = { link = 'SpecialChar' }, -- special characters (e.g. wildcards)
+    -- ['@character']             = { link = 'Character' },                           -- character literals
+    -- ['@character.special']     = { link = 'SpecialChar' },                         -- special characters (e.g. wildcards)
 
-    -- ['@boolean']                = { link = 'Boolean' }, -- For booleans.
-    -- ['@number']                 = { link = 'Number' }, -- For all numbers
-    -- ['@float']                  = { link = 'Float' }, -- For floats.
+    -- ['@boolean']               = { link = 'Boolean' },                             -- For booleans
+    -- ['@number']                = { link = 'Number' },                              -- For all numbers
+    -- ['@float']                 = { link = 'Float' },                               -- For floats
 
     -- Functions
-    -- ['@function']               = { link = 'Function' }, -- For function (calls and definitions).
-    ['@function.builtin']       = { fg = syn.builtin2, style = stl.functions }, -- For builtin functions: table.insert in Lua.
-    -- ['@function.call']          = { link = '@function' }, -- function calls
-    ['@function.macro']         = { fg = syn.builtin0, style = stl.functions }, -- For macro defined functions (calls and definitions): each macro_rules in RusC.
-    -- ['@method']                 = { link = '@function'}, -- For method definitions/declarations.
+    -- ['@function']              = { link = 'Function' },                            -- For function (calls and definitions)
+    ['@function.builtin']         = FALLBACK_OR_NONE,                                 -- For builtin functions: table.insert in Lua
+    -- ['@function.call']         = { link = '@function' },                           -- Function calls
+    -- ['@function.macro']        = { fg = syn.builtin0, style = stl.functions },     -- Macro functions (calls & defs): macro_rules!, println!()
+    -- ['@method']                = { link = '@function'},                            -- For method definitions/declarations
+    -- ['@method.call']           = { link = '@method' },                             -- Method calls
 
-    -- ['@method.call']            = { link = '@method' }, -- method calls
-
-    ['@constructor']            = { fg = syn.ident }, -- For constructor calls and definitions: = { } in Lua, and Java constructors.
-    ['@parameter']              = { fg = syn.param, stl.variables }, -- For parameters of a function.
+    ['@constructor']              = { fg = pl.syntax.variable},                       -- Constructor calls & defs: {} in Lua, new Type() (js/php), constructor() {}
+    ['@parameter']                = { fg = syn.param, stl.variables },                -- For parameters of a function
 
     -- Keywords
-    -- ['@keyword']                = { link = 'Keyword' }, -- For keywords that don't fall in previous categories.
-    ['@keyword.function']       = { fg = syn.keyword, style = stl.functions }, -- Keywords used to define a function: `function` in Lua, `def` and `lambda` in Python.
-    ['@keyword.operator']       = { fg = syn.operator, style = stl.operators }, -- For new keyword operator
-    ['@keyword.return']         = { fg = syn.builtin0, style = stl.keywords },
+    -- ['@keyword']               = { link = 'Keyword' },                             -- For keywords that don't fall in previous categories
+    ['@keyword.function']         = { fg = syn.keyword, style = stl.functions },      -- Keywords used to def a fn: `function` in Lua, `def` & `lambda` in Python
+    ['@keyword.operator']         = { fg = syn.keyword, style = stl.operators },      -- For `new` keyword operator, `sizeof`, etc.
+    -- ['@keyword.return']        = { fg = syn.keyword, style = stl.keywords },
 
-    -- ['@conditional']            = { link = 'Conditional' }, -- For keywords related to conditionals.
-    -- ['@repeat']                 = { link = 'Repeat' }, -- For keywords related to loops.
-    -- ['@label']                  = { link = 'Label' }, -- For labels: label: in C and :label: in Lua.
-    -- ['@include']                = { link = 'Include' }, -- For includes: #include in C, use or extern crate in Rust, or require in Lua.
-    ['@exception']              = { fg = syn.builtin0, style = stl.keywords }, -- Exception related keywords: `try`, `except`, `finally` in Python.
+    -- ['@conditional']           = { link = 'Conditional' },                         -- For keywords related to conditionals.
+    -- ['@repeat']                = { link = 'Repeat' },                              -- For keywords related to loops.
+    -- ['@label']                 = { link = 'Label' },                               -- For labels: label: in C and :label: in Lua.
+    -- ['@include']               = { link = 'Include' },                             -- For includes: #include in C, use or extern crate in Rust, Lua require
+    ['@exception']                = { fg = syn.builtin0, style = stl.keywords },      -- Exception related keywords: `try`, `except`, `finally` in Python
 
     -- Types
-    -- ['@type']                   = { link = 'Type' }, -- For types.
-    ['@type.builtin']           = { fg = syn.builtin1, style = stl.types }, -- For builtin types.
-    -- ['@type.definition']        = { link = '@type' }, -- type definitions (e.g. `typedef` in C)
-    -- ['@type.qualifier']         = { link = '@type' }, -- type qualifiers (e.g. `const`)
+    ['@type']                     = { fg = syn.type },                                -- For custom/user/non-builtin types
+    ['@type.builtin']             = { fg = syn.builtin1, style = stl.types },         -- For builtin types
+    -- ['@type.definition']       = { link = '@type' },                               -- type definitions (e.g. `typedef` in C)
+    ['@type.qualifier']           = { fg = syn.keyword },                             -- type qualifiers (e.g. `const`, css's `!important`)
 
-    ['@storageclass']           = { link = 'StorageClass' }, -- visibility/life-time/etc. modifiers (e.g. `static`)
-    ['@attribute']              = { link = 'Constant' }, -- attribute annotations (e.g. Python decorators)
-    ['@field']                  = { fg = syn.field }, -- For fields.
-    ['@property']               = { link = '@field' }, -- Same as @field.
+    -- ['@storageclass']          = { link = 'StorageClass' },                        -- Visibility/life-time/etc. modifiers (e.g. `static`)
+    ['@attribute']                = { link = 'Constant' },                            -- Attribute annotations (e.g. Python decorators)
+    ['@field']                    = { fg = syn.field },                               -- For fields
+    ['@property']                 = { link = '@field' },                              -- Same as @field
 
     -- Identifiers
-    ['@variable']               = { fg = syn.variable, style = stl.variables }, -- Any variable name that does not have another highlighC.
-    ['@variable.builtin']       = { fg = syn.builtin0, style = stl.variables }, -- Variable names that are defined by the languages, like this or self.
+    ['@variable']                 = { fg = syn.variable, style = stl.variables },     -- Any variable name that does not have another highlighC.
+    ['@variable.builtin']         = { fg = syn.builtin0, style = stl.variables },     -- Var names defined by the language: this, self, super
 
-    -- ['@constant']               = { link = 'Constant' }, -- For constants
-    ['@constant.builtin']       = { fg = syn.builtin2, style = stl.keywords }, -- For constant that are built in the language: nil in Lua.
-    ['@constant.macro']         = { link = 'Macro' }, -- For constants that are defined by macros: NULL in C.
+    -- ['@constant']              = { link = 'Constant' },                            -- For constants
+    ['@constant.builtin']         = { fg = syn.builtin2, style = stl.keywords },      -- For constant that are built in the language: nil in Lua
+    ['@constant.macro']           = { link = 'Macro' },                               -- For constants that are defined by macros: NULL in C
 
-    ['@namespace']              = { fg = syn.builtin1 }, -- For identifiers referring to modules and namespaces.
-    ['@symbol']                 = { fg = syn.preproc },
+    ['@namespace']                = { fg = syn.builtin1 },                            -- For identifiers referring to modules and namespaces
+    ['@symbol']                   = { fg = syn.preproc },
 
     -- Text
-    ['@text']                   = { fg = spec.fg1 }, -- For strings considerated text in a markup language.
-    ['@text.strong']            = { fg = spec.fg1, style = 'bold' }, -- bold
-    ['@text.emphasis']          = { fg = spec.fg1, style = 'italic' }, -- italic
-    -- ['@text.underline']         = { link = 'Underlined' }, -- underlined text
-    ['@text.strike']            = { fg = spec.fg1, style = 'strikethrough' }, -- strikethrough text
-    -- ['@text.title']             = { link = 'Title'}, -- titles like: # Example
-    ['@text.literal']           = { fg = syn.ident, style = 'italic' }, -- used for inline code in markdown and for doc in python (''')
-    ['@text.uri']               = { fg = syn.const, style = 'italic,underline' }, -- urls, links and emails
-    ['@text.math']              = { fg = syn.func }, -- math environments (e.g. `$ ... $` in LaTeX)
-    ['@text.environment']       = { fg = syn.preproc }, -- text environments of markup languages
-    ['@text.environment.name']  = { fg = syn.func }, -- text indicating the type of an environment
-    ['@text.reference']         = { fg = spec.fg1, style = 'underline' }, -- references
+    ['@text']                     = { fg = spec.fg1 },                                -- For strings considerated text in a markup language
+    ['@text.strong']              = { fg = spec.fg1, style = 'bold' },                -- Bold
+    ['@text.emphasis']            = { fg = spec.fg1, style = 'italic' },              -- Italic
+    -- ['@text.underline']        = { link = 'Underlined' },                          -- Underlined text
+    ['@text.strike']              = { fg = spec.fg1, style = 'strikethrough' },       -- Strikethrough text
+    -- ['@text.title']            = { link = 'Title'},                                -- Titles like: # Example
+    ['@text.literal']             = { fg = syn.ident, style = 'italic' },             -- Used for inline code in markdown and for doc in python (''')
+    ['@text.uri']                 = { fg = syn.const, style = 'italic,underline' },   -- Urls, links and emails
+    ['@text.math']                = { fg = syn.func },                                -- Math environments (e.g. `$ ... $` in LaTeX)
+    ['@text.environment']         = { fg = syn.preproc },                             -- Text environments of markup languages
+    ['@text.environment.name']    = { fg = syn.func },                                -- Text indicating the type of an environment
+    ['@text.reference']           = { fg = spec.fg1, style = 'underline' },           -- References
 
-    ['@text.todo']              = { fg = spec.bg1, bg = spec.diag.hint }, -- todo notes
-    ['@text.note']              = { fg = spec.bg1, bg = spec.diag.info },
-    ['@text.warning']           = { fg = spec.bg1, bg = spec.diag.warn },
-    ['@text.danger']            = { fg = spec.bg1, bg = spec.diag.error },
-    ['@text.todo.unchecked']    = { fg = spec.fg3 }, -- For brackets and parens.
-    ['@text.todo.checked']      = { fg = P.green.base }, -- For brackets and parens.
+    ['@text.todo']                = { fg = spec.bg1, bg = spec.diag.hint },           -- Todo notes
+    ['@text.note']                = { fg = spec.bg1, bg = spec.diag.info },
+    ['@text.warning']             = { fg = spec.bg1, bg = spec.diag.warn },
+    ['@text.danger']              = { fg = spec.bg1, bg = spec.diag.error },
+    ['@text.todo.unchecked']      = { fg = spec.fg3 },                                -- For brackets and parens
+    ['@text.todo.checked']        = { fg = P.green.base },                            -- For brackets and parens
 
-    ['@text.diff.add']          = { link = 'diffAdded' }, -- added text (for diff files)
-    ['@text.diff.delete']       = { link = 'diffRemoved' }, -- deleted text (for diff files)
+    ['@text.diff.add']            = { link = 'diffAdded' },                           -- Added text (for diff files)
+    ['@text.diff.delete']         = { link = 'diffRemoved' },                         -- Deleted text (for diff files)
 
     -- Tags
-    ['@tag']                    = { fg = syn.tag }, -- Tags like html tag names.
-    ['@tag.attribute']          = { fg = syn.func, style = 'italic' }, -- Tags like html tag names.
-    ['@tag.delimiter']          = { fg = syn.tag }, -- Tag delimiter like < > /
+    ['@tag']                      = { fg = syn.tag },                                 -- Tags like html tag names
+    ['@tag.attribute']            = { link = '@field' },                              -- Tag attributes (e.g. HTML element attributes)
+    ['@tag.delimiter']            = FALLBACK_OR_NONE,                                 -- Tag delimiter like `<`, `>`, `/`, etc.
 
     -- Language specific -------------------------------------------------------
 
@@ -121,40 +153,57 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     ['@label.c']                                = { fg = spec.variable },
 
     -- CSS
-    ['@property.css']                           = { link = '@constant' },
+    -- ['@property.css']                        = { link = '@constant' },
     ['@type.css']                               = { link = 'htmlTag' },
 
     -- C_sharp
-    ['@type.c_sharp']                           = { link = '@function' },
+    -- ['@type.c_sharp']                        = { link = '@function' },
+    ['@namespace.c_sharp']                      = { fg = pl.syntax.variable },
 
     -- Go
-    ['@function.call.go']                       = { link = '@constant' },
-    ['@function.go']                            = { link = '@field' },
-    ['@method.call.go']                         = { link = '@constant' },
-    ['@namespace.go']                           = { link = '@field' },
+    -- ['@function.call.go']                    = { link = '@constant' },
+    -- ['@function.go']                         = { link = '@field' },
+    -- ['@method.call.go']                      = { link = '@constant' },
+    ['@namespace.go']                           = FALLBACK_OR_NONE,
 
     -- Html
     ['@text.title.html']                        = { fg = spec.fg1 },
     ['@constant.html']                          = { link = '@tag' },
 
     -- Java
-    ['@type.java']                              = { link = '@function' },
+    -- ['@type.java']                           = { link = '@function' },
 
     -- JavaScript
-    ['@property.javascript']                    = { link = '@variable' },
-    ['@type.javascript']                        = { link = '@variable' },
-    ['@variable.builtin.javascript']            = { link = '@constant' },
-    ['@variable.javascript']                    = { link = '@constant' },
+    -- ['@constructor.ecma']                    = { link = '@method' },
+    -- ['@property.javascript']                 = { link = '@variable' },
+    -- ['@type.ecma']                           = { fg = pl.syntax.variable },
+    -- ['@variable.builtin.javascript']         = { link = '@constant' },
+    -- ['@operator.ecma']                       = { fg = spec.const, style = stl.operators },
+    -- ['@variable.javascript']                 = { link = '@constant' },
+
+    -- JSX/TSX
+    ['@tag.javascript']                         = FALLBACK_OR_NONE,
+    ['@tag.tsx']                                = FALLBACK_OR_NONE,
+    ['@tag.delimiter.javascript']               = { link = '@tag.attribute.javascript' },
+    ['@tag.delimiter.tsx']                      = { link = '@tag.attribute.tsx' },
 
     -- Json
-    ['@label.json']                             = { link = '@constant' },
+    ['@label.json']                             = { link = '@tag' },
 
     -- Lua
     ['@lsp.type.variable.lua']                  = { fg = spec.variable },
+    ['@constructor.lua']                        = FALLBACK_OR_NONE,                            -- {}
+    ['@operator.lua']                           = { fg = syn.keyword, style = stl.operators },
+    ['@field.lua']                              = { fg = syn.variable },
+    ['@function.call.lua']                      = { fg = syn.const },
+    ['@method.call.lua']                        = { link = '@function.call.lua' },
+    ['@namespace.builtin.lua']                  = { fg = syn.const },                          -- `table`, `io`, `_G`
+    ['@label.lua']                              = { fg = syn.const },                          -- the `LABEL` in `::LABEL::` and `goto LABEL`
 
     -- Make
-    ['@operator.make']                          = { link = '@constant' },
+    -- ['@operator.make']                       = { link = '@constant' },
     ['@symbol.make']                            = { link = '@function' },
+    ['@function.builtin.make']                  = { link = '@constant' },
 
     -- Markdown
     ['@punctuation.delimiter.markdown']         = { fg = spec.fg1 },
@@ -162,25 +211,25 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     ['@text.quote.markdown']                    = { fg = syn.tag },
 
     -- PHP
-    ['@type.php']                               = { link = '@function' },
+    -- ['@type.php']                            = { link = '@function' },
+    ['@namespace.php']                          = { link = '@constructor.php' },
 
     -- Python
     ['@field.python']                           = { fg = syn.fg1 },
-    ['@function.call.python']                   = { fg = syn.fg1 },
-    ['@keyword.python']                         = { link = '@constant' },
-    ['@method.call.python']                     = { fg = syn.fg1 },
+    -- ['@keyword.python']                      = { link = '@constant' },
     ['@type.builtin.python']                    = { link = '@constant' },
-    ['@type.python']                            = { link = '@function' },
+    -- ['@type.python']                         = { link = '@function' },
     ['@variable.builtin.python']                = { link = '@constant' },
 
     -- Ruby
-    ['@function.call.ruby']                     = { link = '@constant' },
-    ['@label.ruby']                             = { link = '@variable' },
+    ['@label.ruby']                             = { fg = syn.const },
     ['@symbol.ruby']                            = { link = '@constant' },
-    ['@type.ruby']                              = { link = '@function' },
 
     -- Rust
-    ['@field.rust']                             = { fg = spec.fg2 },
+    -- ['@field.rust']                          = { fg = spec.fg2 },
+    ['@constant.builtin.rust']                  = { fg = pl.syntax.variable },
+    ['@namespace.rust']                         = FALLBACK_OR_NONE,
+    ['@preproc.rust']                           = { fg = syn.const },
 
     -- SCSS
     ['@property.scss']                          = { link = '@constant' },
@@ -192,11 +241,14 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     ['@variable.sql']                           = { link = '@constant' },
 
     -- TypeScript
-    ['@constructor.typescript']                 = { link = '@function' },
-    ['@property.typescript']                    = { link = '@variable' },
-    ['@type.typescript']                        = { link = '@function' },
-    ['@variable.builtin.typescript']            = { link = '@constant' },
-    ['@variable.typescript']                    = { link = '@constant' },
+    -- ['@constructor.typescript']              = { link = '@function' },
+    -- ['@property.typescript']                 = { link = '@variable' },
+    -- ['@type.typescript']                     = { link = '@function' },
+    -- ['@variable.builtin.typescript']         = { link = '@constant' },
+    -- ['@variable.typescript']                 = { link = '@constant' },
+
+    -- VimDoc
+    ['@parameter.vimdoc']                       = { fg = pl.syntax.variable },
 
     -- Yaml
     ['@field.yaml']                             = { link = '@tag' },

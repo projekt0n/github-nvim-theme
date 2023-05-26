@@ -5,6 +5,11 @@ local meta = {
   light = false,
 }
 
+local primitives =
+  require('github-theme.palette.primitives.' .. meta.name:gsub('^github%W*', '', 1))
+
+local pl = primitives.prettylights
+
 ---Github Dark scale variables
 ---source: https://github.com/primer/primitives/blob/main/data/colors/themes/dark.ts
 -- stylua: ignore
@@ -192,18 +197,18 @@ local function generate_spec(pal)
     conditional = pal.scale.red[4],                  -- Conditional and loop
     const       = pal.scale.blue[3],                 -- Constants, imports and booleans
     dep         = pal.scale.red[3],                  -- Deprecated
-    field       = pal.scale.purple[3],               -- Field
+    field       = pl.syntax.constant,                -- Field
     func        = pal.scale.purple[2],               -- Functions and Titles
     ident       = pal.scale.blue[3],                 -- Identifiers
     keyword     = pal.scale.red[4],                  -- Keywords
     number      = pal.scale.blue[3],                 -- Numbers
-    operator    = pal.scale.red[4],                  -- Operators
-    param       = pal.scale.green[2],                -- Parameters
+    operator    = pl.syntax.constant,                -- Operators
+    param       = spec.fg1,                          -- Parameters
     preproc     = pal.scale.red[4],                  -- PreProc
     regex       = pal.scale.blue[3],                 -- Regex
     statement   = pal.scale.red[4],                  -- Statements
     string      = pal.scale.blue[2],                 -- Strings
-    type        = pal.scale.red[4],                  -- Types
+    type        = pl.syntax.variable,                -- Types
     tag         = pal.scale.green[2],                -- Tags
     variable    = spec.fg1,                          -- Variables
   }
@@ -241,4 +246,9 @@ local function generate_spec(pal)
   return spec
 end
 
-return { meta = meta, palette = palette, generate_spec = generate_spec }
+return {
+  meta = meta,
+  primitives = primitives,
+  palette = palette,
+  generate_spec = generate_spec,
+}

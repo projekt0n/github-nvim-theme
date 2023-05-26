@@ -5,6 +5,11 @@ local meta = {
   light = true,
 }
 
+local primitives =
+  require('github-theme.palette.primitives.' .. meta.name:gsub('^github%W*', '', 1))
+
+local pl = primitives.prettylights
+
 ---Github Light scale variables
 ---source: https://github.com/primer/primitives/blob/main/data/colors/themes/light_colorblind.ts
 -- stylua: ignore
@@ -193,18 +198,18 @@ local function generate_spec(pal)
     conditional = pal.scale.red[6],                     -- Conditional and loop
     const       = pal.scale.blue[6],                    -- Constants, imports and booleans
     dep         = pal.scale.red[8],                     -- Deprecated
-    field       = pal.scale.orange[8],                  -- Field
+    field       = pl.syntax.constant,                   -- Field
     func        = pal.scale.purple[6],                  -- Functions and Titles
     ident       = pal.scale.blue[9],                    -- Identifiers
     keyword     = pal.scale.red[6],                     -- Keywords
     number      = pal.scale.blue[7],                    -- Numbers
-    operator    = pal.scale.red[6],                     -- Operators
-    param       = pal.scale.orange[5],                  -- PreProc
+    operator    = pl.syntax.constant,                   -- Operators
+    param       = spec.fg1,                             -- Parameters
     preproc     = pal.scale.red[6],                     -- PreProc
     regex       = pal.scale.blue[9],                    -- Regex
     statement   = pal.scale.red[6],                     -- Statements
     string      = pal.scale.blue[8],                    -- Strings
-    type        = pal.scale.orange[5],                  -- Types
+    type        = pl.syntax.variable,                   -- Types
     tag         = pal.scale.green[6],                   -- Tags
     variable    = spec.fg1,                             -- Variables
   }
@@ -242,4 +247,9 @@ local function generate_spec(pal)
   return spec
 end
 
-return { meta = meta, palette = palette, generate_spec = generate_spec }
+return {
+  meta = meta,
+  primitives = primitives,
+  palette = palette,
+  generate_spec = generate_spec,
+}

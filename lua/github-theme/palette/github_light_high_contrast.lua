@@ -5,6 +5,11 @@ local meta = {
   light = true,
 }
 
+local primitives =
+  require('github-theme.palette.primitives.' .. meta.name:gsub('^github%W*', '', 1))
+
+local pl = primitives.prettylights
+
 ---Github Light High Contrast scale variables
 ---source: https://github.com/primer/primitives/blob/main/data/colors/themes/light_high_contrast.ts
 -- stylua: ignore
@@ -168,20 +173,20 @@ local palette = {
 local function generate_spec(pal)
   -- stylua: ignore start
   local spec = {
-    bg0  = pal.canvas.inset,                        -- Dark bg (popup and float)
-    bg1  = pal.canvas.default,                      -- Default bg
-    bg2  = alpha(C(pal.neutral.emphasis), 0.1),     -- Lighter bg (colorcolumn Folds)
-    bg3  = pal.scale.gray[2],                       -- Lighter bg (cursor line)
-    bg4  = pal.border.default,                      -- Conceal
+    bg0  = pal.canvas.inset,                            -- Dark bg (popup and float)
+    bg1  = pal.canvas.default,                          -- Default bg
+    bg2  = alpha(C(pal.neutral.emphasis), 0.1),         -- Lighter bg (colorcolumn Folds)
+    bg3  = pal.scale.gray[2],                           -- Lighter bg (cursor line)
+    bg4  = pal.border.default,                          -- Conceal
 
-    fg0  = pal.fg.subtle,                           -- Lighter fg
-    fg1  = pal.fg.default,                          -- Default fg
+    fg0  = pal.fg.subtle,                               -- Lighter fg
+    fg1  = pal.fg.default,                              -- Default fg
     fg2  = pal.scale.gray[9],                           -- Darker fg (status line)
-    fg3  = pal.scale.gray[7],                       -- Darker fg (line numbers, fold columns)
+    fg3  = pal.scale.gray[7],                           -- Darker fg (line numbers, fold columns)
 
-    sel0 = alpha(C(pal.accent.fg), 0.2),            -- Visual selection bg
-    sel1 = alpha(C(pal.accent.muted), 0.90),        -- Popup sel bg
-    sel2 = alpha(C(pal.attention.emphasis), 0.3)    -- Search bg
+    sel0 = alpha(C(pal.accent.fg), 0.2),                -- Visual selection bg
+    sel1 = alpha(C(pal.accent.muted), 0.90),            -- Popup sel bg
+    sel2 = alpha(C(pal.attention.emphasis), 0.3)        -- Search bg
   }
 
   spec.syntax = {
@@ -193,18 +198,18 @@ local function generate_spec(pal)
     conditional = pal.scale.red[6],                     -- Conditional and loop
     const       = pal.scale.blue[6],                    -- Constants, imports and booleans
     dep         = pal.scale.red[8],                     -- Deprecated
-    field       = spec.fg1,                             -- Field
+    field       = pl.syntax.constant,                   -- Field
     func        = pal.scale.purple[6],                  -- Functions and Titles
     ident       = pal.scale.blue[9],                    -- Identifiers
     keyword     = pal.scale.red[6],                     -- Keywords
     number      = pal.scale.blue[7],                    -- Numbers
-    operator    = pal.scale.red[6],                     -- Operators
-    param       = pal.scale.orange[5],                  -- PreProc
+    operator    = pl.syntax.constant,                   -- Operators
+    param       = spec.fg1,                             -- Parameters
     preproc     = pal.scale.red[6],                     -- PreProc
     regex       = pal.scale.blue[9],                    -- Regex
     statement   = pal.scale.red[6],                     -- Statements
     string      = pal.scale.blue[8],                    -- Strings
-    type        = pal.scale.red[6],                     -- Types
+    type        = pl.syntax.variable,                   -- Types
     tag         = pal.scale.green[6],                   -- Tags
     variable    = spec.fg1,                             -- Variables
   }
@@ -242,4 +247,9 @@ local function generate_spec(pal)
   return spec
 end
 
-return { meta = meta, palette = palette, generate_spec = generate_spec }
+return {
+  meta = meta,
+  primitives = primitives,
+  palette = palette,
+  generate_spec = generate_spec,
+}
