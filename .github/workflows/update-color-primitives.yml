@@ -20,7 +20,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: lts
+          node-version: 'lts/*'
           check-latest: true
 
       - run: npm i @primer/primitives@latest
