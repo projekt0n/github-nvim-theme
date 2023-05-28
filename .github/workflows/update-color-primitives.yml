@@ -48,7 +48,11 @@ jobs:
           EOF
           done
 
-      - run: make fmt
+      - uses: JohnnyMorganz/stylua-action@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          version: latest
+          args: -f stylua.toml --verify -- '${{ _DEST_DIR }}'
 
       - uses: peter-evans/create-pull-request@v5
         with:
