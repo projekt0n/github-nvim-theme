@@ -148,6 +148,15 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
 
     -- Language specific -------------------------------------------------------
 
+    -- Bash
+    ['@operator.bash']                          = { fg = syn.keyword, style = stl.operators },
+    ['@function.builtin.bash']                  = { fg = syn.keyword },                        -- Invocations of builtin commands/functions
+    ['@function.call.bash']                     = { fg = syn.const },
+    ['@number.bash']                            = FALLBACK_OR_NONE,
+    -- ['@punctuation.bracket.bash']            = { fg = syn.string },                         -- $(, (, ), [, ], ((, ))
+    ['@punctuation.delimiter.bash']             = { fg = syn.keyword },                        -- ; and ;;
+    ['@punctuation.special.bash']               = { link = "@punctuation.bash" },              -- $
+
     -- C
     ['@type.c']                                 = { fg = spec.variable },
     ['@label.c']                                = { fg = spec.variable },
