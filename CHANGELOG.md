@@ -14,6 +14,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changes
 
+- Enhance Current Statusline and Popup selection with blue tint
+
 ### Issues Fix
 
 - Fixed Interactive mode in compiled colorscheme

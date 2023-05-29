@@ -179,7 +179,7 @@ local function generate_spec(pal)
     fg3  = pal.scale.gray[5],                        -- Darker fg (line numbers, fold columns)
 
     sel0 = alpha(C(pal.accent.fg), 0.45),            -- Visual selection bg
-    sel1 = alpha(C(pal.fg.subtle), 0.05),            -- Popup sel bg
+    sel1 = alpha(C(pal.accent.muted), 0.90),         -- Popup sel bg
     sel2 = alpha(C(pal.scale.yellow[3]), 0.60),      -- Search bg
   }
 
