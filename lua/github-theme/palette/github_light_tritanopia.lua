@@ -168,7 +168,7 @@ local palette = {
 local function generate_spec(pal)
   -- stylua: ignore start
   local spec = {
-    bg0  = pal.canvas.inset,                        -- Dark bg (status line, popup and float)
+    bg0  = pal.canvas.inset,                        -- Dark bg (popup and float)
     bg1  = pal.canvas.default,                      -- Default bg
     bg2  = alpha(C(pal.neutral.emphasis), 0.1),     -- Lighter bg (colorcolumn Folds)
     bg3  = pal.scale.gray[2],                       -- Lighter bg (cursor line)
@@ -180,7 +180,7 @@ local function generate_spec(pal)
     fg3  = pal.scale.gray[7],                       -- Darker fg (line numbers, fold columns)
 
     sel0 = alpha(C(pal.accent.fg), 0.2),            -- Visual selection bg
-    sel1 = alpha(C(pal.accent.fg), 0.3),            -- Popup sel bg
+    sel1 = alpha(C(pal.accent.muted), 0.90),        -- Popup sel bg
     sel2 = alpha(C(pal.attention.emphasis), 0.3)    -- Search bg
   }
 
