@@ -1,3 +1,4 @@
+local uv = vim.loop
 local config = require('github-theme.config')
 
 local function read_file(filepath)
@@ -14,6 +15,16 @@ local function write_file(filepath, content)
   if file then
     file:write(content)
     file:close()
+  end
+end
+
+local function stat_file(path)
+  for _ = 1, 3 do
+    local stat = uv.fs_stat(path)
+    if stat then
+      return stat
+    end
+    uv.sleep(1)
   end
 end
 
@@ -94,11 +105,60 @@ M.setup = function(opts)
   local cached_path = util.join_paths(config.options.compile_path, 'cache')
   local cached = read_file(cached_path)
 
-  local git_path = util.join_paths(debug.getinfo(1).source:sub(2, -23), '.git')
-  local git = vim.fn.getftime(git_path)
-  local hash = require('github-theme.lib.hash')(opts) .. (git == -1 and git_path or git)
+  local git_mtime
+  local git_path = debug.getinfo(1).source
 
-  if cached ~= hash then
+  if (git_path or ''):find('^@.') then
+    git_path = git_path:sub(2) .. '/../../../.git'
+    local st = stat_file(git_path)
+
+    if not st then
+      goto skip
+    end
+
+    -- Handle a .git "file" (e.g. worktree or submodule)
+    if st.type == 'file' then
+      local f = io.open(git_path, 'r')
+
+      if not f then
+        goto skip
+      end
+
+      local gitdir_path = (f:read('*l') or ''):match('^gitdir: (.+)')
+      f:close()
+
+      if not gitdir_path then
+        goto skip
+      end
+
+      git_path = gitdir_path
+      st = stat_file(git_path)
+
+      if not st then
+        goto skip
+      end
+    end
+
+    local sec, nsec = st.mtime.sec, st.mtime.nsec or 0
+
+    if nsec == 1e9 then
+      sec = sec + 1
+      nsec = 0
+    end
+
+    git_mtime = ('%d.%09d'):format(sec, nsec)
+  end
+
+  ::skip::
+
+  local hash = ('%s %s'):format(
+    require('github-theme.lib.hash')(opts),
+    git_mtime or git_path
+  )
+
+  -- Force re-compile if .git dir could not be detected (plugin may have been
+  -- updated and we don't want to use a stale cache).
+  if cached ~= hash or not git_mtime then
     M.compile()
     write_file(cached_path, hash)
   end
