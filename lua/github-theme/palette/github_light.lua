@@ -191,26 +191,26 @@ local function generate_spec(pal)
 
   spec.syntax = {
     bracket     = spec.fg1,                             -- Brackets and Punctuation
-    builtin0    = pal.scale.red[6],                     -- Builtin variable
-    builtin1    = pal.scale.red[6],                     -- Builtin type
-    builtin2    = pal.scale.blue[7],                    -- Builtin const
-    comment     = pal.scale.gray[6],                    -- Comment
-    conditional = pal.scale.red[6],                     -- Conditional and loop
-    const       = pal.scale.blue[6],                    -- Constants, imports and booleans
+    builtin0    = pl.syntax.constant,                   -- Builtin variable
+    builtin1    = pl.syntax.keyword,                    -- Builtin type
+    builtin2    = pl.syntax.constant,                   -- Builtin const
+    comment     = pl.syntax.comment,                    -- Comment
+    conditional = pl.syntax.keyword,                    -- Conditional and loop
+    const       = pl.syntax.constant,                   -- Constants, imports and booleans
     dep         = pal.scale.red[8],                     -- Deprecated
     field       = pl.syntax.constant,                   -- Field
-    func        = pal.scale.purple[6],                  -- Functions and Titles
-    ident       = pal.scale.blue[9],                    -- Identifiers
-    keyword     = pal.scale.red[6],                     -- Keywords
-    number      = pal.scale.blue[7],                    -- Numbers
+    func        = pl.syntax.entity,                     -- Functions and Titles
+    ident       = spec.fg1,                             -- Identifiers
+    keyword     = pl.syntax.keyword,                    -- Keywords
+    number      = pl.syntax.constant,                   -- Numbers
     operator    = pl.syntax.constant,                   -- Operators
     param       = spec.fg1,                             -- Parameters
-    preproc     = pal.scale.red[6],                     -- PreProc
-    regex       = pal.scale.blue[9],                    -- Regex
-    statement   = pal.scale.red[6],                     -- Statements
-    string      = pal.scale.blue[8],                    -- Strings
+    preproc     = pl.syntax.keyword,                    -- PreProc
+    regex       = pl.syntax.string,                     -- Regex
+    statement   = pl.syntax.keyword,                    -- Statements
+    string      = pl.syntax.string,                     -- Strings
     type        = pl.syntax.variable,                   -- Types
-    tag         = pal.scale.green[6],                   -- Tags
+    tag         = pl.syntax.entityTag,                  -- Tags
     variable    = spec.fg1,                             -- Variables
   }
 
