@@ -15,6 +15,14 @@ on:
 jobs:
   get-colors:
     runs-on: ubuntu-latest
+    permissions:
+      checks: write
+      contents: write
+      issues: write
+      packages: read
+      pull-requests: write
+      statuses: write
+      
     steps:
       - uses: actions/checkout@v3
 
@@ -52,7 +60,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           version: latest
-          args: -f stylua.toml --verify -- '${{ env._DEST_DIR }}'
+          args: -f stylua.toml --verify -- ${{ env._DEST_DIR }}
 
       - uses: peter-evans/create-pull-request@v5
         with:
