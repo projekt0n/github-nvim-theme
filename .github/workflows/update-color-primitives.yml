@@ -22,7 +22,7 @@ jobs:
       packages: read
       pull-requests: write
       statuses: write
-      
+
     steps:
       - uses: actions/checkout@v3
 
