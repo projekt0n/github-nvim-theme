@@ -207,7 +207,10 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     ['@function.call.lua']                      = { fg = syn.const },
     ['@method.call.lua']                        = { link = '@function.call.lua' },
     ['@namespace.builtin.lua']                  = { fg = syn.const },                          -- `table`, `io`, `_G`
-    ['@label.lua']                              = { fg = syn.const },                          -- the `LABEL` in `::LABEL::` and `goto LABEL`
+    ['@label.lua']                              = { fg = syn.const },                          -- The `LABEL` in `::LABEL::` and `goto LABEL`
+    ['@field.luadoc']                           = { link = '@field.lua' },
+    ['@operator.luadoc']                        = { fg = spec.fg1 },                           -- The `|` in `string|number`
+    ['@punctuation.special.luadoc']             = { fg = spec.fg1 },                           -- The `?` in `string?`
 
     -- Make
     -- ['@operator.make']                       = { link = '@constant' },
@@ -224,7 +227,7 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     ['@namespace.php']                          = { link = '@constructor.php' },
 
     -- Python
-    ['@field.python']                           = { fg = syn.fg1 },
+    ['@field.python']                           = { fg = spec.fg1 },
     -- ['@keyword.python']                      = { link = '@constant' },
     ['@type.builtin.python']                    = { link = '@constant' },
     -- ['@type.python']                         = { link = '@function' },
