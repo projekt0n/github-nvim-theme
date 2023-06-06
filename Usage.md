@@ -410,7 +410,7 @@ Current list of modules are:
 ### Neovim specific modules
 
 The following modules are enabled by default only when on neovim, `diagnostic`, `native_lsp`, `treesitter`. These modules are part of the core neovim experience and
-are liked to by other modules. This also means that they will still be enabled when setting `module_default` to `false`.
+are linked to by other modules. This also means that they will still be enabled when setting `module_default` to `false`.
 
 ### Extended modules
 
