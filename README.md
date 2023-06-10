@@ -188,7 +188,7 @@ vim.cmd('colorscheme github_light')
 ### Github Light High Contrast
 
 ```lua
-vim.cmd('colorscheme github_light_default')
+vim.cmd('colorscheme github_light_high_contrast')
 ```
 
 ![github_light_high_contrast](https://github.com/projekt0n/github-nvim-theme/assets/24286590/8b5a3156-d314-4f63-9bec-0824f96cafe3)
