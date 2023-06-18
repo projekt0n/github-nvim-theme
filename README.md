@@ -227,9 +227,9 @@ require('github-theme').setup({
     dim_inactive = false,      -- Non focused panes set to alternative background
     module_default = true,     -- Default enable value for modules
     styles = {                 -- Style to be applied to different syntax groups
-      comments = 'italic',     -- Value is any valid attr-list value `:help attr-list`
+      comments = 'NONE',       -- Value is any valid attr-list value `:help attr-list`
       functions = 'NONE',
-      keywords = 'italic',
+      keywords = 'NONE',
       variables = 'NONE',
       conditionals = 'NONE',
       constants = 'NONE',
@@ -263,15 +263,13 @@ require('github-theme').setup({
 vim.cmd('colorscheme github_dark')
 ```
 
-If you would like to change any of the default options above you only have to define the options that change. If an
-option is not present in your options table the default option will be used. For example if changing the styles of
-certain syntax is the only desired change then your options table would look like:
+If you would like to change any of the default options above, simply specify the options that you'd like to change. Unspecified options will use their default value. For example, if you only wanted to change the styles of certain syntax items:
 
 ```lua
 require('github-theme').setup({
   options = {
     styles = {
-      comments = 'NONE',
+      comments = 'italic',
       keywords = 'bold',
       types = 'italic,bold',
     }
@@ -303,14 +301,11 @@ local palettes = {
   all = {
     -- Each palette defines these colors:
     --   black, gray, blue, green, magenta, pink, red, white, yellow, cyan
-
     --
     -- These colors have 2 shades: base, and bright
-    --
-    -- Defining just a color defines it's base color
-    red = {
-      base = '#ff0000'
-    },
+    
+    -- Passing a string sets the base
+    red = '#ff0000',
   },
   github_dark = {
     -- Defining multiple shades is done by passing a table
@@ -371,7 +366,7 @@ local specs = {
 }
 
 -- Groups are the highlight group definitions. The keys of this table are the name of the highlight
--- groups that will be overridden. The value is a table with the following values:
+-- groups that will be overridden. The value is a table with the following keys:
 --   - fg, bg, style, sp, link,
 --
 -- Just like `spec` groups support templates. This time the template is based on a spec object.
@@ -601,8 +596,10 @@ Set your airline colorscheme with `:AirlineThemes` vim command.
 
 ## Syntax highlight groups
 
-This section will help you determine what highlight group is being applied to a piece of syntax. These sections will
-output the highlight group for the value under the cursor.
+This section will help you determine what highlight group is being applied to a piece of syntax. These methods
+show which highlight group(s) is in use at the current screen position of the cursor (under the cursor).
+
+> **Note** On Neovim v0.9.0 and later, you can use the command `:Inspect`, or the Lua function `vim.show_pos()`.
 
 #### Treesitter highlighting
 
