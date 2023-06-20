@@ -9,50 +9,7 @@ local primitives =
   require('github-theme.palette.primitives.' .. meta.name:gsub('^github%W*', '', 1))
 
 local pl = primitives.prettylights
-
----Github Light High Contrast scale variables
----source: https://github.com/primer/primitives/blob/main/data/colors/themes/light_high_contrast.ts
--- stylua: ignore
-local scale = {
-  black = '#010409',
-  white = '#ffffff',
-  gray = {
-    '#ffffff', '#e7ecf0', '#ced5dc', '#acb6c0', '#88929d',
-    '#66707b', '#4b535d', '#343b43', '#20252c', '#0e1116',
-  },
-  blue = {
-    '#dff7ff', '#9cd7ff', '#67b3fd', '#368cf9', '#1168e3',
-    '#0349b4', '#023b95', '#022f7a', '#032563', '#021a4a',
-  },
-  green = {
-    '#d2fedb', '#82e596', '#43c663', '#26a148', '#117f32',
-    '#055d20', '#024c1a', '#013d14', '#003110', '#00230b',
-  },
-  yellow = {
-    '#fcf7be', '#f0ce53', '#d5a824', '#b58407', '#956400',
-    '#744500', '#603700', '#4e2c00', '#3f2200', '#2e1800',
-  },
-  orange = {
-    '#fff2d5', '#ffc67b', '#f99636', '#dc6d1a', '#b45105',
-    '#873800', '#702c00', '#5b2300', '#491b00', '#361200',
-  },
-  red = {
-    '#fff0ee', '#ffc1bc', '#ff8e8a', '#ee5a5d', '#d5232c',
-    '#a0111f', '#86061d', '#6e011a', '#5a0016', '#430011',
-  },
-  purple = {
-    '#faf0fe', '#e0c5ff', '#c49bff', '#a371f7', '#844ae7',
-    '#622cbc', '#512598', '#411d7b', '#341763', '#260f49',
-  },
-  pink = {
-    '#feeff7', '#ffbde0', '#fc87ca', '#ed4baf', '#c9248e',
-    '#971368', '#7d0c57', '#660847', '#53043a', '#3e022b',
-  },
-  coral = {
-    '#fff0ed', '#ffc2b6', '#ff8f7e', '#ef5b48', '#cd3425',
-    '#9f1710', '#870706', '#6f0107', '#5b0002', '#430200',
-  },
-}
+local scale = primitives.scale
 
 C.WHITE = C(scale.white)
 C.BLACK = C(scale.black)
