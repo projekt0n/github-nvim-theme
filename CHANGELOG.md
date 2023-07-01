@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changes
 
 - Enhance Current Statusline and Popup selection with blue tint
+- Enhance [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim) plugin highlights
 
 ### Issues Fix
 
