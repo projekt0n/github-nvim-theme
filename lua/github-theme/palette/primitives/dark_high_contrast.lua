@@ -213,7 +213,8 @@ local M = vim.json.decode(
     "tapFocusBg": "#1e60d5"
   },
   "overlay": {
-    "shadow": "0 0 0 1px #525964, 0 16px 32px rgba(1,4,9,0.85)"
+    "shadow": "0 0 0 1px #525964, 0 16px 32px rgba(1,4,9,0.85)",
+    "backdrop": "rgba(39,43,51,0.4)"
   },
   "header": {
     "text": "rgba(255,255,255,0.7)",
@@ -612,7 +613,7 @@ local M = vim.json.decode(
   { luanil = { object = false, array = false } }
 )
 M._VERSION =
-  vim.json.decode([=["7.11.13"]=], { luanil = { object = false, array = false } })
+  vim.json.decode([=["7.11.14"]=], { luanil = { object = false, array = false } })
 M._LICENSE = [=[
 The MIT License (MIT)
 
