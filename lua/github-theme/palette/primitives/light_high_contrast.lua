@@ -42,7 +42,7 @@ local M = vim.json.decode(
     "syntax": {
       "comment": "#66707b",
       "constant": "#023b95",
-      "entity": "#622cbc",
+      "entity": "#512598",
       "storageModifierImport": "#0e1116",
       "entityTag": "#024c1a",
       "keyword": "#a0111f",
@@ -213,7 +213,8 @@ local M = vim.json.decode(
     "tapFocusBg": "#9cd7ff"
   },
   "overlay": {
-    "shadow": "0 1px 3px rgba(1,4,9,0.12), 0 8px 24px rgba(52,59,67,0.12)"
+    "shadow": "0 1px 3px rgba(1,4,9,0.12), 0 8px 24px rgba(52,59,67,0.12)",
+    "backdrop": "rgba(136,146,157,0.2)"
   },
   "header": {
     "text": "rgba(255,255,255,0.7)",
@@ -612,7 +613,7 @@ local M = vim.json.decode(
   { luanil = { object = false, array = false } }
 )
 M._VERSION =
-  vim.json.decode([=["7.11.13"]=], { luanil = { object = false, array = false } })
+  vim.json.decode([=["7.11.14"]=], { luanil = { object = false, array = false } })
 M._LICENSE = [=[
 The MIT License (MIT)
 
