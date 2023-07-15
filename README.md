@@ -310,8 +310,8 @@ local palettes = {
   github_dark = {
     -- Defining multiple shades is done by passing a table
     red = {
-      base = '#8e1519'
-      bright = '#ee0000'
+      base = '#8e1519',
+      bright = '#ee0000',
     },
   },
   github_dark_dimmed = {
