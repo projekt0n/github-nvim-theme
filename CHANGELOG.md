@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Included Airline themes Fixed #20
 - CI: Get and update primer primitives automatically #253
+- Support coc-explorer highlights
 
 ### Changes
 
@@ -24,6 +25,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - #257 fixed
 - #261 fixed
 - #268 fixed
+- #274 fixed
+- #160 closed due to inactivity.
 
 ## [v1.0.0] - 19 May 2023
 
