@@ -1,4 +1,4 @@
-![github-nvim-theme](https://github.com/projekt0n/github-nvim-theme/assets/24286590/50a918ce-fff0-4d98-8327-e5052fc8d84f)
+![github-nvim-theme](https://github.com/projekt0n/github-nvim-theme/assets/24286590/d687ee93-43e0-46a5-a69f-a5a9d260c704)
 
 [![Neovim](https://github.com/projekt0n/github-nvim-theme/actions/workflows/neovim.yml/badge.svg)](https://github.com/projekt0n/github-nvim-theme/actions/workflows/neovim.yml)
 [![Tests](https://github.com/projekt0n/github-nvim-theme/actions/workflows/test.yml/badge.svg)](https://github.com/projekt0n/github-nvim-theme/actions/workflows/test.yml)
@@ -143,7 +143,7 @@ vim.cmd('colorscheme github_dark')
 vim.cmd('colorscheme github_dark')
 ```
 
-![github_dark](https://github.com/projekt0n/github-nvim-theme/assets/24286590/3b6eda22-3406-413e-bf79-b1f5d865bf71)
+![github_dark](https://github.com/projekt0n/github-nvim-theme/assets/24286590/0e6525ef-8444-4097-855c-c2a9257a6a2f)
 
 ### Github Dark Dimmed
 
@@ -151,7 +151,7 @@ vim.cmd('colorscheme github_dark')
 vim.cmd('colorscheme github_dark_dimmed')
 ```
 
-![github_dark_dimmed](https://github.com/projekt0n/github-nvim-theme/assets/24286590/3589c7d8-b35d-46d0-83e8-b3129fdcf7c4)
+![github_dark_dimmed](https://github.com/projekt0n/github-nvim-theme/assets/24286590/1b4ac935-ddc8-4bfe-8c01-bccb8bc954f6)
 
 ### Github Dark High Contrast
 
@@ -159,7 +159,7 @@ vim.cmd('colorscheme github_dark_dimmed')
 vim.cmd('colorscheme github_dark_high_contrast')
 ```
 
-![github_dark_high_contrast](https://github.com/projekt0n/github-nvim-theme/assets/24286590/35aae15f-1acd-49dc-9a42-083ba1ec62e9)
+![github_dark_high_contrast](https://github.com/projekt0n/github-nvim-theme/assets/24286590/6df16271-20bc-4fd4-90df-a7477b95f3f8)
 
 ### Github Dark Colorblind (Beta)
 
@@ -167,7 +167,7 @@ vim.cmd('colorscheme github_dark_high_contrast')
 vim.cmd('colorscheme github_dark_colorblind')
 ```
 
-![github_dark_colorblind](https://github.com/projekt0n/github-nvim-theme/assets/24286590/6e1bb148-d69c-4372-94ae-46c7a46761fe)
+![github_dark_colorblind](https://github.com/projekt0n/github-nvim-theme/assets/24286590/8f69c24b-13d6-4816-90a2-97578f4fd079)
 
 ### Github Dark Tritanopia (Beta)
 
@@ -175,7 +175,7 @@ vim.cmd('colorscheme github_dark_colorblind')
 vim.cmd('colorscheme github_dark_tritanopia')
 ```
 
-![github_dark_tritanopia](https://github.com/projekt0n/github-nvim-theme/assets/24286590/5d20a5b3-a5a7-4045-834f-e6f4e9ecec27)
+![github_dark_tritanopia](https://github.com/projekt0n/github-nvim-theme/assets/24286590/fb9a566c-b111-46eb-97b2-4b076e89f767)
 
 ### Github Light
 
@@ -183,7 +183,7 @@ vim.cmd('colorscheme github_dark_tritanopia')
 vim.cmd('colorscheme github_light')
 ```
 
-![github_light](https://github.com/projekt0n/github-nvim-theme/assets/24286590/9029c5a6-fa40-40ca-9138-1cef7f3a1fcd)
+![github_light](https://github.com/projekt0n/github-nvim-theme/assets/24286590/11c6606a-28e4-4126-b687-c84a403bbc57)
 
 ### Github Light High Contrast
 
@@ -191,7 +191,7 @@ vim.cmd('colorscheme github_light')
 vim.cmd('colorscheme github_light_high_contrast')
 ```
 
-![github_light_high_contrast](https://github.com/projekt0n/github-nvim-theme/assets/24286590/8b5a3156-d314-4f63-9bec-0824f96cafe3)
+![github_light_high_contrast](https://github.com/projekt0n/github-nvim-theme/assets/24286590/1a7483e1-b008-42e0-8fab-eeb75e89a3a7)
 
 ### Github Light Colorblind (Beta)
 
@@ -199,7 +199,7 @@ vim.cmd('colorscheme github_light_high_contrast')
 vim.cmd('colorscheme github_light_colorblind')
 ```
 
-![github_light_colorblind](https://github.com/projekt0n/github-nvim-theme/assets/24286590/49da64a9-a9ea-4e3a-834c-09466edf4165)
+![github_light_colorblind](https://github.com/projekt0n/github-nvim-theme/assets/24286590/e634671c-9344-4a9f-b20d-420bc2f17f93)
 
 ### Github Light Tritanopia (Beta)
 
@@ -207,7 +207,7 @@ vim.cmd('colorscheme github_light_colorblind')
 vim.cmd('colorscheme github_light_tritanopia')
 ```
 
-![github_light_tritanopia](https://github.com/projekt0n/github-nvim-theme/assets/24286590/79a22dae-77a7-4c02-88de-0caf579ab95e)
+![github_light_tritanopia](https://github.com/projekt0n/github-nvim-theme/assets/24286590/fce194a3-fa1f-4a9d-a20b-56171aeb38e9)
 
 ## Configuration
 
@@ -303,7 +303,7 @@ local palettes = {
     --   black, gray, blue, green, magenta, pink, red, white, yellow, cyan
     --
     -- These colors have 2 shades: base, and bright
-    
+
     -- Passing a string sets the base
     red = '#ff0000',
   },

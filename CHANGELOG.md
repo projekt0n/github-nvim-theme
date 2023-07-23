@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+## [v1.0.1] - 23 July 2023
+
 ### What's New?
 
 - Included Airline themes Fixed #20
@@ -21,12 +23,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Issues Fix
 
 - Fixed Interactive mode in compiled colorscheme
+- #160 closed due to inactivity.
+- #232 fixed with #266
 - #254 fixed
 - #257 fixed
 - #261 fixed
 - #268 fixed
 - #274 fixed
-- #160 closed due to inactivity.
+- #281 fixed
 
 ## [v1.0.0] - 19 May 2023
 
