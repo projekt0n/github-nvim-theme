@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+### What's New?
+
+- Implement [highlight-blend](https://neovim.io/doc/user/syntax.html#highlight-blend) feature #251
+
+### Changes
+
+-
+
+### Issues Fix
+
+-
+
 ## [v1.0.1] - 23 July 2023
 
 ### What's New?
