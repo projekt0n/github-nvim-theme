@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### What's New?
 
 - Implement [highlight-blend](https://neovim.io/doc/user/syntax.html#highlight-blend) feature #251
+- Added Rust lifetime highlights #289
 
 ### Changes
 
@@ -17,7 +18,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Issues Fix
 
--
+- Fixed few regex-based/legacy highlight corrections (fixed #285)
+- Closed #251
 
 ## [v1.0.1] - 23 July 2023
 
