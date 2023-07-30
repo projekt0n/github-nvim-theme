@@ -21,3 +21,7 @@
 
 ; Make crate/self/super the @keyword color
 [(crate) (self) (super)] @keyword
+
+; Capture the ' in lifetimes separately
+; TODO: upstream this capture
+(lifetime "'" @storageclass.lifetime.punctuation)

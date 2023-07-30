@@ -242,6 +242,8 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     ['@constant.builtin.rust']                  = { fg = pl.syntax.variable },
     ['@namespace.rust']                         = FALLBACK_OR_NONE,
     ['@preproc.rust']                           = { fg = syn.const },
+    ['@storageclass.lifetime.rust']             = { link = '@tag.rust' },
+    ['@storageclass.lifetime.punctuation.rust'] = { link = '@punctuation.special.rust' },
 
     -- SCSS
     ['@property.scss']                          = { link = '@constant' },

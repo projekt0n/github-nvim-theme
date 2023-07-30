@@ -126,6 +126,20 @@ function M.get(spec, config)
     diffFile        = { fg = spec.diag.info }, -- The filename of the diff ('diff --git a/readme.md b/readme.md')
     diffLine        = { fg = syn.builtin2 }, -- Line information ('@@ -169,6 +169,9 @@')
     diffIndexLine   = { fg = syn.preproc }, -- Index line of diff ('index bf3763d..94f0f62 100644')
+
+    -- Language specific -------------------------------------------------------
+
+    -- Json
+    jsonKeyword                                 = { fg = syn.tag }, -- Json keys (e.g. `"key": "value"`)
+    jsonNull                                    = { link = 'Constant' },
+
+    -- Lua
+    luaFunction                                 = { link = 'Keyword' }, -- Function keywords (`function`, `end`) (corrects upstream inaccuracy/bug)
+    luaTable                                    = FALLBACK_OR_NONE, -- Table brackets (`{}`)
+
+    -- Yaml
+    yamlBlockMappingKey                         = { fg = syn.tag },
+    yamlFlowMappingKey                          = { fg = syn.tag },
   }
 end
 
