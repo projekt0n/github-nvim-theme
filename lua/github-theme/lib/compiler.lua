@@ -22,10 +22,14 @@ local function should_link(link)
   return link and link ~= ''
 end
 
+---Compiles a single theme/style. `opts.theme` specifies the theme to compile,
+---otherwise the currently-set theme will be compiled.
+---@param opts? { theme: string }
+---@return nil
 function M.compile(opts)
   opts = opts or {}
-  local theme = config.theme
-  local spec = require('github-theme.spec').load(theme)
+  opts.theme = opts.theme or config.theme
+  local spec = require('github-theme.spec').load(opts.theme)
   local groups = require('github-theme.group').from(spec)
   local background = spec.palette.meta.light and 'light' or 'dark'
 
@@ -39,7 +43,7 @@ vim.o.termguicolors = true
 vim.g.colors_name = "%s"
 vim.o.background = "%s"
     ]],
-      theme,
+      opts.theme,
       background
     ),
   }
@@ -65,8 +69,6 @@ vim.o.background = "%s"
   end
 
   table.insert(lines, 'end)')
-
-  opts.name = theme
   local output_path, output_file = config.get_compiled_info(opts)
   util.ensure_dir(output_path)
 
@@ -94,6 +96,7 @@ Bellow is the error message:
         tmpfile
       )
     )
+
     local efile = io.open(tmpfile, 'wb')
     efile:write(table.concat(lines, '\n'))
     efile:close()
