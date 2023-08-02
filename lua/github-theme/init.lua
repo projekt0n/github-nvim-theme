@@ -94,8 +94,9 @@ M.setup = function(opts)
   local cached_path = util.join_paths(config.options.compile_path, 'cache')
   local cached = read_file(cached_path)
 
-  local git_path = util.join_paths(debug.getinfo(1).source:sub(2, -27), '.git')
-  local git = vim.fn.getftime(git_path)
+  local git_path =
+    vim.fn.fnamemodify(vim.fn.resolve(debug.getinfo(1).source:sub(2)), ':p:h:h:h')
+  local git = vim.fn.getftime(util.join_paths(git_path, '.git'))
   local hash = require('github-theme.lib.hash')(opts) .. (git == -1 and git_path or git)
 
   if cached ~= hash then
