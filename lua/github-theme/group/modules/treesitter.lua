@@ -91,7 +91,7 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
 
     -- ['@conditional']           = { link = 'Conditional' },                         -- For keywords related to conditionals.
     -- ['@repeat']                = { link = 'Repeat' },                              -- For keywords related to loops.
-    -- ['@label']                 = { link = 'Label' },                               -- For labels: label: in C and :label: in Lua.
+    ['@label']                    = { link = '@tag' },                                -- For labels: `label:` in C, `:label:` in Lua.
     -- ['@include']               = { link = 'Include' },                             -- For includes: #include in C, use or extern crate in Rust, Lua require
     ['@exception']                = { fg = syn.builtin0, style = stl.keywords },      -- Exception related keywords: `try`, `except`, `finally` in Python
 
@@ -159,7 +159,6 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
 
     -- C
     ['@type.c']                                 = { fg = spec.variable },
-    ['@label.c']                                = { fg = spec.variable },
 
     -- CSS
     -- ['@property.css']                        = { link = '@constant' },
@@ -261,8 +260,10 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     -- ['@variable.builtin.typescript']         = { link = '@constant' },
     -- ['@variable.typescript']                 = { link = '@constant' },
 
-    -- VimDoc
+    -- VimDoc (vim help files/docs)
     ['@parameter.vimdoc']                       = { fg = pl.syntax.variable },
+    ['@label.vimdoc']                           = { link = '@keyword' },                       -- `*sometag*`
+    -- ['@string.special.vimdoc']               = { link = '@parameter.vimdoc' },              -- `CTRL-W`, etc. (unused atm, not well-defined)
 
     -- Yaml
     ['@field.yaml']                             = { link = '@tag' },
