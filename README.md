@@ -43,8 +43,8 @@ or `:h github-theme-changelog` to receive updates on breaking changes and deprec
 - True color support
 - Undercurl terminal support (optional)
 
-> **Note** for MacOS: The default `terminal` does not support `true color`. Use either `Iterm2` or [another] terminal that
-> supports true color.
+> **Note**
+> for MacOS: The default `terminal` does not support `true color`. Use either `Iterm2` or [another] terminal that supports true color.
 
 ## Installation
 
@@ -599,7 +599,8 @@ Set your airline colorscheme with `:AirlineThemes` vim command.
 This section will help you determine what highlight group is being applied to a piece of syntax. These methods
 show which highlight group(s) is in use at the current screen position of the cursor (under the cursor).
 
-> **Note** On Neovim v0.9.0 and later, you can use the command `:Inspect`, or the Lua function `vim.show_pos()`.
+> **Note**
+> On Neovim v0.9.0 and later, you can use the command `:Inspect`, or the Lua function `vim.show_pos()`.
 
 #### Treesitter highlighting
 
