@@ -246,7 +246,7 @@ require('github-theme').setup({
     darken = {                 -- Darken floating windows and sidebar-like windows
       floats = false,
       sidebars = {
-        enable = true,
+        enabled = true,
         list = {},             -- Apply dark background to specific windows
       },
     },
