@@ -60,6 +60,9 @@ vim.o.background = "%s"
       op.fg = values.fg
       op.sp = values.sp
       op.blend = values.blend
+      if op.nocombine == nil then
+        op.nocombine = values.nocombine
+      end
       table.insert(lines, fmt([[h(0, "%s", %s)]], name, inspect(op)))
     end
   end
