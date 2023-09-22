@@ -613,7 +613,7 @@ local M = vim.json.decode(
   { luanil = { object = false, array = false } }
 )
 M._VERSION =
-  vim.json.decode([=["7.13.0"]=], { luanil = { object = false, array = false } })
+  vim.json.decode([=["7.13.1"]=], { luanil = { object = false, array = false } })
 M._LICENSE = [=[
 The MIT License (MIT)
 
