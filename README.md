@@ -1,4 +1,4 @@
-![github-nvim-theme](https://github.com/projekt0n/github-nvim-theme/assets/24286590/50a918ce-fff0-4d98-8327-e5052fc8d84f)
+![github-nvim-theme](https://github.com/projekt0n/github-nvim-theme/assets/24286590/d687ee93-43e0-46a5-a69f-a5a9d260c704)
 
 [![Neovim](https://github.com/projekt0n/github-nvim-theme/actions/workflows/neovim.yml/badge.svg)](https://github.com/projekt0n/github-nvim-theme/actions/workflows/neovim.yml)
 [![Tests](https://github.com/projekt0n/github-nvim-theme/actions/workflows/test.yml/badge.svg)](https://github.com/projekt0n/github-nvim-theme/actions/workflows/test.yml)
@@ -43,8 +43,8 @@ or `:h github-theme-changelog` to receive updates on breaking changes and deprec
 - True color support
 - Undercurl terminal support (optional)
 
-> **Note** for MacOS: The default `terminal` does not support `true color`. Use either `Iterm2` or [another] terminal that
-> supports true color.
+> **Note**
+> for MacOS: The default `terminal` does not support `true color`. Use either `Iterm2` or [another] terminal that supports true color.
 
 ## Installation
 
@@ -143,7 +143,7 @@ vim.cmd('colorscheme github_dark')
 vim.cmd('colorscheme github_dark')
 ```
 
-![github_dark](https://github.com/projekt0n/github-nvim-theme/assets/24286590/3b6eda22-3406-413e-bf79-b1f5d865bf71)
+![github_dark](https://github.com/projekt0n/github-nvim-theme/assets/24286590/0e6525ef-8444-4097-855c-c2a9257a6a2f)
 
 ### Github Dark Dimmed
 
@@ -151,7 +151,7 @@ vim.cmd('colorscheme github_dark')
 vim.cmd('colorscheme github_dark_dimmed')
 ```
 
-![github_dark_dimmed](https://github.com/projekt0n/github-nvim-theme/assets/24286590/3589c7d8-b35d-46d0-83e8-b3129fdcf7c4)
+![github_dark_dimmed](https://github.com/projekt0n/github-nvim-theme/assets/24286590/1b4ac935-ddc8-4bfe-8c01-bccb8bc954f6)
 
 ### Github Dark High Contrast
 
@@ -159,7 +159,7 @@ vim.cmd('colorscheme github_dark_dimmed')
 vim.cmd('colorscheme github_dark_high_contrast')
 ```
 
-![github_dark_high_contrast](https://github.com/projekt0n/github-nvim-theme/assets/24286590/35aae15f-1acd-49dc-9a42-083ba1ec62e9)
+![github_dark_high_contrast](https://github.com/projekt0n/github-nvim-theme/assets/24286590/6df16271-20bc-4fd4-90df-a7477b95f3f8)
 
 ### Github Dark Colorblind (Beta)
 
@@ -167,7 +167,7 @@ vim.cmd('colorscheme github_dark_high_contrast')
 vim.cmd('colorscheme github_dark_colorblind')
 ```
 
-![github_dark_colorblind](https://github.com/projekt0n/github-nvim-theme/assets/24286590/6e1bb148-d69c-4372-94ae-46c7a46761fe)
+![github_dark_colorblind](https://github.com/projekt0n/github-nvim-theme/assets/24286590/8f69c24b-13d6-4816-90a2-97578f4fd079)
 
 ### Github Dark Tritanopia (Beta)
 
@@ -175,7 +175,7 @@ vim.cmd('colorscheme github_dark_colorblind')
 vim.cmd('colorscheme github_dark_tritanopia')
 ```
 
-![github_dark_tritanopia](https://github.com/projekt0n/github-nvim-theme/assets/24286590/5d20a5b3-a5a7-4045-834f-e6f4e9ecec27)
+![github_dark_tritanopia](https://github.com/projekt0n/github-nvim-theme/assets/24286590/fb9a566c-b111-46eb-97b2-4b076e89f767)
 
 ### Github Light
 
@@ -183,15 +183,15 @@ vim.cmd('colorscheme github_dark_tritanopia')
 vim.cmd('colorscheme github_light')
 ```
 
-![github_light](https://github.com/projekt0n/github-nvim-theme/assets/24286590/9029c5a6-fa40-40ca-9138-1cef7f3a1fcd)
+![github_light](https://github.com/projekt0n/github-nvim-theme/assets/24286590/11c6606a-28e4-4126-b687-c84a403bbc57)
 
 ### Github Light High Contrast
 
 ```lua
-vim.cmd('colorscheme github_light_default')
+vim.cmd('colorscheme github_light_high_contrast')
 ```
 
-![github_light_high_contrast](https://github.com/projekt0n/github-nvim-theme/assets/24286590/8b5a3156-d314-4f63-9bec-0824f96cafe3)
+![github_light_high_contrast](https://github.com/projekt0n/github-nvim-theme/assets/24286590/1a7483e1-b008-42e0-8fab-eeb75e89a3a7)
 
 ### Github Light Colorblind (Beta)
 
@@ -199,7 +199,7 @@ vim.cmd('colorscheme github_light_default')
 vim.cmd('colorscheme github_light_colorblind')
 ```
 
-![github_light_colorblind](https://github.com/projekt0n/github-nvim-theme/assets/24286590/49da64a9-a9ea-4e3a-834c-09466edf4165)
+![github_light_colorblind](https://github.com/projekt0n/github-nvim-theme/assets/24286590/e634671c-9344-4a9f-b20d-420bc2f17f93)
 
 ### Github Light Tritanopia (Beta)
 
@@ -207,7 +207,7 @@ vim.cmd('colorscheme github_light_colorblind')
 vim.cmd('colorscheme github_light_tritanopia')
 ```
 
-![github_light_tritanopia](https://github.com/projekt0n/github-nvim-theme/assets/24286590/79a22dae-77a7-4c02-88de-0caf579ab95e)
+![github_light_tritanopia](https://github.com/projekt0n/github-nvim-theme/assets/24286590/fce194a3-fa1f-4a9d-a20b-56171aeb38e9)
 
 ## Configuration
 
@@ -227,9 +227,9 @@ require('github-theme').setup({
     dim_inactive = false,      -- Non focused panes set to alternative background
     module_default = true,     -- Default enable value for modules
     styles = {                 -- Style to be applied to different syntax groups
-      comments = 'italic',     -- Value is any valid attr-list value `:help attr-list`
+      comments = 'NONE',       -- Value is any valid attr-list value `:help attr-list`
       functions = 'NONE',
-      keywords = 'italic',
+      keywords = 'NONE',
       variables = 'NONE',
       conditionals = 'NONE',
       constants = 'NONE',
@@ -246,7 +246,7 @@ require('github-theme').setup({
     darken = {                 -- Darken floating windows and sidebar-like windows
       floats = false,
       sidebars = {
-        enable = true,
+        enabled = true,
         list = {},             -- Apply dark background to specific windows
       },
     },
@@ -263,15 +263,13 @@ require('github-theme').setup({
 vim.cmd('colorscheme github_dark')
 ```
 
-If you would like to change any of the default options above you only have to define the options that change. If an
-option is not present in your options table the default option will be used. For example if changing the styles of
-certain syntax is the only desired change then your options table would look like:
+If you would like to change any of the default options above, simply specify the options that you'd like to change. Unspecified options will use their default value. For example, if you only wanted to change the styles of certain syntax items:
 
 ```lua
 require('github-theme').setup({
   options = {
     styles = {
-      comments = 'NONE',
+      comments = 'italic',
       keywords = 'bold',
       types = 'italic,bold',
     }
@@ -303,20 +301,17 @@ local palettes = {
   all = {
     -- Each palette defines these colors:
     --   black, gray, blue, green, magenta, pink, red, white, yellow, cyan
-
     --
     -- These colors have 2 shades: base, and bright
-    --
-    -- Defining just a color defines it's base color
-    red = {
-      base = '#ff0000'
-    },
+
+    -- Passing a string sets the base
+    red = '#ff0000',
   },
   github_dark = {
     -- Defining multiple shades is done by passing a table
     red = {
-      base = '#8e1519'
-      bright = '#ee0000'
+      base = '#8e1519',
+      bright = '#ee0000',
     },
   },
   github_dark_dimmed = {
@@ -371,7 +366,7 @@ local specs = {
 }
 
 -- Groups are the highlight group definitions. The keys of this table are the name of the highlight
--- groups that will be overridden. The value is a table with the following values:
+-- groups that will be overridden. The value is a table with the following keys:
 --   - fg, bg, style, sp, link,
 --
 -- Just like `spec` groups support templates. This time the template is based on a spec object.
@@ -601,8 +596,11 @@ Set your airline colorscheme with `:AirlineThemes` vim command.
 
 ## Syntax highlight groups
 
-This section will help you determine what highlight group is being applied to a piece of syntax. These sections will
-output the highlight group for the value under the cursor.
+This section will help you determine what highlight group is being applied to a piece of syntax. These methods
+show which highlight group(s) is in use at the current screen position of the cursor (under the cursor).
+
+> **Note**
+> On Neovim v0.9.0 and later, you can use the command `:Inspect`, or the Lua function `vim.show_pos()`.
 
 #### Treesitter highlighting
 

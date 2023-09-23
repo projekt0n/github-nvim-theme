@@ -449,9 +449,9 @@ A `group` is the definition of a `highlight-group`. The key of the group table
 is the `highlight-group` that will be defined, and the table value is the
 arguments to the |:highlight| command.
 
-  ------------------------------------------------------------------------------
+  -----------------------------------------------------------------------------------
   Key     Help                Description
-  ------- ------------------- --------------------------------------------------
+  ------- ------------------- -------------------------------------------------------
   fg      |highlight-guifg|   The color value of the foreground of the highlight
                               group
 
@@ -460,11 +460,13 @@ arguments to the |:highlight| command.
 
   sp      |highlight-guisp|   The color for underlines and undercurls
 
-  style   |highlight-gui|     The style of the highlight group. Ex italic, bold,
-                              etc
+  blend   |highlight-blend|   Override the blend level for a highlight group within
+                              the popupmenu or floating windows.
+
+  style   |highlight-gui|     The style of the highlight group. Ex italic, bold, etc
 
   link    |highlight-link|    Link one highlight-group to another
-  ------------------------------------------------------------------------------
+  -----------------------------------------------------------------------------------
 If the value of `link` is present and is not empty, github theme will link the
 group to the corresponding value.
 
@@ -509,7 +511,7 @@ NEOVIM SPECIFIC MODULES ~
 
 The following modules are enabled by default only when on neovim, `diagnostic`,
 `native_lsp`, `treesitter`. These modules are part of the core neovim
-experience and are liked to by other modules. This also means that they will
+experience and are linked to by other modules. This also means that they will
 still be enabled when setting `module_default` to `false`.
 
 

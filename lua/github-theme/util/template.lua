@@ -37,7 +37,11 @@ function M.parse(template, spec)
     if type(opts) == 'table' then
       local new = {}
       for key, value in pairs(opts) do
-        new[key] = parse_string(value, spec)
+        if type(value) == 'string' then
+          new[key] = parse_string(value, spec)
+        elseif type(value) == 'number' then
+          new[key] = value
+        end
       end
       result[group] = new
     else

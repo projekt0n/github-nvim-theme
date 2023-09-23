@@ -3,7 +3,7 @@ local C = require('github-theme.lib.color')
 local M = {}
 
 function M.get(spec, config)
-  local dark_sb = config.darken.sidebars.enable
+  local dark_sb = config.darken.sidebars.enabled
   local hide_eof = config.hide_end_of_buffer
   local inactive = config.dim_inactive
   local inv = config.inverse

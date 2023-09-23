@@ -5,49 +5,11 @@ local meta = {
   light = false,
 }
 
----Github Dark High Contrast scale variables
----source: https://github.com/primer/primitives/blob/main/data/colors/themes/dark_high_contrast.ts
--- stylua: ignore
-local scale = {
-  black= '#010409',
-  white= '#ffffff',
-  gray= {
-    '#ffffff', '#f0f3f6', '#d9dee3', '#bdc4cc', '#9ea7b3',
-    '#7a828e', '#525964', '#272b33', '#272b33', '#0a0c10'
-  },
-  blue= {
-    '#caeaff', '#addcff', '#91cbff', '#71b7ff', '#409eff',
-    '#409eff', '#318bf8', '#2672f3', '#1e60d5', '#194fb1'
-  },
-  green= {
-    '#acf7b6', '#72f088', '#4ae168', '#26cd4d', '#09b43a',
-    '#09b43a', '#02a232', '#008c2c', '#007728', '#006222'
-  },
-  yellow= {
-    '#fbe59e', '#fbd669', '#f7c843', '#f0b72f', '#e09b13',
-    '#e09b13', '#c88508', '#ae7104', '#945d02', '#7b4900'
-  },
-  orange= {
-    '#ffe1b4', '#ffcf86', '#ffb757', '#fe9a2d', '#e7811d',
-    '#e7811d', '#d57014', '#bf5e0a', '#a74c00', '#8f3c00'
-  },
-  red= {
-    '#ffdedb', '#ffc9c7', '#ffb1af', '#ff9492', '#ff6a69',
-    '#ff6a69', '#ff4445', '#e82a2f', '#cc1421', '#ad0116'
-  },
-  purple= {
-    '#f0dfff', '#e6ccff', '#dbb7ff', '#cb9eff', '#b780ff',
-    '#b87fff', '#a66bff', '#954ffd', '#8031f7', '#6921d7'
-  },
-  pink= {
-    '#ffdceb', '#ffc7e1', '#ffadd4', '#ff8dc7', '#ef6eb1',
-    '#ef6eb1', '#e456a3', '#d23d91', '#b72c7d', '#9c1d6a'
-  },
-  coral= {
-    '#ffded4', '#ffcbb9', '#ffb39b', '#ff967d', '#fc704f',
-    '#fc704f', '#f75133', '#e03b21', '#c62612', '#a91500'
-  }
-}
+local primitives =
+  require('github-theme.palette.primitives.' .. meta.name:gsub('^github%W*', '', 1))
+
+local pl = primitives.prettylights
+local scale = primitives.scale
 
 C.WHITE = C(scale.white)
 C.BLACK = C(scale.black)
@@ -173,39 +135,39 @@ local function generate_spec(pal)
     bg3  = alpha(C(pal.fg.default), 0.1),            -- Lighter bg (cursor line)
     bg4  = pal.scale.gray[4],                        -- Conceal
 
-    fg0  = pal.fg.subtle,                            -- Lighter fg
-    fg1  = pal.fg.default,                           -- Default fg
-    fg2  = pal.fg.muted,                             -- Darker fg (status line)
-    fg3  = pal.scale.gray[5],                        -- Darker fg (line numbers, fold columns)
+    fg0  = pal.fg.subtle,                               -- Lighter fg
+    fg1  = pal.fg.default,                              -- Default fg
+    fg2  = pal.fg.muted,                                -- Darker fg (status line)
+    fg3  = pal.scale.gray[5],                           -- Darker fg (line numbers, fold columns)
 
-    sel0 = alpha(C(pal.accent.fg), 0.30),            -- Visual selection bg
-    sel1 = alpha(C(pal.accent.muted), 0.90),         -- Popup sel bg
-    sel2 = alpha(C(pal.scale.yellow[1]), 0.20),      -- Search bg
+    sel0 = alpha(C(pal.accent.fg), 0.30),               -- Visual selection bg
+    sel1 = alpha(C(pal.accent.muted), 0.90),            -- Popup sel bg
+    sel2 = alpha(C(pal.scale.yellow[1]), 0.20),         -- Search bg
   }
 
   spec.syntax = {
-    bracket     = pal.scale.orange[3],               -- Brackets and Punctuation
-    builtin0    = pal.scale.red[4],                  -- Builtin variable (Return Keywords, Regex, etc.)
-    builtin1    = pal.scale.red[4],                  -- Builtin type
-    builtin2    = pal.scale.blue[3],                 -- Builtin const
-    comment     = pal.scale.gray[5],                 -- Comment
-    conditional = pal.scale.red[4],                  -- Conditional and loop
-    const       = pal.scale.blue[3],                 -- Constants, imports and booleans
-    dep         = pal.scale.red[3],                  -- Deprecated
-    field       = pal.scale.purple[3],               -- Field
-    func        = pal.scale.purple[2],               -- Functions and Titles
-    ident       = pal.scale.blue[3],                 -- Identifiers
-    keyword     = pal.scale.red[4],                  -- Keywords
-    number      = pal.scale.blue[3],                 -- Numbers
-    operator    = pal.scale.red[4],                  -- Operators
-    param       = pal.scale.orange[3],               -- Parameters
-    preproc     = pal.scale.red[4],                  -- PreProc
-    regex       = pal.scale.blue[3],                 -- Regex
-    statement   = pal.scale.red[4],                  -- Statements
-    string      = pal.scale.blue[2],                 -- Strings
-    type        = pal.scale.red[4],                  -- Types
-    tag         = pal.scale.green[2],                -- Tags
-    variable    = spec.fg1,                          -- Variables
+    bracket     = spec.fg1,                             -- Brackets and Punctuation
+    builtin0    = pl.syntax.constant,                   -- Builtin variable
+    builtin1    = pl.syntax.keyword,                    -- Builtin type
+    builtin2    = pl.syntax.constant,                   -- Builtin const
+    comment     = pl.syntax.comment,                    -- Comment
+    conditional = pl.syntax.keyword,                    -- Conditional and loop
+    const       = pl.syntax.constant,                   -- Constants, imports and booleans
+    dep         = pal.scale.red[3],                     -- Deprecated
+    field       = pl.syntax.constant,                   -- Field
+    func        = pl.syntax.entity,                     -- Functions and Titles
+    ident       = spec.fg1,                             -- Identifiers
+    keyword     = pl.syntax.keyword,                    -- Keywords
+    number      = pl.syntax.constant,                   -- Numbers
+    operator    = pl.syntax.constant,                   -- Operators
+    param       = spec.fg1,                             -- Parameters
+    preproc     = pl.syntax.keyword,                    -- PreProc
+    regex       = pl.syntax.string,                     -- Regex
+    statement   = pl.syntax.keyword,                    -- Statements
+    string      = pl.syntax.string,                     -- Strings
+    type        = pl.syntax.variable,                   -- Types
+    tag         = pl.syntax.entityTag,                  -- Tags
+    variable    = spec.fg1,                             -- Variables
   }
 
   spec.diag = {
@@ -241,4 +203,9 @@ local function generate_spec(pal)
   return spec
 end
 
-return { meta = meta, palette = palette, generate_spec = generate_spec }
+return {
+  meta = meta,
+  primitives = primitives,
+  palette = palette,
+  generate_spec = generate_spec,
+}

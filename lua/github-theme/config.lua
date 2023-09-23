@@ -13,9 +13,9 @@ local defaults = {
   dim_inactive = false,
   module_default = true,
   styles = {
-    comments = 'italic',
+    comments = 'NONE',
     functions = 'NONE',
-    keywords = 'italic',
+    keywords = 'NONE',
     variables = 'NONE',
     conditionals = 'NONE',
     constants = 'NONE',
@@ -60,6 +60,7 @@ M.options = collect.deep_copy(defaults)
 M.module_names = {
   'cmp',
   'coc',
+  'coc_explorer',
   'dapui',
   'diffchar',
   'dashboard',

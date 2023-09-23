@@ -9,19 +9,43 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### What's New?
 
+- Implement [highlight-blend](https://neovim.io/doc/user/syntax.html#highlight-blend) feature #251
+- Added Rust lifetime highlights #289
+
+### Changes
+
+-
+
+### Issues Fix
+
+- Fixed few regex-based/legacy highlight corrections (fixed #285)
+- Closed #251
+- Fixed darkened sidebars when disabling `options.sidebars.disabled`
+
+## [v1.0.1] - 23 July 2023
+
+### What's New?
+
 - Included Airline themes Fixed #20
 - CI: Get and update primer primitives automatically #253
+- Support coc-explorer highlights
 
 ### Changes
 
 - Enhance Current Statusline and Popup selection with blue tint
+- Enhance [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim) plugin highlights
 
 ### Issues Fix
 
 - Fixed Interactive mode in compiled colorscheme
+- #160 closed due to inactivity.
+- #232 fixed with #266
 - #254 fixed
 - #257 fixed
 - #261 fixed
+- #268 fixed
+- #274 fixed
+- #281 fixed
 
 ## [v1.0.0] - 19 May 2023
 

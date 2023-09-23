@@ -4,11 +4,35 @@ function M.get(spec, config)
   local syn = spec.syntax
   local stl = config.styles
 
+  ---Clears nvim's default highlighting for a highlight-group and allows
+  ---falling-back to another hl-group when multiple highlights/groups are
+  ---assigned/stacked at a particular screen position. This is just an empty
+  ---table.
+  ---
+  ---NOTE: assigning this to a group is different from explicitly setting a
+  ---group's foreground color to the global/default foreground color. When
+  ---multiple highlights are stacked/assigned to the same screen position, this
+  ---will allow the other highlights/groups to take effect, whereas explicitly
+  ---setting a hl-group's `fg` will not.
+  ---
+  ---|                           Setting                            | Fallback |
+  ---| ------------------------------------------------------------ | -------- |
+  ---| `GROUP = FALLBACK_OR_NONE` (i.e. set to this variable) (Lua) |   true   |
+  ---| Link to `@none`, `Fg`, or `NONE`                             |   true   |
+  ---| `GROUP = { fg = DEFAULT_FG }` (Lua)                          |   false  |
+  ---| `hi! clear GROUP` (Vim command)                              |   false  |
+  ---| `hi! GROUP NONE` (Vim command)                               |   false  |
+  local FALLBACK_OR_NONE = setmetatable({}, {
+    __newindex = function()
+      error('attempt to set index of readonly table', 2)
+    end,
+  })
+
   -- TODO:
   -- (1) add Commented style settings in config module
   -- stylua: ignore
   return {
-    Comment        = { fg = syn.comment, style = stl.comments }, -- any comment
+    Comment        = { fg = syn.comment, style = stl.comments, nocombine = true }, -- any comment
     Constant       = { fg = syn.const, style = stl.constants }, -- (preferred) any constant
     String         = { fg = syn.string, style = stl.strings }, -- a string constant: 'this is a string'
     Character      = { link = 'String' }, -- a character constant: 'c', '\n'
@@ -35,16 +59,17 @@ function M.get(spec, config)
     PreCondit      = { link = 'PreProc' }, -- preprocessor #if, #else, #endif, etc.
 
     Type           = { fg = syn.type, style = stl.types }, -- (preferred) int, long, char, etc.
-    StorageClass   = { link = 'Type' }, -- static, register, volatile, etc.
-    Structure      = { link = 'Type' }, -- struct, union, enum, etc.
-    Typedef        = { link = 'Type' }, -- A typedef
+    -- StorageClass   = { link = 'Type' }, -- static, register, volatile, etc.
+    -- Structure      = { link = 'Type' }, -- struct, union, enum, etc.
+    -- Typedef        = { link = 'Type' }, -- A typedef
 
-    Special        = { fg = syn.ident }, -- (preferred) any special symbol
-    SpecialChar    = { link = 'Special' }, -- special character in a constant
-    Tag            = { link = 'Special' }, -- you can use CTRL-] on this
-    Delimiter      = { link = 'Special' }, -- character that needs attention
-    SpecialComment = { link = 'Special' }, -- special things inside a comment
-    Debug          = { link = 'Special' }, -- debugging statements
+    Special        = { fg = spec.fg1 }, -- (preferred) any special symbol
+    -- Special        = { fg = syn.ident }, -- (preferred) any special symbol
+    -- SpecialChar    = { link = 'Special' }, -- special character in a constant
+    -- Tag            = { link = 'Special' }, -- you can use CTRL-] on this
+    -- Delimiter      = { link = 'Special' }, -- character that needs attention
+    -- SpecialComment = { link = 'Special' }, -- special things inside a comment
+    -- Debug          = { link = 'Special' }, -- debugging statements
 
     Underlined     = { style = 'underline' }, -- (preferred) text that stands out, HTML links
     Bold           = { style = 'bold' },
@@ -101,6 +126,20 @@ function M.get(spec, config)
     diffFile        = { fg = spec.diag.info }, -- The filename of the diff ('diff --git a/readme.md b/readme.md')
     diffLine        = { fg = syn.builtin2 }, -- Line information ('@@ -169,6 +169,9 @@')
     diffIndexLine   = { fg = syn.preproc }, -- Index line of diff ('index bf3763d..94f0f62 100644')
+
+    -- Language specific -------------------------------------------------------
+
+    -- Json
+    jsonKeyword                                 = { fg = syn.tag }, -- Json keys (e.g. `"key": "value"`)
+    jsonNull                                    = { link = 'Constant' },
+
+    -- Lua
+    luaFunction                                 = { link = 'Keyword' }, -- Function keywords (`function`, `end`) (corrects upstream inaccuracy/bug)
+    luaTable                                    = FALLBACK_OR_NONE, -- Table brackets (`{}`)
+
+    -- Yaml
+    yamlBlockMappingKey                         = { fg = syn.tag },
+    yamlFlowMappingKey                          = { fg = syn.tag },
   }
 end
 
