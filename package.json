@@ -2,6 +2,6 @@
   "name": "github-nvim-theme",
   "private": true,
   "dependencies": {
-    "@primer/primitives": "^7.11.14"
+    "@primer/primitives": "^7.13.1"
   }
 }
