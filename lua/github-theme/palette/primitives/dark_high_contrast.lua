@@ -326,6 +326,10 @@ local M = vim.json.decode(
       "counterFg": "#ff6a69",
       "disabledCounterFg": "rgba(255,106,105,0.5)",
       "hoverCounterFg": "#ffffff"
+    },
+    "inactive": {
+      "bg": "#272b33",
+      "text": "#bdc4cc"
     }
   },
   "underlinenav": {
@@ -613,7 +617,7 @@ local M = vim.json.decode(
   { luanil = { object = false, array = false } }
 )
 M._VERSION =
-  vim.json.decode([=["7.13.1"]=], { luanil = { object = false, array = false } })
+  vim.json.decode([=["7.15.4"]=], { luanil = { object = false, array = false } })
 M._LICENSE = [=[
 The MIT License (MIT)
 
