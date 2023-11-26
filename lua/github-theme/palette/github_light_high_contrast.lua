@@ -13,7 +13,7 @@ local scale = primitives.scale
 
 C.WHITE = C(scale.white)
 C.BLACK = C(scale.black)
-C.BG = C(scale.white)
+C.BG = C(assert(primitives.canvas.default))
 
 local function alpha(color, a)
   return color:alpha_blend(a):to_css()
@@ -43,12 +43,7 @@ local palette = {
     on_emphasis = scale.white,
   },
 
-  canvas = {
-    default = scale.white,
-    overlay = scale.white,
-    inset = scale.white,
-    subtle = scale.gray[2],
-  },
+  canvas = primitives.canvas,
 
   border = {
     default = scale.gray[9],
