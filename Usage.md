@@ -3,16 +3,18 @@
 The Github Theme is a community-driven theme for Neovim, designed to support LSP (Language Server Protocol), Treesitter, and various plugins.
 It offers multiple themes, including colorblind-friendly options. Here are the available themes:
 
-- `github_dark`
-- `github_dark_colorblind`
-- `github_dark_dimmed`
-- `github_dark_high_contrast`
-- `github_dark_tritanopia`
-- `github_dimmed`
-- `github_light`
-- `github_light_colorblind`
-- `github_light_high_contrast`
-- `github_light_tritanopia`
+-   `github_dark`
+-   `github_dark_colorblind`
+-   `github_dark_default`
+-   `github_dark_dimmed`
+-   `github_dark_high_contrast`
+-   `github_dark_tritanopia`
+-   `github_dimmed`
+-   `github_light`
+-   `github_light_colorblind`
+-   `github_light_default`
+-   `github_light_high_contrast`
+-   `github_light_tritanopia`
 
 ## Usage
 
@@ -207,16 +209,16 @@ Specifies the default value of a module that has not been overridden in the modu
 The `styles` table contains a list of syntax components and their corresponding styles. These styles can be any combination of |highlight-args|.
 The available syntax components are:
 
-- comments
-- conditionals
-- constants
-- functions
-- keywords
-- numbers
-- operators
-- strings
-- types
-- variables
+-   comments
+-   conditionals
+-   constants
+-   functions
+-   keywords
+-   numbers
+-   operators
+-   strings
+-   types
+-   variables
 
 Example:
 
@@ -385,28 +387,28 @@ determine if the module is applied.
 
 Current list of modules are:
 
-- cmp
-- coc
-- dapui
-- dashboard
-- diagnostic
-- diffchar
-- fidget
-- fzf
-- gitgutter
-- gitsigns
-- indent_blankline
-- lsp_trouble
-- mini
-- native_lsp
-- neogit
-- neotree
-- notify
-- nvimtree
-- telescope
-- treesitter
-- treesitter_context
-- whichkey
+-   cmp
+-   coc
+-   dapui
+-   dashboard
+-   diagnostic
+-   diffchar
+-   fidget
+-   fzf
+-   gitgutter
+-   gitsigns
+-   indent_blankline
+-   lsp_trouble
+-   mini
+-   native_lsp
+-   neogit
+-   neotree
+-   notify
+-   nvimtree
+-   telescope
+-   treesitter
+-   treesitter_context
+-   whichkey
 
 ### Neovim specific modules
 
@@ -558,9 +560,9 @@ and re-source it's config from the newly saved file. It will then reset the colo
 
 There are a few things to note:
 
-- This requires executing `luafile` on the current file. Any syntax errors will throw errors.
-- If you are using packer and have Github theme's config in a `config = function() end` block, this will not work as packer
-  would require to be re-compiled and the compiled file sourced.
+-   This requires executing `luafile` on the current file. Any syntax errors will throw errors.
+-   If you are using packer and have Github theme's config in a `config = function() end` block, this will not work as packer
+    would require to be re-compiled and the compiled file sourced.
 
 #### :GithubThemeInteractive
 
