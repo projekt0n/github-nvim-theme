@@ -23,6 +23,22 @@ or `:h github-theme-changelog` to receive updates on breaking changes and deprec
     **[github-theme-contrib](https://github.com/projekt0n/github-theme-contrib)**
     git repository and related code have been removed from this repository.
 
+## Supported Colorschemes & Comparisons
+
+| github-nvim-theme          | github-vscode-theme            | Github Web UI                   | Primer              |
+| :------------------------- | :----------------------------- | :------------------------------ | :------------------ |
+| github_dark                | Github Dark                    | -                               | -                   |
+| github_light               | Github Light                   | -                               | -                   |
+| github_dark_dimmed         | Github Dark Dimmed             | Dark dimmed                     | dark_dimmed         |
+| github_dark_default        | Github Dark Default            | Dark default                    | dark                |
+| github_light_default       | Github Light Default           | Light default                   | light               |
+| github_dark_high_contrast  | Github Dark High Contrast      | Dark high contrast              | dark_high_contrast  |
+| github_light_high_contrast | Github Light High Contrast     | Light high contrast             | light_high_contrast |
+| github_dark_colorblind     | Github Dark Colorblind (Beta)  | Dark Protanopia & Deuteranopia  | dark_colorblind     |
+| github_light_colorblind    | Github Light Colorblind (Beta) | Light Protanopia & Deuteranopia | light_colorblind    |
+| github_dark_tritanopia     | -                              | Dark Tritanopia                 | dark_tritanopia     |
+| github_light_tritanopia    | -                              | Light Tritanopia                | light_tritanopia    |
+
 ## Features
 
 -   Supports the latest Neovim>=0.5 features like Treesitter and LSP

@@ -12,19 +12,7 @@ Date: December 02, 2023
 Reimplemented the `*_default` colorschemes, previously deprecated in the
 |github-theme.changelog-23042023|.
 
-The updated colorscheme list now includes:
-
-- github_dark
-- github_dark_colorblind
-- github_dark_default               (Re-Implemented)
-- github_dark_dimmed
-- github_dark_high_contrast
-- github_dark_tritanopia
-- github_light
-- github_light_colorblind
-- github_light_default              (Re-Implemented)
-- github_light_high_contrast
-- github_light_tritanopia
+The updated colorscheme list on `:h github-nvim-theme-overview`
 
 
 

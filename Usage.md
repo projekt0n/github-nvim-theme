@@ -1,20 +1,23 @@
 ## Overview
 
 The Github Theme is a community-driven theme for Neovim, designed to support LSP (Language Server Protocol), Treesitter, and various plugins.
-It offers multiple themes, including colorblind-friendly options. Here are the available themes:
+It offers multiple themes, including colorblind-friendly options.
 
--   `github_dark`
--   `github_dark_colorblind`
--   `github_dark_default`
--   `github_dark_dimmed`
--   `github_dark_high_contrast`
--   `github_dark_tritanopia`
--   `github_dimmed`
--   `github_light`
--   `github_light_colorblind`
--   `github_light_default`
--   `github_light_high_contrast`
--   `github_light_tritanopia`
+Here are the available themes:
+
+| github-nvim-theme          | github-vscode-theme            | Github Web UI                   | Primer              |
+| :------------------------- | :----------------------------- | :------------------------------ | :------------------ |
+| github_dark                | Github Dark                    | -                               | -                   |
+| github_light               | Github Light                   | -                               | -                   |
+| github_dark_dimmed         | Github Dark Dimmed             | Dark dimmed                     | dark_dimmed         |
+| github_dark_default        | Github Dark Default            | Dark default                    | dark                |
+| github_light_default       | Github Light Default           | Light default                   | light               |
+| github_dark_high_contrast  | Github Dark High Contrast      | Dark high contrast              | dark_high_contrast  |
+| github_light_high_contrast | Github Light High Contrast     | Light high contrast             | light_high_contrast |
+| github_dark_colorblind     | Github Dark Colorblind (Beta)  | Dark Protanopia & Deuteranopia  | dark_colorblind     |
+| github_light_colorblind    | Github Light Colorblind (Beta) | Light Protanopia & Deuteranopia | light_colorblind    |
+| github_dark_tritanopia     | -                              | Dark Tritanopia                 | dark_tritanopia     |
+| github_light_tritanopia    | -                              | Light Tritanopia                | light_tritanopia    |
 
 ## Usage
 
