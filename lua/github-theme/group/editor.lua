@@ -40,6 +40,7 @@ function M.get(spec, config)
     -- TermCursorNC    = {}, -- cursor in an unfocused terminal
     ErrorMsg        = { fg = spec.diag.error }, -- error messages on the command line
     VertSplit       = { fg = c.border.default }, -- the column separating vertically split windows
+    WinSeparator    = { fg = c.border.default }, -- (nvim >= 0.10) the column separating vertically split windows
     Folded          = { fg = spec.fg3, bg = spec.bg2 }, -- line used for closed folds
     FoldColumn      = { fg = spec.fg3 }, -- 'foldcolumn'
     SignColumn      = { fg = spec.fg3 }, -- column where |signs| are displayed

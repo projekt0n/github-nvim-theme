@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -   Implement [highlight-blend](https://neovim.io/doc/user/syntax.html#highlight-blend) feature #251
 -   Added Rust lifetime highlights #289
 -   Reimplemented `*_default` colorschemes.
+-   Support `WinSeparator` highlight, introduced in Neovim >= 0.10, replacing `VertSplit`.
 
 ### Changes
 
@@ -22,6 +23,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -   Fixed few regex-based/legacy highlight corrections (fixed #285)
 -   Closed #251
 -   Fixed darkened sidebars when disabling `options.sidebars.disabled`
+
+This new highlight has been added in Neovim version 0.10 and is now used
+instead of `VertSplit`.
+
+Related to #311
 
 ## [v1.0.1] - 23 July 2023
 
