@@ -13,7 +13,7 @@ local scale = primitives.scale
 
 C.WHITE = C(scale.white)
 C.BLACK = C(scale.black)
-C.BG = C(scale.gray[10])
+C.BG = C(assert(primitives.canvas.default))
 
 local function alpha(color, a)
   return color:alpha_blend(a):to_css()
@@ -42,12 +42,7 @@ local palette = {
     on_emphasis = scale.white,
   },
 
-  canvas = {
-    default = scale.gray[10],
-    overlay = scale.gray[9],
-    inset = scale.black,
-    subtle = scale.gray[9],
-  },
+  canvas = primitives.canvas,
 
   border = {
     default = scale.gray[7],
@@ -129,11 +124,11 @@ local palette = {
 local function generate_spec(pal)
   -- stylua: ignore start
   local spec = {
-    bg0  = alpha(C(pal.canvas.inset), 0.75),         -- Dark bg (popup and float)
-    bg1  = pal.canvas.default,                       -- Default bg
-    bg2  = alpha(C(pal.neutral.emphasis), 0.1),      -- Lighter bg (colorcolumn Folds)
-    bg3  = pal.scale.gray[6],                        -- Lighter bg (cursor line)
-    bg4  = pal.scale.gray[4],                        -- Conceal
+    bg0  = alpha(C(pal.canvas.inset), 0.75),            -- Dark bg (popup and float)
+    bg1  = pal.canvas.default,                          -- Default bg
+    bg2  = alpha(C(pal.neutral.emphasis), 0.1),         -- Lighter bg (colorcolumn Folds)
+    bg3  = pal.scale.gray[6],                           -- Lighter bg (cursor line)
+    bg4  = pal.scale.gray[4],                           -- Conceal
 
     fg0  = pal.fg.subtle,                               -- Lighter fg
     fg1  = pal.fg.default,                              -- Default fg

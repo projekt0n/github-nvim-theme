@@ -1,12 +1,11 @@
 local C = require('github-theme.lib.color')
 
 local meta = {
-  name = 'github_dark_dimmed',
-  light = false,
+  name = 'github_light_default',
+  light = true,
 }
 
-local primitives =
-  require('github-theme.palette.primitives.' .. meta.name:gsub('^github%W*', '', 1))
+local primitives = require('github-theme.palette.primitives.light')
 
 local pl = primitives.prettylights
 local scale = primitives.scale
@@ -19,125 +18,126 @@ local function alpha(color, a)
   return color:alpha_blend(a):to_css()
 end
 
+-- Temp override until Primitives are updated
 local palette = {
   scale = scale,
 
   orange = scale.orange[4],
+  gray = scale.gray[6],
 
-  black = { base = scale.gray[10], bright = scale.gray[9] },
-  gray = { base = scale.gray[5], bright = scale.gray[5] },
-  blue = { base = scale.blue[4], bright = scale.blue[3] },
-  green = { base = scale.green[4], bright = scale.green[3] },
-  magenta = { base = scale.purple[4], bright = scale.purple[3] },
-  pink = { base = scale.pink[4], bright = scale.pink[3] },
-  red = { base = scale.red[4], bright = scale.red[3] },
-  white = { base = scale.gray[3], bright = scale.gray[3] },
-  yellow = { base = scale.yellow[4], bright = scale.yellow[3] },
-  cyan = { base = '#76e3ea', bright = '#b3f0ff' },
+  black = { base = scale.gray[10], bright = scale.gray[7] },
+  white = { base = scale.gray[6], bright = scale.gray[5] },
+  red = { base = scale.red[6], bright = scale.red[7] },
+  green = { base = scale.green[7], bright = scale.green[6] },
+  yellow = { base = scale.yellow[9], bright = scale.yellow[8] },
+  blue = { base = scale.blue[6], bright = scale.blue[5] },
+  magenta = { base = scale.purple[6], bright = scale.purple[5] },
+  pink = { base = scale.pink[6], bright = scale.pink[5] },
+  cyan = { base = '#1b7c83', bright = '#3192aa' },
 
   fg = {
-    default = scale.gray[2],
-    muted = scale.gray[4],
-    subtle = scale.gray[5],
+    default = scale.black,
+    muted = scale.gray[3],
+    subtle = scale.gray[6],
     on_emphasis = scale.white,
   },
 
   canvas = primitives.canvas,
 
   border = {
-    default = scale.gray[7],
-    muted = scale.gray[8],
-    subtle = alpha(C.from_rgba(240, 246, 252, 1), 0.1),
+    default = scale.gray[3],
+    muted = C(scale.gray[3]):lighten(0.03), -- TODO: lighten method not working
+    subtle = alpha(C(scale.black), 0.15),
   },
 
   neutral = {
-    emphasis_plus = scale.gray[5],
-    emphasis = scale.gray[5],
-    muted = alpha(C.from_rgba(110, 118, 129, 1), 0.4),
-    subtle = alpha(C.from_rgba(110, 118, 129, 1), 0.1),
+    emphasis_plus = scale.gray[10],
+    emphasis = scale.gray[6],
+    muted = alpha(C(scale.gray[4]), 0.2),
+    subtle = alpha(C(scale.gray[2]), 0.5),
   },
 
   accent = {
-    fg = scale.blue[4],
+    fg = scale.blue[6],
     emphasis = scale.blue[6],
-    muted = alpha(C.from_rgba(56, 139, 253, 1), 0.4),
-    subtle = alpha(C.from_rgba(56, 139, 253, 1), 0.15),
+    muted = alpha(C(scale.blue[4]), 0.4),
+    subtle = scale.blue[1],
   },
 
   success = {
-    fg = scale.green[4],
-    emphasis = scale.green[6],
-    muted = alpha(C.from_rgba(46, 160, 67, 1), 0.4),
-    subtle = alpha(C.from_rgba(46, 160, 67, 1), 0.15),
+    fg = scale.green[6],
+    emphasis = '#1f883d',
+    muted = alpha(C(scale.green[4]), 0.4),
+    subtle = scale.green[1],
   },
 
   attention = {
-    fg = scale.yellow[4],
+    fg = scale.yellow[6],
     emphasis = scale.yellow[6],
-    muted = alpha(C.from_rgba(187, 128, 9, 1), 0.4),
-    subtle = alpha(C.from_rgba(187, 128, 9, 1), 0.15),
+    muted = alpha(C(scale.yellow[4]), 0.4),
+    subtle = scale.yellow[1],
   },
 
   severe = {
-    fg = scale.orange[5],
+    fg = scale.orange[6],
     emphasis = scale.orange[6],
-    muted = alpha(C.from_rgba(219, 109, 40, 1), 0.4),
-    subtle = alpha(C.from_rgba(219, 109, 40, 1), 0.15),
+    muted = alpha(C(scale.orange[4]), 0.4),
+    subtle = scale.orange[1],
   },
 
   danger = {
-    fg = scale.red[5],
+    fg = '#d1242f',
     emphasis = scale.red[6],
-    muted = alpha(C.from_rgba(248, 81, 73, 1), 0.4),
-    subtle = alpha(C.from_rgba(248, 81, 73, 1), 0.15),
+    muted = alpha(C(scale.red[4]), 0.4),
+    subtle = scale.red[1],
   },
 
   open = {
-    fg = scale.green[4],
-    emphasis = scale.green[6],
-    muted = alpha(C.from_rgba(46, 160, 67, 1), 0.4),
-    subtle = alpha(C.from_rgba(46, 160, 67, 1), 0.15),
-  },
-
-  done = {
-    fg = scale.purple[5],
-    emphasis = scale.purple[6],
-    muted = alpha(C.from_rgba(163, 113, 247, 1), 0.4),
-    subtle = alpha(C.from_rgba(163, 113, 247, 1), 0.15),
+    fg = scale.green[6],
+    emphasis = '#1f883d',
+    muted = alpha(C(scale.green[4]), 0.4),
+    subtle = scale.green[1],
   },
 
   closed = {
-    fg = scale.red[5],
+    fg = '#d1242f',
     emphasis = scale.red[6],
-    muted = alpha(C.from_rgba(248, 81, 73, 1), 0.4),
-    subtle = alpha(C.from_rgba(248, 81, 73, 1), 0.15),
+    muted = alpha(C(scale.red[4]), 0.4),
+    subtle = scale.red[1],
+  },
+
+  done = {
+    fg = scale.purple[6],
+    emphasis = scale.purple[6],
+    muted = alpha(C(scale.purple[4]), 0.4),
+    subtle = scale.purple[1],
   },
 
   sponsors = {
-    fg = scale.pink[5],
+    fg = scale.pink[6],
     emphasis = scale.pink[6],
-    muted = alpha(C.from_rgba(219, 97, 162, 1), 0.4),
-    subtle = alpha(C.from_rgba(219, 97, 162, 1), 0.15),
+    muted = alpha(C(scale.pink[4]), 0.4),
+    subtle = scale.pink[1],
   },
 }
 
 local function generate_spec(pal)
   -- stylua: ignore start
   local spec = {
-    bg0  = alpha(C(pal.canvas.inset), 0.75),            -- Dark bg (popup and float)
+    bg0  = pal.canvas.inset,                            -- Dark bg (popup and float)
     bg1  = pal.canvas.default,                          -- Default bg
     bg2  = alpha(C(pal.neutral.emphasis), 0.1),         -- Lighter bg (colorcolumn Folds)
-    bg3  = alpha(C(pal.fg.default), 0.1),               -- Lighter bg (cursor line)
-    bg4  = pal.scale.gray[4],                           -- Conceal
+    bg3  = alpha(C(pal.scale.blue[9]), 0.1),            -- Lighter bg (cursor line)
+    bg4  = pal.scale.gray[6],                           -- Conceal
 
     fg0  = pal.fg.subtle,                               -- Lighter fg
     fg1  = pal.fg.default,                              -- Default fg
-    fg2  = pal.fg.muted,                                -- Darker fg (status line)
-    fg3  = pal.scale.gray[5],                           -- Darker fg (line numbers, fold columns)
+    fg2  = pal.scale.gray[9],                           -- Darker fg (status line)
+    fg3  = pal.scale.gray[7],                           -- Darker fg (line numbers, fold columns)
 
-    sel0 = alpha(C(pal.accent.fg), 0.40),               -- Visual selection bg
+    sel0 = alpha(C(pal.accent.fg), 0.15),               -- Visual selection bg
     sel1 = alpha(C(pal.accent.muted), 0.90),            -- Popup sel bg
-    sel2 = alpha(C(pal.scale.yellow[1]), 0.20),         -- Search bg
+    sel2 = alpha(C(pal.attention.emphasis), 0.3)        -- Search bg
   }
 
   spec.syntax = {
@@ -148,7 +148,7 @@ local function generate_spec(pal)
     comment     = pl.syntax.comment,                    -- Comment
     conditional = pl.syntax.keyword,                    -- Conditional and loop
     const       = pl.syntax.constant,                   -- Constants, imports and booleans
-    dep         = pal.scale.red[3],                     -- Deprecated
+    dep         = pal.scale.red[8],                     -- Deprecated
     field       = pl.syntax.constant,                   -- Field
     func        = pl.syntax.entity,                     -- Functions and Titles
     ident       = spec.fg1,                             -- Identifiers
@@ -180,9 +180,9 @@ local function generate_spec(pal)
   }
 
   spec.diff = {
-    add    = alpha(C(pal.scale.green[6]), 0.15),
-    delete = alpha(C(pal.scale.red[6]), 0.15),
-    change = alpha(C(pal.scale.yellow[6]), 0.15),
+    add    = alpha(C(pal.scale.green[7]), 0.3),
+    delete = alpha(C(pal.scale.red[7]), 0.3),
+    change = alpha(C(pal.scale.yellow[7]), 0.3),
     text   = spec.fg0
   }
 

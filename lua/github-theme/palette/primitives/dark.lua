@@ -26,7 +26,7 @@ local M = vim.json.decode(
       "numBg": "rgba(56,139,253,0.4)"
     },
     "expander": {
-      "icon": "#7d8590"
+      "icon": "#848d97"
     },
     "selectedLineHighlightMixBlendMode": "screen"
   },
@@ -78,7 +78,7 @@ local M = vim.json.decode(
     "guttersBg": "#0d1117",
     "guttermarkerText": "#0d1117",
     "guttermarkerSubtleText": "#6e7681",
-    "linenumberText": "#7d8590",
+    "linenumberText": "#848d97",
     "cursor": "#e6edf3",
     "selectionBg": "rgba(56,139,253,0.4)",
     "activelineBg": "rgba(110,118,129,0.1)",
@@ -100,12 +100,12 @@ local M = vim.json.decode(
     "runBorderWidth": "1px",
     "containerBorderWidth": "1px",
     "textPrimary": "#e6edf3",
-    "textSecondary": "#7d8590",
+    "textSecondary": "#848d97",
     "textLink": "#2f81f7",
-    "btnIcon": "#7d8590",
+    "btnIcon": "#848d97",
     "btnHoverIcon": "#e6edf3",
     "btnHoverBg": "rgba(110,118,129,0.1)",
-    "inputText": "#7d8590",
+    "inputText": "#848d97",
     "inputPlaceholderText": "#6e7681",
     "inputFocusText": "#e6edf3",
     "inputBg": "#161b22",
@@ -123,11 +123,11 @@ local M = vim.json.decode(
     "dropdownBtnHoverText": "#e6edf3",
     "dropdownBtnHoverBg": "rgba(110,118,129,0.1)",
     "scrollbarThumbBg": "rgba(110,118,129,0.4)",
-    "headerLabelText": "#7d8590",
+    "headerLabelText": "#848d97",
     "headerLabelOpenText": "#e6edf3",
     "headerBorder": "#21262d",
-    "headerIcon": "#7d8590",
-    "lineText": "#7d8590",
+    "headerIcon": "#848d97",
+    "lineText": "#848d97",
     "lineNumText": "#6e7681",
     "lineTimestampText": "#6e7681",
     "lineHoverBg": "rgba(110,118,129,0.1)",
@@ -136,18 +136,18 @@ local M = vim.json.decode(
     "lineDtFmText": "#ffffff",
     "lineDtFmBg": "#9e6a03",
     "gateBg": "rgba(187,128,9,0.15)",
-    "gateText": "#7d8590",
+    "gateText": "#848d97",
     "gateWaitingText": "#d29922",
     "stepHeaderOpenBg": "#161b22",
     "stepErrorText": "#f85149",
     "stepWarningText": "#d29922",
-    "loglineText": "#7d8590",
+    "loglineText": "#848d97",
     "loglineNumText": "#6e7681",
     "loglineDebugText": "#a371f7",
-    "loglineErrorText": "#7d8590",
+    "loglineErrorText": "#848d97",
     "loglineErrorNumText": "#6e7681",
     "loglineErrorBg": "rgba(248,81,73,0.1)",
-    "loglineWarningText": "#7d8590",
+    "loglineWarningText": "#848d97",
     "loglineWarningNumText": "#d29922",
     "loglineWarningBg": "rgba(187,128,9,0.15)",
     "loglineCommandText": "#2f81f7",
@@ -326,6 +326,10 @@ local M = vim.json.decode(
       "counterFg": "#f85149",
       "disabledCounterFg": "rgba(248,81,73,0.5)",
       "hoverCounterFg": "#ffffff"
+    },
+    "inactive": {
+      "bg": "#21262d",
+      "text": "#8b949e"
     }
   },
   "underlinenav": {
@@ -352,7 +356,7 @@ local M = vim.json.decode(
     "hoverBg": "hsla(215,8%,72%,0.1)",
     "activeBg": "rgba(110,118,129,0.4)",
     "disabledBg": "#21262d",
-    "fg": "#7d8590",
+    "fg": "#848d97",
     "disabledFg": "#010409",
     "border": "rgba(0,0,0,0)",
     "checked": {
@@ -394,12 +398,12 @@ local M = vim.json.decode(
       "hoverBg": "rgba(177,186,196,0.12)"
     },
     "directory": {
-      "fill": "#7d8590"
+      "fill": "#848d97"
     }
   },
   "fg": {
     "default": "#e6edf3",
-    "muted": "#7d8590",
+    "muted": "#848d97",
     "subtle": "#6e7681",
     "onEmphasis": "#ffffff"
   },
@@ -613,7 +617,7 @@ local M = vim.json.decode(
   { luanil = { object = false, array = false } }
 )
 M._VERSION =
-  vim.json.decode([=["7.13.1"]=], { luanil = { object = false, array = false } })
+  vim.json.decode([=["7.15.5"]=], { luanil = { object = false, array = false } })
 M._LICENSE = [=[
 The MIT License (MIT)
 

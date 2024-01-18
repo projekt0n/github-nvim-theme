@@ -5,7 +5,9 @@ function M.get(spec, config, opts)
   --       being integrated.
   local primitives = require(
     'github-theme.palette.primitives.'
-      .. require('github-theme.config').theme:gsub('^github%W*', '', 1)
+      .. require('github-theme.config').theme
+        :gsub('^github_(.-)_default$', '%1')
+        :gsub('^github_(.-)$', '%1')
   )
 
   local pl = primitives.prettylights

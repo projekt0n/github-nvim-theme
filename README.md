@@ -13,35 +13,53 @@
 Subscribe to this [discussion](https://github.com/projekt0n/github-nvim-theme/discussions/198)
 or `:h github-theme-changelog` to receive updates on breaking changes and deprecations.
 
-- **2023-05-14**: This theme was major refactored with changes to Neovim support and
-  codebase, heavily inspired by [nightfox.nvim](https://github.com/EdenEast/nightfox.nvim).
-  Credit goes to [EdenEast](https://github.com/EdenEast). For older Neovim versions, use the
-  [0.0.x](https://github.com/projekt0n/github-nvim-theme/tree/0.0.x) branch.
-- **2022-08-03**: Terminal and other themes have been moved to
-  **[github-theme-contrib](https://github.com/projekt0n/github-theme-contrib)**
-  git repository and related code have been removed from this repository.
+-   **2023-12-02**: Reimplemented the `*_default` colorschemes, previously deprecated in the
+    [changelog-23042023](https://github.com/projekt0n/github-nvim-theme/discussions/198#discussioncomment-5700014)
+-   **2023-05-14**: This theme was major refactored with changes to Neovim support and
+    codebase, heavily inspired by [nightfox.nvim](https://github.com/EdenEast/nightfox.nvim).
+    Credit goes to [EdenEast](https://github.com/EdenEast). For older Neovim versions, use the
+    [0.0.x](https://github.com/projekt0n/github-nvim-theme/tree/0.0.x) branch.
+-   **2022-08-03**: Terminal and other themes have been moved to
+    **[github-theme-contrib](https://github.com/projekt0n/github-theme-contrib)**
+    git repository and related code have been removed from this repository.
+
+## Supported Colorschemes & Comparisons
+
+| github-nvim-theme          | github-vscode-theme            | Github Web UI                   | Primer              |
+| :------------------------- | :----------------------------- | :------------------------------ | :------------------ |
+| github_dark                | Github Dark                    | -                               | -                   |
+| github_light               | Github Light                   | -                               | -                   |
+| github_dark_dimmed         | Github Dark Dimmed             | Dark dimmed                     | dark_dimmed         |
+| github_dark_default        | Github Dark Default            | Dark default                    | dark                |
+| github_light_default       | Github Light Default           | Light default                   | light               |
+| github_dark_high_contrast  | Github Dark High Contrast      | Dark high contrast              | dark_high_contrast  |
+| github_light_high_contrast | Github Light High Contrast     | Light high contrast             | light_high_contrast |
+| github_dark_colorblind     | Github Dark Colorblind (Beta)  | Dark Protanopia & Deuteranopia  | dark_colorblind     |
+| github_light_colorblind    | Github Light Colorblind (Beta) | Light Protanopia & Deuteranopia | light_colorblind    |
+| github_dark_tritanopia     | -                              | Dark Tritanopia                 | dark_tritanopia     |
+| github_light_tritanopia    | -                              | Light Tritanopia                | light_tritanopia    |
 
 ## Features
 
-- Supports the latest Neovim>=0.5 features like Treesitter and LSP
-- Resembles GitHub's VSCode themes and follows [primer design guidelines](https://primer.style/primitives/storybook)
-- Has Github's colorblind themes
-- Support for multiple [plugins](#supported-plugins) and [status lines](#status-lines)
-  - And many others should 'just work'!
-- Minimal inactive Vim's Default statusline
-- Vim terminal colors
-- Darker background for sidebar-like windows
-- Highly configurable with template overriding
-- Most elegant lualine theme
-- [Compile](#compile) user's configuration for fast startup times
-- Export [Color](#color-lib) library utility
-- [Interactive](#interactive) live config re-loading
+-   Supports the latest Neovim>=0.5 features like Treesitter and LSP
+-   Resembles GitHub's VSCode themes and follows [primer design guidelines](https://primer.style/primitives/storybook)
+-   Has Github's colorblind themes
+-   Support for multiple [plugins](#supported-plugins) and [status lines](#status-lines)
+    -   And many others should 'just work'!
+-   Minimal inactive Vim's Default statusline
+-   Vim terminal colors
+-   Darker background for sidebar-like windows
+-   Highly configurable with template overriding
+-   Most elegant lualine theme
+-   [Compile](#compile) user's configuration for fast startup times
+-   Export [Color](#color-lib) library utility
+-   [Interactive](#interactive) live config re-loading
 
 ## Requirements
 
-- Neovim >= 0.8.0 (for older version use [0.0.x](https://github.com/projekt0n/github-nvim-theme/tree/0.0.x) branch)
-- True color support
-- Undercurl terminal support (optional)
+-   Neovim >= 0.8.0 (for older version use [0.0.x](https://github.com/projekt0n/github-nvim-theme/tree/0.0.x) branch)
+-   True color support
+-   Undercurl terminal support (optional)
 
 > **Note**
 > for MacOS: The default `terminal` does not support `true color`. Use either `Iterm2` or [another] terminal that supports true color.
@@ -126,16 +144,16 @@ vim.cmd('colorscheme github_dark')
 
 ## Screenshots
 
-- Font:
-  [Iosevka Nerd Font Mono](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Iosevka)
-- Terminal:
-  [kitty](https://sw.kovidgoyal.net/kitty)
-- Icon:
-  [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
-- StatusLine: Default
-  ([.vimrc](https://github.com/ful1e5/dotfiles/blob/main/nvim/.config/nvim/lua/ful1e5/statusline.lua))
-- dotfiles:
-  [ful1e5/dotfiles/nvim](https://github.com/ful1e5/dotfiles/tree/main/nvim/.config/nvim)
+-   Font:
+    [Iosevka Nerd Font Mono](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Iosevka)
+-   Terminal:
+    [kitty](https://sw.kovidgoyal.net/kitty)
+-   Icon:
+    [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
+-   StatusLine: Default
+    ([.vimrc](https://github.com/ful1e5/dotfiles/blob/main/nvim/.config/nvim/lua/ful1e5/statusline.lua))
+-   dotfiles:
+    [ful1e5/dotfiles/nvim](https://github.com/ful1e5/dotfiles/tree/main/nvim/.config/nvim)
 
 ### Github Dark
 
@@ -144,6 +162,14 @@ vim.cmd('colorscheme github_dark')
 ```
 
 ![github_dark](https://github.com/projekt0n/github-nvim-theme/assets/24286590/0e6525ef-8444-4097-855c-c2a9257a6a2f)
+
+### Github Dark Default
+
+```lua
+vim.cmd('colorscheme github_dark_default')
+```
+
+![github_dark_default](https://github.com/projekt0n/github-nvim-theme/assets/24286590/6df16271-20bc-4fd4-90df-a7477b95f3f8)
 
 ### Github Dark Dimmed
 
@@ -184,6 +210,14 @@ vim.cmd('colorscheme github_light')
 ```
 
 ![github_light](https://github.com/projekt0n/github-nvim-theme/assets/24286590/11c6606a-28e4-4126-b687-c84a403bbc57)
+
+### Github Light Default
+
+```lua
+vim.cmd('colorscheme github_light_default')
+```
+
+![github_light_default](https://github.com/projekt0n/github-nvim-theme/assets/24286590/1a7483e1-b008-42e0-8fab-eeb75e89a3a7)
 
 ### Github Light High Contrast
 
@@ -546,37 +580,37 @@ This command will attach an autocmd to the current buffer that executes on `Buff
 
 ## Supported Plugins
 
-- [Builtin lsp diagnostics](https://neovim.io/doc/user/lsp.html)
-- [ale](https://github.com/dense-analysis/ale)
-- [circles.nvim](https://github.com/projekt0n/circles.nvim)
-- [coc.nvim](https://github.com/neoclide/coc.nvim)
-- [dap-ui](https://github.com/rcarriga/nvim-dap-ui)
-- [dashboard-nvim](https://github.com/glepnir/dashboard-nvim)
-- [diffchar.vim](https://github.com/rickhowe/diffchar.vim)
-- [diffview.nvim](https://github.com/sindrets/diffview.nvim)
-- [fidget.nvim](https://github.com/j-hui/fidget.nvim)
-- [fsread.nvim](https://github.com/nullchilly/fsread.nvim)
-- [fzf-lua](https://github.com/ibhagwan/fzf-lua)
-- [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
-- [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
-- [lsp-trouble.nvim](https://github.com/folke/lsp-trouble.nvim)
-- [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
-- [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
-- [mini.nvim](https://github.com/echasnovski/mini.nvim)
-- [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)
-- [neogit](https://github.com/TimUntersberger/neogit)
-- [nvim-bufferline.lua](https://github.com/akinsho/nvim-bufferline.lua)
-- [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
-- [nvim-compe](https://github.com/hrsh7th/nvim-compe)
-- [nvim-notify](https://github.com/rcarriga/nvim-notify)
-- [nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)
-- [nvim-treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context)
-- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
-- [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
-- [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
-- [vim-airline](https://github.com/vim-airline/vim-airline)
-- [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
-- [which-key.nvim](https://github.com/folke/which-key.nvim)
+-   [Builtin lsp diagnostics](https://neovim.io/doc/user/lsp.html)
+-   [ale](https://github.com/dense-analysis/ale)
+-   [circles.nvim](https://github.com/projekt0n/circles.nvim)
+-   [coc.nvim](https://github.com/neoclide/coc.nvim)
+-   [dap-ui](https://github.com/rcarriga/nvim-dap-ui)
+-   [dashboard-nvim](https://github.com/glepnir/dashboard-nvim)
+-   [diffchar.vim](https://github.com/rickhowe/diffchar.vim)
+-   [diffview.nvim](https://github.com/sindrets/diffview.nvim)
+-   [fidget.nvim](https://github.com/j-hui/fidget.nvim)
+-   [fsread.nvim](https://github.com/nullchilly/fsread.nvim)
+-   [fzf-lua](https://github.com/ibhagwan/fzf-lua)
+-   [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
+-   [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
+-   [lsp-trouble.nvim](https://github.com/folke/lsp-trouble.nvim)
+-   [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
+-   [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
+-   [mini.nvim](https://github.com/echasnovski/mini.nvim)
+-   [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)
+-   [neogit](https://github.com/TimUntersberger/neogit)
+-   [nvim-bufferline.lua](https://github.com/akinsho/nvim-bufferline.lua)
+-   [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+-   [nvim-compe](https://github.com/hrsh7th/nvim-compe)
+-   [nvim-notify](https://github.com/rcarriga/nvim-notify)
+-   [nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)
+-   [nvim-treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context)
+-   [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+-   [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
+-   [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+-   [vim-airline](https://github.com/vim-airline/vim-airline)
+-   [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
+-   [which-key.nvim](https://github.com/folke/which-key.nvim)
 
 ## Status lines
 

@@ -10,11 +10,6 @@ Deprecated features                                *github-theme.deprecated*
 COLORSCHEMES
 
 - `'github_dimmed'`          Deprecated. Use |'github_dark_dimmed'| Instead.
-- `'github_dark_default'`    Deprecated. Use |'github_dark_high_contrast'|
-	Instead.
-- `'github_light_default'`   Deprecated. Use |'github_light_high_contrast'|
-	Instead.
-
 
 SETUP OPTIONS
 

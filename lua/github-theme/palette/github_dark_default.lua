@@ -1,12 +1,11 @@
 local C = require('github-theme.lib.color')
 
 local meta = {
-  name = 'github_dark_dimmed',
+  name = 'github_dark_default',
   light = false,
 }
 
-local primitives =
-  require('github-theme.palette.primitives.' .. meta.name:gsub('^github%W*', '', 1))
+local primitives = require('github-theme.palette.primitives.dark')
 
 local pl = primitives.prettylights
 local scale = primitives.scale
@@ -36,8 +35,8 @@ local palette = {
   cyan = { base = '#76e3ea', bright = '#b3f0ff' },
 
   fg = {
-    default = scale.gray[2],
-    muted = scale.gray[4],
+    default = '#e6edf3',
+    muted = '#7d8590',
     subtle = scale.gray[5],
     on_emphasis = scale.white,
   },
@@ -45,7 +44,7 @@ local palette = {
   canvas = primitives.canvas,
 
   border = {
-    default = scale.gray[7],
+    default = scale.gray[9],
     muted = scale.gray[8],
     subtle = alpha(C.from_rgba(240, 246, 252, 1), 0.1),
   },
@@ -58,7 +57,7 @@ local palette = {
   },
 
   accent = {
-    fg = scale.blue[4],
+    fg = '#2f81f7',
     emphasis = scale.blue[6],
     muted = alpha(C.from_rgba(56, 139, 253, 1), 0.4),
     subtle = alpha(C.from_rgba(56, 139, 253, 1), 0.15),
@@ -82,14 +81,14 @@ local palette = {
     fg = scale.orange[5],
     emphasis = scale.orange[6],
     muted = alpha(C.from_rgba(219, 109, 40, 1), 0.4),
-    subtle = alpha(C.from_rgba(219, 109, 40, 1), 0.15),
+    subtle = alpha(C.from_rgba(219, 109, 40, 1), 0.1),
   },
 
   danger = {
     fg = scale.red[5],
     emphasis = scale.red[6],
     muted = alpha(C.from_rgba(248, 81, 73, 1), 0.4),
-    subtle = alpha(C.from_rgba(248, 81, 73, 1), 0.15),
+    subtle = alpha(C.from_rgba(248, 81, 73, 1), 0.1),
   },
 
   open = {
@@ -103,7 +102,7 @@ local palette = {
     fg = scale.purple[5],
     emphasis = scale.purple[6],
     muted = alpha(C.from_rgba(163, 113, 247, 1), 0.4),
-    subtle = alpha(C.from_rgba(163, 113, 247, 1), 0.15),
+    subtle = alpha(C.from_rgba(163, 113, 247, 1), 0.1),
   },
 
   closed = {
@@ -117,7 +116,7 @@ local palette = {
     fg = scale.pink[5],
     emphasis = scale.pink[6],
     muted = alpha(C.from_rgba(219, 97, 162, 1), 0.4),
-    subtle = alpha(C.from_rgba(219, 97, 162, 1), 0.15),
+    subtle = alpha(C.from_rgba(219, 97, 162, 1), 0.1),
   },
 }
 
@@ -127,7 +126,7 @@ local function generate_spec(pal)
     bg0  = alpha(C(pal.canvas.inset), 0.75),            -- Dark bg (popup and float)
     bg1  = pal.canvas.default,                          -- Default bg
     bg2  = alpha(C(pal.neutral.emphasis), 0.1),         -- Lighter bg (colorcolumn Folds)
-    bg3  = alpha(C(pal.fg.default), 0.1),               -- Lighter bg (cursor line)
+    bg3  = pal.scale.gray[6],                           -- Lighter bg (cursor line)
     bg4  = pal.scale.gray[4],                           -- Conceal
 
     fg0  = pal.fg.subtle,                               -- Lighter fg
@@ -135,7 +134,7 @@ local function generate_spec(pal)
     fg2  = pal.fg.muted,                                -- Darker fg (status line)
     fg3  = pal.scale.gray[5],                           -- Darker fg (line numbers, fold columns)
 
-    sel0 = alpha(C(pal.accent.fg), 0.40),               -- Visual selection bg
+    sel0 = alpha(C(pal.accent.fg), 0.30),               -- Visual selection bg
     sel1 = alpha(C(pal.accent.muted), 0.90),            -- Popup sel bg
     sel2 = alpha(C(pal.scale.yellow[1]), 0.20),         -- Search bg
   }

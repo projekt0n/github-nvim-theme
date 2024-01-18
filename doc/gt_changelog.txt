@@ -5,6 +5,17 @@
 CHANGELOGS                                                *github-theme.changelog*
 
 
+                                                 *github-theme.changelog-02122023*
+
+Date: December 02, 2023
+
+Reimplemented the `*_default` colorschemes, previously deprecated in the
+|github-theme.changelog-23042023|.
+
+The updated colorscheme list on `:h github-nvim-theme-overview`
+
+
+
                                                  *github-theme.changelog-06052023*
 
 Date: May 06, 2023
