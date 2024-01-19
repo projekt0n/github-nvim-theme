@@ -23,11 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -   Fixed few regex-based/legacy highlight corrections (fixed #285)
 -   Closed #251
 -   Fixed darkened sidebars when disabling `options.sidebars.disabled`
-
-This new highlight has been added in Neovim version 0.10 and is now used
-instead of `VertSplit`.
-
-Related to #311
+-   Fixes #311
 
 ## [v1.0.1] - 23 July 2023
 
