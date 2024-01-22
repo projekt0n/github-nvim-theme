@@ -5,6 +5,9 @@
 
 ## Notices
 
+> **Warning**
+> If you customize or configure colors, or if you upgrade the colorscheme and notice that it's not affecting the appearance, please run the `:GithubThemeCompile` command to compile the colorscheme. We are actively addressing this issue and appreciate your patience.
+
 <!-- If you're interested, you can learn more about 'sponsor-spotlight' on
  https://dev.to/ful1e5/lets-give-recognition-to-those-supporting-our-work-on-github-sponsors-b00 -->
 
