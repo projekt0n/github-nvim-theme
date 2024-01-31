@@ -20,11 +20,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Issues Fix
 
-- Fixed few regex-based/legacy highlight corrections (fixed #285)
-- Closed #251
-- Fixed bug where the current theme gets compiled multiple times instead of compiling all themes #290
-- Fixed darkened sidebars when disabling `options.sidebars.disabled`
-- Fixes #311
+-   Fixed few regex-based/legacy highlight corrections (fixed #285)
+-   Closed #251
+-   Fixed bug where the current theme gets compiled multiple times instead of compiling all themes #290
+-   Fixed darkened sidebars when disabling `options.sidebars.disabled`
+-   Fixes #311
 
 ## [v1.0.1] - 23 July 2023
 
@@ -356,7 +356,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 -   Initial release 🎊
 
-[unreleased]: https://github.com/projekt0n/github-nvim-theme/compare/v1.0.0...main
+[unreleased]: https://github.com/projekt0n/github-nvim-theme/compare/v1.0.1...main
+[v1.0.1]: https://github.com/projekt0n/github-nvim-theme/compare/v1.0.1...v1.0.0
 [v1.0.0]: https://github.com/projekt0n/github-nvim-theme/compare/v1.0.0...v0.0.7
 [v0.0.7]: https://github.com/projekt0n/github-nvim-theme/compare/v0.0.7...v0.0.6
 [v0.0.6]: https://github.com/projekt0n/github-nvim-theme/compare/v0.0.6...v0.0.5
