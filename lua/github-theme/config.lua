@@ -99,10 +99,10 @@ function M.reset()
 end
 
 function M.get_compiled_info(opts)
+  opts = opts or {}
   local output_path = opts.output_path or M.options.compile_path
   local file_suffix = opts.file_suffix or M.options.compile_file_suffix
-  local style = opts.name or M.theme
-  return output_path, util.join_paths(output_path, style .. file_suffix)
+  return output_path, util.join_paths(output_path, (opts.theme or M.theme) .. file_suffix)
 end
 
 function M.hash()

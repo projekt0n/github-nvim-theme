@@ -24,14 +24,20 @@ function M.reset()
   require('github-theme.override').reset()
 end
 
+---Compiles all themes/styles with their current settings.
+---@return nil
 function M.compile()
   require('github-theme.lib.log').clear()
-
   local compiler = require('github-theme.lib.compiler')
   local themes = require('github-theme.palette').themes
-  for _, style in ipairs(themes) do
-    compiler.compile({ style = style })
+  local current_theme = config.theme
+  for _, theme in ipairs(themes) do
+    -- Compile current theme last (see discussion in #290)
+    if theme ~= current_theme then
+      compiler.compile({ theme = theme })
+    end
   end
+  compiler.compile({ theme = current_theme })
 end
 
 -- Avoid g:colors_name reloading

@@ -20,10 +20,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Issues Fix
 
--   Fixed few regex-based/legacy highlight corrections (fixed #285)
--   Closed #251
--   Fixed darkened sidebars when disabling `options.sidebars.disabled`
--   Fixes #311
+- Fixed few regex-based/legacy highlight corrections (fixed #285)
+- Closed #251
+- Fixed bug where the current theme gets compiled multiple times instead of compiling all themes #290
+- Fixed darkened sidebars when disabling `options.sidebars.disabled`
+- Fixes #311
 
 ## [v1.0.1] - 23 July 2023
 
