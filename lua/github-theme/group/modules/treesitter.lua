@@ -142,6 +142,9 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
 
     ['@text.diff.add']            = { link = 'diffAdded' },                           -- Added text (for diff files)
     ['@text.diff.delete']         = { link = 'diffRemoved' },                         -- Deleted text (for diff files)
+    ['@diff.plus']                = { link = "diffAdded" },
+    ['@diff.minus']               = { link = "diffRemoved" },
+    ['@diff.delta']               = { link = "diffChanged" },
 
     -- Tags
     ['@tag']                      = { fg = syn.tag },                                 -- Tags like html tag names
