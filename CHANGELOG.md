@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changes
 
 -   chore(ci): use `actions/checkout@v4`
+-   fix(ci): update neovim macOS distribution naming
 
 ### Issues Fix
 
