@@ -20,13 +20,17 @@ jobs:
             "v0.8.2",
             "v0.8.3",
             "v0.9.0",
+            "v0.9.1",
+            "v0.9.2",
+            "v0.9.4",
+            "v0.9.5",
             "stable",
             "nightly",
           ]
     name: Ubuntu nvim-${{ matrix.neovim_tag }}
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Install Neovim
         uses: MunifTanjim/setup-neovim-action@v1
         with:
@@ -40,7 +44,7 @@ jobs:
     name: Macos nvim-nightly
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Install Neovim
         run: |
           wget -q https://github.com/neovim/neovim/releases/download/nightly/nvim-macos.tar.gz
@@ -55,7 +59,7 @@ jobs:
     name: Windows nvim-nightly
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Install Neovim
         run: |
           C:\msys64\usr\bin\wget.exe -q https://github.com/neovim/neovim/releases/download/nightly/nvim-win64.zip
