@@ -226,6 +226,11 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     ['@punctuation.delimiter.markdown_inline']  = { fg = spec.fg1 },
     ['@text.quote.markdown']                    = { fg = syn.tag },
 
+    -- Nix
+    ['@variable.member.nix']                    = { link = '@field' },
+    ['@variable.parameter.nix']                 = { link = '@parameter' },
+    ['@string.special.path.nix']                = { link = '@string' },
+
     -- PHP
     -- ['@type.php']                            = { link = '@function' },
     ['@namespace.php']                          = { link = '@constructor.php' },
