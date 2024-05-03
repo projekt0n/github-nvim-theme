@@ -83,7 +83,7 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     -- ['@method.call']           = { link = '@method' },                             -- Method calls
 
     ['@constructor']              = { fg = pl.syntax.variable},                       -- Constructor calls & defs: {} in Lua, new Type() (js/php), constructor() {}
-    ['@parameter']                = { fg = syn.param, stl.variables },                -- For parameters of a function
+    ['@variable.parameter']                = { fg = syn.param, stl.variables },                -- For parameters of a function
 
     -- Keywords
     -- ['@keyword']               = { link = 'Keyword' },                             -- For keywords that don't fall in previous categories
@@ -228,7 +228,7 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
 
     -- Nix
     ['@variable.member.nix']                    = { link = '@field' },
-    ['@variable.parameter.nix']                 = { link = '@parameter' },
+    ['@variable.parameter.nix']                 = { link = '@variable.parameter' },
     ['@string.special.path.nix']                = { link = '@string' },
 
     -- PHP
@@ -256,7 +256,7 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
 
     -- SCSS
     ['@property.scss']                          = { link = '@constant' },
-    ['@variable.scss']                          = { link = '@parameter' },
+    ['@variable.scss']                          = { link = '@variable.parameter' },
 
     -- SQL
     ['@field.sql']                              = { link = '@constant' },
@@ -271,9 +271,9 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     -- ['@variable.typescript']                 = { link = '@constant' },
 
     -- VimDoc (vim help files/docs)
-    ['@parameter.vimdoc']                       = { fg = pl.syntax.variable },
+    ['@variable.parameter.vimdoc']              = { fg = pl.syntax.variable },
     ['@label.vimdoc']                           = { link = '@keyword' },                       -- `*sometag*`
-    -- ['@string.special.vimdoc']               = { link = '@parameter.vimdoc' },              -- `CTRL-W`, etc. (unused atm, not well-defined)
+    -- ['@string.special.vimdoc']                  = { link = '@variable.parameter.vimdoc' },              -- `CTRL-W`, etc. (unused atm, not well-defined)
 
     -- Yaml
     ['@field.yaml']                             = { link = '@tag' },
