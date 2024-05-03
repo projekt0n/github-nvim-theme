@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+## [v1.0.2] - 03 May 2023
+
 ### What's New?
 
 -   Implement [highlight-blend](https://neovim.io/doc/user/syntax.html#highlight-blend) feature #251
@@ -357,7 +359,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 -   Initial release 🎊
 
-[unreleased]: https://github.com/projekt0n/github-nvim-theme/compare/v1.0.1...main
+[unreleased]: https://github.com/projekt0n/github-nvim-theme/compare/v1.0.2...main
+[v1.0.2]: https://github.com/projekt0n/github-nvim-theme/compare/v1.0.1...v1.0.0
 [v1.0.1]: https://github.com/projekt0n/github-nvim-theme/compare/v1.0.1...v1.0.0
 [v1.0.0]: https://github.com/projekt0n/github-nvim-theme/compare/v1.0.0...v0.0.7
 [v0.0.7]: https://github.com/projekt0n/github-nvim-theme/compare/v0.0.7...v0.0.6
