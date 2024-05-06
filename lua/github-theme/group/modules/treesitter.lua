@@ -116,7 +116,7 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     ['@constant.builtin']         = { fg = syn.builtin2, style = stl.keywords },      -- For constant that are built in the language: nil in Lua
     ['@constant.macro']           = { link = 'Macro' },                               -- For constants that are defined by macros: NULL in C
 
-    ['@namespace']                = { fg = syn.builtin1 },                            -- For identifiers referring to modules and namespaces
+    ['@module']                   = { fg = syn.builtin1 },                            -- For identifiers referring to modules and namespaces
     ['@symbol']                   = { fg = syn.preproc },
 
     -- Text
@@ -171,13 +171,13 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
 
     -- C_sharp
     -- ['@type.c_sharp']                        = { link = '@function' },
-    ['@namespace.c_sharp']                      = { fg = pl.syntax.variable },
+    ['@module.c_sharp']                         = { fg = pl.syntax.variable },
 
     -- Go
     -- ['@function.call.go']                    = { link = '@constant' },
     -- ['@function.go']                         = { link = '@variable.member' },
     -- ['@method.call.go']                      = { link = '@constant' },
-    ['@namespace.go']                           = FALLBACK_OR_NONE,
+    ['@module.go']                              = FALLBACK_OR_NONE,
 
     -- Html
     ['@text.title.html']                        = { fg = spec.fg1 },
@@ -210,7 +210,7 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     ['@field.lua']                              = { fg = syn.variable },
     ['@function.call.lua']                      = { fg = syn.const },
     ['@method.call.lua']                        = { link = '@function.call.lua' },
-    ['@namespace.builtin.lua']                  = { fg = syn.const },                          -- `table`, `io`, `_G`
+    ['@module.builtin.lua']                     = { fg = syn.const },                          -- `table`, `io`, `_G`
     ['@label.lua']                              = { fg = syn.const },                          -- The `LABEL` in `::LABEL::` and `goto LABEL`
     ['@field.luadoc']                           = { link = '@field.lua' },
     ['@operator.luadoc']                        = { fg = spec.fg1 },                           -- The `|` in `string|number`
@@ -233,7 +233,7 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
 
     -- PHP
     -- ['@type.php']                            = { link = '@function' },
-    ['@namespace.php']                          = { link = '@constructor.php' },
+    ['@module.php']                             = { link = '@constructor.php' },
 
     -- Python
     ['@field.python']                           = { fg = spec.fg1 },
@@ -249,7 +249,7 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     -- Rust
     -- ['@field.rust']                          = { fg = spec.fg2 },
     ['@constant.builtin.rust']                  = { fg = pl.syntax.variable },
-    ['@namespace.rust']                         = FALLBACK_OR_NONE,
+    ['@module.rust']                            = FALLBACK_OR_NONE,
     ['@preproc.rust']                           = { fg = syn.const },
     ['@storageclass.lifetime.rust']             = { link = '@tag.rust' },
     ['@storageclass.lifetime.punctuation.rust'] = { link = '@punctuation.special.rust' },
