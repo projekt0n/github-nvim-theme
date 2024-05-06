@@ -105,8 +105,8 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
 
     -- ['@storageclass']          = { link = 'StorageClass' },                        -- Visibility/life-time/etc. modifiers (e.g. `static`)
     ['@attribute']                = { link = 'Constant' },                            -- Attribute annotations (e.g. Python decorators)
-    ['@field']                    = { fg = syn.field },                               -- For fields
-    ['@property']                 = { link = '@field' },                              -- Same as @field
+    ['@variable.member']          = { fg = syn.field },                               -- For fields
+    ['@property']                 = { link = '@variable.member' },                    -- Same as @field
 
     -- Identifiers
     ['@variable']                 = { fg = syn.variable, style = stl.variables },     -- Any variable name that does not have another highlighC.
@@ -148,7 +148,7 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
 
     -- Tags
     ['@tag']                      = { fg = syn.tag },                                 -- Tags like html tag names
-    ['@tag.attribute']            = { link = '@field' },                              -- Tag attributes (e.g. HTML element attributes)
+    ['@tag.attribute']            = { link = '@variable.member' },                    -- Tag attributes (e.g. HTML element attributes)
     ['@tag.delimiter']            = FALLBACK_OR_NONE,                                 -- Tag delimiter like `<`, `>`, `/`, etc.
 
     -- Language specific -------------------------------------------------------
@@ -175,7 +175,7 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
 
     -- Go
     -- ['@function.call.go']                    = { link = '@constant' },
-    -- ['@function.go']                         = { link = '@field' },
+    -- ['@function.go']                         = { link = '@variable.member' },
     -- ['@method.call.go']                      = { link = '@constant' },
     ['@namespace.go']                           = FALLBACK_OR_NONE,
 
@@ -227,7 +227,7 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     ['@text.quote.markdown']                    = { fg = syn.tag },
 
     -- Nix
-    ['@variable.member.nix']                    = { link = '@field' },
+    ['@variable.member.nix']                    = { link = '@variable.member' },
     ['@variable.parameter.nix']                 = { link = '@variable.parameter' },
     ['@string.special.path.nix']                = { link = '@string' },
 
