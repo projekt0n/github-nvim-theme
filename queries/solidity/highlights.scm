@@ -146,7 +146,7 @@
 [
  "try"
  "catch"
-] @exception
+] @keyword.exception
 
 [
  "return"
@@ -155,9 +155,9 @@
 
 "function" @keyword.function
 
-"import" @include
-(import_directive "as" @include)
-(import_directive "from" @include)
+"import" @keyword.import
+(import_directive "as" @keyword.import)
+(import_directive "from" @keyword.import)
 
 (event_paramater "indexed" @keyword)
 

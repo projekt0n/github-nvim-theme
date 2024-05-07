@@ -9,7 +9,7 @@
 ([
   (attribute_item)
   (inner_attribute_item)
- ] @preproc (#set! "priority" 101))
+ ] @keyword.directive (#set! "priority" 101))
 
 (attribute_item
   (attribute
@@ -24,4 +24,4 @@
 
 ; Capture the ' in lifetimes separately
 ; TODO: upstream this capture
-(lifetime "'" @storageclass.lifetime.punctuation)
+(lifetime "'" @keyword.storage.lifetime.punctuation)

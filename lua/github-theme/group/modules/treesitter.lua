@@ -52,8 +52,6 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     -- Misc
     -- ['@comment']               = { link = 'Comment' },
     ['@error']                    = { link = 'Error' },
-    -- ['@preproc']               = { link = 'PreProc' },                             -- Various preprocessor directives & shebangs
-    -- ['@define']                = { link = 'Define' },                              -- Preprocessor definition directives
     -- ['@operator']              = { link = 'Operator' },                            -- For any operator: +, but also -> and * in C
 
     -- Punctuation
@@ -78,23 +76,27 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     ['@function.builtin']         = FALLBACK_OR_NONE,                                 -- For builtin functions: table.insert in Lua
     -- ['@function.call']         = { link = '@function' },                           -- Function calls
     -- ['@function.macro']        = { fg = syn.builtin0, style = stl.functions },     -- Macro functions (calls & defs): macro_rules!, println!()
-    -- ['@method']                = { link = '@function'},                            -- For method definitions/declarations
-    -- ['@method.call']           = { link = '@method' },                             -- Method calls
+    -- ['@function.method']          = { link = '@function'},                         -- For method definitions/declarations
+    -- ['@function.method.call']     = { link = '@method' },                          -- Method calls
 
     ['@constructor']              = { fg = pl.syntax.variable},                       -- Constructor calls & defs: {} in Lua, new Type() (js/php), constructor() {}
-    ['@variable.parameter']                = { fg = syn.param, stl.variables },                -- For parameters of a function
+    ['@variable.parameter']       = { fg = syn.param, stl.variables },                -- For parameters of a function
 
     -- Keywords
-    -- ['@keyword']               = { link = 'Keyword' },                             -- For keywords that don't fall in previous categories
+    -- ['@keyword']                  = { link = 'Keyword' },                             -- For keywords that don't fall in previous categories
+    -- ['@keyword.directive']        = { link = 'PreProc' },                             -- Various preprocessor directives & shebangs
+    -- ['@keyword.return']           = { fg = syn.keyword, style = stl.keywords },
+    -- ['@keyword.directive']        = { link = 'Define' },                              -- Preprocessor definition directives
+    -- ['@keyword.storage']          = { link = 'StorageClass' },                        -- Visibility/life-time/etc. modifiers (e.g. `static`)
+    -- ['@keyword.conditional']      = { link = 'Conditional' },                         -- For keywords related to conditionals.
+    -- ['@keyword.debug']            = { link = spec.fg1 },                              -- For keywords related to conditionals.
+    -- ['@keyword.import']           = { link = 'Include' },                             -- For includes: #include in C, use or extern crate in Rust, Lua require
+    -- ['@keyword.repeat']           = { link = 'Repeat' },                              -- For keywords related to loops.
     ['@keyword.function']         = { fg = syn.keyword, style = stl.functions },      -- Keywords used to def a fn: `function` in Lua, `def` & `lambda` in Python
     ['@keyword.operator']         = { fg = syn.keyword, style = stl.operators },      -- For `new` keyword operator, `sizeof`, etc.
-    -- ['@keyword.return']        = { fg = syn.keyword, style = stl.keywords },
+    ['@keyword.exception']        = { fg = syn.builtin0, style = stl.keywords },      -- Exception related keywords: `try`, `except`, `finally` in Python
 
-    -- ['@conditional']           = { link = 'Conditional' },                         -- For keywords related to conditionals.
-    -- ['@repeat']                = { link = 'Repeat' },                              -- For keywords related to loops.
     ['@label']                    = { link = '@tag' },                                -- For labels: `label:` in C, `:label:` in Lua.
-    -- ['@include']               = { link = 'Include' },                             -- For includes: #include in C, use or extern crate in Rust, Lua require
-    ['@exception']                = { fg = syn.builtin0, style = stl.keywords },      -- Exception related keywords: `try`, `except`, `finally` in Python
 
     -- Types
     ['@type']                     = { fg = syn.type },                                -- For custom/user/non-builtin types
@@ -102,7 +104,6 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     -- ['@type.definition']       = { link = '@type' },                               -- type definitions (e.g. `typedef` in C)
     ['@type.qualifier']           = { fg = syn.keyword },                             -- type qualifiers (e.g. `const`, css's `!important`)
 
-    -- ['@storageclass']          = { link = 'StorageClass' },                        -- Visibility/life-time/etc. modifiers (e.g. `static`)
     ['@attribute']                = { link = 'Constant' },                            -- Attribute annotations (e.g. Python decorators)
     ['@variable.member']          = { fg = syn.field },                               -- For fields
     ['@property']                 = { link = '@variable.member' },                    -- Same as @field
@@ -176,7 +177,7 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     -- Go
     -- ['@function.call.go']                    = { link = '@constant' },
     -- ['@function.go']                         = { link = '@variable.member' },
-    -- ['@method.call.go']                      = { link = '@constant' },
+    -- ['@function.method.call.go']                = { link = '@constant' },
     ['@module.go']                              = FALLBACK_OR_NONE,
 
     -- Html
@@ -187,7 +188,7 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     -- ['@type.java']                           = { link = '@function' },
 
     -- JavaScript
-    -- ['@constructor.ecma']                    = { link = '@method' },
+    -- ['@constructor.ecma']                    = { link = '@function.method' },
     -- ['@property.javascript']                 = { link = '@variable' },
     -- ['@type.ecma']                           = { fg = pl.syntax.variable },
     -- ['@variable.builtin.javascript']         = { link = '@constant' },
@@ -209,7 +210,7 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     ['@operator.lua']                           = { fg = syn.keyword, style = stl.operators },
     ['@field.lua']                              = { fg = syn.variable },
     ['@function.call.lua']                      = { fg = syn.const },
-    ['@method.call.lua']                        = { link = '@function.call.lua' },
+    ['@function.method.call.lua']              = { link = '@function.call.lua' },
     ['@module.builtin.lua']                     = { fg = syn.const },                          -- `table`, `io`, `_G`
     ['@label.lua']                              = { fg = syn.const },                          -- The `LABEL` in `::LABEL::` and `goto LABEL`
     ['@field.luadoc']                           = { link = '@field.lua' },
@@ -250,9 +251,9 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     -- ['@field.rust']                          = { fg = spec.fg2 },
     ['@constant.builtin.rust']                  = { fg = pl.syntax.variable },
     ['@module.rust']                            = FALLBACK_OR_NONE,
-    ['@preproc.rust']                           = { fg = syn.const },
-    ['@storageclass.lifetime.rust']             = { link = '@tag.rust' },
-    ['@storageclass.lifetime.punctuation.rust'] = { link = '@markup.list.rust' },
+    ['@keyword.directive.rust']                 = { fg = syn.const },
+    ['@keyword.storage.lifetime.rust']          = { link = '@tag.rust' },
+    ['@keyword.storage.lifetime.punctuation.rust'] = { link = '@markup.list.rust' },
 
     -- SCSS
     ['@property.scss']                          = { link = '@constant' },
