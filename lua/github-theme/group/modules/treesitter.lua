@@ -50,7 +50,6 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
   -- stylua: ignore
   return {
     -- Misc
-    -- ['@comment']               = { link = 'Comment' },
     ['@error']                    = { link = 'Error' },
     -- ['@operator']              = { link = 'Operator' },                            -- For any operator: +, but also -> and * in C
 
@@ -120,26 +119,33 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
 
     -- Markup
     ['@markup']                   = { fg = spec.fg1 },                                -- For strings considerated text in a markup language
-    ['@markup.environment']       = { fg = syn.preproc },                             -- Text environments of markup languages
-    ['@markup.environment.name']  = { fg = syn.func },                                -- Text indicating the type of an environment
-    ['@markup.list']              = { fg = syn.builtin2, style = stl.operators },     -- For special punctutation that does not fall in the catagories before
     ['@markup.strong']            = { fg = spec.fg1, style = 'bold' },                -- Bold
     ['@markup.emphasis']          = { fg = spec.fg1, style = 'italic' },              -- Italic
     -- ['@markup.underline']         = { link = 'Underlined' },                          -- Underlined text
     ['@markup.strike']            = { fg = spec.fg1, style = 'strikethrough' },       -- Strikethrough text
+
     -- ['@markup.heading']           = { link = 'Title'},                                -- Titles like: # Example
-    ['@markup.raw']               = { fg = syn.ident, style = 'italic' },             -- Used for inline code in markdown and for doc in python (''')
+    
+    ['@markup.environment']       = { fg = syn.preproc },                             -- Text environments of markup languages
+    ['@markup.environment.name']  = { fg = syn.func },                                -- Text indicating the type of an environment
     ['@markup.math']              = { fg = syn.func },                                -- Math environments (e.g. `$ ... $` in LaTeX)
+    ['@markup.raw']               = { fg = syn.ident, style = 'italic' },             -- Used for inline code in markdown and for doc in python (''')
+
     ['@markup.link']              = { fg = spec.fg1, style = 'underline' },           -- References
     ['@markup.link.uri']          = { fg = syn.const, style = 'italic,underline' },   -- Urls, links and emails
     ['@markup.link.label']        = { link = 'Special' },                             -- Other special strings (e.g. dates)
 
-    ['@text.todo']                = { fg = spec.bg1, bg = spec.diag.hint },           -- Todo notes
-    ['@text.note']                = { fg = spec.bg1, bg = spec.diag.info },
-    ['@text.warning']             = { fg = spec.bg1, bg = spec.diag.warn },
-    ['@text.danger']              = { fg = spec.bg1, bg = spec.diag.error },
-    ['@text.todo.unchecked']      = { fg = spec.fg3 },                                -- For brackets and parens
-    ['@text.todo.checked']        = { fg = P.green.base },                            -- For brackets and parens
+    ['@markup.list']              = { fg = syn.builtin2, style = stl.operators },     -- For special punctutation that does not fall in the catagories before
+    ['@markup.list.checked']      = { fg = P.green.base },                            -- checked todo-style list markers
+    ['@markup.list.unchecked']    = { fg = spec.fg3 },                                -- unchecked todo-style list markers
+
+    -- Comment
+    -- ['@comment']               = { link = 'Comment' },
+    ['@comment.todo']             = { fg = spec.bg1, bg = spec.diag.hint },           -- Todo notes todo-type comments (e.g-, `TODO:`, `WIP:`)
+    ['@comment.hint']             = { fg = spec.bg1, bg = spec.diag.hint },           -- note-type comments (e.g., `NOTE:`)
+    ['@comment.info']             = { fg = spec.bg1, bg = spec.diag.info },           -- info-type comments
+    ['@comment.warning']          = { fg = spec.bg1, bg = spec.diag.warn },           -- warning-type comments (e.g., `WARNING:`, `FIX:`)
+    ['@comment.error']            = { fg = spec.bg1, bg = spec.diag.error },          -- error-type comments (e.g., `DEPRECATED:`)
 
     ['@text.diff.add']            = { link = 'diffAdded' },                           -- Added text (for diff files)
     ['@text.diff.delete']         = { link = 'diffRemoved' },                         -- Deleted text (for diff files)
