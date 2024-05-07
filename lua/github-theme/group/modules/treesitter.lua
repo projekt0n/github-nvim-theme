@@ -59,13 +59,11 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     -- Punctuation
     -- ['@punctuation.delimiter'] = { fg = syn.bracket },                             -- For delimiters (e.g. `.`)
     ['@punctuation.bracket']      = { fg = syn.bracket },                             -- For brackets and parenthesis
-    ['@punctuation.special']      = { fg = syn.builtin2, style = stl.operators },     -- For special punctutation that does not fall in the catagories before
 
     -- Literals
     -- ['@string']                = { link = 'String' },                              -- For strings
     ['@string.regexp']            = { fg = syn.regex, style = stl.strings },          -- Regular expression literals
     ['@string.escape']            = { fg = syn.regex, style = 'bold' },               -- Escape characters within a string: `\n`, `\t`, etc.
-    ['@string.special']           = { link = 'Special' },                             -- Other special strings (e.g. dates)
     ['@string.special.symbol']    = { fg = syn.preproc },
 
     -- ['@character']             = { link = 'Character' },                           -- character literals
@@ -119,19 +117,21 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
 
     ['@module']                   = { fg = syn.builtin1 },                            -- For identifiers referring to modules and namespaces
 
-    -- Text
-    ['@text']                     = { fg = spec.fg1 },                                -- For strings considerated text in a markup language
-    ['@text.strong']              = { fg = spec.fg1, style = 'bold' },                -- Bold
-    ['@text.emphasis']            = { fg = spec.fg1, style = 'italic' },              -- Italic
-    -- ['@text.underline']        = { link = 'Underlined' },                          -- Underlined text
-    ['@text.strike']              = { fg = spec.fg1, style = 'strikethrough' },       -- Strikethrough text
-    -- ['@text.title']            = { link = 'Title'},                                -- Titles like: # Example
-    ['@text.literal']             = { fg = syn.ident, style = 'italic' },             -- Used for inline code in markdown and for doc in python (''')
-    ['@text.uri']                 = { fg = syn.const, style = 'italic,underline' },   -- Urls, links and emails
-    ['@text.math']                = { fg = syn.func },                                -- Math environments (e.g. `$ ... $` in LaTeX)
-    ['@text.environment']         = { fg = syn.preproc },                             -- Text environments of markup languages
-    ['@text.environment.name']    = { fg = syn.func },                                -- Text indicating the type of an environment
-    ['@text.reference']           = { fg = spec.fg1, style = 'underline' },           -- References
+    -- Markup
+    ['@markup']                   = { fg = spec.fg1 },                                -- For strings considerated text in a markup language
+    ['@markup.environment']       = { fg = syn.preproc },                             -- Text environments of markup languages
+    ['@markup.environment.name']  = { fg = syn.func },                                -- Text indicating the type of an environment
+    ['@markup.list']              = { fg = syn.builtin2, style = stl.operators },     -- For special punctutation that does not fall in the catagories before
+    ['@markup.strong']            = { fg = spec.fg1, style = 'bold' },                -- Bold
+    ['@markup.emphasis']          = { fg = spec.fg1, style = 'italic' },              -- Italic
+    -- ['@markup.underline']         = { link = 'Underlined' },                          -- Underlined text
+    ['@markup.strike']            = { fg = spec.fg1, style = 'strikethrough' },       -- Strikethrough text
+    -- ['@markup.heading']           = { link = 'Title'},                                -- Titles like: # Example
+    ['@markup.raw']               = { fg = syn.ident, style = 'italic' },             -- Used for inline code in markdown and for doc in python (''')
+    ['@markup.math']              = { fg = syn.func },                                -- Math environments (e.g. `$ ... $` in LaTeX)
+    ['@markup.link']              = { fg = spec.fg1, style = 'underline' },           -- References
+    ['@markup.link.uri']          = { fg = syn.const, style = 'italic,underline' },   -- Urls, links and emails
+    ['@markup.link.label']        = { link = 'Special' },                             -- Other special strings (e.g. dates)
 
     ['@text.todo']                = { fg = spec.bg1, bg = spec.diag.hint },           -- Todo notes
     ['@text.note']                = { fg = spec.bg1, bg = spec.diag.info },
@@ -160,7 +160,7 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     ['@number.bash']                            = FALLBACK_OR_NONE,
     -- ['@punctuation.bracket.bash']            = { fg = syn.string },                         -- $(, (, ), [, ], ((, ))
     ['@punctuation.delimiter.bash']             = { fg = syn.keyword },                        -- ; and ;;
-    ['@punctuation.special.bash']               = { link = "@punctuation.bash" },              -- $
+    ['@markup.list.bash']                       = { link = "@punctuation.bash" },              -- $
 
     -- C
     ['@type.c']                                 = { fg = spec.variable },
@@ -180,7 +180,7 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     ['@module.go']                              = FALLBACK_OR_NONE,
 
     -- Html
-    ['@text.title.html']                        = { fg = spec.fg1 },
+    ['@markup.heading.html']                        = { fg = spec.fg1 },
     ['@constant.html']                          = { link = '@tag' },
 
     -- Java
@@ -214,7 +214,7 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     ['@label.lua']                              = { fg = syn.const },                          -- The `LABEL` in `::LABEL::` and `goto LABEL`
     ['@field.luadoc']                           = { link = '@field.lua' },
     ['@operator.luadoc']                        = { fg = spec.fg1 },                           -- The `|` in `string|number`
-    ['@punctuation.special.luadoc']             = { fg = spec.fg1 },                           -- The `?` in `string?`
+    ['@markup.list.luadoc']                    = { fg = spec.fg1 },                           -- The `?` in `string?`
 
     -- Make
     -- ['@operator.make']                          = { link = '@constant' },
@@ -224,7 +224,7 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     -- Markdown
     ['@punctuation.delimiter.markdown']         = { fg = spec.fg1 },
     ['@punctuation.delimiter.markdown_inline']  = { fg = spec.fg1 },
-    ['@text.quote.markdown']                    = { fg = syn.tag },
+    ['@markup.quote.markdown']                  = { fg = syn.tag },
 
     -- Nix
     ['@variable.member.nix']                    = { link = '@variable.member' },
@@ -252,7 +252,7 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     ['@module.rust']                            = FALLBACK_OR_NONE,
     ['@preproc.rust']                           = { fg = syn.const },
     ['@storageclass.lifetime.rust']             = { link = '@tag.rust' },
-    ['@storageclass.lifetime.punctuation.rust'] = { link = '@punctuation.special.rust' },
+    ['@storageclass.lifetime.punctuation.rust'] = { link = '@markup.list.rust' },
 
     -- SCSS
     ['@property.scss']                          = { link = '@constant' },
@@ -273,7 +273,7 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     -- VimDoc (vim help files/docs)
     ['@variable.parameter.vimdoc']              = { fg = pl.syntax.variable },
     ['@label.vimdoc']                           = { link = '@keyword' },                       -- `*sometag*`
-    -- ['@string.special.vimdoc']                  = { link = '@variable.parameter.vimdoc' },              -- `CTRL-W`, etc. (unused atm, not well-defined)
+    -- ['@markup.link.label.vimdoc']               = { link = '@variable.parameter.vimdoc' },              -- `CTRL-W`, etc. (unused atm, not well-defined)
 
     -- Yaml
     ['@field.yaml']                             = { link = '@tag' },
