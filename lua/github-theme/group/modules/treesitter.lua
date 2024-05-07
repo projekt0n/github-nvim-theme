@@ -63,7 +63,7 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
 
     -- Literals
     -- ['@string']                = { link = 'String' },                              -- For strings
-    ['@string.regex']             = { fg = syn.regex, style = stl.strings },          -- Regular expression literals
+    ['@string.regexp']            = { fg = syn.regex, style = stl.strings },          -- Regular expression literals
     ['@string.escape']            = { fg = syn.regex, style = 'bold' },               -- Escape characters within a string: `\n`, `\t`, etc.
     ['@string.special']           = { link = 'Special' },                             -- Other special strings (e.g. dates)
     ['@string.special.symbol']    = { fg = syn.preproc },
