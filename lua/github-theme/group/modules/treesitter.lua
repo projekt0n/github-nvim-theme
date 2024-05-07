@@ -66,6 +66,7 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     ['@string.regex']             = { fg = syn.regex, style = stl.strings },          -- Regular expression literals
     ['@string.escape']            = { fg = syn.regex, style = 'bold' },               -- Escape characters within a string: `\n`, `\t`, etc.
     ['@string.special']           = { link = 'Special' },                             -- Other special strings (e.g. dates)
+    ['@string.special.symbol']    = { fg = syn.preproc },
 
     -- ['@character']             = { link = 'Character' },                           -- character literals
     -- ['@character.special']     = { link = 'SpecialChar' },                         -- special characters (e.g. wildcards)
@@ -117,7 +118,6 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     ['@constant.macro']           = { link = 'Macro' },                               -- For constants that are defined by macros: NULL in C
 
     ['@module']                   = { fg = syn.builtin1 },                            -- For identifiers referring to modules and namespaces
-    ['@symbol']                   = { fg = syn.preproc },
 
     -- Text
     ['@text']                     = { fg = spec.fg1 },                                -- For strings considerated text in a markup language
@@ -217,8 +217,8 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     ['@punctuation.special.luadoc']             = { fg = spec.fg1 },                           -- The `?` in `string?`
 
     -- Make
-    -- ['@operator.make']                       = { link = '@constant' },
-    ['@symbol.make']                            = { link = '@function' },
+    -- ['@operator.make']                          = { link = '@constant' },
+    ['@string.special.symbol.make']             = { link = '@function' },
     ['@function.builtin.make']                  = { link = '@constant' },
 
     -- Markdown
@@ -244,7 +244,7 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
 
     -- Ruby
     ['@label.ruby']                             = { fg = syn.const },
-    ['@symbol.ruby']                            = { link = '@constant' },
+    ['@string.special.symbol.ruby']             = { link = '@constant' },
 
     -- Rust
     -- ['@field.rust']                          = { fg = spec.fg2 },
