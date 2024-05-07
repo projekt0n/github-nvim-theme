@@ -72,7 +72,7 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
 
     -- ['@boolean']               = { link = 'Boolean' },                             -- For booleans
     -- ['@number']                = { link = 'Number' },                              -- For all numbers
-    -- ['@float']                 = { link = 'Float' },                               -- For floats
+    -- ['@number.float']          = { link = 'Float' },                               -- For floats
 
     -- Functions
     -- ['@function']              = { link = 'Function' },                            -- For function (calls and definitions)
