@@ -38,12 +38,12 @@ function M.get(spec, config, opts)
     CmpItemKindClass         = { link = 'Type' },
     CmpItemKindStruct        = { link = 'Type' },
 
-    CmpItemKindModule        = { link = has_ts and '@namespace'  or 'Identifier' },
+    CmpItemKindModule        = { link = has_ts and '@module'  or 'Identifier' },
 
     CmpItemKindProperty      = { link = has_ts and '@property' or  'Identifier' },
-    CmpItemKindField         = { link = has_ts and '@field' or 'Identifier' },
-    CmpItemKindTypeParameter = { link = has_ts and '@field' or 'Identifier' },
-    CmpItemKindEnumMember    = { link = has_ts and '@field' or 'Identifier' },
+    CmpItemKindField         = { link = has_ts and '@variable.member' or 'Identifier' },
+    CmpItemKindTypeParameter = { link = has_ts and '@variable.member' or 'Identifier' },
+    CmpItemKindEnumMember    = { link = has_ts and '@variable.member' or 'Identifier' },
     CmpItemKindOperator      = { link = 'Operator' },
     CmpItemKindSnippet       = { fg = spec.fg2 },
   }

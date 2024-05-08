@@ -17,4 +17,4 @@
   "$" @variable)
 
 (subscript
-  index: (word) @punctuation.special (#any-of? @punctuation.special "@" "*"))
+  index: (word) @markup.list (#any-of? "@" "*"))
