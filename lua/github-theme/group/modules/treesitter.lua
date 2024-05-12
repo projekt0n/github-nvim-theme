@@ -317,6 +317,9 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     -- ['@type.typescript']                     = { link = '@function' },
     -- ['@variable.builtin.typescript']         = { link = '@constant' },
     -- ['@variable.typescript']                 = { link = '@constant' },
+    
+    -- TSX
+    ['@tag.builtin.tsx']                        = { link = '@tag' },
 
     -- VimDoc (vim help files/docs)
     ['@variable.parameter.vimdoc']              = { fg = pl.syntax.variable },

@@ -67,7 +67,7 @@ function M.get(spec, config)
     -- Special        = { fg = syn.ident }, -- (preferred) any special symbol
     -- SpecialChar    = { link = 'Special' }, -- special character in a constant
     -- Tag            = { link = 'Special' }, -- you can use CTRL-] on this
-    -- Delimiter      = { link = 'Special' }, -- character that needs attention
+    Delimiter      = { link = 'Special' }, -- character that needs attention
     -- SpecialComment = { link = 'Special' }, -- special things inside a comment
     -- Debug          = { link = 'Special' }, -- debugging statements
 
