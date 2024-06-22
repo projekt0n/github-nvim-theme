@@ -59,17 +59,16 @@ function M.get(spec, config)
     PreCondit      = { link = 'PreProc' }, -- preprocessor #if, #else, #endif, etc.
 
     Type           = { fg = syn.type, style = stl.types }, -- (preferred) int, long, char, etc.
-    -- StorageClass   = { link = 'Type' }, -- static, register, volatile, etc.
-    -- Structure      = { link = 'Type' }, -- struct, union, enum, etc.
-    -- Typedef        = { link = 'Type' }, -- A typedef
+    StorageClass   = { link = 'Type' }, -- static, register, volatile, etc.
+    Structure      = { link = 'Type' }, -- struct, union, enum, etc.
+    Typedef        = { link = 'Type' }, -- A typedef
 
     Special        = { fg = spec.fg1 }, -- (preferred) any special symbol
-    -- Special        = { fg = syn.ident }, -- (preferred) any special symbol
-    -- SpecialChar    = { link = 'Special' }, -- special character in a constant
-    -- Tag            = { link = 'Special' }, -- you can use CTRL-] on this
-    -- Delimiter      = { link = 'Special' }, -- character that needs attention
-    -- SpecialComment = { link = 'Special' }, -- special things inside a comment
-    -- Debug          = { link = 'Special' }, -- debugging statements
+    SpecialChar    = { link = 'Special' }, -- special character in a constant
+    Tag            = { link = 'Special' }, -- you can use CTRL-] on this
+    Delimiter      = { link = 'Special' }, -- character that needs attention
+    SpecialComment = { link = 'Special' }, -- special things inside a comment
+    Debug          = { link = 'Special' }, -- debugging statements
 
     Underlined     = { style = 'underline' }, -- (preferred) text that stands out, HTML links
     Bold           = { style = 'bold' },
@@ -118,9 +117,12 @@ function M.get(spec, config)
     -- markdownLinkText         = {},
 
     -- Diff filetype (runtime/syntax/diff.vim)
-    diffAdded       = { fg = spec.git.add, bg = spec.diff.add }, -- Added lines ('^+.*' | '^>.*')
-    diffRemoved     = { fg = spec.git.removed, bg = spec.diff.delete },-- Removed lines ('^-.*' | '^<.*')
-    diffChanged     = { fg = spec.git.changed, bg = spec.diff.change }, -- Changed lines ('^! .*')
+    Added           = { fg = spec.git.add, bg = spec.diff.add }, -- added line in a diff
+    Changed         = { fg = spec.git.changed, bg = spec.diff.change }, -- changed line in a diff
+    Removed         = { fg = spec.git.removed, bg = spec.diff.delete },-- removed line in a diff
+    diffAdded       = { link = 'Added' }, -- Added lines ('^+.*' | '^>.*')
+    diffChanged     = { link = 'Changed' }, -- Changed lines ('^! .*')
+    diffRemoved     = { link = 'Removed' },-- Removed lines ('^-.*' | '^<.*')
     diffOldFile     = { fg = spec.diag.warn }, -- Old file that is being diff against
     diffNewFile     = { fg = spec.diag.hint }, -- New file that is being compared to the old file
     diffFile        = { fg = spec.diag.info }, -- The filename of the diff ('diff --git a/readme.md b/readme.md')
