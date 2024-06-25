@@ -15,7 +15,7 @@ end
 
 ---Parse string for configuration template
 ---@param str string
----@param spec Spec
+---@param spec GithubTheme.Spec
 ---@return any
 local function parse_string(str, spec)
   if str == '' then

@@ -1,20 +1,17 @@
-local collect = require('github-theme.lib.collect')
-local config = require('github-theme.config')
-
-local M = {}
-
-M.themes = {
-  'github_dark',
-  'github_dark_colorblind',
-  'github_dark_default',
-  'github_dark_dimmed',
-  'github_dark_high_contrast',
-  'github_dark_tritanopia',
-  'github_light',
-  'github_light_colorblind',
-  'github_light_default',
-  'github_light_high_contrast',
-  'github_light_tritanopia',
+local M = {
+  themes = {
+    'github_dark',
+    'github_dark_colorblind',
+    'github_dark_default',
+    'github_dark_dimmed',
+    'github_dark_high_contrast',
+    'github_dark_tritanopia',
+    'github_light',
+    'github_light_colorblind',
+    'github_light_default',
+    'github_light_high_contrast',
+    'github_light_tritanopia',
+  },
 }
 
 local function override(color, ovr)
@@ -24,38 +21,24 @@ local function override(color, ovr)
   return color
 end
 
-function M.load(name)
+---@param theme? string
+---@return table palette
+function M.load(theme)
   local ovr = require('github-theme.override').palettes
+  local result = {}
 
-  local function apply_ovr(key, palette)
-    return ovr[key] and override(palette, ovr[key]) or palette
-  end
-
-  if name then
-    local valid = collect.contains(M.themes, name)
-    local raw = valid and require('github-theme.palette.' .. name)
-      or require('github-theme.palette.' .. config.theme)
+  ---@diagnostic disable-next-line: redefined-local
+  for _, theme in ipairs(theme and { theme } or M.themes) do
+    local raw = require('github-theme.palette.' .. theme)
     local palette = raw.palette
-    palette = apply_ovr('all', palette)
-    palette = apply_ovr(name, palette)
+    palette = override(palette, ovr.all or {})
+    palette = override(palette, ovr[theme] or {})
     palette.meta = raw.meta
     palette.generate_spec = raw.generate_spec
-
-    return palette
-  else
-    local result = {}
-    for _, mod in ipairs(M.themes) do
-      local raw = require('github-theme.palette.' .. mod)
-      local palette = raw.palette
-      palette = apply_ovr('all', palette)
-      palette = apply_ovr(mod, palette)
-      palette.meta = raw.meta
-      palette.generate_spec = raw.generate_spec
-      result[mod] = palette
-    end
-
-    return result
+    result[theme] = palette
   end
+
+  return theme and result[theme] or result
 end
 
 return M
