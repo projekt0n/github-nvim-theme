@@ -188,7 +188,7 @@ local function generate_spec(pal)
     add    = alpha(C(pal.scale.green[6]), 0.15),
     delete = alpha(C(pal.scale.red[6]), 0.15),
     change = alpha(C(pal.scale.yellow[6]), 0.15),
-    text   = spec.fg0
+    text   = alpha(C(pal.scale.yellow[6]), 0.40),
   }
 
   spec.git = {
