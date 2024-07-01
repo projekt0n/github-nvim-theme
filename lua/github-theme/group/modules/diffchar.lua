@@ -7,7 +7,7 @@ function M.get(spec, config, opts)
     DiffAdd = { link = 'diffAdded' },
     DiffChange = { link = 'diffChanged' },
     DiffDelete = { link = 'diffRemoved' },
-    DiffText = { fg = spec.fg1, bg = spec.bg2 },
+    DiffText = { fg = 'none', bg = spec.diff.text },
   }
 end
 

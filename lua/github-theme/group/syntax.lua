@@ -118,9 +118,9 @@ function M.get(spec, config)
     -- markdownLinkText         = {},
 
     -- Diff filetype (runtime/syntax/diff.vim)
-    diffAdded       = { fg = spec.git.add, bg = spec.diff.add }, -- Added lines ('^+.*' | '^>.*')
+    diffAdded       = { fg = 'none', bg = spec.diff.add }, -- Added lines ('^+.*' | '^>.*')
     diffRemoved     = { fg = spec.git.removed, bg = spec.diff.delete },-- Removed lines ('^-.*' | '^<.*')
-    diffChanged     = { fg = spec.git.changed, bg = spec.diff.change }, -- Changed lines ('^! .*')
+    diffChanged     = { fg = 'none', bg = spec.diff.change }, -- Changed lines ('^! .*')
     diffOldFile     = { fg = spec.diag.warn }, -- Old file that is being diff against
     diffNewFile     = { fg = spec.diag.hint }, -- New file that is being compared to the old file
     diffFile        = { fg = spec.diag.info }, -- The filename of the diff ('diff --git a/readme.md b/readme.md')
