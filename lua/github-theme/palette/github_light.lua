@@ -5,9 +5,7 @@ local meta = {
   light = true,
 }
 
-local primitives =
-  require('github-theme.palette.primitives.' .. meta.name:gsub('^github%W*', '', 1))
-
+local primitives = require('github-theme.palette.primitives.light')
 local pl = primitives.color.prettylights
 local scale = primitives.scale
 
@@ -56,8 +54,8 @@ local palette = {
   neutral = {
     emphasis_plus = scale.neutral[10],
     emphasis = scale.neutral[6],
-    muted = BG:blend(C(scale.neutral4]), 0.2):to_css(),
-    subtle = BG:blend(C(scale.neutral2]), 0.5):to_css(),
+    muted = BG:blend(C(scale.neutral[4]), 0.2):to_css(),
+    subtle = BG:blend(C(scale.neutral[2]), 0.5):to_css(),
   },
 
   accent = {

@@ -5,9 +5,7 @@ local meta = {
   light = true,
 }
 
-local primitives =
-  require('github-theme.palette.primitives.' .. meta.name:gsub('^github%W*', '', 1))
-
+local primitives = require('github-theme.palette.primitives.light_colorblind')
 local pl = primitives.color.prettylights
 local scale = primitives.scale
 

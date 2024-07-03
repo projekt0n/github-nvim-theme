@@ -6,7 +6,6 @@ local meta = {
 }
 
 local primitives = require('github-theme.palette.primitives.dark')
-
 local pl = primitives.color.prettylights
 local scale = primitives.scale
 
