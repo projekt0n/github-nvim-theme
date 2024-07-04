@@ -3,3 +3,5 @@ test/plenary
 .repro
 misc
 node_modules/
+/cache
+/.cache
