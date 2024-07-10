@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+### Configuration Deprecation and Migration
+
+-   Reverted/renamed `options.darken.sidebars.enabled` back to `options.darken.sidebars.enable` (see #343)
+
 ### What's New?
 
 -   Added new highlight groups for mini.nvim (#333 by @echasnovski)
@@ -32,6 +36,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -   Fixed #340 and #341 (broken/outdated `overrides` example in docs)
 -   Fixed floats not transparent when `transparent = true` (#337 fixed-by #351)
 -   fix(Color): `Color.from_hsv()` is used for HSL
+-   Fixed sidebar is not darkened when configured to do so (affects neo-tree, etc.) (#306 fixed-by #343)
 
 ## [v1.0.2] - 03 May 2023
 

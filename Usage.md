@@ -249,8 +249,8 @@ Another setting is for sidebars, which is configured in the `sidebars` sub-table
 
 #### options.darken.sidebars {table}
 
-The `sidebars` sub table of `darken` contains settings for sidebar-like windows. It has two configurations: `enabled` is used to assign a darker background
-to the listed windows, and `list` specifies the windows to be included in the list.
+The `sidebars` sub table of `darken` contains settings for sidebar-like windows. It has two configurations: `enable` is used to assign a darker background
+to the listed windows, and `list` specifies the windows to be darkened.
 
 Example:
 
@@ -259,7 +259,7 @@ local options = {
   darken = {
     floats = false,
     sidebars = {
-      enabled = true,
+      enable = true,
       list = {'qf', 'netrw'} -- default is {}
     }
   }

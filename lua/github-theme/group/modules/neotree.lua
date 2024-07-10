@@ -7,7 +7,7 @@ local M = {}
 
 function M.get(spec, config, opts)
   local hide_eof = config.hide_end_of_buffer
-  local dark_sb = config.darken.sidebars
+  local dark_sb = config.darken.sidebars.enable
   local c = spec.palette
 
   local function blend(color, a)
