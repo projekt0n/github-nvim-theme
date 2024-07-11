@@ -30,7 +30,7 @@ function M.get(spec, config)
     CursorIM        = { link = 'Cursor' }, -- like Cursor, but used when in IME mode |CursorIM|
     CursorColumn    = { link = 'CursorLine' }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     CursorLine      = { bg = spec.bg3 }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
-    Directory       = { fg = spec.syntax.func }, -- directory names (and other special names in listings)
+    Directory       = { fg = c.blue.base }, -- directory names (and other special names in listings)
     DiffAdd         = { bg = spec.diff.add }, -- diff mode: Added line |diff.txt|
     DiffChange      = { bg = spec.diff.change }, -- diff mode: Changed line |diff.txt|
     DiffDelete      = { bg = spec.diff.delete }, -- diff mode: Deleted line |diff.txt|
