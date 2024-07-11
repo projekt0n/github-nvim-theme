@@ -10,7 +10,7 @@ function M.await_VimEnter()
       once = true,
       nested = true,
       callback = vim.schedule_wrap(function()
-        coroutine.resume(co)
+        assert(coroutine.resume(co))
       end),
     })
 
