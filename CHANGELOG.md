@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+### What's New?
+
+-   Added new highlight groups for mini.nvim (#333 by @echasnovski)
+
+### Changes
+
+-   Clarify `options.transparent` in README (resolves #327)
+-   Renamed function `Color:lumanance()` -> `Color:luminance()` in `Color` lib (typo/misspelling)
+
+### Issues Fix
+
+-   Fixed `punctuation.delimiter` treesitter group nearly invisible (#329 fixed by #331)
+-   Closed #305 (no longer valid, fixed)
+-   Closed #292 (no longer valid, fixed)
+-   fix(config): `options.darken.floats` is not used (#345)
+
 ## [v1.0.2] - 03 May 2023
 
 ### What's New?

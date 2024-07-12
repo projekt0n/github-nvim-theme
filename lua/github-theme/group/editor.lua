@@ -62,7 +62,7 @@ function M.get(spec, config)
 
     NormalNC        = { fg = spec.fg1, bg = (inactive and spec.bg0) or (trans and 'NONE') or spec.bg1 }, -- normal text in non-current windows
 
-    NormalFloat     = { fg = spec.fg1, bg = spec.bg0 }, -- Normal text in floating windows.
+    NormalFloat     = { fg = spec.fg1, bg = config.darken.floats and spec.bg0 or spec.bg1 }, -- Normal text in floating windows.
     FloatBorder     = { fg = c.border.default }, -- TODO
     Pmenu           = { fg = spec.fg1, bg = spec.bg0 }, -- Popup menu: normal item.
     PmenuSel        = { bg = spec.sel1 }, -- Popup menu: selected item.

@@ -5,7 +5,7 @@
 
 ## Notices
 
-> **Warning**
+> [!WARNING]
 > If you customize or configure colors, or if you upgrade the colorscheme and notice that it's not affecting the appearance, please run the `:GithubThemeCompile` command to compile the colorscheme. We are actively addressing this issue and appreciate your patience.
 
 <!-- If you're interested, you can learn more about 'sponsor-spotlight' on
@@ -64,8 +64,8 @@ or `:h github-theme-changelog` to receive updates on breaking changes and deprec
 -   True color support
 -   Undercurl terminal support (optional)
 
-> **Note**
-> for MacOS: The default `terminal` does not support `true color`. Use either `Iterm2` or [another] terminal that supports true color.
+> [!NOTE]
+> On macOS, the default terminal (i.e. `Terminal.app`) does not support ***true color*** 24-bit RGB colors. Use either `Iterm2` or [another] terminal which supports ***true color***.
 
 ## Installation
 
@@ -259,7 +259,7 @@ require('github-theme').setup({
     compile_file_suffix = '_compiled', -- Compiled file suffix
     hide_end_of_buffer = true, -- Hide the '~' character at the end of the buffer for a cleaner look
     hide_nc_statusline = true, -- Override the underline style for non-active statuslines
-    transparent = false,       -- Disable setting background
+    transparent = false,       -- Disable setting bg (make neovim's background transparent)
     terminal_colors = true,    -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
     dim_inactive = false,      -- Non focused panes set to alternative background
     module_default = true,     -- Default enable value for modules
@@ -281,7 +281,7 @@ require('github-theme').setup({
       search = false,
     },
     darken = {                 -- Darken floating windows and sidebar-like windows
-      floats = false,
+      floats = true,
       sidebars = {
         enabled = true,
         list = {},             -- Apply dark background to specific windows
@@ -636,8 +636,8 @@ Set your airline colorscheme with `:AirlineThemes` vim command.
 This section will help you determine what highlight group is being applied to a piece of syntax. These methods
 show which highlight group(s) is in use at the current screen position of the cursor (under the cursor).
 
-> **Note**
-> On Neovim v0.9.0 and later, you can use the command `:Inspect`, or the Lua function `vim.show_pos()`.
+> [!TIP]
+> On Neovim v0.9.0 and later, you can use the builtin command `:Inspect`, or the Lua function `vim.show_pos()`.
 
 #### Treesitter highlighting
 

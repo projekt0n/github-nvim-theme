@@ -236,10 +236,10 @@ function Color:to_css(with_alpha)
   return string.format('#%0' .. l .. 'x', n)
 end
 
----Calculate the relative lumanance of the color
+---Calculate the relative luminance of the color
 ---https://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef
 ---@return number
-function Color:lumanance()
+function Color:luminance()
   local r, g, b = self.red, self.green, self.blue
   r = (r > 0.04045) and ((r + 0.055) / 1.055) ^ 2.4 or (r / 12.92)
   g = (g > 0.04045) and ((g + 0.055) / 1.055) ^ 2.4 or (g / 12.92)
@@ -346,8 +346,8 @@ Color.BG = Color.init(0, 0, 0, 1)
 ---Returns the contrast ratio of the other against another
 ---@param other Color
 function Color:contrast(other)
-  local l1 = self:lumanance()
-  local l2 = other:lumanance()
+  local l1 = self:luminance()
+  local l2 = other:luminance()
   if l2 > l1 then
     l1, l2 = l2, l1
   end
