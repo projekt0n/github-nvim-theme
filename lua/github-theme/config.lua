@@ -30,7 +30,7 @@ local defaults = {
     search = false,
   },
   darken = {
-    floats = false,
+    floats = true,
     sidebars = {
       enable = true,
       list = {},
