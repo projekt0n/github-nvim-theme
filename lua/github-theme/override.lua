@@ -1,46 +1,39 @@
 local collect = require('github-theme.lib.collect')
+local M = {}
 
-local store = {
-  palettes = {},
-  specs = {},
-  groups = {},
-  has_override = false,
-}
-
-local function reset()
-  store.palettes = {}
-  store.specs = {}
-  store.groups = {}
-  store.has_override = false
+function M.reset()
+  getmetatable(M).__index =
+    { palettes = {}, specs = {}, groups = {}, has_override = false }
+  return M
 end
 
-local function hash()
-  local hash = require('github-theme.lib.hash')(store)
-  return hash and hash or 0
+function M.hash()
+  return require('github-theme.lib.hash')(getmetatable(M).__index) or 0
 end
 
 local function check_link(tbl)
-  for _, style in pairs(tbl) do
-    for _, opts in pairs(style) do
+  for _, theme in pairs(tbl) do
+    for _, opts in pairs(theme) do
       opts.link = opts.link or ''
     end
   end
 end
 
-return setmetatable({ reset = reset, hash = hash }, {
-  __index = function(_, value)
-    if store[value] then
-      return store[value]
-    end
-  end,
-
-  __newindex = function(_, key, value)
-    if store[key] then
-      if key == 'groups' then
-        check_link(value or {})
+setmetatable(M, {
+  __newindex = function(self, k, v)
+    local store = getmetatable(self).__index
+    if type(store[k]) == 'table' then
+      if not v then
+        store[k] = {}
+        return
       end
-      store[key] = collect.deep_extend(store[key], value or {})
+      if k == 'groups' then
+        check_link(v)
+      end
+      store[k] = collect.deep_extend(store[k], v)
       store.has_override = true
     end
   end,
 })
+
+return M.reset()
