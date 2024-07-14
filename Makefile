@@ -40,7 +40,7 @@ test: $(PLENARY_DIR)
 		--headless \
 		--noplugin \
 		-u test/minimal_init.vim \
-		-c "PlenaryBustedDirectory $(TEST_DIR) { minimal_init = './test/minimal_init.vim' }"
+		-c "PlenaryBustedDirectory $(TEST_DIR) { minimal_init = './test/minimal_init.vim', sequential = true }"
 
 $(PLENARY_DIR):
 	git clone --depth=1 --no-single-branch $(PLENARY_URL) $(PLENARY_DIR)
