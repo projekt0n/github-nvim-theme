@@ -1,10 +1,10 @@
 local hash = require('github-theme.lib.hash')
 
-describe('Hash', function()
+describe('hash()', function()
   it('should produce same result with different table order', function()
     local t1 = { Normal = { bg = '#192330', fg = '#cdcecf' } }
     local t2 = { Normal = { fg = '#cdcecf', bg = '#192330' } }
-    assert.is.same(hash(t1), hash(t2))
+    assert.same(hash(t1), hash(t2))
   end)
 
   it('should understand booleans', function()
@@ -30,6 +30,27 @@ describe('Hash', function()
         search = false,
       },
     }
-    assert.is_not.same(hash(t1), hash(t2))
+    assert.not_same(hash(t1), hash(t2))
+  end)
+
+  it('should handle empty tables within (1)', function()
+    assert.not_same(hash({}), hash({ k = {} }))
+    assert.not_same(hash({}), hash({ key = {} }))
+  end)
+
+  -- TODO: FAILING
+  pending('should handle empty tables within (2)', function()
+    assert.not_same(hash({ k = 0 }), hash({ k = {} }))
+    assert.not_same(hash({ key = 0 }), hash({ key = {} }))
+  end)
+
+  it('should handle empty tables within (3)', function()
+    assert.not_same(hash({ k = '' }), hash({ k = {} }))
+    assert.not_same(hash({ key = '' }), hash({ key = {} }))
+  end)
+
+  it('should handle empty tables within (4)', function()
+    assert.not_same(hash({ k = false }), hash({ k = {} }))
+    assert.not_same(hash({ key = false }), hash({ key = {} }))
   end)
 end)
