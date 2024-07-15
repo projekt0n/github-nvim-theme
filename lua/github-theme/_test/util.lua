@@ -29,7 +29,7 @@ function M.get_hl(group, link)
   })
 end
 
-if vim.fn.has('nvim-0.10.0') == false or vim.fn.has('nvim-0.10.0') == 0 then
+if vim.fn.has('nvim-0.10.0') == 0 or vim.fn.has('nvim-0.10.0') == false then
   function M.get_hl(group, link)
     return api.nvim_get_hl(0, {
       name = group,
