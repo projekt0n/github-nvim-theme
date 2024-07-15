@@ -1,19 +1,23 @@
-local function reload()
-  for name, _ in pairs(package.loaded) do
-    if name:match('^github-theme') then
+---@param force? boolean
+local function reload(force)
+  for name, _ in pairs(_G.package.loaded) do
+    if name:find('^github%-theme') then
       if
-        not name:match('config')
-        and not name:match('deprecation')
-        and not name:match('override')
+        force
+        or (
+          not name:find('config')
+          and not name:find('deprecation')
+          and not name:find('override')
+        )
       then
-        package.loaded[name] = nil
+        _G.package.loaded[name] = nil
       end
     end
   end
 end
 
 return setmetatable({}, {
-  __call = function(_)
-    reload()
+  __call = function(_, ...)
+    reload(...)
   end,
 })

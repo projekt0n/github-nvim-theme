@@ -1,9 +1,8 @@
 local assert = require('luassert')
 local t_util = require('github-theme._test.util')
 local C = require('github-theme.lib.color')
-local api = vim.api
 
-if not api.nvim_get_hl then
+if vim.fn.has('nvim-0.9.0') == 0 or vim.fn.has('nvim-0.9.0') == false then
   return
 end
 

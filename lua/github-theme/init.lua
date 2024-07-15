@@ -82,15 +82,15 @@ M.setup = function(opts)
     config.set_options(opts.options)
   end
 
-  if opts.palettes then
+  if opts.palettes ~= nil then
     override.palettes = opts.palettes
   end
 
-  if opts.specs then
+  if opts.specs ~= nil then
     override.specs = opts.specs
   end
 
-  if opts.groups then
+  if opts.groups ~= nil then
     override.groups = opts.groups
   end
 

@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### What's New?
 
 -   Added new highlight groups for mini.nvim (#333 by @echasnovski)
+-   Improved highlight-group overrides (#349)
+-   Assigning `false` or an empty table to a highlight group clears it
+-   Assigning `false` to groups/specs/palettes clears previous settings from the config store
 
 ### Changes
 
