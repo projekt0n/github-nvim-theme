@@ -3,6 +3,6 @@ lua <<
     vim.loader.disable()
   end
 .
-set rtp+=.
-set rtp+=./test/plenary
+set rtp^=.
+set rtp^=./test/plenary
 runtime! plugin/plenary.vim

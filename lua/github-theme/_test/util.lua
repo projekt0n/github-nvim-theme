@@ -1,4 +1,4 @@
-local M = {}
+local M = { unique_hlgroup = '____0' }
 local api = vim.api
 
 function M.await_VimEnter()

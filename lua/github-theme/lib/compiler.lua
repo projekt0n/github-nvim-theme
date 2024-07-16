@@ -38,13 +38,16 @@ function M.compile(opts)
       [[
 return string.dump(function()
 local h = vim.api.nvim_set_hl
-if vim.g.colors_name then vim.cmd("hi clear") end
+if vim.g.colors_name then
+  vim.cmd("hi clear")
+  vim.g.colors_name = nil
+end
 vim.o.termguicolors = true
-vim.g.colors_name = "%s"
 vim.o.background = "%s"
-    ]],
-      opts.theme,
-      background
+vim.g.colors_name = "%s"
+]],
+      background,
+      opts.theme
     ),
   }
 

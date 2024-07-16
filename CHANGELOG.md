@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -   Improved highlight-group overrides (#349)
 -   Assigning `false` or an empty table to a highlight group clears it
 -   Assigning `false` to groups/specs/palettes clears previous settings from the config store
+-   Loading/sourcing colorscheme now causes recompilation if config or overrides changed, even if `setup()` has been called before
 
 ### Changes
 
@@ -21,10 +22,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Issues Fix
 
--   Fixed `punctuation.delimiter` treesitter group nearly invisible (#329 fixed by #331)
+-   Fixed `punctuation.delimiter` treesitter group nearly invisible (#329 fixed-by #331)
 -   Closed #305 (no longer valid, fixed)
 -   Closed #292 (no longer valid, fixed)
 -   fix(config): `options.darken.floats` is not used (#345)
+-   fix(compiler): consider entire config when hashing (#350) (related-to #262, #340, #341)
+-   fix(compiler): always write hash to filesystem when compilation occurs incl. when `require('github-theme').compile()` is called directly (#350)
 
 ## [v1.0.2] - 03 May 2023
 
