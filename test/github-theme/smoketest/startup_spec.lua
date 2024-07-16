@@ -27,6 +27,7 @@ describe('(smoke test)', function()
         end)
 
         assert.is.equal('', vim.v.errmsg or '')
+        assert.is.equal(cs, vim.g.colors_name)
       end
     end)
   end)

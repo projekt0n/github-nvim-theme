@@ -1,9 +1,8 @@
-local collect = require('github-theme.lib.collect')
 local M = {}
 
 function M.reset()
   getmetatable(M).__index =
-    { palettes = {}, specs = {}, groups = {}, has_override = false }
+    { palettes = {}, specs = {}, groups = {}, changed_since_last_compile = false }
   return M
 end
 
@@ -43,6 +42,8 @@ setmetatable(M, {
     local store = getmetatable(self).__index
 
     if type(store[k]) == 'table' then
+      store.changed_since_last_compile = true
+
       if not v then
         store[k] = {}
       elseif k == 'groups' then
