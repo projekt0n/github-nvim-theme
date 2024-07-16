@@ -29,6 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -   fix(compiler): consider entire config when hashing (#350) (related-to #262, #340, #341)
 -   fix(compiler): always write hash to filesystem when compilation occurs incl. when `require('github-theme').compile()` is called directly (#350)
 -   Fixed #340 and #341 (broken/outdated `overrides` example in docs)
+-   Fixed floats not transparent when `transparent = true` (#337 fixed-by #351)
 
 ## [v1.0.2] - 03 May 2023
 
