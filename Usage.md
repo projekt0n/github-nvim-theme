@@ -57,27 +57,27 @@ The individual components, such as [palettes][palette], [specs][spec], and [grou
 according to your preferences.
 
 ```lua
-local override = require('github-theme').override
-override.palettes({
+local override = require('github-theme.override')
+override.palettes = {
   github_dark = {
     red = '#ff0000',
   },
   github_light = {
     comment = '#636e7b',
   },
-})
-override.specs({
+}
+override.specs = {
   github_dark = {
     syntax = {
       keyword = 'magenta'
     }
   }
-})
-override.groups({
+}
+override.groups = {
   all = {
     IncSearch = { bg = 'palette.cyan' },
   },
-})
+}
 ```
 
 Overrides for [palettes][palette] and [specs][spec] are defined per style. The purpose of overriding these components is to change the colors used in
