@@ -3,21 +3,10 @@ local C = require('github-theme.lib.color')
 local M = {}
 
 function M.get(spec, config)
-  local dark_sb = config.darken.sidebars.enabled
   local hide_eof = config.hide_end_of_buffer
   local inactive = config.dim_inactive
   local inv = config.inverse
   local trans = config.transparent
-
-  local sb_bg
-  if trans then
-    sb_bg = 'NONE'
-  elseif dark_sb then
-    sb_bg = spec.bg0
-  else
-    sb_bg = spec.bg1
-  end
-
   local c = spec.palette
   local sts_bg = C.from_hex(spec.bg0):blend(C.from_hex(c.blue.base), 0.7):to_css()
 
@@ -58,11 +47,11 @@ function M.get(spec, config)
     MoreMsg         = { fg = spec.diag.info, style = 'bold' }, -- |more-prompt|
     NonText         = { fg = spec.bg4 }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., '>' displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
     Normal          = { fg = spec.fg1, bg = trans and 'NONE' or spec.bg1 }, -- normal text
-    NormalSB        = { fg = spec.fg1, bg = sb_bg }, -- normal text
+    NormalSB        = { fg = spec.fg1, bg = trans and 'NONE' or config.darken.sidebars.enabled and spec.bg0 or spec.bg1 }, -- normal text
 
-    NormalNC        = { fg = spec.fg1, bg = (inactive and spec.bg0) or (trans and 'NONE') or spec.bg1 }, -- normal text in non-current windows
+    NormalNC        = { fg = spec.fg1, bg = inactive and spec.bg0 or trans and 'NONE' or spec.bg1 }, -- normal text in non-current windows
 
-    NormalFloat     = { fg = spec.fg1, bg = config.darken.floats and spec.bg0 or spec.bg1 }, -- Normal text in floating windows.
+    NormalFloat     = { fg = spec.fg1, bg = trans and 'NONE' or config.darken.floats and spec.bg0 or spec.bg1 }, -- Normal text in floating windows.
     FloatBorder     = { fg = c.border.default }, -- TODO
     Pmenu           = { fg = spec.fg1, bg = spec.bg0 }, -- Popup menu: normal item.
     PmenuSel        = { bg = spec.sel1 }, -- Popup menu: selected item.
