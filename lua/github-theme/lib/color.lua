@@ -85,7 +85,7 @@ function Color.new(opts)
     return Color.from_hsv(opts.hue, opts.saturation, opts.value)
   end
   if opts.lightness then
-    return Color.from_hsv(opts.hue, opts.saturation, opts.lightness)
+    return Color.from_hsl(opts.hue, opts.saturation, opts.lightness)
   end
 end
 

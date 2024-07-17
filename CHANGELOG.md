@@ -30,6 +30,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -   fix(compiler): always write hash to filesystem when compilation occurs incl. when `require('github-theme').compile()` is called directly (#350)
 -   Fixed #340 and #341 (broken/outdated `overrides` example in docs)
 -   Fixed floats not transparent when `transparent = true` (#337 fixed-by #351)
+-   fix(Color): `Color.from_hsv()` is used for HSL
 
 ## [v1.0.2] - 03 May 2023
 
