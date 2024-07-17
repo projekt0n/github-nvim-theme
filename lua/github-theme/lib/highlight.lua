@@ -18,7 +18,7 @@ local M = {}
 --#endregion
 
 ---Validate input input from opts table and return a hex string if opt exists
----@param input string|Color|nil
+---@param input string|GhTheme.Color|nil
 ---@return string
 local function validate(input)
   return input and input or 'NONE'
@@ -38,7 +38,7 @@ local function parse_style(style)
 end
 
 ---Validate input input from opts table and return a hex string if opt exists
----@param input string|Color|nil
+---@param input string|GhTheme.Color|nil
 ---@return string
 M.parse_style = parse_style
 

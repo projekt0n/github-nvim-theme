@@ -13,7 +13,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -   Improved highlight-group overrides (#349)
 -   Assigning `false` or an empty table to a highlight group clears it
 -   Assigning `false` to groups/specs/palettes clears previous settings from the config store
--   Loading/sourcing colorscheme now causes recompilation if config or overrides changed, even if `setup()` has been called before
+-   Loading/sourcing colorscheme now causes recompilation if config or overrides changed, even if `setup()` was called before
+-   Refactored and improved `Color` lib (LSP types and descriptions, code-dedupe, stricter ctor, etc.) (#352)
 
 ### Changes
 
@@ -27,7 +28,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -   Closed #292 (no longer valid, fixed)
 -   fix(config): `options.darken.floats` is not used (#345)
 -   fix(compiler): consider entire config when hashing (#350) (related-to #262, #340, #341)
--   fix(compiler): always write hash to filesystem when compilation occurs incl. when `require('github-theme').compile()` is called directly (#350)
+-   fix(compiler): always write hash to fs when compile occurs incl. when `require('github-theme').compile()` is called directly (#350)
 -   Fixed #340 and #341 (broken/outdated `overrides` example in docs)
 -   Fixed floats not transparent when `transparent = true` (#337 fixed-by #351)
 -   fix(Color): `Color.from_hsv()` is used for HSL
