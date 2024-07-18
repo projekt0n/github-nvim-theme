@@ -1,60 +1,54 @@
-local collect = require('github-theme.lib.collect')
-local config = require('github-theme.config')
-
 local M = {}
 
+---@enum GhTheme.Theme
 M.themes = {
-  'github_dark',
-  'github_dark_colorblind',
-  'github_dark_default',
-  'github_dark_dimmed',
-  'github_dark_high_contrast',
-  'github_dark_tritanopia',
-  'github_light',
-  'github_light_colorblind',
-  'github_light_default',
-  'github_light_high_contrast',
-  'github_light_tritanopia',
+  github_dark = 'github_dark',
+  github_dark_colorblind = 'github_dark_colorblind',
+  github_dark_default = 'github_dark_default',
+  github_dark_dimmed = 'github_dark_dimmed',
+  github_dark_high_contrast = 'github_dark_high_contrast',
+  github_dark_tritanopia = 'github_dark_tritanopia',
+  github_light = 'github_light',
+  github_light_colorblind = 'github_light_colorblind',
+  github_light_default = 'github_light_default',
+  github_light_high_contrast = 'github_light_high_contrast',
+  github_light_tritanopia = 'github_light_tritanopia',
 }
 
-local function override(color, ovr)
-  for key, value in pairs(ovr) do
-    color[key] = value
+---@param theme GhTheme.Theme
+local function get_palette(theme)
+  local ovr = require('github-theme.override').palettes
+  local raw = require('github-theme.palette.' .. theme)
+  local pal = raw.palette
+  if ovr.all then
+    pal = vim.tbl_deep_extend('force', pal, ovr.all)
   end
-  return color
+  if ovr[theme] then
+    pal = vim.tbl_deep_extend('force', pal, ovr[theme])
+  end
+  pal.meta, pal.generate_spec = raw.meta, raw.generate_spec
+  return pal
 end
 
-function M.load(name)
-  local ovr = require('github-theme.override').palettes
-
-  local function apply_ovr(key, palette)
-    return ovr[key] and override(palette, ovr[key]) or palette
-  end
-
-  if name then
-    local valid = collect.contains(M.themes, name)
-    local raw = valid and require('github-theme.palette.' .. name)
-      or require('github-theme.palette.' .. config.theme)
-    local palette = raw.palette
-    palette = apply_ovr('all', palette)
-    palette = apply_ovr(name, palette)
-    palette.meta = raw.meta
-    palette.generate_spec = raw.generate_spec
-
-    return palette
-  else
-    local result = {}
-    for _, mod in ipairs(M.themes) do
-      local raw = require('github-theme.palette.' .. mod)
-      local palette = raw.palette
-      palette = apply_ovr('all', palette)
-      palette = apply_ovr(mod, palette)
-      palette.meta = raw.meta
-      palette.generate_spec = raw.generate_spec
-      result[mod] = palette
+---Returns the palette for the given `theme`, or all themes (i.e. a map from
+---theme name to palette) if `theme` is `nil`.
+---@param theme? GhTheme.Theme
+function M.load(theme)
+  if theme ~= nil then
+    if not M.themes[theme] then
+      error('invalid theme provided: ' .. theme)
     end
 
-    return result
+    return get_palette(theme)
+  else
+    local all = {}
+
+    ---@diagnostic disable-next-line: redefined-local
+    for theme in pairs(M.themes) do
+      all[theme] = get_palette(theme)
+    end
+
+    return all
   end
 end
 

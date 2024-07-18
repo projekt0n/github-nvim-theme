@@ -18,7 +18,7 @@ end
 
 ---Parses and resolves keypath string for configuration template.
 ---@param str string
----@param spec Spec
+---@param spec GhTheme.Spec
 ---@return any
 local function parse_keypath(str, spec)
   if type(str) ~= 'string' or str == '' or str:find('^#') then

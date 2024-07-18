@@ -58,7 +58,7 @@ function M.compile(force)
     local themes = require('github-theme.palette').themes
     local current_theme = config.theme
 
-    for _, theme in ipairs(themes) do
+    for theme in pairs(themes) do
       -- Compile current theme last (see discussion in #290)
       if theme ~= current_theme then
         compiler.compile({ theme = theme })

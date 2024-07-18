@@ -14,7 +14,7 @@ describe('config > options > darken', function()
   end)
 
   describe('> floats', function()
-    for _, variant in ipairs(require('github-theme.palette').themes) do
+    for variant in pairs(require('github-theme.palette').themes) do
       -- TODO: see #324
       local it_or_pending = variant:find('high[-_]*contrast') and pending or it
 
@@ -49,7 +49,7 @@ describe('config > options > darken', function()
 
   describe('> sidebars', function()
     describe('> enable', function()
-      for _, variant in ipairs(require('github-theme.palette').themes) do
+      for variant in pairs(require('github-theme.palette').themes) do
         -- TODO: see #324
         local it_or_pending = variant:find('high[-_]*contrast') and pending or it
 
