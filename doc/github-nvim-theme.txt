@@ -331,9 +331,9 @@ sub-table.
 options.darken.sidebars {table}    *github-nvim-theme-options.darken.sidebars*
 
 The `sidebars` sub table of `darken` contains settings for sidebar-like
-windows. It has two configurations: `enabled` is used to assign a darker
+windows. It has two configurations: `enable` is used to assign a darker
 background to the listed windows, and `list` specifies the windows to be
-included in the list.
+darkened.
 
 Example:
 
@@ -342,7 +342,7 @@ Example:
       darken = {
         floats = false,
         sidebars = {
-          enabled = true,
+          enable = true,
           list = {'qf', 'netrw'} -- default is {}
         }
       }

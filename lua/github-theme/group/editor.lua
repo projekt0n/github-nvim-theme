@@ -47,7 +47,7 @@ function M.get(spec, config)
     MoreMsg         = { fg = spec.diag.info, style = 'bold' }, -- |more-prompt|
     NonText         = { fg = spec.bg4 }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., '>' displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
     Normal          = { fg = spec.fg1, bg = trans and 'NONE' or spec.bg1 }, -- normal text
-    NormalSB        = { fg = spec.fg1, bg = trans and 'NONE' or config.darken.sidebars.enabled and spec.bg0 or spec.bg1 }, -- normal text
+    NormalSB        = { fg = spec.fg1, bg = trans and 'NONE' or config.darken.sidebars.enable and spec.bg0 or spec.bg1 }, -- normal text
 
     NormalNC        = { fg = spec.fg1, bg = inactive and spec.bg0 or trans and 'NONE' or spec.bg1 }, -- normal text in non-current windows
 

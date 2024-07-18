@@ -157,6 +157,16 @@ M.check_deprecation = function(opts)
       ' for more info.'
     )
   end
+
+  if (((opts.options or {}).darken or {}).sidebars or {}).enabled ~= nil then
+    dep.write(
+      '  ',
+      { 'options.darken.sidebars.enabled', 'WarningMsg' },
+      ' has been renamed/reverted back to ',
+      { 'options.darken.sidebars.enable', 'WarningMsg' }
+    )
+  end
+
   M.checked_deprecation = true
 end
 
