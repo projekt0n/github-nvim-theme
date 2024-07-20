@@ -1,0 +1,22 @@
+root = false
+
+[*]
+# e.g. tabstop
+tab_width = unset
+
+[*.sh]
+indent_size = 4
+indent_style = space
+
+[{.gitconfig,**/.git/config,config.worktree}]
+indent_style = tab
+
+[*.{lua,nix,scm,json,yml,yaml}]
+indent_style = space
+indent_size = 2
+
+[*.lua]
+max_line_length = 90
+
+[*.{yml,yaml}]
+quote_type = single

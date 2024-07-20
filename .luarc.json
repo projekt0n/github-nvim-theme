@@ -11,6 +11,16 @@
     "checkThirdParty": "Disable",
     "library": [
       "test/plenary"
+    ],
+    "ignoreDir": [
+      "/.meta",
+      "/.log",
+      ".vscode"
+    ]
+  },
+  "diagnostics": {
+    "unusedLocalExclude": [
+      "_*"
     ]
   }
 }
