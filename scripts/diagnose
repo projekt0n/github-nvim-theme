@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+set -eu
+
+# One of: Error, Warning, Information, or Hint
+level="$1"
+
+export VIMRUNTIME="${VIMRUNTIME-"$(nvim -i NONE -es <<<'lua io.write(vim.env.VIMRUNTIME)')"}"
+export LUA_LS="${LUA_LS-"$(which lua-language-server)"}"
+
+# Add vim's stdlib to library files, and never diagnose lib files (since ALL
+# files will be `Opened` by the lsp to do the check).
+extcfg='
+{
+  workspace: {
+    library: [ $ENV.VIMRUNTIME, .workspace.library[] ]
+  },
+  diagnostics: { ignoredFiles: "Disable", libraryFiles: "Disable" }
+}
+'
+
+jq='
+  to_entries[]
+    | (.key | ltrimstr("file://") | ltrimstr($ENV.PWD)) as $f
+    | .value[]
+      | . as {range: {start: {line: $l, character: $c}, end: {line: $eL, character: $eC}}}
+      | [null, "error", "warning", "notice", "notice"][.severity] as $s
+      | "::\($s) file=\($f),line=\($l),col=\($c),endLine=\($eL),endColumn=\($eC),title=\(.code)::\(.message)"
+'
+
+"$LUA_LS" \
+    --check="$PWD" \
+    --checklevel="$level" \
+    --logpath=.log \
+    --metapath=.meta \
+    --configpath=<(jq ". * $extcfg" .luarc.json)
+
+if [ "${CI-no}" = no ]; then
+    jq -r 'to_entries[] | "\(.key):\(.value[] | "\(.range.start.line): \(.message)")", ""' .log/check.json
+else
+    jq -r "$jq" .log/check.json
+fi
+
+[ "$(jq 'isempty(.[]?)' .log/check.json)" = true ] || exit 1
