@@ -20,11 +20,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -   Loading/sourcing colorscheme now causes recompilation if config or overrides changed, even if `setup()` was called before
 -   Refactored and improved `Color` lib (LSP types and descriptions, code-dedupe, stricter ctor, etc.) (#352)
 -   Added and improved types (LSP) for groups, config, and modules (#354)
+-   Highlight gitignore files (contents)
 
 ### Changes
 
 -   Clarify `options.transparent` in README (resolves #327)
 -   Renamed function `Color:lumanance()` -> `Color:luminance()` in `Color` lib (typo/misspelling)
+-   Upstream renamed group: `@field` -> `@variable.parameter`
+-   Upstream added group: `@variable.parameter.builtin`
+-   Changed Lua function/method calls to default pinkish color, but left builtin functions untouched (as a different color)
 
 ### Issues Fix
 

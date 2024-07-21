@@ -3,18 +3,18 @@ local M = {}
 --#region Types
 
 ---@class GhTheme.Spec
----@field bg0 string
----@field bg1 string
----@field bg2 string
----@field bg3 string
----@field bg4 string
----@field fg0 string
----@field fg1 string
----@field fg2 string
----@field fg3 string
----@field sel0 string
----@field sel1 string
----@field sel2 string
+---@field bg0 string Dark bg (popup and float)
+---@field bg1 string Default bg
+---@field bg2 string Lighter bg (colorcolumn Folds)
+---@field bg3 string Lighter bg (cursor line)
+---@field bg4 string Conceal
+---@field fg0 string Lighter fg
+---@field fg1 string Default fg
+---@field fg2 string Darker fg (status line)
+---@field fg3 string Darker fg (line numbers, fold columns)
+---@field sel0 string Visual selection bg
+---@field sel1 string Popup sel bg
+---@field sel2 string Search bg
 ---@field syntax GhTheme.Spec.Syntax
 ---@field diag GhTheme.Spec.Diagnostic
 ---@field diag_bg GhTheme.Spec.DiagnosticBg
@@ -22,28 +22,28 @@ local M = {}
 ---@field git GhTheme.Spec.Git
 
 ---@class GhTheme.Spec.Syntax
----@field bracket string
----@field builtin0 string
----@field builtin1 string
----@field builtin2 string
----@field comment string
----@field conditional string
----@field const string
----@field dep string
----@field field string
----@field func string
----@field ident string
----@field keyword string
----@field number string
----@field operator string
----@field param string
----@field preproc string
----@field regex string
----@field statement string
----@field string string
----@field tag string
----@field type string
----@field variable string
+---@field bracket string Brackets and Punctuation
+---@field builtin0 string Builtin variable
+---@field builtin1 string Builtin type
+---@field builtin2 string Builtin const
+---@field comment string Comment
+---@field conditional string Conditional and loop
+---@field const string Constants, imports and booleans
+---@field dep string Deprecated
+---@field field string Field
+---@field func string Functions and Titles
+---@field ident string Identifiers
+---@field keyword string Keywords
+---@field number string Numbers
+---@field operator string Operators
+---@field param string Parameters
+---@field preproc string PreProc
+---@field regex string Regex
+---@field statement string Statements
+---@field string string Strings
+---@field tag string Tags
+---@field type string Types
+---@field variable string Variables
 
 ---@class GhTheme.Spec.Diagnostic
 ---@field error string
