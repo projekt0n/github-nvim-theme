@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -   Assigning `false` to groups/specs/palettes clears previous settings from the config store
 -   Loading/sourcing colorscheme now causes recompilation if config or overrides changed, even if `setup()` was called before
 -   Refactored and improved `Color` lib (LSP types and descriptions, code-dedupe, stricter ctor, etc.) (#352)
+-   Added and improved types (LSP) for groups, config, and modules (#354)
 
 ### Changes
 

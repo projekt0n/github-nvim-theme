@@ -2,10 +2,14 @@
 
 local M = {}
 
-function M.get(spec, config, opts)
+---@param spec GhTheme.Spec
+---@param _config GhTheme.Config.Options
+---@param _opts GhTheme.Config.Module
+function M.get(spec, _config, _opts)
   local c = spec.palette
 
   -- stylua: ignore
+  ---@type table<string, GhTheme.HighlightGroup>
   return {
     DapUIScope                   = { fg = c.cyan.base },
     DapUIType                    = { fg = c.magenta.base },

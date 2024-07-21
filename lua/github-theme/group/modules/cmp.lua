@@ -2,11 +2,16 @@
 
 local M = {}
 
-function M.get(spec, config, opts)
-  local has_ts = config.modules.treesitter
+---@param spec GhTheme.Spec
+---@param config GhTheme.Config.Options
+---@param _opts GhTheme.Config.Module
+function M.get(spec, config, _opts)
+  local has_ts = config.modules.treesitter == true
+    or type(config.modules.treesitter) == 'table' and config.modules.treesitter.enable
   local syn = spec.syntax
 
   -- stylua: ignore
+  ---@type table<string, GhTheme.HighlightGroup>
   return {
     CmpDocumentation         = { fg = spec.fg1, bg = spec.bg0 },
     CmpDocumentationBorder   = { fg = spec.sel0, bg = spec.bg0 },

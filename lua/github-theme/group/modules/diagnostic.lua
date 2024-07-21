@@ -1,10 +1,14 @@
 local M = {}
 
-function M.get(spec, config, opts)
+---@param spec GhTheme.Spec
+---@param _config GhTheme.Config.Options
+---@param opts GhTheme.Config.Module.Diagnostic
+function M.get(spec, _config, opts)
   local d = spec.diag
   local dbg = spec.diag_bg
 
   -- stylua: ignore
+  ---@type table<string, GhTheme.HighlightGroup>
   return {
     DiagnosticError            = { fg = d.error },
     DiagnosticWarn             = { fg = d.warn },
@@ -17,9 +21,9 @@ function M.get(spec, config, opts)
     DiagnosticSignHint         = { link = 'DiagnosticHint' },
 
     DiagnosticVirtualTextError = { fg = d.error, bg = opts.background and dbg.error or 'NONE' },
-    DiagnosticVirtualTextWarn  = { fg = d.warn, bg = opts.background and dbg.warn or 'NONE' },
-    DiagnosticVirtualTextInfo  = { fg = d.info, bg = opts.background and dbg.info or 'NONE' },
-    DiagnosticVirtualTextHint  = { fg = d.hint, bg = opts.background and dbg.hint or 'NONE' },
+    DiagnosticVirtualTextWarn  = { fg = d.warn,  bg = opts.background and dbg.warn  or 'NONE' },
+    DiagnosticVirtualTextInfo  = { fg = d.info,  bg = opts.background and dbg.info  or 'NONE' },
+    DiagnosticVirtualTextHint  = { fg = d.hint,  bg = opts.background and dbg.hint  or 'NONE' },
 
     DiagnosticUnderlineError   = { style = 'undercurl', sp = d.error },
     DiagnosticUnderlineWarn    = { style = 'undercurl', sp = d.warn },

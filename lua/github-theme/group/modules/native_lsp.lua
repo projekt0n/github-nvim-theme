@@ -1,13 +1,16 @@
 local M = {}
 
-function M.get(spec, config, opts)
+---@param spec GhTheme.Spec
+---@param _config GhTheme.Config.Options
+---@param opts GhTheme.Config.Module.NativeLSP
+function M.get(spec, _config, opts)
   local syn = spec.syntax
 
   -- stylua: ignore
+  ---@type table<string, GhTheme.HighlightGroup>
   return {
-    -- These groups are for the native LSP client. Some other LSP clients may
-    -- use these groups, or use their own. Consult your LSP client's
-    -- documentation.
+    -- These groups are for the native LSP client. Some other LSP clients may use these
+    -- groups, or use their own. Consult your LSP client's documentation.
     LspReferenceText  = { bg = spec.sel0 }, -- used for highlighting 'text' references
     LspReferenceRead  = { bg = spec.sel0 }, -- used for highlighting 'read' references
     LspReferenceWrite = { bg = spec.sel0 }, -- used for highlighting 'write' references

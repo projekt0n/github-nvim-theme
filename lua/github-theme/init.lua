@@ -27,7 +27,7 @@ function M.reset()
 end
 
 ---Compiles all themes/styles with their current settings.
----@param force boolean true by default
+---@param force boolean don't check the saved hash, compile unconditionally (default true)
 ---@return nil
 function M.compile(force)
   local util = require('github-theme.util')
@@ -87,8 +87,9 @@ function M.load(opts)
   require('github-theme.autocmds').set_autocmds()
 end
 
----Applies any new config or overrides then (re)compiles if needed.
----@param opts? table
+---Applies any new config or overrides then (re)compiles if needed. Does not switch/load
+---colorscheme.
+---@param opts? GhTheme.Config
 function M.setup(opts)
   opts = opts or {}
   did_setup = true

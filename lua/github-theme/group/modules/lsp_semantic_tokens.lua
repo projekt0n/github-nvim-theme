@@ -2,7 +2,11 @@
 
 local M = {}
 
-function M.get(spec, config, opts)
+---@param _spec GhTheme.Spec
+---@param _config GhTheme.Config.Options
+---@param _opts GhTheme.Config.Module
+function M.get(_spec, _config, _opts)
+  ---@type table<string, GhTheme.HighlightGroup>
   return {
     -- LSP Semantic token highlight groups
     ['@lsp.type.enum'] = { link = '@type' },
