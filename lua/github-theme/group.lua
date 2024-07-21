@@ -3,6 +3,41 @@ local template = require('github-theme.util.template')
 local override = require('github-theme.override')
 local M = {}
 
+---A string whose contents is a comma-separated list of styles.
+---
+---## Examples
+---```lua
+---group.style = "bold,italic,underline"
+---group.style = "NONE"
+---```
+---@alias GhTheme.HighlightGroup.Style
+---| "NONE"
+---| "bold"
+---| "standout"
+---| "underline"
+---| "undercurl"
+---| "underdouble"
+---| "underdotted"
+---| "underdashed"
+---| "strikethrough"
+---| "italic"
+---| "reverse"
+---| "nocombine"
+---| string
+
+---A Neovim highlight-group definition.
+---@class (exact) GhTheme.HighlightGroup
+---@field fg? GhTheme.Color.CSSHexString
+---@field bg? GhTheme.Color.CSSHexString
+---@field sp? GhTheme.Color.CSSHexString
+---@field style? GhTheme.HighlightGroup.Style
+---@field blend? integer
+---@field nocombine? boolean
+---@field link? string
+---@field force? boolean
+
+---@param spec GhTheme.Spec
+---@return table<string, GhTheme.HighlightGroup>
 function M.from(spec)
   local config = require('github-theme.config').options
 
@@ -44,9 +79,11 @@ function M.from(spec)
   return res
 end
 
-function M.load(name)
-  name = name or require('github-theme.config').theme
-  return M.from(require('github-theme.spec').load(name))
+---@param theme? GhTheme.Theme
+---@return table<string, GhTheme.HighlightGroup>
+function M.load(theme)
+  theme = theme or require('github-theme.config').theme
+  return M.from(require('github-theme.spec').load(theme))
 end
 
 return M

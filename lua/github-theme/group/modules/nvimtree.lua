@@ -2,12 +2,16 @@
 
 local M = {}
 
-function M.get(spec, config, opts)
+---@param spec GhTheme.Spec
+---@param config GhTheme.Config.Options
+---@param _opts GhTheme.Config.Module
+function M.get(spec, config, _opts)
   local hide_eof = config.hide_end_of_buffer
   local dark_sb = config.darken.sidebars.enable
   local c = spec.palette
 
   -- stylua: ignore
+  ---@type table<string, GhTheme.HighlightGroup>
   return {
     NvimTreeNormal             = { link = 'NormalSB' },
     NvimTreeEndOfBuffer        = { fg = (hide_eof and dark_sb) and spec.bg0 or spec.fg0 },

@@ -4,7 +4,10 @@ local C = require('github-theme.lib.color')
 
 local M = {}
 
-function M.get(spec, config, opts)
+---@param spec GhTheme.Spec
+---@param _config GhTheme.Config.Options
+---@param _opts GhTheme.Config.Module
+function M.get(spec, _config, _opts)
   local c = spec.palette
 
   local function blend(color, a)
@@ -12,6 +15,7 @@ function M.get(spec, config, opts)
   end
 
   -- stylua: ignore
+  ---@type table<string, GhTheme.HighlightGroup>
   return {
     MiniAnimateCursor      = { style = 'reverse,nocombine' },
     MiniAnimateNormalFloat = { link = 'NormalFloat' },

@@ -2,7 +2,11 @@
 
 local M = {}
 
-function M.get(spec, config, opts)
+---@param spec GhTheme.Spec
+---@param _config GhTheme.Config.Options
+---@param _opts GhTheme.Config.Module
+function M.get(spec, _config, _opts)
+  ---@type table<string, GhTheme.HighlightGroup>
   return {
     CocExplorerNormalFloat = { link = 'NormalSB' },
 

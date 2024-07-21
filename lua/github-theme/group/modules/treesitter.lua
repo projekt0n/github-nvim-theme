@@ -1,6 +1,9 @@
 local M = {}
 
-function M.get(spec, config, opts)
+---@param spec GhTheme.Spec
+---@param config GhTheme.Config.Options
+---@param _opts GhTheme.Config.Module
+function M.get(spec, config, _opts)
   -- TODO: Consider refactoring this out once the primitives are finished
   --       being integrated.
   local primitives = require(
@@ -39,7 +42,7 @@ function M.get(spec, config, opts)
     end,
   })
 
-  if vim.treesitter.highlighter.hl_map then
+  if not vim.fn.has('nvim-0.8') or vim.fn.has('nvim-0.8') == 0 then
     require('github-theme.lib.log').warn([[
 nvim-treesitter integration requires neovim 0.8
 If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch.
@@ -48,6 +51,7 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
   end
 
   -- stylua: ignore
+  ---@type table<string, GhTheme.HighlightGroup>
   return {
 
     -- Identifiers -------------------------------------------------------------

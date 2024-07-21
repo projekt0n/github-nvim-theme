@@ -1,30 +1,11 @@
 local util = require('github-theme.util')
 local fmt = string.format
-
 local cmd = util.is_nvim and vim.cmd or vim.command
-
 local M = {}
 
---#region TYPES
-
----@class HighlightSpec
----@field fg string
----@field bg string
----@field style string
----@field sp string
----@field link string
----@field force boolean
-
---#endregion
-
----Validate input input from opts table and return a hex string if opt exists
----@param input string|GhTheme.Color|nil
----@return string
-local function validate(input)
-  return input and input or 'NONE'
-end
-
-local function parse_style(style)
+---@param style string|nil
+---@return table
+function M.parse_style(style)
   if not style or style == 'NONE' then
     return {}
   end
@@ -36,11 +17,6 @@ local function parse_style(style)
 
   return result
 end
-
----Validate input input from opts table and return a hex string if opt exists
----@param input string|GhTheme.Color|nil
----@return string
-M.parse_style = parse_style
 
 local function should_link(link)
   return link and link ~= ''
@@ -57,10 +33,10 @@ local function viml_hl(highlights)
         fmt(
           'highlight %s guifg=%s guibg=%s gui=%s guisp=%s',
           group,
-          validate(opts.fg),
-          validate(opts.bg),
-          validate(opts.style),
-          validate(opts.sp)
+          opts.fg or 'NONE',
+          opts.bg or 'NONE',
+          opts.style or 'NONE',
+          opts.sp or 'NONE'
         )
       )
     end
@@ -75,7 +51,7 @@ local function nvim_hl(highlights)
         link = opts.link,
       })
     else
-      local values = parse_style(opts.style)
+      local values = M.parse_style(opts.style)
       values.bg = opts.bg
       values.fg = opts.fg
       values.sp = opts.sp
