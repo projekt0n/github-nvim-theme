@@ -17,6 +17,7 @@ function M.get(spec, config, _opts)
   local syn = spec.syntax
   local stl = config.styles
   local P = spec.palette
+  ---@cast stl -?
 
   ---Clears nvim's default highlighting for a highlight-group and allows
   ---falling-back to another hl-group when multiple highlights/groups are
@@ -263,7 +264,7 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     ['@lsp.type.variable.lua']                  = { fg = spec.variable },
     ['@constructor.lua']                        = { fg = syn.bracket },                         -- {}
     ['@operator.lua']                           = { fg = syn.keyword, style = stl.operators },
- -- ['@variable.member.lua']                    = { fg = syn.variable },
+ -- ['@property']                               = { fg = syn.variable },
  -- ['@function.call.lua']                      = { fg = syn.const },
  -- ['@function.method.call.lua']               = { link = '@function.call.lua' },
     ['@function.builtin.lua']                   = { fg = syn.builtin0, style = stl.functions },

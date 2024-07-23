@@ -1,28 +1,156 @@
 *gt_changelog.txt*     Changelogs and breaking changes for GitHub Neovim Theme
 
 ================================================================================
+CHANGELOGS                                              *github-theme.changelog*
 
-CHANGELOGS                                                *github-theme.changelog*
+
+                                               *github-theme.changelog-23072024*
+--------------------------------------------------------------------------------
+23 July, 2024
+
+CONFIGURATION AND API
+
+Highlight-group overrides have received a few small improvements. Assigning
+`false` or an empty table to a highlight group clears it. Assigning `false` to
+`groups`, `specs`, or `palettes` clears previous settings from the config store
+for that category ("previous" meaning earlier in the same `nvim` session).
+
+Setting `options.transparent` to `true` make's neovim's background transparent.
+Floats and sidebars will receive a similar background in this case, regardless
+of any other float/sidebar-specific options set (although overrides may still be
+used). |github-nvim-theme-configuration|
+
+In the |github-nvim-theme-color| lib, the `Color:lumanance()` method has been
+renamed to `Color:luminance()` (corrected typo/misspelling).
+
+                                             *github-theme.nvim-0.10.0.hlgroups*
+HIGHLIGHT GROUPS
+
+As of neovim `v0.10`, several highlight groups have changed. You may need to
+update your config if you are using or overriding any of the groups listed in
+the following sections.
+
+Visit |treesitter-highlight-groups| to see all of the `treesitter` groups
+currently in-use for your version of neovim.
+
+Visit |highlight-groups| and |group-name| to see all of the `standard` groups
+currently in-use for your version of neovim.
+
+                                     *github-theme.nvim-0.10.0.hlgroups-renamed*
+Highlight Groups Renamed ~
+
+  • @conditional                      ->  @keyword.conditional
+  • @debug                            ->  @keyword.debug
+  • @define                           ->  @keyword.directive or @keyword.directive.define
+  • @exception                        ->  @keyword.exception
+  • @field                            ->  @variable.member
+  • @float                            ->  @number.float
+  • @include                          ->  @keyword.import
+  • @method                           ->  @function.method
+  • @method.call                      ->  @function.method.call
+  • @namespace                        ->  @module
+  • @parameter                        ->  @variable.parameter
+  • @preproc                          ->  @keyword.directive
+  • @punctuation.special              ->  @markup.list (markdown lists only; move subitems from `@text.todo`)
+  • @repeat                           ->  @keyword.repeat
+  • @storageclass                     ->  @keyword.storage
+  • @string.regex                     ->  @string.regexp
+  • @string.special                   ->  @markup.link.label (non-url links)
+  • @symbol                           ->  @string.special.symbol
+  • @text.*                           ->  @markup.{strong,italic,link,strikethrough} (with exceptions; see below)
+  • @text.diff.{add,delete,}          ->  @diff.{plus,minus,delta}
+  • @text.literal                     ->  @markup.raw
+  • @text.reference                   ->  @markup.link
+  • @text.title                       ->  @markup.heading
+  • @text.uri                         ->  @markup.link.url (in markup links)
+  • @text.uri                         ->  @string.special.url (outside markup)
+  • @text.{todo,warning,note,danger}  ->  @comment.{todo,warning,note,error}
+
+                                     *github-theme.nvim-0.10.0.hlgroups-removed*
+Highlight Groups Removed ~
+
+  • VertSplit                         ->  use `WinSeparator` instead
+  • @error                            ->  there appears to be no replacement at this time
+
+                                       *github-theme.nvim-0.10.0.hlgroups-added*
+Highlight Groups Added ~
+
+The following is a list of groups which have been added to neovim since the
+beginning of 2024 and does not include any of the groups mentioned in the previous
+sections.
+
+  • @attribute                      attribute annotations (e.g. Python decorators, Rust lifetimes)
+  • @attribute.builtin              builtin annotations (e.g. `@property` in Python)
+
+  • @comment.documentation          comments documenting code
+
+  • @function.call                  function calls
+
+  • @keyword.conditional.ternary    ternary operator (e.g. `?`, `:`)
+  • @keyword.coroutine              keywords related to coroutines (e.g. `go` in Go, `async/await` in Python)
+  • @keyword.function               keywords that define a function (e.g. `func` in Go, `def` in Python)
+  • @keyword.modifier               keywords defining type modifiers (e.g. `const`, `static`, `public`)
+  • @keyword.operator               operators that are English words (e.g. `and`, `or`)
+  • @keyword.return                 keywords like `return` and `yield`
+  • @keyword.type                   keywords defining composite types (e.g. `struct`, `enum`)
+
+  • @markup.heading.1               top-level heading
+  • @markup.heading.2               section heading
+  • @markup.heading.3               subsection heading
+  • @markup.heading.4               and so on
+  • @markup.heading.5               and so forth
+  • @markup.heading.6               six levels ought to be enough for anybody
+  • @markup.list.checked            checked todo-style list markers
+  • @markup.list.unchecked          unchecked todo-style list markers
+  • @markup.math                    math environments (e.g. `$ ... $` in LaTeX)
+  • @markup.quote                   block quotes
+  • @markup.raw.block               literal or verbatim text as a stand-alone block
+
+  • @module.builtin                 built-in modules or namespaces
+
+  • @punctuation.bracket            brackets (e.g. `()`, `{}`, `[]`)
+  • @punctuation.delimiter          delimiters (e.g. `;`, `.`, `,`)
+  • @punctuation.special            special symbols (e.g. `{}` in string interpolation)
+
+  • @string.documentation           string documenting code (e.g. Python docstrings)
+  • @string.special.path            filenames (e.g. those in .gitignore)
+
+  • @tag.attribute                  XML-style tag attributes
+  • @tag.builtin                    XML-style tag names (e.g. HTML5 tags)
+  • @tag.delimiter                  XML-style tag delimiters
+
+  • @type.builtin                   built-in types
+
+  • @variable.builtin               built-in variable names (e.g. `this`, `self`)
+  • @variable.parameter.builtin     special parameters (e.g. `_`, `it`)
+
+  • PmenuMatch                      Popup menu: Matched text in normal item.
+  • PmenuSel                        Popup menu: Matched text in selected item.
+  • SnippetTabstop                  Tabstops in snippets. |vim.snippet|
+  • StatusLineTerm                  Status line of `terminal` window.
+  • StatusLineTermNC                Status line of non-current `terminal` windows.
+  • Added                           added line in a diff (e.g. `diffAdded` links to this)
+  • Changed                         changed line in a diff (e.g. `diffChanged` links to this)
+  • Removed                         removed line in a diff (e.g. `diffRemoved` links to this)
 
 
-                                                 *github-theme.changelog-02122023*
-
-Date: December 02, 2023
+                                               *github-theme.changelog-02122023*
+--------------------------------------------------------------------------------
+December 02, 2023
 
 Reimplemented the `*_default` colorschemes, previously deprecated in the
 |github-theme.changelog-23042023|.
 
-The updated colorscheme list on `:h github-nvim-theme-overview`
+See the updated list of colorschemes at |github-nvim-theme-overview|.
 
 
+                                               *github-theme.changelog-06052023*
+--------------------------------------------------------------------------------
+May 06, 2023
 
-                                                 *github-theme.changelog-06052023*
-
-Date: May 06, 2023
-
-I(ful1e5) removed the `dev` configuration from `setup({...})` and added the
-`vim.g.github_theme_debug` Vim global option for theme debugging. This option
-creates a Lua file in the Neovim cache directory and write debugging logs to
+I (@ful1e5) removed the `dev` configuration from `setup({...})` and added the
+`vim.g.github_theme_debug` vim global option for theme debugging. This option
+creates a Lua file in the neovim cache directory and write debugging logs to
 it.
 
 Previously, the `dev` option was used for debugging and assigning new
@@ -31,10 +159,9 @@ removal of the `dev` option, you can override any highlight without enabling
 any option.
 
 
-
-                                                 *github-theme.changelog-23042023*
-
-Date: April 23, 2023
+                                               *github-theme.changelog-23042023*
+--------------------------------------------------------------------------------
+April 23, 2023
 
 The way to override color variables has been updated. You can now use the
 `specs` table to change colors for a specific colorscheme or for all of them
@@ -48,17 +175,18 @@ or by using the `:colorscheme` vim command.
 The deprecated colorschemes will no longer support any overriding highlight
 groups or color variables. The updated colorscheme list:
 
-- github_dark_default      -> github_dark_high_contrast
-- github_dimmed            -> github_dark_dimmed
-- github_light_default     -> github_light_high_contrast
-- github_dark_tritanopia   -> New!
-- github_light_tritanopia  -> New!
+  • github_dark_default      ->  github_dark_high_contrast
+  • github_dimmed            ->  github_dark_dimmed
+  • github_light_default     ->  github_light_high_contrast
+  • github_dark_tritanopia   ->  New!
+  • github_light_tritanopia  ->  New!
 
 The updated configuration keys are:
-- colors                   -> Use `specs` and `palettes` instead.
-- overrides                -> Use `groups` instead.
 
-Example:
+  • colors                   ->  Use `specs` and `palettes` instead.
+  • overrides                ->  Use `groups` instead.
+
+Example ~
 >lua
   require('github-theme').setup({
     --- ...
@@ -98,43 +226,42 @@ Example:
 <
 
 
-
-                                                *github-theme.changelog-13042023*
-
-Date: April 13, 2023
+                                               *github-theme.changelog-13042023*
+--------------------------------------------------------------------------------
+April 13, 2023
 
 The configuration for defining transparency, darkening windows, floating, and
 hiding elements has been moved to the `options` table.
 
 The updated configuration keys are as follows:
-- transparent              -> options.transparent
-- hide_end_of_buffer       -> options.hide_end_of_buffer
-- hide_inactive_statusline -> options.hide_nc_statusline
-- dark_float               -> options.darken.floats
-- dark_sidebar             -> options.darken.sidebars.enable
-- sidebars                 -> options.darken.sidebars.list
+
+  • transparent               ->  options.transparent
+  • hide_end_of_buffer        ->  options.hide_end_of_buffer
+  • hide_inactive_statusline  ->  options.hide_nc_statusline
+  • dark_float                ->  options.darken.floats
+  • dark_sidebar              ->  options.darken.sidebars.enable
+  • sidebars                  ->  options.darken.sidebars.list
 
 
-
-                                                *github-theme.changelog-12042023*
-
-Date: April 12, 2023
+                                               *github-theme.changelog-12042023*
+--------------------------------------------------------------------------------
+April 12, 2023
 
 The configuration for defining styles has been migrated to `options.styles`.
 As part of this migration, `msg_area_style` has been removed.
 
-Here is the updated config keys:
-- comment_style            -> options.styles.comments
-- function_style           -> options.styles.functions
-- keyword_style            -> options.styles.keywords
-- variable_style           -> options.styles.variables
-- msg_area_style           -> Removed.
+Here are the updated config keys:
+
+  • comment_style             ->  options.styles.comments
+  • function_style            ->  options.styles.functions
+  • keyword_style             ->  options.styles.keywords
+  • variable_style            ->  options.styles.variables
+  • msg_area_style            ->  Removed.
 
 
-
-                                                *github-theme.changelog-11042023*
-
-Date: April 11, 2023
+                                               *github-theme.changelog-11042023*
+--------------------------------------------------------------------------------
+April 11, 2023
 
 In the |setup| function, the |theme_style| option has been removed, and the
 process of setting the colorscheme has been changed, It is important to note
@@ -164,10 +291,9 @@ New approach for setting the theme:
 <
 
 
-
-                                                *github-theme.changelog-06042023*
-
-Date: April 06, 2023
+                                               *github-theme.changelog-06042023*
+--------------------------------------------------------------------------------
+April 06, 2023
 
 The secondary method of assigning configuration variables using
 `'vim.g.github_*'` is now considered deprecated. Instead, it is recommended to
@@ -178,14 +304,13 @@ Any references to the deprecated modules and options can be found in the
 documentation located at `:h github-theme.deprecated`.
 
 
-
-                                                *github-theme.changelog-03012023*
-
-Date: January 03, 2023
+                                               *github-theme.changelog-03012023*
+--------------------------------------------------------------------------------
+January 03, 2023
 
 PR: https://github.com/projekt0n/github-nvim-theme/pull/222
 
-I (ful1e5) wanted to let you know that we now have support for new treesitter
+I (@ful1e5) wanted to let you know that we now have support for new treesitter
 highlighting groups, thanks to a contribution from `@luisiacc`. If you are
 using an older version of treesitter, please switch to the `v0.7` release tag,
 which is the last version for you to take advantage of the old treesitter
@@ -193,16 +318,15 @@ highlights. We will continue to develop and support these new highlighting
 groups going forward.
 
 In addition, I am planning a major refactor of the codebase to make it
-compatible with `Neovim-0.9` and will be starting a discussion on GitHub soon.
+compatible with `neovim-0.9` and will be starting a discussion on GitHub soon.
 To ensure that the community is aware of any major changes before they are
 implemented, I will provide advance warning before any potentially breaking
 changes are pushed to upstream.
 
 
-
-                                                *github-theme.changelog-03082022*
-
-Date: August 03, 2022
+                                               *github-theme.changelog-03082022*
+--------------------------------------------------------------------------------
+August 03, 2022
 
 Terminal themes moved to projekt0n/github-theme-contrib repo and all related
 code have been removed from this repository.
@@ -210,10 +334,9 @@ code have been removed from this repository.
 URL: https://github.com/projekt0n/github-theme-contrib
 
 
-
-                                                *github-theme.changelog-13122021*
-
-Date: December 13, 2021
+                                               *github-theme.changelog-13122021*
+--------------------------------------------------------------------------------
+December 13, 2021
 
 PR: https://github.com/projekt0n/github-nvim-theme/pull/148
 
@@ -222,12 +345,11 @@ tabline from the background.
 
 A list of changes that have been made:
 
-- Minimal look deprecated for `lualine` plugin. This deprecation is related to
-  `hide_inactive_statusline` option. This means the theme will not force the
-  `underline` style to inactive lualine.
-- Native lualine theme support terminal highlights `terminal-config`
-- Inactive tabline highlights got enhanced.
+  • Minimal look deprecated for `lualine` plugin. This deprecation is related to
+    `hide_inactive_statusline` option. This means the theme will not force the
+    `underline` style to inactive lualine.
+  • Native lualine theme support terminal highlights `terminal-config`
+  • Inactive tabline highlights got enhanced.
 
 
-
- vim:tw=78:ts=8:ft=help:norl:
+ vim:tw=80:ts=8:sw=2:et:ft=help:norl:
