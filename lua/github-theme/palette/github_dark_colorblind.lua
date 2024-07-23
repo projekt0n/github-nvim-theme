@@ -5,15 +5,13 @@ local meta = {
   light = false,
 }
 
-local primitives =
-  require('github-theme.palette.primitives.' .. meta.name:gsub('^github%W*', '', 1))
-
-local pl = primitives.prettylights
+local primitives = require('github-theme.palette.primitives.dark_colorblind')
+local pl = primitives.color.prettylights
 local scale = primitives.scale
 
 C.WHITE = C(scale.white)
 C.BLACK = C(scale.black)
-C.BG = C(assert(primitives.canvas.default))
+C.BG = C(assert(primitives.bgColor.default))
 
 local function alpha(color, a)
   return color:alpha_blend(a):to_css()
@@ -24,35 +22,33 @@ local palette = {
 
   orange = scale.orange[4],
 
-  black = { base = scale.gray[10], bright = scale.gray[9] },
-  gray = { base = scale.gray[5], bright = scale.gray[5] },
+  black = { base = scale.neutral[10], bright = scale.neutral[9] },
+  gray = { base = scale.neutral[5], bright = scale.neutral[5] },
   blue = { base = scale.blue[4], bright = scale.blue[3] },
   green = { base = scale.green[4], bright = scale.green[3] },
   magenta = { base = scale.purple[4], bright = scale.purple[3] },
   pink = { base = scale.pink[4], bright = scale.pink[3] },
   red = { base = scale.red[4], bright = scale.red[3] },
-  white = { base = scale.gray[3], bright = scale.gray[3] },
+  white = { base = scale.neutral[3], bright = scale.neutral[3] },
   yellow = { base = scale.yellow[4], bright = scale.yellow[3] },
   cyan = { base = '#76e3ea', bright = '#b3f0ff' },
 
   fg = {
-    default = scale.gray[2],
-    muted = scale.gray[4],
-    subtle = scale.gray[5],
+    default = scale.neutral[2],
+    muted = scale.neutral[4],
+    subtle = scale.neutral[5],
     on_emphasis = scale.white,
   },
 
-  canvas = primitives.canvas,
-
   border = {
-    default = scale.gray[7],
-    muted = scale.gray[8],
+    default = scale.neutral[7],
+    muted = scale.neutral[8],
     subtle = alpha(C.from_rgba(240, 246, 252, 1), 0.1),
   },
 
   neutral = {
-    emphasis_plus = scale.gray[5],
-    emphasis = scale.gray[5],
+    emphasis_plus = scale.neutral[5],
+    emphasis = scale.neutral[5],
     muted = alpha(C.from_rgba(110, 118, 129, 1), 0.4),
     subtle = alpha(C.from_rgba(110, 118, 129, 1), 0.1),
   },
@@ -107,10 +103,10 @@ local palette = {
   },
 
   closed = {
-    fg = scale.gray[4],
-    emphasis = scale.gray[5],
-    muted = alpha(C.from_hex(scale.gray[5]), 0.4),
-    subtle = alpha(C.from_hex(scale.gray[5]), 0.10),
+    fg = scale.neutral[4],
+    emphasis = scale.neutral[5],
+    muted = alpha(C.from_hex(scale.neutral[5]), 0.4),
+    subtle = alpha(C.from_hex(scale.neutral[5]), 0.10),
   },
 
   sponsors = {
@@ -124,16 +120,16 @@ local palette = {
 local function generate_spec(pal)
   -- stylua: ignore start
   local spec = {
-    bg0  = alpha(C(pal.canvas.inset), 0.75),            -- Dark bg (status line, popup and float)
-    bg1  = pal.canvas.default,                          -- Default bg
+    bg0  = alpha(C(primitives.bgColor.inset), 0.75),    -- Dark bg (status line, popup and float)
+    bg1  = primitives.bgColor.default,                  -- Default bg
     bg2  = alpha(C(pal.neutral.emphasis), 0.1),         -- Lighter bg (colorcolumn Folds)
-    bg3  = pal.scale.gray[9],                           -- Lighter bg (cursor line)
-    bg4  = pal.scale.gray[4],                           -- Conceal
+    bg3  = pal.scale.neutral[9],                        -- Lighter bg (cursor line)
+    bg4  = pal.scale.neutral[4],                        -- Conceal
 
     fg0  = pal.fg.subtle,                               -- Lighter fg
-    fg1  = pal.fg.default,                              -- Default fg
+    fg1  = primitives.fgColor.default,                  -- Default fg
     fg2  = pal.fg.muted,                                -- Darker fg (status line)
-    fg3  = pal.scale.gray[5],                           -- Darker fg (line numbers, fold columns)
+    fg3  = pal.scale.neutral[5],                        -- Darker fg (line numbers, fold columns)
 
     sel0 = alpha(C(pal.accent.fg), 0.45),               -- Visual selection bg
     sel1 = alpha(C(pal.accent.muted), 0.90),            -- Popup sel bg
@@ -142,26 +138,26 @@ local function generate_spec(pal)
 
   spec.syntax = {
     bracket     = spec.fg1,                             -- Brackets and Punctuation
-    builtin0    = pl.syntax.constant,                   -- Builtin variable
+    builtin0    = pl.syntax.constant.default,           -- Builtin variable
     builtin1    = pl.syntax.keyword,                    -- Builtin type
-    builtin2    = pl.syntax.constant,                   -- Builtin const
+    builtin2    = pl.syntax.constant.default,           -- Builtin const
     comment     = pl.syntax.comment,                    -- Comment
     conditional = pl.syntax.keyword,                    -- Conditional and loop
-    const       = pl.syntax.constant,                   -- Constants, imports and booleans
+    const       = pl.syntax.constant.default,           -- Constants, imports and booleans
     dep         = pal.scale.red[3],                     -- Deprecated
-    field       = pl.syntax.constant,                   -- Field
-    func        = pl.syntax.entity,                     -- Functions and Titles
+    field       = pl.syntax.constant.default,           -- Field
+    func        = pl.syntax.entity.default,             -- Functions and Titles
     ident       = spec.fg1,                             -- Identifiers
     keyword     = pl.syntax.keyword,                    -- Keywords
-    number      = pl.syntax.constant,                   -- Numbers
-    operator    = pl.syntax.constant,                   -- Operators
+    number      = pl.syntax.constant.default,           -- Numbers
+    operator    = pl.syntax.constant.default,           -- Operators
     param       = spec.fg1,                             -- Parameters
     preproc     = pl.syntax.keyword,                    -- PreProc
-    regex       = pl.syntax.string,                     -- Regex
+    regex       = pl.syntax.string.default,             -- Regex
     statement   = pl.syntax.keyword,                    -- Statements
-    string      = pl.syntax.string,                     -- Strings
+    string      = pl.syntax.string.default,             -- Strings
     type        = pl.syntax.variable,                   -- Types
-    tag         = pl.syntax.entityTag,                  -- Tags
+    tag         = pl.syntax.entity.tag,                 -- Tags
     variable    = spec.fg1,                             -- Variables
   }
 

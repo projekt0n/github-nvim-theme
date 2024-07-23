@@ -1,19 +1,20 @@
-name: Get/Update Primer Color Primitives
+name: Get/Update Primer Primitives
 
 env:
   _DEST_DIR: "${{ github.workspace }}/lua/github-theme/palette/primitives"
-  _JSON_DIR: "${{ github.workspace }}/node_modules/@primer/primitives/dist/json/colors"
+  _SRC_DIR: "${{ github.workspace }}/node_modules/@primer/primitives/dist/internalCss"
   _LICENSE_GLOB: "${{ github.workspace }}/node_modules/@primer/primitives/[Ll][Ii][Cc][Ee][Nn][Ss][Ee]*"
   _PRIMITIVES_PKGJSON: "${{ github.workspace }}/node_modules/@primer/primitives/package.json"
+  _CSSTOLUA: "${{ github.workspace }}/.github/workflows/csstolua.lua"
 
 on:
   workflow_dispatch:
   schedule:
-    # 3x per week (every other day) at 12:40pm Pacific Time
-    - cron: "40 19 * * 1,3,5"
+    # once a week, every Monday at 12:40pm Pacific Time
+    - cron: "40 19 * * 1"
 
 jobs:
-  get-colors:
+  install-primitives:
     runs-on: ubuntu-latest
     permissions:
       checks: write
@@ -25,6 +26,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+      - uses: rhysd/action-setup-vim@v1
+        with:
+          neovim: true
 
       - uses: actions/setup-node@v4
         with:
@@ -34,21 +38,22 @@ jobs:
       - run: npm i @primer/primitives@latest
 
       - run: |
-          set -u +f
+          set -eu +f
           shopt -s nocaseglob failglob
           license="$(<$_LICENSE_GLOB)"
           rm -r "$_DEST_DIR" || :
           mkdir -p "$_DEST_DIR"
-          cd "$_JSON_DIR"
+          cd "$_SRC_DIR"
 
           if jq -e .version "$_PRIMITIVES_PKGJSON"; then
             version="M._VERSION = vim.json.decode([=[$(jq -e .version "$_PRIMITIVES_PKGJSON")]=], { luanil = { object = false, array = false } })"
           fi
 
-          for file in *.json; do
-            cat >|"${_DEST_DIR}/${file%.json}.lua" <<EOF
+          for file in *.css; do
+            values="$(nvim -l "$_CSSTOLUA" < "$file")"
+            cat >| "${_DEST_DIR}/$(tr '-' '_' <<< "${file%.css}.lua")" <<EOF
           -- NOTE: THIS IS AN AUTO-GENERATED FILE. DO NOT EDIT BY-HAND.
-          local M = vim.json.decode([=[$(<"$file")]=], { luanil = { object = false, array = false } })
+          ${values}
           ${version-}
           M._LICENSE = [=[
           $license]=]
@@ -64,7 +69,7 @@ jobs:
 
       - uses: peter-evans/create-pull-request@v6
         with:
-          commit-message: Update color primitives
-          branch: update-color-primitives
+          commit-message: 'deps(primer): update primitives'
+          branch: update-primer-primitives
           delete-branch: true
-          title: Update color primitives
+          title: 'deps(primer): update primitives'

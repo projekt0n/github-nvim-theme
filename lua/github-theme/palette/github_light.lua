@@ -5,10 +5,8 @@ local meta = {
   light = true,
 }
 
-local primitives =
-  require('github-theme.palette.primitives.' .. meta.name:gsub('^github%W*', '', 1))
-
-local pl = primitives.prettylights
+local primitives = require('github-theme.palette.primitives.light')
+local pl = primitives.color.prettylights
 local scale = primitives.scale
 
 C.WHITE = C(scale.white)
@@ -24,10 +22,10 @@ local palette = {
   scale = scale,
 
   orange = scale.orange[4],
-  gray = scale.gray[6],
+  gray = scale.neutral[6],
 
-  black = { base = scale.gray[10], bright = scale.gray[7] },
-  white = { base = scale.gray[6], bright = scale.gray[5] },
+  black = { base = scale.neutral[10], bright = scale.neutral[7] },
+  white = { base = scale.neutral[6], bright = scale.neutral[5] },
   red = { base = scale.red[6], bright = scale.red[7] },
   green = { base = scale.green[7], bright = scale.green[6] },
   yellow = { base = scale.yellow[9], bright = scale.yellow[8] },
@@ -38,29 +36,29 @@ local palette = {
 
   fg = {
     default = scale.black,
-    muted = scale.gray[3],
-    subtle = scale.gray[6],
+    muted = scale.neutral[3],
+    subtle = scale.neutral[6],
     on_emphasis = scale.white,
   },
 
   canvas = {
     default = scale.white,
     overlay = scale.white,
-    inset = scale.gray[1],
-    subtle = scale.gray[1],
+    inset = scale.neutral[1],
+    subtle = scale.neutral[1],
   },
 
   border = {
-    default = scale.gray[3],
-    muted = C(scale.gray[3]):lighten(0.03), -- TODO: lighten method not working
+    default = scale.neutral[3],
+    muted = C(scale.neutral[3]):lighten(0.03), -- TODO: lighten method not working
     subtle = alpha(C(scale.black), 0.15),
   },
 
   neutral = {
-    emphasis_plus = scale.gray[10],
-    emphasis = scale.gray[6],
-    muted = alpha(C(scale.gray[4]), 0.2),
-    subtle = alpha(C(scale.gray[2]), 0.5),
+    emphasis_plus = scale.neutral[10],
+    emphasis = scale.neutral[6],
+    muted = alpha(C(scale.neutral[4]), 0.2),
+    subtle = alpha(C(scale.neutral[2]), 0.5),
   },
 
   accent = {
@@ -130,16 +128,16 @@ local palette = {
 local function generate_spec(pal)
   -- stylua: ignore start
   local spec = {
-    bg0  = pal.canvas.inset,                            -- Dark bg (popup and float)
-    bg1  = pal.canvas.default,                          -- Default bg
+    bg0  = primitives.bgColor.inset,                    -- Dark bg (popup and float)
+    bg1  = primitives.bgColor.default,                  -- Default bg
     bg2  = alpha(C(pal.neutral.emphasis), 0.1),         -- Lighter bg (colorcolumn Folds)
     bg3  = alpha(C(pal.scale.blue[9]), 0.1),            -- Lighter bg (cursor line)
-    bg4  = pal.scale.gray[6],                           -- Conceal
+    bg4  = pal.scale.neutral[6],                        -- Conceal
 
     fg0  = pal.fg.subtle,                               -- Lighter fg
-    fg1  = pal.fg.default,                              -- Default fg
-    fg2  = pal.scale.gray[9],                           -- Darker fg (status line)
-    fg3  = pal.scale.gray[7],                           -- Darker fg (line numbers, fold columns)
+    fg1  = primitives.fgColor.default,                  -- Default fg
+    fg2  = pal.scale.neutral[9],                        -- Darker fg (status line)
+    fg3  = pal.scale.neutral[7],                        -- Darker fg (line numbers, fold columns)
 
     sel0 = alpha(C(pal.accent.fg), 0.15),               -- Visual selection bg
     sel1 = alpha(C(pal.accent.muted), 0.90),            -- Popup sel bg
@@ -148,26 +146,26 @@ local function generate_spec(pal)
 
   spec.syntax = {
     bracket     = spec.fg1,                             -- Brackets and Punctuation
-    builtin0    = pl.syntax.constant,                   -- Builtin variable
+    builtin0    = pl.syntax.constant.default,           -- Builtin variable
     builtin1    = pl.syntax.keyword,                    -- Builtin type
-    builtin2    = pl.syntax.constant,                   -- Builtin const
+    builtin2    = pl.syntax.constant.default,           -- Builtin const
     comment     = pl.syntax.comment,                    -- Comment
     conditional = pl.syntax.keyword,                    -- Conditional and loop
-    const       = pl.syntax.constant,                   -- Constants, imports and booleans
+    const       = pl.syntax.constant.default,           -- Constants, imports and booleans
     dep         = pal.scale.red[8],                     -- Deprecated
-    field       = pl.syntax.constant,                   -- Field
-    func        = pl.syntax.entity,                     -- Functions and Titles
+    field       = pl.syntax.constant.default,           -- Field
+    func        = pl.syntax.entity.default,             -- Functions and Titles
     ident       = spec.fg1,                             -- Identifiers
     keyword     = pl.syntax.keyword,                    -- Keywords
-    number      = pl.syntax.constant,                   -- Numbers
-    operator    = pl.syntax.constant,                   -- Operators
+    number      = pl.syntax.constant.default,           -- Numbers
+    operator    = pl.syntax.constant.default,           -- Operators
     param       = spec.fg1,                             -- Parameters
     preproc     = pl.syntax.keyword,                    -- PreProc
-    regex       = pl.syntax.string,                     -- Regex
+    regex       = pl.syntax.string.default,             -- Regex
     statement   = pl.syntax.keyword,                    -- Statements
-    string      = pl.syntax.string,                     -- Strings
+    string      = pl.syntax.string.default,             -- Strings
     type        = pl.syntax.variable,                   -- Types
-    tag         = pl.syntax.entityTag,                  -- Tags
+    tag         = pl.syntax.entity.tag,                 -- Tags
     variable    = spec.fg1,                             -- Variables
   }
 
