@@ -109,6 +109,10 @@ local M = setmetatable(Color --[[@as GhTheme.Color.Static]], {
 ---@return GhTheme.Color
 ---@nodiscard
 function M.new(color)
+  if M.is_Color(color) then
+    return color --[[@as GhTheme.Color]]
+  end
+
   local ty = type(color)
 
   if ty == 'string' or ty == 'number' then

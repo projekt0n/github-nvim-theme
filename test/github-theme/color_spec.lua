@@ -51,6 +51,13 @@ describe('Color', function()
         assert.are.same(ex.str, c:to_css())
       end)
 
+      it('should construct from an integer', function()
+        local n = 0x12345630
+        local c = Color.from_hex(n)
+        assert.are.same(n, c:to_hex(true))
+        assert.are.same('#12345630', c:to_css(true))
+      end)
+
       it('should error when given invalid args', function()
         assert.does.match.error(function()
           ---@diagnostic disable-next-line: param-type-mismatch
@@ -99,6 +106,13 @@ describe('Color', function()
       assert.are.same(ex.str, c:to_css())
     end)
 
+    it('should construct from an integer', function()
+      local n = 0x12345630
+      local c = Color(n)
+      assert.are.same(n, c:to_hex(true))
+      assert.are.same('#12345630', c:to_css(true))
+    end)
+
     it('should infer from rgba components', function()
       local c = Color(Color.from_hex(ex.str):to_rgba())
       assert.are.same(ex.hex, c:to_hex())
@@ -115,6 +129,21 @@ describe('Color', function()
       local c = Color(Color.from_hex(ex.str):to_hsl())
       -- assert.are.same(ex.hex, c:to_hex())
       assert.are.same(ex.str, c:to_css())
+    end)
+
+    it('should be idempotent', function()
+      local orig = Color(ex.rgba)
+      orig.alpha = 0.5
+      local new = Color(orig --[[@as any]])
+
+      for _, c in ipairs({ orig, new }) do
+        for _, k in ipairs({ 'WHITE', 'BLACK', 'BG' }) do
+          rawset(c, k, c[k])
+        end
+      end
+
+      assert.are.same(orig, new)
+      assert.are.same(orig:to_css(true), new:to_css(true))
     end)
   end)
 

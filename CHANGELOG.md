@@ -6,6 +6,16 @@ The format is based on [Keep a Changelog], and this project adheres to [Semantic
 
 ## [unreleased]
 
+### What's New?
+
+-  Added static/class function `Color.is_Color()` for detecting Color instances
+
+### Changes
+
+### Issues Fix
+
+-  Made `Color()` constructor idempotent (previously, passing a `Color` inst silently caused a bug)
+
 ## [v1.1.0] - 23 July 2024
 
 ### Highlight Groups
