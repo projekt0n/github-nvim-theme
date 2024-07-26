@@ -132,10 +132,8 @@ describe('Color', function()
     end)
 
     it('should be idempotent', function()
-      local orig = Color(ex.rgba)
-      orig.alpha = 0.5
+      local orig = Color(0x12345630)
       local new = Color(orig --[[@as any]])
-
       for _, c in ipairs({ orig, new }) do
         for _, k in ipairs({ 'WHITE', 'BLACK', 'BG' }) do
           rawset(c, k, c[k])
