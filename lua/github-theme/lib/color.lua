@@ -143,6 +143,14 @@ function M.init(r, g, b, a)
   return self
 end
 
+---Returns true if the given `value` is an instance of `Color`.
+---@param value any
+---@return boolean
+---@nodiscard
+function M.is_Color(value)
+  return getmetatable(value) == M
+end
+
 --#region from_* ---------------------------------------------------------------
 
 ---Construct a Color instance from RGB[A] (0 - 255).
