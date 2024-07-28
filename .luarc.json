@@ -10,6 +10,7 @@
   "workspace": {
     "checkThirdParty": "Disable",
     "library": [
+      "$VIMRUNTIME",
       "test/plenary"
     ],
     "ignoreDir": [
