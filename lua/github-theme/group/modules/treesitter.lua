@@ -264,13 +264,14 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     ['@lsp.type.variable.lua']                  = { fg = spec.variable },
     ['@constructor.lua']                        = { fg = syn.bracket },                         -- {}
     ['@operator.lua']                           = { fg = syn.keyword, style = stl.operators },
- -- ['@property']                               = { fg = syn.variable },
+    ['@property.lua']                           = { fg = syn.ident },
  -- ['@function.call.lua']                      = { fg = syn.const },
  -- ['@function.method.call.lua']               = { link = '@function.call.lua' },
     ['@function.builtin.lua']                   = { fg = syn.builtin0, style = stl.functions },
     ['@module.builtin.lua']                     = { fg = syn.builtin0, style = stl.variables }, -- `table`, `io`, `_G`
  -- ['@label.lua']                              = { fg = syn.string },                          -- The `LABEL` in `::LABEL::` and `goto LABEL`
-    ['@variable.member.luadoc']                 = { link = '@variable.member.lua' },
+    ['@property.luadoc']                        = { link = '@property.lua' },
+    ['@variable.member.luadoc']                 = { link = '@property.luadoc' },
     ['@operator.luadoc']                        = { fg = spec.fg1 },                            -- The `|` in `string|number`
     ['@markup.list.luadoc']                     = { fg = spec.fg1 },                            -- The `?` in `string?`
 

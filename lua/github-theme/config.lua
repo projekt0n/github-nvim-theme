@@ -7,9 +7,9 @@ local M = { theme = 'github_dark', has_options = false }
 -- TODO: improve type of `specs` and `palettes`
 ---@class (exact) GhTheme.Config
 ---@field options? GhTheme.Config.Options
----@field palettes? table<GhTheme.Theme|"all", table>
----@field specs? table<GhTheme.Theme|"all", table>
----@field groups? table<GhTheme.Theme|"all", table<string, GhTheme.HighlightGroup>>
+---@field palettes? table<GhTheme.Theme|"all", table>|false
+---@field specs? table<GhTheme.Theme|"all", table>|false
+---@field groups? table<GhTheme.Theme|"all", table<string, GhTheme.HighlightGroup|false>>|false
 
 ---@class (exact) GhTheme.Config.Module
 ---@field enable? boolean whether to set plugin-specific highlights for this module/plugin

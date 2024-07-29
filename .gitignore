@@ -5,3 +5,7 @@ misc
 node_modules/
 /cache
 /.cache
+
+# Lua LSP
+/.log
+/.meta
