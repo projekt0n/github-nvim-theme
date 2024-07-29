@@ -1,11 +1,13 @@
 local status, error = pcall(function()
+  local uv = vim.uv or vim.loop
   local root = vim.fn.fnamemodify('.repro', ':p')
+  local lazypath = root .. '/plugins/lazy.nvim'
   for _, name in ipairs({ 'config', 'data', 'state', 'cache' }) do
     vim.env[('XDG_%s_HOME'):format(name:upper())] = root .. '/' .. name
   end
 
-  local lazypath = root .. '/plugins/lazy.nvim'
-  if not vim.loop.fs_stat(lazypath) then
+  ---@diagnostic disable-next-line: undefined-field
+  if not uv.fs_stat(lazypath) then
     vim.fn.system({
       'git',
       'clone',
@@ -14,6 +16,7 @@ local status, error = pcall(function()
       lazypath,
     })
   end
+
   vim.opt.runtimepath:prepend(lazypath)
 
   require('lazy').setup({
@@ -32,4 +35,5 @@ end)
 if error then
   print(error)
 end
+
 vim.cmd(status and '0cq' or '1cq')
