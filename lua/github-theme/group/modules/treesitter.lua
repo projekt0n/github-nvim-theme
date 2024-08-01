@@ -258,7 +258,7 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     ['@tag.delimiter.tsx']                      = { link = '@tag.attribute.tsx' },
 
     -- JSON
-    ['@label.json']                             = { link = '@tag' },
+    ['@property.json']                          = { link = '@tag' },
 
     -- Lua
     ['@lsp.type.variable.lua']                  = { fg = spec.variable },
