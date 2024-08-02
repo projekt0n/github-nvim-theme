@@ -15,7 +15,7 @@ indent_style = tab
 indent_style = space
 indent_size = 2
 
-[*.lua]
+[*.{lua,md}]
 max_line_length = 90
 
 [*.{yml,yaml}]

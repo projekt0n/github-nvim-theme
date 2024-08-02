@@ -57,7 +57,7 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
 
 --- Identifiers --------------------------------------------------------------------------
 
-    ['@variable']                   = { fg = syn.variable, style = stl.variables },             -- Any variable name that does not have another highlighC.
+    ['@variable']                   = { fg = syn.variable, style = stl.variables },             -- Any variable name that does not have another highlight.
     ['@variable.builtin']           = { fg = syn.builtin0, style = stl.variables },             -- Var names defined by the language: this, self, super
     ['@variable.member']            = { fg = syn.field },                                       -- For fields
     ['@variable.parameter']         = { fg = syn.param, style = stl.variables },                -- For parameters of a function

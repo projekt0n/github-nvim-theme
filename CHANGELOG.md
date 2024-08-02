@@ -9,6 +9,12 @@ The format is based on [Keep a Changelog], and this project adheres to [Semantic
 ### What's New?
 
 -  Added static/class function `Color.is_Color()` for detecting Color instances
+-  Added `live_colors()` to the `interactive` module to assist internal development (debugging, color picking)
+
+### Highlight Improvements
+
+-  **JSON:** keys
+-  **Lua:** keys (in table literals and type annotations)
 
 ### Changes
 
