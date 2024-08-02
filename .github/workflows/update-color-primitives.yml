@@ -9,7 +9,7 @@ env:
 on:
   workflow_dispatch:
   schedule:
-    - cron: '40 19 */14 * *' # Roughly every 14 days (at 12:40pm Pacific Time)
+    - cron: '40 19 1,15 * *' # Roughly every 2 weeks (at 12:40pm Pacific Time)
   push:
     branches:
       - '**' # Any branch, but ignore tag pushes
