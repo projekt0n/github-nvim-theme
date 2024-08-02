@@ -12,6 +12,8 @@ The format is based on [Keep a Changelog], and this project adheres to [Semantic
 
 ### Changes
 
+-  Moved/migrated `plugin/*.vim` -> `plugin/*.lua`
+
 ### Issues Fix
 
 -  Made `Color()` constructor idempotent (previously, passing a `Color` inst silently caused a bug)
