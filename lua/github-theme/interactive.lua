@@ -1,7 +1,12 @@
 local util = require('github-theme.util')
-local api = vim.api
+local api, ts = vim.api, vim.treesitter
 local cmd = util.is_nvim and vim.cmd or vim.command
+local augroup = 'github-theme.interactive'
+local augroup_live_colors = augroup .. '.live_colors'
 local M = {}
+
+api.nvim_create_augroup(augroup, { clear = true })
+api.nvim_create_augroup(augroup_live_colors, { clear = true })
 
 -- TODO: move to util module?
 ---@param tbl table the target search in
@@ -30,7 +35,7 @@ function M.attach()
   vim.g.github_theme_debug = true
 
   return api.nvim_create_autocmd('BufWritePost', {
-    group = api.nvim_create_augroup('github-theme.interactive', { clear = true }),
+    group = api.nvim_create_augroup(augroup, { clear = true }),
     buffer = 0,
     desc = 'Reloads user config when the buffer is written',
     nested = true,
@@ -56,15 +61,12 @@ end
 ---TODO: support other files as well, expose via cmd?, etc.
 ---@param enable? boolean
 function M.live_colors(enable)
-  local ts = vim.treesitter
-  local ns = api.nvim_create_namespace('github-theme.interactive')
-  local augroup = api.nvim_create_augroup('github-theme.interactive', { clear = true })
+  local ns = api.nvim_create_namespace(augroup_live_colors)
 
   local function get_nodes(node, src, typ, cb)
     local stack = {}
 
     -- {{{ Queries
-
     local q1 = ts.query.parse(
       'lua',
       [[
@@ -122,8 +124,6 @@ function M.live_colors(enable)
 ]]
     )
 
-    -- }}}
-
     -- Map capture names to their ID
     local cap1, cap2, cap3 = {}, {}, {}
     for _, v in ipairs({
@@ -135,6 +135,7 @@ function M.live_colors(enable)
         v[2][name] = id
       end
     end
+    -- }}}
 
     local function matched_node(match, cap_id)
       vim.validate({
@@ -306,6 +307,8 @@ function M.live_colors(enable)
     end
   end
 
+  api.nvim_create_augroup(augroup_live_colors, { clear = true })
+
   if enable == false then
     for _, buf in ipairs(api.nvim_list_bufs()) do
       api.nvim_buf_clear_namespace(buf, ns, 0, -1)
@@ -315,7 +318,7 @@ function M.live_colors(enable)
   end
 
   api.nvim_create_autocmd({ 'ColorScheme', 'BufNew', 'BufWritePost' }, {
-    group = augroup,
+    group = augroup_live_colors,
     pattern = '*.lua',
     desc = 'Refresh live-displayed colors',
     nested = true,
