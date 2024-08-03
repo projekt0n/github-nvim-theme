@@ -5,8 +5,8 @@ local augroup = 'github-theme.interactive'
 local augroup_live_colors = augroup .. '.live_colors'
 local M = {}
 
-api.nvim_create_augroup(augroup, { clear = true })
-api.nvim_create_augroup(augroup_live_colors, { clear = true })
+pcall(api.nvim_del_augroup_by_name, augroup)
+pcall(api.nvim_del_augroup_by_name, augroup_live_colors)
 
 -- TODO: move to util module?
 ---@param tbl table the target search in
@@ -70,57 +70,60 @@ function M.live_colors(enable)
     local q1 = ts.query.parse(
       'lua',
       [[
-(assignment_statement
-  .
-  (variable_list) @k (#vim-match? @k "\\m^\\%(palette\\|pal\\|spec\\)\\%(\\.\\w\\+\\)*$")
-  .
-  "="
-  .
-  (expression_list
-    (table_constructor) @defs
-  )
-)
+        ; query
+        (assignment_statement
+          .
+          (variable_list) @k (#vim-match? @k "\\m^\\%(palette\\|pal\\|spec\\)\\%(\\.\\w\\+\\)*$")
+          .
+          "="
+          .
+          (expression_list
+            (table_constructor) @defs
+          )
+        )
 ]]
     )
     local q2 = ts.query.parse(
       'lua',
       [[
-(field
-  name: [
-    (_ content: (_) @k)
-    (_ !content) @k
-  ]
-  value: (_) @v
-)
+        ; query
+        (field
+          name: [
+            (_ content: (_) @k)
+            (_ !content) @k
+          ]
+          value: (_) @v
+        ) @field
 
-(table_constructor
-  "}" @tbl_end
-  .
-)
+        (table_constructor
+          "}" @tbl_end
+          .
+        )
 ]]
     )
 
     local modquery = ts.query.parse(
       'lua',
       [[
-(function_declaration
-  name: (_) @fname (#match? @fname "^M[.:]get$")
-  body: (_
-    (return_statement
-      (expression_list
-        (table_constructor
-          (field
-            name: [
-              (_ content: (_) @k)
-              (_ !content) @k
-            ]
-            value: (table_constructor) @v
+        ; query
+        (function_declaration
+          name: (_) @fname (#match? @fname "^M[.:]get$")
+          body: (_
+            (return_statement
+              (expression_list
+                (table_constructor
+                  (field
+                    name: [
+                      (_ content: (_) @k)
+                      (_ !content) @k
+                    ]
+                    value: (table_constructor) @v
+                  ) @field
+                )
+              )
+            )
           )
         )
-      )
-    )
-  )
-)
 ]]
     )
 
@@ -165,6 +168,7 @@ function M.live_colors(enable)
             table.insert(stack, knode_text)
           else
             cb({
+              field = assert(matched_node(match, cap2.field)),
               knode = knode,
               vnode = vnode,
               keypath = table.concat(stack, '.') .. '.' .. knode_text,
@@ -178,7 +182,9 @@ function M.live_colors(enable)
       for _pat, match, meta in modquery:iter_matches(node, src, nil, nil, { all = true }) do
         local knode = assert(matched_node(match, cap3.k))
         local vnode = assert(matched_node(match, cap3.v))
+
         cb({
+          field = assert(matched_node(match, cap3.field)),
           knode = knode,
           vnode = vnode,
           keypath = ts.get_node_text(knode, src, { metadata = meta[cap3.k] }),
@@ -211,14 +217,14 @@ function M.live_colors(enable)
 
   local function disp_colors(buf, nodes, colors, typ, theme)
     for _, v in ipairs(nodes) do
-      local lnum, col = v.vnode:end_()
+      local lnum = v.vnode:end_()
       local color = typ == 'mod' and '' or keypath_get(colors, v.keypath)
 
       if type(color) == 'string' then
         local def, grp
 
         if typ == 'mod' then
-          grp, def = 'github.' .. v.keypath, vim.deepcopy(colors[v.keypath], true)
+          grp, def = 'github.' .. v.keypath, vim.deepcopy(colors[v.keypath], true) or {}
           if (def.style or 'NONE') ~= 'NONE' then
             for s in def.style:gmatch('[^,]+') do
               def[s] = true
@@ -235,9 +241,8 @@ function M.live_colors(enable)
 
         def.force = true
         api.nvim_set_hl(0, grp, def)
-        api.nvim_buf_set_extmark(buf, ns, lnum, 0, {
+        api.nvim_buf_set_extmark(buf, ns, lnum, select(2, v.field:start()), {
           end_row = lnum,
-          end_col = 0,
           strict = false,
           undo_restore = true,
           invalidate = true,
@@ -246,7 +251,7 @@ function M.live_colors(enable)
           end_right_gravity = true,
           hl_mode = 'combine',
           virt_text_pos = 'inline',
-          virt_text = { { ' ' }, { ' Example ', grp } },
+          virt_text = { { ' Example ', grp }, { ' ' } },
         })
       end
     end
@@ -307,25 +312,25 @@ function M.live_colors(enable)
     end
   end
 
-  api.nvim_create_augroup(augroup_live_colors, { clear = true })
-
   if enable == false then
     for _, buf in ipairs(api.nvim_list_bufs()) do
       api.nvim_buf_clear_namespace(buf, ns, 0, -1)
     end
 
-    return
+    pcall(api.nvim_del_augroup_by_name, augroup_live_colors)
+  else
+    for _, buf in ipairs(api.nvim_list_bufs()) do
+      refresh({ buf = buf })
+    end
+
+    api.nvim_create_autocmd({ 'ColorScheme', 'BufNew', 'BufWritePost' }, {
+      group = api.nvim_create_augroup(augroup_live_colors, { clear = true }),
+      pattern = '*.lua',
+      desc = 'Refresh live-displayed colors',
+      nested = true,
+      callback = vim.schedule_wrap(refresh),
+    })
   end
-
-  api.nvim_create_autocmd({ 'ColorScheme', 'BufNew', 'BufWritePost' }, {
-    group = augroup_live_colors,
-    pattern = '*.lua',
-    desc = 'Refresh live-displayed colors',
-    nested = true,
-    callback = vim.schedule_wrap(refresh),
-  })
-
-  refresh()
 end
 
 return M
