@@ -77,10 +77,10 @@ local function get_spec(theme)
   local pal = require('github-theme.palette').load(theme)
   local spec = pal.generate_spec(pal)
   if ovr.all then
-    pal = vim.tbl_deep_extend('force', pal, template.parse(ovr.all, pal))
+    spec = vim.tbl_deep_extend('force', spec, template.parse(ovr.all, spec))
   end
   if ovr[theme] then
-    pal = vim.tbl_deep_extend('force', pal, template.parse(ovr[theme], pal))
+    spec = vim.tbl_deep_extend('force', spec, template.parse(ovr[theme], spec))
   end
   spec.palette = pal
   return spec
