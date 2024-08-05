@@ -6,12 +6,17 @@ The format is based on [Keep a Changelog], and this project adheres to [Semantic
 
 ## [unreleased]
 
+## [v1.1.2] - 05 August 2024
+
+_This release contains a crucial ***hotfix*** for a bug that prevented the ability to
+override `specs` in any way (see #359)._
+
 ### What's New?
 
 -  Added static/class function `Color.is_Color()` for detecting Color instances
 -  Added `live_colors()` to the `interactive` module to assist internal development (debugging, color picking)
 
-### Highlight Improvements
+#### Highlight Improvements
 
 -  **JSON:** keys
 -  **Lua:** keys (in table literals and type annotations)
@@ -422,7 +427,8 @@ affected.
 
 -  Initial release 🎊
 
-[unreleased]: https://github.com/projekt0n/github-nvim-theme/compare/v1.1.0...main
+[unreleased]: https://github.com/projekt0n/github-nvim-theme/compare/v1.1.2...main
+[v1.1.2]: https://github.com/projekt0n/github-nvim-theme/compare/v1.1.0...v1.1.2
 [v1.1.0]: https://github.com/projekt0n/github-nvim-theme/compare/v1.0.2...v1.1.0
 [v1.0.2]: https://github.com/projekt0n/github-nvim-theme/compare/v1.0.1...v1.0.2
 [v1.0.1]: https://github.com/projekt0n/github-nvim-theme/compare/v1.0.0...v1.0.1
