@@ -23,6 +23,7 @@ The format is based on [Keep a Changelog], and this project adheres to [Semantic
 ### Issues Fix
 
 -  Made `Color()` constructor idempotent (previously, passing a `Color` inst silently caused a bug)
+-  Fixed unable to override/customize spec (#359)
 
 ## [v1.1.0] - 23 July 2024
 
