@@ -131,6 +131,6 @@ describe('config > specs', function()
     assert.equals('#654321', spec.bg1)
 
     vim.cmd.colorscheme({ args = { 'github_dark_dimmed' } })
-    assert.same(tonumber('654321', 16), t_util.get_hl('Normal').bg)
+    assert.equals(tonumber('654321', 16), t_util.get_hl('Normal').bg)
   end)
 end)

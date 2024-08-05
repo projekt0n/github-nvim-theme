@@ -1,13 +1,17 @@
+local api = vim.api
+
+---@class GhTheme.Util
+---@field cache_home string
 local M = {}
 
----Round float to nearest int
+---Rounds a float to the nearest integer.
 ---@param x number Float
 ---@return number
 function M.round(x)
   return x >= 0 and math.floor(x + 0.5) or math.ceil(x - 0.5)
 end
 
----Clamp value between the min and max values.
+---Clamps `value` between the min and max values.
 ---@param value number
 ---@param min number
 ---@param max number
@@ -61,6 +65,53 @@ function M.ensure_dir(path)
   end
 end
 
-M.cache_home = vim.fn.stdpath('cache')
+---Sets `winhl` without clobbering any existing mappings (i.e. of highlight groups not
+---in `mappings`). Currently only supports setting `winhl` locally (which is likely what
+---you want if the mappings are buffer-specific).
+---@param win integer window to set the mappings on; use `0` for the current window
+---@param mappings table<string, string|false>|false table of mappings to set (or clear if `false`)
+function M.set_winhl(win, mappings)
+  api.nvim_win_call(win == 0 and api.nvim_get_current_win() or win, function()
+    if not mappings then
+      -- Clear local mappings and use global values.
+      vim.opt_local.winhl = nil
+      return
+    end
+
+    local res = {}
+
+    do
+      -- NOTE: `lower()` is used here because highlight groups are case-insensitive and
+      -- nvim does not account for this (e.g. when doing `vim.opt_local.winhl:append()`)
+      local mappings_lower = {}
+      for from, to in pairs(mappings) do
+        local from_lower = from:lower()
+
+        if mappings_lower[from_lower] then
+          error('duplicate mapping: ' .. from)
+        end
+
+        -- Coerce false to `nil` (`false` clears a mapping).
+        res[from], mappings_lower[from_lower] = to or nil, true
+      end
+
+      for old_from, old_to in pairs(vim.opt_local.winhl:get()) do
+        if mappings_lower[old_from:lower()] == nil then
+          res[old_from] = old_to
+        end
+      end
+    end
+
+    vim.opt_local.winhl = res
+  end)
+end
+
+setmetatable(M, {
+  __index = function(_, k)
+    if k == 'cache_home' then
+      return vim.fn.stdpath('cache')
+    end
+  end,
+})
 
 return M

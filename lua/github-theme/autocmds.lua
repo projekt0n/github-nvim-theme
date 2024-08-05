@@ -1,54 +1,43 @@
-local config = require('github-theme.config')
-
-local M = {
-  checked_autocmds = false,
-}
+local api = vim.api
+local M = {}
 
 M.set_autocmds = function()
-  if M.checked_deprecation then
-    return
-  end
+  local config = require('github-theme.config')
+  local util = require('github-theme.util')
+  local group = api.nvim_create_augroup(config.theme, { clear = true })
+  local winhl = { Normal = 'NormalSB', SignColumn = 'SignColumnSB' }
 
-  local group = vim.api.nvim_create_augroup(config.theme, { clear = false })
-
-  -- Delete the github-theme autocmds when the theme changes to something else
-  vim.api.nvim_create_autocmd('ColorScheme', {
+  api.nvim_create_autocmd('ColorSchemePre', {
+    desc = 'Cleanup (autocmds, etc.)',
     pattern = '*',
     group = group,
-    callback = function()
-      if vim.g.colors_name ~= config.theme then
-        pcall(vim.api.nvim_del_augroup_by_id, group)
-      end
+    once = true,
+    callback = function(ev)
+      pcall(api.nvim_del_augroup_by_id, ev.group)
     end,
   })
 
-  local func_winhightlight = function()
-    vim.wo.winhighlight = 'Normal:NormalSB,SignColumn:SignColumnSB'
-  end
-
   for _, sidebar in ipairs(config.options.darken.sidebars.list) do
     if sidebar == 'terminal' then
-      -- Set dark color for terminal background.,
-      vim.api.nvim_create_autocmd('TermOpen', {
+      api.nvim_create_autocmd('TermOpen', {
+        desc = 'Darken terminal bg',
         pattern = '*',
         group = group,
         callback = function()
-          func_winhightlight()
+          util.set_winhl(0, winhl)
         end,
       })
     else
-      -- Set dark color for custom sidebars background.
-      vim.api.nvim_create_autocmd('FileType', {
+      api.nvim_create_autocmd('FileType', {
+        desc = 'Darken sidebar bg',
         pattern = sidebar,
         group = group,
         callback = function()
-          func_winhightlight()
+          util.set_winhl(0, winhl)
         end,
       })
     end
   end
-
-  M.checked_autocmds = true
 end
 
 return M

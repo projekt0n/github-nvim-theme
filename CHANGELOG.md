@@ -24,6 +24,7 @@ The format is based on [Keep a Changelog], and this project adheres to [Semantic
 
 -  Made `Color()` constructor idempotent (previously, passing a `Color` inst silently caused a bug)
 -  Fixed unable to override/customize spec (#359)
+-  Fixed `winhl` gets clobbered when set
 
 ## [v1.1.0] - 23 July 2024
 
