@@ -39,7 +39,7 @@ function M.attach()
     buffer = 0,
     desc = 'Reloads user config when the buffer is written',
     nested = true,
-    callback = require('github-theme.interactive').execute(),
+    callback = require('github-theme.interactive').execute,
   })
 end
 
