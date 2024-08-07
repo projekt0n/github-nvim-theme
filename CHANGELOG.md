@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog], and this project adheres to [Semantic
 
 ## [unreleased]
 
+### Issues Fix
+
+-  Fixed JSX/TSX tags are missing highlights with nvim 0.10 (#360)
+
 ## [v1.1.2] - 05 August 2024
 
 _This release contains a crucial ***hotfix*** for a bug that prevented the ability to

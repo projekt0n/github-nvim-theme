@@ -188,6 +188,7 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
 --- XML Tags -----------------------------------------------------------------------------
 
     ['@tag']                      = { fg = syn.tag },                                           -- Tags like HTML tag names
+    ['@tag.builtin']              = { link = '@tag' },                                          -- Tags, but only non-user-defined ones (e.g. `<a>`)
     ['@tag.attribute']            = { link = '@variable.member' },                              -- Tag attributes (e.g. HTML element attributes)
     ['@tag.delimiter']            = FALLBACK_OR_NONE,                                           -- Tag delimiter like `<`, `>`, `/`, etc.
 
@@ -252,8 +253,8 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
  -- ['@variable.javascript']                    = { link = '@constant' },
 
     -- JSX/TSX
-    ['@tag.javascript']                         = FALLBACK_OR_NONE,
-    ['@tag.tsx']                                = FALLBACK_OR_NONE,
+    ['@tag.javascript']                         = { link = '@type.javascript' },
+    ['@tag.tsx']                                = { link = '@type.tsx' },
     ['@tag.delimiter.javascript']               = { link = '@tag.attribute.javascript' },
     ['@tag.delimiter.tsx']                      = { link = '@tag.attribute.tsx' },
 
