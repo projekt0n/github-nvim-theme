@@ -150,8 +150,6 @@ local defaults = {
   },
 }
 
-M.options = collect.deep_copy(defaults)
-
 M.module_names = {
   'cmp',
   'coc',
@@ -193,6 +191,7 @@ end
 
 function M.reset()
   M.options = collect.deep_copy(defaults)
+  return M
 end
 
 function M.get_compiled_info(opts)
@@ -203,8 +202,7 @@ function M.get_compiled_info(opts)
 end
 
 function M.hash()
-  local hash = require('github-theme.lib.hash')(M.options)
-  return hash or 0
+  return require('github-theme.lib.hash')(M.options) or 0
 end
 
-return M
+return M.reset()

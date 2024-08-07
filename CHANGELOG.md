@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog], and this project adheres to [Semantic
 
 ## [unreleased]
 
+### Changes
+
+-  Minimized colorscheme files in `colors/*.vim` and refactored-out duplicated logic
+-  Removed the long-since deprecated `github_dimmed` theme (use `github_dark_dimmed` instead)
+
 ### Issues Fix
 
 -  Fixed JSX/TSX tags are missing highlights with nvim 0.10 (#360)

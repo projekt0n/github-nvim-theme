@@ -1,9 +1,1 @@
-lua << EOF
-
-if vim.g.github_theme_debug then
-  require('github-theme.util.reload')()
-end
-require('github-theme.config').set_theme('github_dark_colorblind')
-require('github-theme').load()
-
-EOF
+lua require('github-theme').load({ theme = 'github_dark_colorblind' })

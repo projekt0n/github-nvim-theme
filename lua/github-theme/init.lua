@@ -74,6 +74,15 @@ end
 
 function M.load(opts)
   opts = opts or {}
+
+  if vim.g.github_theme_debug then
+    require('github-theme.util.reload')()
+  end
+
+  if opts.theme then
+    require('github-theme.config').set_theme(opts.theme)
+  end
+
   local _, compiled_file = config.get_compiled_info(opts)
   local f = loadfile(compiled_file)
 
