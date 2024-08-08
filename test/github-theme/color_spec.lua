@@ -223,4 +223,47 @@ describe('Color', function()
       assert.are.same('#3a677d', c:rotate(-15):to_css())
     end)
   end)
+
+  describe('global state `Color.{WHITE,BLACK,BG}`', function()
+    local theme = 'github_dark_dimmed'
+    before_each(function()
+      require('github-theme.util.reload')(true)
+      vim.g.github_theme_force_compile = true
+    end)
+
+    -- See #362
+    it('should not disrupt palette/spec', function()
+      local groups_expected = require('github-theme.group').load(theme)
+      require('github-theme.util.reload')(true)
+
+      -- User require()'s the palette because they want to use it prior to loading the
+      -- colorscheme (e.g. so they can use its values in `setup()` or elsewhere in their
+      -- vimrc).
+      require('github-theme.palette').load(theme)
+
+      -- Colorscheme is loaded and compiled...
+      vim.cmd.colorscheme({ args = { theme } })
+      assert.are_same(groups_expected, require('github-theme.group').load(theme))
+    end)
+
+    -- See #362
+    it('should not be used internally/by us', function()
+      local C = require('github-theme.lib.color')
+
+      -- Prerequisites for the test
+      assert.is_not_nil(C.BG or C.WHITE or C.BLACK)
+      assert.are.equal(C, rawget(C --[[@as table]], '__index'))
+
+      local function index(_, k)
+        if k == 'BG' or k == 'WHITE' or k == 'BLACK' then
+          error(debug.traceback('Color.' .. k .. ' was accessed internally'))
+        end
+        return rawget(C --[[@as table]], k)
+      end
+
+      rawset(C --[[@as table]], '__index', index)
+      getmetatable(C).__index = index
+      vim.cmd.colorscheme({ args = { theme } })
+    end)
+  end)
 end)
