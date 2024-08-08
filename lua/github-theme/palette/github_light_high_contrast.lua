@@ -14,10 +14,7 @@ local scale = primitives.scale
 C.WHITE = C(scale.white)
 C.BLACK = C(scale.black)
 C.BG = C(assert(primitives.canvas.default))
-
-local function alpha(color, a)
-  return color:alpha_blend(a):to_css()
-end
+local BG = C(assert(primitives.canvas.default))
 
 -- Temp override until Primitives are updated
 local palette = {
@@ -48,13 +45,13 @@ local palette = {
   border = {
     default = scale.gray[9],
     muted = scale.gray[5],
-    subtle = alpha(C(scale.black), 0.8),
+    subtle = BG:blend(C(scale.black), 0.8):to_css(),
   },
 
   neutral = {
     emphasis_plus = scale.gray[10],
     emphasis = scale.gray[6],
-    muted = alpha(C(scale.gray[4]), 0.2),
+    muted = BG:blend(C(scale.gray[4]), 0.2):to_css(),
     subtle = scale.gray[2],
   },
 
@@ -82,7 +79,7 @@ local palette = {
   severe = {
     fg = scale.orange[6],
     emphasis = scale.orange[6],
-    muted = alpha(C(scale.orange[4]), 0.4),
+    muted = BG:blend(C(scale.orange[4]), 0.4):to_css(),
     subtle = scale.orange[4],
   },
 
@@ -96,14 +93,14 @@ local palette = {
   open = {
     fg = scale.green[6],
     emphasis = '#1f883d',
-    muted = alpha(C(scale.green[4]), 0.4),
+    muted = BG:blend(C(scale.green[4]), 0.4):to_css(),
     subtle = scale.green[1],
   },
 
   closed = {
     fg = '#d1242f',
     emphasis = scale.red[6],
-    muted = alpha(C(scale.red[4]), 0.4),
+    muted = BG:blend(C(scale.red[4]), 0.4):to_css(),
     subtle = scale.red[1],
   },
 
@@ -127,7 +124,7 @@ local function generate_spec(pal)
   local spec = {
     bg0  = pal.canvas.inset,                            -- Dark bg (popup and float)
     bg1  = pal.canvas.default,                          -- Default bg
-    bg2  = alpha(C(pal.neutral.emphasis), 0.1),         -- Lighter bg (colorcolumn Folds)
+    bg2  = BG:blend(C(pal.neutral.emphasis), 0.1):to_css(),      -- Lighter bg (colorcolumn Folds)
     bg3  = pal.scale.gray[2],                           -- Lighter bg (cursor line)
     bg4  = pal.border.default,                          -- Conceal
 
@@ -136,9 +133,9 @@ local function generate_spec(pal)
     fg2  = pal.scale.gray[9],                           -- Darker fg (status line)
     fg3  = pal.scale.gray[7],                           -- Darker fg (line numbers, fold columns)
 
-    sel0 = alpha(C(pal.accent.fg), 0.2),                -- Visual selection bg
-    sel1 = alpha(C(pal.accent.muted), 0.90),            -- Popup sel bg
-    sel2 = alpha(C(pal.attention.emphasis), 0.3)        -- Search bg
+    sel0 = BG:blend(C(pal.accent.fg), 0.2):to_css(),             -- Visual selection bg
+    sel1 = BG:blend(C(pal.accent.muted), 0.90):to_css(),         -- Popup sel bg
+    sel2 = BG:blend(C(pal.attention.emphasis), 0.3):to_css()     -- Search bg
   }
 
   spec.syntax = {
@@ -174,16 +171,16 @@ local function generate_spec(pal)
   }
 
   spec.diag_bg = {
-    error = C(spec.bg1):blend(C(spec.diag.error), 0.15):to_css(),
-    warn  = C(spec.bg1):blend(C(spec.diag.warn), 0.15):to_css(),
-    info  = C(spec.bg1):blend(C(spec.diag.info), 0.15):to_css(),
-    hint  = C(spec.bg1):blend(C(spec.diag.hint), 0.15):to_css(),
+    error = BG:blend(C(spec.diag.error), 0.15):to_css(),
+    warn  = BG:blend(C(spec.diag.warn), 0.15):to_css(),
+    info  = BG:blend(C(spec.diag.info), 0.15):to_css(),
+    hint  = BG:blend(C(spec.diag.hint), 0.15):to_css(),
   }
 
   spec.diff = {
-    add    = alpha(C(pal.scale.green[2]), 0.3),
-    delete = alpha(C(pal.scale.red[2]), 0.3),
-    change = alpha(C(pal.scale.yellow[2]), 0.3),
+    add    = BG:blend(C(pal.scale.green[2]), 0.3):to_css(),
+    delete = BG:blend(C(pal.scale.red[2]), 0.3):to_css(),
+    change = BG:blend(C(pal.scale.yellow[2]), 0.3):to_css(),
     text   = spec.fg0
   }
 

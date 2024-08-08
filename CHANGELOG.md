@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog], and this project adheres to [Semantic
 ### Issues Fix
 
 -  Fixed JSX/TSX tags are missing highlights with nvim 0.10 (#360)
+-  Fixed loading palette or spec before colorscheme disrupts colors (#362 fixed-by #363)
 
 ## [v1.1.2] - 05 August 2024
 

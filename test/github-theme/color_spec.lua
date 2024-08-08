@@ -224,7 +224,7 @@ describe('Color', function()
     end)
   end)
 
-  describe('global state `Color.{WHITE,BLACK,BG}`', function()
+  describe('global fields/state `Color.{WHITE,BLACK,BG}`', function()
     local theme = 'github_dark_dimmed'
     before_each(function()
       require('github-theme.util.reload')(true)
@@ -232,7 +232,7 @@ describe('Color', function()
     end)
 
     -- See #362
-    it('should not disrupt palette/spec', function()
+    it('should not disrupt colors in palette/spec/groups', function()
       local groups_expected = require('github-theme.group').load(theme)
       require('github-theme.util.reload')(true)
 
@@ -256,8 +256,9 @@ describe('Color', function()
 
       local function index(_, k)
         if k == 'BG' or k == 'WHITE' or k == 'BLACK' then
-          error(debug.traceback('Color.' .. k .. ' was accessed internally'))
+          error('Color.' .. k .. ' was accessed internally', 2)
         end
+
         return rawget(C --[[@as table]], k)
       end
 

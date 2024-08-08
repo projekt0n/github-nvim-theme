@@ -8,7 +8,7 @@ function M.get(spec, config, _opts)
   --       being integrated.
   local primitives = require(
     'github-theme.palette.primitives.'
-      .. require('github-theme.config').theme
+      .. spec.palette.meta.name
         :gsub('^github_(.-)_default$', '%1')
         :gsub('^github_(.-)$', '%1')
   )
