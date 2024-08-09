@@ -336,7 +336,7 @@ end
 
 ---Returns a new Color that is a linear blend between `self` and `other`.
 ---@param other GhTheme.Color
----@param f number Float [0,1] where 0 is `self` and 1 is `other`
+---@param f number float `[0,1]` where `0` is `self` and `1` is `other`
 ---@return GhTheme.Color
 ---@nodiscard
 function Color:blend(other, f)
@@ -349,20 +349,18 @@ function Color:blend(other, f)
 end
 
 ---Returns a new Color that is a linear blend between `Color.BG` and `self`.
----@param f number Float [0,1] where 0 is `Color.BG` and 1 is `self`
+---
+---> WARNING: This method might not work correctly until ***after*** the colorscheme has
+---> loaded, or `Color.BG` has been set! DO NOT USE INTERNALLY!
+---@param alpha number float (`[0,1]`) where `0` is `Color.BG` and `1` is `self`
 ---@return GhTheme.Color
 ---@nodiscard
-function Color:alpha_blend(f)
-  return M.init(
-    (self.red - self.BG.red) * f + self.BG.red,
-    (self.green - self.BG.green) * f + self.BG.green,
-    (self.blue - self.BG.blue) * f + self.BG.blue,
-    self.alpha
-  )
+function Color:alpha_blend(alpha)
+  return self.BG:blend(self, alpha)
 end
 
 ---Returns a new Color which is `self` shaded according to `f`.
----@param f number Amount. Float [-1,1]. -1 is black and 1 is white
+---@param f number float (`[-1,1]`) where `-1` is black and `1` is white
 ---@return GhTheme.Color
 ---@nodiscard
 function Color:shade(f)
@@ -377,9 +375,9 @@ function Color:shade(f)
   )
 end
 
----Adds value of `v` to the `value` of the current color. Returns a new Color
----that is either a brighter version (v >= 0), or darker (v < 0).
----@param v number Value. Float [-100,100].
+---Adds value of `v` to the `value` of the current color. Returns a new Color that is
+---either a brighter version (`v >= 0`), or darker (`v < 0`).
+---@param v number Value. Float `[-100,100]`.
 ---@return GhTheme.Color
 ---@nodiscard
 function Color:brighten(v)
@@ -390,7 +388,7 @@ end
 
 ---Adds value of `v` to the `lightness` of the current color. Returns a new Color
 ---that is either a lighter version if +v and darker if -v.
----@param v number Lightness. Float [-100,100].
+---@param v number Lightness. Float `[-100,100]`.
 ---@return GhTheme.Color
 ---@nodiscard
 function Color:lighten(v)
@@ -411,7 +409,7 @@ function Color:saturate(v)
 end
 
 ---Adds value of `v` to the `hue` of the current color. Returns a new Color where
----the hue is rotated based on +/- of `v`. Resulting `hue` is wrapped [0,360].
+---the hue is rotated based on +/- of `v`. Resulting `hue` is wrapped `[0,360]`.
 ---@param v number amount
 ---@return GhTheme.Color
 ---@nodiscard

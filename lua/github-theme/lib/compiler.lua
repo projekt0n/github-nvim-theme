@@ -87,8 +87,8 @@ vim.g.colors_name = "%s"
 
   file = io.open(output_file, 'wb')
 
-  local f = loadstring(table.concat(lines, '\n'), '=')
-  if not f then
+  local dump_theme = loadstring(table.concat(lines, '\n'), 'dump_theme')
+  if not dump_theme then
     local tmpfile = util.join_paths(util.get_tmp_dir(), 'github_theme_error.lua')
     require('github-theme.lib.log').error(
       fmt(
@@ -109,7 +109,7 @@ Bellow is the error message:
     dofile(tmpfile)
   end
 
-  file:write(f())
+  file:write(dump_theme())
   file:close()
 end
 

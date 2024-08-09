@@ -52,6 +52,7 @@ function M.compile(force)
 
   local hash = require('github-theme.lib.hash')(dummy) .. (git == -1 and git_path or git)
 
+  -- Compile
   if force ~= false or cached ~= hash then
     require('github-theme.lib.log').clear()
     local compiler = require('github-theme.lib.compiler')
@@ -84,15 +85,15 @@ function M.load(opts)
   end
 
   local _, compiled_file = config.get_compiled_info(opts)
-  local f = loadfile(compiled_file)
+  local compiled_theme = loadfile(compiled_file)
 
-  if not did_setup or override.changed_since_last_compile or not f then
+  if not did_setup or override.changed_since_last_compile or not compiled_theme then
     M.setup()
-    f = loadfile(compiled_file)
+    compiled_theme = loadfile(compiled_file)
   end
 
   ---@diagnostic disable-next-line: need-check-nil
-  f()
+  compiled_theme()
   require('github-theme.autocmds').set_autocmds()
 end
 
@@ -115,8 +116,23 @@ function M.setup(opts)
     end
   end
 
-  M.compile(false)
-  require('github-theme.util.deprecation').check_deprecation(opts)
+  M.compile(not not vim.g.github_theme_force_compile)
+
+  -- Use our 1 time to check for deprecations the first time `setup()` is called with
+  -- opts, instead of the first time `setup()` is called at all.
+  if next(opts) ~= nil then
+    -- TODO: might be better to call this and emit notices whenever config changes and on
+    -- 1st load/setup(), while filtering deprecation messages at the msg level instead of
+    -- globally.
+    require('github-theme.util.deprecation').check_deprecation(opts)
+  end
+end
+
+-- Mainly for debugging, testing, development, etc.
+for _, env in ipairs({ 'GITHUB_THEME_DEBUG', 'GITHUB_THEME_FORCE_COMPILE' }) do
+  if vim.env[env] then
+    vim.g[env:lower()] = true
+  end
 end
 
 return M
