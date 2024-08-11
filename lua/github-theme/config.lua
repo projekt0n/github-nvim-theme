@@ -185,19 +185,27 @@ end
 ---@param opts GhTheme.Config.Options
 function M.set_options(opts)
   opts = opts or {}
+  ---@type GhTheme.Config.Options
   M.options = collect.deep_extend(M.options, opts)
   M.has_options = true
 end
 
 function M.reset()
+  ---@type GhTheme.Config.Options
   M.options = collect.deep_copy(defaults)
   return M
 end
 
+---@param opts? { output_path?: string, file_suffix?: string, theme?: string }
+---@return string
+---@return string
 function M.get_compiled_info(opts)
   opts = opts or {}
   local output_path = opts.output_path or M.options.compile_path
   local file_suffix = opts.file_suffix or M.options.compile_file_suffix
+
+  ---@cast output_path -?
+  ---@cast file_suffix -?
   return output_path, util.join_paths(output_path, (opts.theme or M.theme) .. file_suffix)
 end
 
