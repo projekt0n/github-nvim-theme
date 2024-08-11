@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog], and this project adheres to [Semantic
 
 -  Minimized colorscheme files in `colors/*.vim` and refactored-out duplicated logic
 -  Removed the long-since deprecated `github_dimmed` theme (use `github_dark_dimmed` instead)
+-  Improved `cmp` highlights (completion menu)
 
 ### Issues Fix
 

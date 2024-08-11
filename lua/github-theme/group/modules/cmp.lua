@@ -24,7 +24,7 @@ function M.get(spec, config, _opts)
     CmpItemKindDefault       = { fg = spec.fg2, },
     CmpItemMenu              = { link = 'Comment' },
 
-    CmpItemKindKeyword       = { link = 'Identifier' },
+    CmpItemKindKeyword       = { link = 'Keyword' },
 
     CmpItemKindVariable      = { link = has_ts and '@variable' or  'Identifier' },
     CmpItemKindConstant      = { link = has_ts and '@constant' or 'Constant' },
@@ -33,7 +33,7 @@ function M.get(spec, config, _opts)
 
     CmpItemKindFunction      = { link = 'Function' },
     CmpItemKindMethod        = { link = 'Function' },
-    CmpItemKindConstructor   = { link = 'Function' },
+    CmpItemKindConstructor   = { link = has_ts and '@constructor' or 'Type' },
 
     CmpItemKindInterface     = { link = 'Constant' },
     CmpItemKindEvent         = { link = 'Constant' },
