@@ -13,7 +13,7 @@ function M.get(spec, config, _opts)
         :gsub('^github_(.-)$', '%1')
   )
 
-  local pl = primitives.prettylights
+  local pl = primitives.color.prettylights
   local syn = spec.syntax
   local stl = config.styles
   local P = spec.palette
@@ -229,7 +229,7 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     ['@module.c_sharp']                         = { fg = pl.syntax.variable },
 
     -- Gitignore
-    ['@string.special.path.gitignore']          = { fg = pl.syntax.entity },                    -- Non-special chars in file pattern
+    ['@string.special.path.gitignore']          = { fg = pl.syntax.entity.default },            -- Non-special chars in file pattern
 
     -- Go
  -- ['@function.call.go']                       = { link = '@constant' },
