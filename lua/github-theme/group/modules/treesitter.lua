@@ -307,6 +307,10 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     ['@label.ruby']                             = { fg = syn.const },
     ['@string.special.symbol.ruby']             = { link = '@constant' },
 
+    -- Elixir
+    ['@string.special.symbol.elixir']           = { link = '@constant' },
+    ['@module.elixir']                          = { link = '@type' },
+
     -- Rust
     ['@constant.builtin.rust']                     = { fg = pl.syntax.variable },
     ['@module.rust']                               = FALLBACK_OR_NONE,
