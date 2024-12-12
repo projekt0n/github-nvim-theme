@@ -175,6 +175,7 @@ M.module_names = {
   'treesitter',
   'treesitter_context',
   'whichkey',
+  'blink_cmp',
 }
 
 ---@param name GhTheme.Theme
