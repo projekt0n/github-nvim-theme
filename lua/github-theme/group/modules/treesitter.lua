@@ -301,6 +301,7 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     ['@type.builtin.python']                    = { link = '@constant' },
  -- ['@type.python']                            = { link = '@function' },
     ['@variable.builtin.python']                = { link = '@constant' },
+    ['@module.python']                          = FALLBACK_OR_NONE,
 
     -- Ruby
     ['@label.ruby']                             = { fg = syn.const },
