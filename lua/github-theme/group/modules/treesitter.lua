@@ -80,7 +80,7 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     ['@string.escape']            = { fg = syn.regex, style = 'bold' },                         -- Escape characters within a string: `\n`, `\t`, etc.
 
  -- ['@string.special']           = { link = 'Special' },                                       -- Other special strings (e.g. dates)
-    ['@string.special.symbol']    = { fg = syn.preproc },                                       -- Symbols or atoms
+    ['@string.special.symbol']    = { link = '@constant' },                                     -- Symbols or atoms
     ['@string.special.url']       = { fg = syn.const, style = 'italic,underline'  },            -- URIs (e.g. hyperlinks)
  -- ['@string.special.path']      = { fg = spec.palette.done.fg  },                             -- Filenames
 
@@ -306,6 +306,9 @@ If you want to stay on nvim 0.7, disable the module, or track on 'v0.0.x' branch
     -- Ruby
     ['@label.ruby']                             = { fg = syn.const },
     ['@string.special.symbol.ruby']             = { link = '@constant' },
+
+    -- Elixir
+    ['@module.elixir']                          = { link = '@type' },
 
     -- Rust
     ['@constant.builtin.rust']                     = { fg = pl.syntax.variable },

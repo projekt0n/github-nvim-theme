@@ -17,6 +17,7 @@ The format is based on [Keep a Changelog], and this project adheres to [Semantic
 -  Fixed JSX/TSX tags are missing highlights with nvim 0.10 (#360)
 -  Fixed loading palette or spec before colorscheme disrupts colors (#362 fixed-by #363)
 -  Fixed incorrect highlight of name/binding in python import statements (#371)
+-  Fixed elixir module/atom colors (#366)
 
 ## [v1.1.2] - 05 August 2024
 
