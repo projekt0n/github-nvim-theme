@@ -615,6 +615,7 @@ This command will attach an autocmd to the current buffer that executes on `Buff
 -   [vim-airline](https://github.com/vim-airline/vim-airline)
 -   [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
 -   [which-key.nvim](https://github.com/folke/which-key.nvim)
+-   [blink.cmp](https://github.com/Saghen/blink.cmp)
 
 ## Status lines
 
